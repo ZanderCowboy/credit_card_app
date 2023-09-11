@@ -10,7 +10,7 @@ Build a Flutter mobile application that can do the following:
 - Ability to infer Card Type from Credit Card number would be beneficial.
 - Check the specified country to make sure it doesn’t exist in a list of banned countries.
 - Make the list of banned countries configurable.
-- If the card is valid – store it in local storage. 
+- If the card is valid – store it in local storage.
 SEMBAST NoSQL Local DB
 
 - Display all the credit cards that have been captured during the session.
@@ -24,13 +24,14 @@ You are welcome to use 3rd party packages, but we are trying to gauge your skill
 
 ## General Links
 
-https://blog.devgenius.io/easy-git-hooks-for-flutter-f2927cbbcfd4
+<https://blog.devgenius.io/easy-git-hooks-for-flutter-f2927cbbcfd4>
 
-https://www.softwaretestinghelp.com/bdd-framework/
+<https://www.softwaretestinghelp.com/bdd-framework/>
 
-https://docs.flutter.dev/cookbook/forms/validation
+<https://docs.flutter.dev/cookbook/forms/validation>
 
-https://medium.com/@yasirquyoom/how-to-build-transaction-history-list-in-flutter-app-51838c995ee1
+<https://medium.com/@yasirquyoom/how-to-build-transaction-history-list-in-flutter-app-51838c995ee1>
 
 save list of data persistence for transaction history flutter:
-- https://stackoverflow.com/questions/60470918/data-persistence-how-to-persist-list-of-data
+
+- <https://stackoverflow.com/questions/60470918/data-persistence-how-to-persist-list-of-data>
