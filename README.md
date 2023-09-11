@@ -1,3 +1,20 @@
+# credit_card_app
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
+
 # CreditCardApp
 
 A Flutter Mobile app that allows the submission of credit card details for validation.
@@ -10,7 +27,7 @@ Build a Flutter mobile application that can do the following:
 - Ability to infer Card Type from Credit Card number would be beneficial.
 - Check the specified country to make sure it doesn’t exist in a list of banned countries.
 - Make the list of banned countries configurable.
-- If the card is valid – store it in local storage.
+- If the card is valid – store it in local storage. 
 SEMBAST NoSQL Local DB
 
 - Display all the credit cards that have been captured during the session.
@@ -24,14 +41,13 @@ You are welcome to use 3rd party packages, but we are trying to gauge your skill
 
 ## General Links
 
-<https://blog.devgenius.io/easy-git-hooks-for-flutter-f2927cbbcfd4>
+https://blog.devgenius.io/easy-git-hooks-for-flutter-f2927cbbcfd4
 
-<https://www.softwaretestinghelp.com/bdd-framework/>
+https://www.softwaretestinghelp.com/bdd-framework/
 
-<https://docs.flutter.dev/cookbook/forms/validation>
+https://docs.flutter.dev/cookbook/forms/validation
 
-<https://medium.com/@yasirquyoom/how-to-build-transaction-history-list-in-flutter-app-51838c995ee1>
+https://medium.com/@yasirquyoom/how-to-build-transaction-history-list-in-flutter-app-51838c995ee1
 
 save list of data persistence for transaction history flutter:
-
-- <https://stackoverflow.com/questions/60470918/data-persistence-how-to-persist-list-of-data>
+- https://stackoverflow.com/questions/60470918/data-persistence-how-to-persist-list-of-data
