@@ -1,0 +1,1 @@
+// This page will display a list of all the cards that have been captured in the session. 
