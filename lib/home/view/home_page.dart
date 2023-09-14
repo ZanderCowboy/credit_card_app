@@ -17,13 +17,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(homeAppBarTitle),
-        // actions: <Widget>[
-        //   Widget drawer(BuildContext context) {
-        //     return Drawer(
-        //       child: Column(children: []),
-        //     );
-        //   }
-        // ],
       ),
       drawer: Drawer(
         child: ListView(
@@ -41,30 +34,44 @@ class HomePage extends StatelessWidget {
             ListTile(
               title: const Text(homeLogout),
               onTap: () {
-                Navigator.pushNamed(context, initialRoute);
+                // Navigator.pushNamed(context, initialRoute);
+                // Navigator.pushReplacementNamed(context, initialRoute);
+                // Navigator.pushAndRemoveUntil(context, initialRoute as Route<Object?>, (route) => false);
+                // Navigator.popUntil(context, (Route<dynamic> predicate) => predicate.isFirst);
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    initialRoute, (Route<dynamic> route) => false);
               },
             )
           ],
         ),
       ),
-      body: BlocBuilder<HomeBloc, HomeState>(
-        builder: (context, state) {
-          return const Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Button(routeName: enterRoute, text: enterButtonTitle),
-              SizedBox(
-                height: 20.0,
+      body: BlocProvider(
+        // create: (context) => HomeBloc(),
+        create: (_) => HomeBloc()..add(HomeInitial()),
+        child: BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            return const Center(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Button(routeName: enterRoute, text: enterButtonTitle),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Button(routeName: scanRoute, text: scanButtonTitle),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Button(routeName: historyRoute, text: historyButtonTitle),
+                  ],
+                ),
               ),
-              Button(routeName: scanRoute, text: scanButtonTitle),
-              SizedBox(
-                height: 20.0,
-              ),
-              Button(routeName: historyRoute, text: historyButtonTitle),
-            ],
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }
