@@ -14,7 +14,11 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        minimumSize: const Size(90, 50),
+        textStyle: const TextStyle(
+          fontSize: 22.0,
+          fontWeight: FontWeight.bold,
+        ),
+        minimumSize: const Size(200, 80),
       ),
       onPressed: () => Navigator.of(context).pushNamed(routeName),
       child: Text(text),

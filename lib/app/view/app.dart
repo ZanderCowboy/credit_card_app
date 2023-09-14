@@ -1,15 +1,11 @@
 import 'package:credit_card_app/app/app.dart';
-import 'package:credit_card_app/app/bloc/app_bloc.dart';
 import 'package:credit_card_app/components/constants.dart';
-import 'package:credit_card_app/enter/view/enter_page.dart';
-import 'package:credit_card_app/history/view/history_page.dart';
-import 'package:credit_card_app/scan/view/scan_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../home/home.dart';
 import '../../start/start.dart';
-import '../../enter/enter.dart';
 import '../../history/history.dart';
+import 'package:credit_card_app/enter/enter.dart';
 import '../../result/result.dart';
 import '../../scan/scan.dart';
 import '../../settings/settings.dart';
@@ -28,6 +24,18 @@ class App extends StatelessWidget {
         BlocProvider(
           create: (_) => HomeBloc()..add(HomeInitial()),
         ),
+        // BlocProvider(
+        //   create: (_) => EnterBloc()..add(EnterInitial()),
+        // ),
+        BlocProvider(
+          create: (_) => ScanBloc()..add(ScanInitial()),
+        ),
+        BlocProvider(
+          create: (_) => HistoryBloc()..add(HistoryInitial()),
+        ),
+        // BlocProvider(
+        //   create: (_) => EnterBloc()..add(EnterInitial()),
+        // ),
       ],
       // child: AppView(),
       child: MaterialApp(
@@ -36,7 +44,7 @@ class App extends StatelessWidget {
         routes: {
           initialRoute: (_) => const StartPage(),
           homeRoute: (context) => const HomePage(),
-          enterRoute: (_) => const EnterPage(),
+          enterRoute: (_) => EnterPage(),
           scanRoute: (_) => const ScanPage(),
           historyRoute: (_) => const HistoryPage(),
         },
