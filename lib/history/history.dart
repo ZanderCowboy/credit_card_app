@@ -1,2 +1,2 @@
-import 'bloc/history_bloc.dart';
-import 'view/history_page.dart';
+export 'bloc/history_bloc.dart';
+export 'view/history_page.dart';

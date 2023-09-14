@@ -3,6 +3,7 @@
 import 'package:credit_card_app/components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:credit_card_app/history/history.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HistoryPage extends StatelessWidget {
   const HistoryPage({super.key});
@@ -13,8 +14,15 @@ class HistoryPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(historyAppBarTitle),
       ),
-      body: const Center(
-        child: Text('Hello World'),
+      body: BlocProvider(
+        create: (_) => HistoryBloc()..add(HistoryInitial()),
+        child: BlocBuilder<HistoryBloc, HistoryState>(
+          builder: (context, state) {
+            return const Center(
+              child: Text('Hello World'),
+            );
+          },
+        ),
       ),
     );
   }
