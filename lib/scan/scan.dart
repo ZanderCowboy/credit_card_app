@@ -1,2 +1,2 @@
-import 'bloc/scan_bloc.dart';
-import 'view/scan_page.dart';
+export 'bloc/scan_bloc.dart';
+export 'view/scan_page.dart';

@@ -1,2 +1,2 @@
-import 'bloc/settings_bloc.dart';
-import 'view/settings_page.dart';
+export 'bloc/settings_bloc.dart';
+export 'view/settings_page.dart';
