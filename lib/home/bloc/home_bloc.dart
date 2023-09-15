@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/physics.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -14,9 +13,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeScan>((HomeScan event, Emitter<HomeState> emit) {
       emit(HomeScanLoad());
     });
-    // {
-    //   // TODO: implement event handler
-    // };
   }
 
   Future<void> _onStarted(HomeInitial event, Emitter<HomeState> emit) async {

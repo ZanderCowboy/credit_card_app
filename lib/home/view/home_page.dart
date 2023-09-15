@@ -27,17 +27,29 @@ class HomePage extends StatelessWidget {
             ),
             ListTile(
               title: const Text(bannedCountriesTitle),
-              onTap: () {
-                Navigator.pop(context);
-              },
+              onTap: () => 
+              // {
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(
+                //     builder: (BuildContext context) => const SettingsPage(),
+                //   ),
+                // );
+                // Navigator.of(context).restorablePushNamed(settingsRoute);
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: ((context) {
+                //       return const SettingsPage();
+                //     }),
+                //   ),
+                // );
+                
+              // },
+              Navigator.of(context).pushNamed(settingsRoute)
             ),
             ListTile(
               title: const Text(homeLogout),
               onTap: () {
-                // Navigator.pushNamed(context, initialRoute);
-                // Navigator.pushReplacementNamed(context, initialRoute);
-                // Navigator.pushAndRemoveUntil(context, initialRoute as Route<Object?>, (route) => false);
-                // Navigator.popUntil(context, (Route<dynamic> predicate) => predicate.isFirst);
                 Navigator.of(context).pushNamedAndRemoveUntil(
                     initialRoute, (Route<dynamic> route) => false);
               },
@@ -66,6 +78,10 @@ class HomePage extends StatelessWidget {
                       height: 20.0,
                     ),
                     Button(routeName: historyRoute, text: historyButtonTitle),
+                    // SizedBox(
+                    //   height: 20.0,
+                    // ),
+                    // Button(routeName: settingsRoute, text: settingsTitle),
                   ],
                 ),
               ),
