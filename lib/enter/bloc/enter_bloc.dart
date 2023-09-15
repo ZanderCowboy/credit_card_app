@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/physics.dart';
 
 part 'enter_event.dart';
 part 'enter_state.dart';

@@ -14,6 +14,7 @@ class EnterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // FIXME: Fix overflow or set up constraints.
     return Scaffold(
       appBar: AppBar(
         title: const Text(enterAppBarTitle),
@@ -39,11 +40,33 @@ class EnterPage extends StatelessWidget {
                             children: <Widget>[
                               TextFormField(
                                 decoration: const InputDecoration(
-                                  hintText: 'Enter your email',
+                                  hintText: 'Enter card number',
                                 ),
                                 validator: (String? value) {
                                   if (value == null || value.isEmpty) {
-                                    return 'Please enter some text';
+                                    return 'Please enter card number';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              TextFormField(
+                                decoration: const InputDecoration(
+                                  hintText: 'Enter CVV number',
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter CVV number';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              TextFormField(
+                                decoration: const InputDecoration(
+                                  hintText: 'Enter Issuing Country',
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter Issuing Country';
                                   }
                                   return null;
                                 },
@@ -58,6 +81,8 @@ class EnterPage extends StatelessWidget {
                                     if (_formKey.currentState!.validate()) {
                                       // Process data.
                                     }
+                                    Navigator.of(context)
+                                        .pushNamed(resultRoute);
                                   },
                                   child: const Text('Submit'),
                                 ),
