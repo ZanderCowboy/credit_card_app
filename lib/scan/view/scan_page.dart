@@ -17,8 +17,44 @@ class ScanPage extends StatelessWidget {
         create: (_) => ScanBloc()..add(ScanInitial()),
         child: BlocBuilder<ScanBloc, ScanState>(
           builder: (context, state) {
-            return Column(
-              children: [],
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Column(
+                  children: [
+                    const Placeholder(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: ElevatedButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: const Text('Retake'),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: ElevatedButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: const Text(scanTakeButtonTitle),
+                          ),
+                        ),
+                      ],
+                    ),
+                    ElevatedButton(
+                      onPressed: () => Navigator.of(context).pushNamed(resultRoute),
+                      child: const SizedBox(
+                        width: 120,
+                        child: Text(
+                          scanSubmitButtonTitle,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             );
           },
         ),
