@@ -26,27 +26,8 @@ class HomePage extends StatelessWidget {
               child: Text(settingsTitle),
             ),
             ListTile(
-              title: const Text(bannedCountriesTitle),
-              onTap: () => 
-              // {
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (BuildContext context) => const SettingsPage(),
-                //   ),
-                // );
-                // Navigator.of(context).restorablePushNamed(settingsRoute);
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: ((context) {
-                //       return const SettingsPage();
-                //     }),
-                //   ),
-                // );
-                
-              // },
-              Navigator.of(context).pushNamed(settingsRoute)
-            ),
+                title: const Text(bannedCountriesTitle),
+                onTap: () => Navigator.of(context).pushNamed(settingsRoute)),
             ListTile(
               title: const Text(homeLogout),
               onTap: () {
@@ -78,10 +59,6 @@ class HomePage extends StatelessWidget {
                       height: 20.0,
                     ),
                     Button(routeName: historyRoute, text: historyButtonTitle),
-                    // SizedBox(
-                    //   height: 20.0,
-                    // ),
-                    // Button(routeName: settingsRoute, text: settingsTitle),
                   ],
                 ),
               ),
