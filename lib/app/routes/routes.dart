@@ -1,7 +1,7 @@
-import 'package:credit_card_app/home/home.dart';
-import 'package:credit_card_app/start/start.dart';
-import 'package:flutter/widgets.dart';
-import 'package:credit_card_app/app/app.dart';
+// import 'package:credit_card_app/home/home.dart';
+// import 'package:credit_card_app/start/start.dart';
+// import 'package:flutter/widgets.dart';
+// import 'package:credit_card_app/app/app.dart';
 
 // List<Page<dynamic>> onGenerateAppViewPages(
 //   AppStatus state,
