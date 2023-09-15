@@ -6,3 +6,8 @@ sealed class ResultEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+final class ResultInitial extends ResultEvent {}
+
+final class ResultAdd extends ResultEvent {}
+

@@ -7,4 +7,10 @@ sealed class ResultState extends Equatable {
   List<Object> get props => [];
 }
 
-final class ResultInitial extends ResultState {}
+final class ResultLoading extends ResultState {}
+
+final class ResultLoaded extends ResultState {}
+
+final class ResultError extends ResultState {}
+
+final class ResultAdded extends ResultState {}
