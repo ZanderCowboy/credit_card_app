@@ -8,3 +8,7 @@ sealed class HistoryState extends Equatable {
 }
 
 final class HistoryLoading extends HistoryState {}
+
+final class HistoryLoaded extends HistoryState {}
+
+final class HistoryError extends HistoryState {}
