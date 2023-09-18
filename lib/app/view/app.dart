@@ -1,4 +1,5 @@
 import 'package:credit_card_app/components/constants.dart';
+import 'package:credit_card_app/components/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../home/home.dart';
@@ -25,6 +26,7 @@ class App extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Title',
+        theme: theme,
         initialRoute: initialRoute,
         routes: {
           initialRoute: (_) => const StartPage(),

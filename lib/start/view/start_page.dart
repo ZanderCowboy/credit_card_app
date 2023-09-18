@@ -14,9 +14,9 @@ class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(startAppBarTitle),
-      ),
+      // appBar: AppBar(
+      //   title: const Text(startAppBarTitle),
+      // ),
       body: BlocBuilder<StartBloc, StartState>(
         builder: (context, state) {
           return Column(
