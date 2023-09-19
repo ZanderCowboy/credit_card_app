@@ -13,5 +13,5 @@ final class EnterLoaded extends EnterState {}
 
 final class EnterError extends EnterState {} 
 
-final class EnterResult extends EnterState {}
+// final class EnterResult extends EnterState {}
 
