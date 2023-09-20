@@ -2,7 +2,6 @@
 
 // Card Number, Card Type, CVV, Issuing Country
 
-
 class CreditCard {
   const CreditCard({
     required this.cardNumber,
@@ -11,7 +10,7 @@ class CreditCard {
     required this.issuingCountry,
   });
 
-  final int cardNumber;
+  final String cardNumber;
   final String cardType;
   final int cvvNumber;
   final String issuingCountry;

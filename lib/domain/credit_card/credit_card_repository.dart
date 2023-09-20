@@ -3,20 +3,17 @@ import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 class CreditCardRepository {
   // final CreditCard creditCard;
 
-  // CreditCardRepository(this.creditCard);
   CreditCardRepository();
 
-  final _cards = <CreditCard>[];
+  final List<CreditCard> _cards = <CreditCard>[];
 
-  // Implement Methods here
   CreditCard loadCard() {
     const CreditCard creditCard = CreditCard(
-      cardNumber: 0,
+      cardNumber: 'cardNumber',
       cardType: 'cardType',
       cvvNumber: 0,
       issuingCountry: 'issuingCountry',
     );
-    // do something
     return creditCard;
   }
 
