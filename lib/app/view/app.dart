@@ -1,4 +1,5 @@
 import 'package:credit_card_app/components/constants.dart';
+import 'package:credit_card_app/domain/banned_countries/banned_countries_repository.dart';
 import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,37 +12,49 @@ import '../../scan/scan.dart';
 import '../../settings/settings.dart';
 
 class App extends StatelessWidget {
-  const App({required this.creditCardRepository, super.key});
+  const App({
+    required this.creditCardRepository,
+    required this.bannedCountriesRepository,
+    super.key,
+  });
 
   final CreditCardRepository creditCardRepository;
+  final BannedCountriesRepository bannedCountriesRepository;
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    return MultiRepositoryProvider(
       providers: [
-        BlocProvider(
-          create: (_) => StartBloc()..add(StartInitial()),
+        RepositoryProvider(
+          create: (context) => creditCardRepository,
         ),
-        BlocProvider(
-          create: (_) => HomeBloc()..add(HomeInitial()),
-        ),
-        BlocProvider(
-          create: (_) => EnterBloc()..add(EnterInitial()),
+        RepositoryProvider(
+          create: (context) => bannedCountriesRepository,
         ),
       ],
       child: MaterialApp(
         title: 'Title',
+        home: BlocProvider(
+          create: (context) => StartBloc()..add(StartInitial()),
+          child: const StartPage(),
+        ),
         initialRoute: initialRoute,
         routes: {
-          initialRoute: (_) => const StartPage(),
-          homeRoute: (_) => HomePage(
+          // initialRoute: (_) => const StartPage(),
+          homeRoute: (_) => const HomePage(),
+          // enterRoute: (_) => EnterPage(),
+          enterRoute: (_) => EnterPage(
                 creditCardRepository: creditCardRepository,
               ),
-          enterRoute: (_) => EnterPage(),
-          scanRoute: (_) => const ScanPage(),
+          scanRoute: (_) =>
+              ScanPage(creditCardRepository: creditCardRepository),
+          // historyRoute: (_) =>
+          //     HistoryPage(creditCardRepository: creditCardRepository),
           historyRoute: (_) => HistoryPage(),
-          settingsRoute: (_) => const SettingsPage(),
-          resultRoute: (context) => const ResultPage(),
+          settingsRoute: (_) => SettingsPage(
+              bannedCountriesRepository: bannedCountriesRepository),
+          resultRoute: (_) =>
+              ResultPage(creditCardRepository: creditCardRepository),
         },
       ),
     );

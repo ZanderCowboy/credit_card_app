@@ -1,11 +1,17 @@
 // This page will be used to scan the card and recognize the characters.
 import 'package:credit_card_app/components/constants.dart';
+import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/scan/scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ScanPage extends StatelessWidget {
-  const ScanPage({super.key});
+  const ScanPage({
+    super.key,
+    required this.creditCardRepository,
+  });
+
+  final CreditCardRepository creditCardRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +49,8 @@ class ScanPage extends StatelessWidget {
                       ],
                     ),
                     ElevatedButton(
-                      onPressed: () => Navigator.of(context).pushNamed(resultRoute),
+                      onPressed: () =>
+                          Navigator.of(context).pushNamed(resultRoute),
                       child: const SizedBox(
                         width: 120,
                         child: Text(

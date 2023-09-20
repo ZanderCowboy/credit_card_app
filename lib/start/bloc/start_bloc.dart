@@ -7,15 +7,7 @@ part 'start_state.dart';
 class StartBloc extends Bloc<StartEvent, StartState> {
   StartBloc() : super(StartLoading()) {
     on<StartInitial>((event, emit) {
-      // TODO: implement event handler
-      _onStarted;
+      emit(StartLoading());
     });
-  }
-
-    Future<void> _onStarted(
-    StartInitial event,
-    Emitter<StartState> emit,
-  ) async {
-    emit(StartLoading());
   }
 }

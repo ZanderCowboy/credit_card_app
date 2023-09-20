@@ -1,4 +1,4 @@
-// This should contain a list of banned countries. 
+// This should contain a list of banned countries.
 
 // This should contain an enum with the Card Types.
 
@@ -36,3 +36,15 @@ const String resultAddButtonTitle = 'Add';
 const String settingsTitle = 'Settings';
 const String bannedCountriesTitle = 'Banned Countries';
 const String homeLogout = 'Logout';
+
+// Enter Form Hint Texts
+const String cardNumberHintText = 'Enter card number';
+const String cardNumberErrorText = 'Please enter card number';
+const String cvvNumberHintText = 'Enter CVV number';
+const String cvvNumberErrorText = 'Please enter CVV number';
+const String issuingCountryHintText = 'Enter Issuing Country';
+const String issuingCountryErrorText = 'Please enter Issuing Country';
+
+// Settings Page
+const String bannedCountryDummy = 'Dummy Country';
+const String checkedText = 'Checked!';

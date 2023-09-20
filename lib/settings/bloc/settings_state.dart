@@ -2,7 +2,10 @@ part of 'settings_bloc.dart';
 
 sealed class SettingsState extends Equatable {
   const SettingsState();
-  
+  // const SettingsState(this.selectedCountries);
+
+  // final Set<String> selectedCountries;
+
   @override
   List<Object> get props => [];
 }
