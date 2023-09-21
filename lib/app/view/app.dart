@@ -34,23 +34,19 @@ class App extends StatelessWidget {
       ],
       child: MaterialApp(
         darkTheme: ThemeData.dark(),
-        title: 'Title',
+        title: 'Credit Card App',
         home: BlocProvider(
           create: (context) => StartBloc()..add(StartInitial()),
           child: const StartPage(),
         ),
         initialRoute: initialRoute,
         routes: {
-          // initialRoute: (_) => const StartPage(),
           homeRoute: (_) => const HomePage(),
-          // enterRoute: (_) => EnterPage(),
           enterRoute: (_) => EnterPage(
                 creditCardRepository: creditCardRepository,
               ),
           scanRoute: (_) =>
               ScanPage(creditCardRepository: creditCardRepository),
-          // historyRoute: (_) =>
-          //     HistoryPage(creditCardRepository: creditCardRepository),
           historyRoute: (_) => const HistoryPage(),
           settingsRoute: (_) => SettingsPage(
               bannedCountriesRepository: bannedCountriesRepository),

@@ -26,65 +26,8 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     final bannedCountriesRepository = widget.bannedCountriesRepository;
 
-    // List<bool> bannedCountries =
-    //     context.read<BannedCountriesRepository>().loadBannedCountries();
     List<bool> bannedCountries =
         bannedCountriesRepository.loadBannedCountries();
-
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     title: const Text(settingsAppBarTitle),
-    //     leading: IconButton(
-    //       icon: const Icon(Icons.arrow_back),
-    //       onPressed: () {
-    //         Navigator.pop(context);
-    //       },
-    //     ),
-    //   ),
-    //   body: BlocProvider(
-    //     create: (_) => SettingsBloc()..add(SettingsInitial()),
-    //     child: BlocBuilder<SettingsBloc, SettingsState>(
-    //       builder: (context, state) {
-    //         return Column(
-    //           children: [
-    //             const Text(bannedCountriesTitle),
-    //             SizedBox(
-    //               height: 400,
-    //               width: 300,
-    //               child: ListView.builder(
-    //                 // itemCount: 5,
-    //                 itemCount: bannedCountries.length,
-    //                 itemBuilder: (context, index) {
-    //                   var checkbox = bannedCountries[index];
-
-    //                   return CheckboxListTile(
-    //                     title: const Text(bannedCountryDummy),
-    //                     value: checkbox,
-    //                     onChanged: (bool? value) {
-    //                       setState(() {
-    //                         // value = true;
-    //                         checkbox = value!;
-    //                       });
-    //                       // const Text(checkedText);
-    //                       // value = true;
-    //                     },
-    //                   );
-    //                 },
-    //               ),
-    //             ),
-    //           ],
-    //         );
-    //       },
-    //     ),
-    //   ),
-    //   floatingActionButton: FloatingActionButton(
-    //     child: const Icon(Icons.add),
-    //     onPressed: () {
-    //       context.read<BannedCountriesRepository>().addCountry(true);
-    //       BlocProvider.of<SettingsBloc>(context).add(SettingsInitial());
-    //     },
-    //   ),
-    // );
 
     // FIXME: Possibly move the Provider to the Home Page
     return BlocProvider(
@@ -108,7 +51,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   height: 400,
                   width: 300,
                   child: ListView.builder(
-                    // itemCount: 5,
                     itemCount: bannedCountries.length,
                     itemBuilder: (context, index) {
                       var checkbox = bannedCountries[index];
@@ -118,11 +60,8 @@ class _SettingsPageState extends State<SettingsPage> {
                         value: checkbox,
                         onChanged: (bool? value) {
                           setState(() {
-                            // value = true;
                             checkbox = value!;
                           });
-                          // const Text(checkedText);
-                          // value = true;
                         },
                       );
                     },

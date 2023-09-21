@@ -1,8 +1,6 @@
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 
 class CreditCardRepository {
-  // final CreditCard creditCard;
-
   CreditCardRepository();
 
   final List<CreditCard> _cards = <CreditCard>[];

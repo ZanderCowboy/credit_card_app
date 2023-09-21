@@ -1,6 +1,6 @@
 // This file will contain the code for the start page. It will contain a Text field with a App Name and beneath that, we would have a rectangular 'start' button. This is where everything would start.
 import 'package:credit_card_app/components/constants.dart';
-import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
+// import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/start/start.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +10,7 @@ class StartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int count = context.read<CreditCardRepository>().loadHistoryCards().length;
+    // int count = context.read<CreditCardRepository>().loadHistoryCards().length;
 
     return Scaffold(
       appBar: AppBar(
@@ -41,7 +41,7 @@ class StartPage extends StatelessWidget {
                 },
                 child: const Text(startButtonTitle),
               ),
-              Text('$count'),
+              // Text('$count'),
             ],
           );
         },

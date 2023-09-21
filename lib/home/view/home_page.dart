@@ -1,6 +1,3 @@
-// This page will contain the code for the landing page. It will have three rectangular buttons with 'Capture', 'Scan', and 'History' page. The upper right corner in the AppBar will have a 'logout'/'end' button that will take us back to the Start Page.
-
-// After 'logging out', the storage should be destroyed.
 import 'package:credit_card_app/components/constants.dart';
 import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/home/home.dart';
@@ -10,19 +7,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HomePage extends StatelessWidget {
   const HomePage({
     super.key,
-    // required this.creditCardRepository,
   });
-
-  // final CreditCardRepository creditCardRepository;
 
   @override
   Widget build(BuildContext context) {
     int count = context.read<CreditCardRepository>().loadHistoryCards().length;
 
     return Scaffold(
-      // return RepositoryProvider.value(
-      //   value: creditCardRepository,
-      // child: Scaffold(
       appBar: AppBar(
         title: const Text(homeAppBarTitle),
       ),
@@ -34,8 +25,9 @@ class HomePage extends StatelessWidget {
               child: Text(settingsTitle),
             ),
             ListTile(
-                title: const Text(bannedCountriesTitle),
-                onTap: () => Navigator.of(context).pushNamed(settingsRoute)),
+              title: const Text(bannedCountriesTitle),
+              onTap: () => Navigator.of(context).pushNamed(settingsRoute),
+            ),
             ListTile(
               title: const Text(homeLogout),
               onTap: () {
@@ -70,6 +62,9 @@ class HomePage extends StatelessWidget {
                           height: 20.0,
                         ),
                         const HistoryButton(),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
                         Text('$count'),
                       ],
                     ),
