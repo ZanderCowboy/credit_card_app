@@ -16,6 +16,9 @@ dependencies:
   equatable: ^2.0.5
   flow_builder: ^0.0.9
   flutter_credit_card: ^3.0.7
+  camera: ^0.10.5+4
+  image_picker: ^1.0.4
+  permission_handler: ^11.0.0
 
   cupertino_icons: ^1.0.2
 
