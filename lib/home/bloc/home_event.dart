@@ -16,5 +16,3 @@ final class HomeScan extends HomeEvent {}
 final class HomeHistory extends HomeEvent {}
 
 final class HomeSettings extends HomeEvent {}
-
-

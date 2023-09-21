@@ -7,16 +7,31 @@ part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeLoading()) {
     on<HomeInitial>(_onStarted);
-    on<HomeEnter>((HomeEnter event, Emitter<HomeState> emit) {
-      emit(HomeEnterLoad());
-    });
-    on<HomeScan>((HomeScan event, Emitter<HomeState> emit) {
-      emit(HomeScanLoad());
-    });
+    on<HomeEnter>(_onHomeEnter);
+    // on<HomeScan>(_onHomeScan);
   }
 
-  Future<void> _onStarted(HomeInitial event, Emitter<HomeState> emit) async {
+  // final CreditCardRepository creditCardRepository;
+
+  Future<void> _onStarted(
+    HomeInitial event,
+    Emitter<HomeState> emit,
+  ) async {
     emit(HomeLoading());
+    try {
+      // do something with the repository
+      emit(HomeLoaded());
+    } catch (e) {
+      emit(HomeError());
+    }
   }
-  
+
+  Future<void> _onHomeEnter(HomeEnter event, Emitter<HomeState> emit) async {
+    // emit(HomeEnterLoad());
+    emit(HomeLoaded());
+  }
+
+  // Future<void> _onHomeScan(HomeScan event, Emitter<HomeState> emit) async {
+  //   emit(HomeScanLoad());
+  // }
 }

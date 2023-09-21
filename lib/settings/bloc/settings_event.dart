@@ -9,4 +9,8 @@ sealed class SettingsEvent extends Equatable {
 
 final class SettingsInitial extends SettingsEvent {}
 
+class ToggleCountryEvent extends SettingsEvent {
+  final String country;
 
+  const ToggleCountryEvent(this.country);
+}

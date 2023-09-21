@@ -1,12 +1,18 @@
 // This page will be used to display the results captured from either capturing it manually or by using a scanner.
 
 import 'package:credit_card_app/components/constants.dart';
+import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/result/bloc/result_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  const ResultPage({
+    super.key,
+    required this.creditCardRepository,
+  });
+
+  final CreditCardRepository creditCardRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +29,8 @@ class ResultPage extends StatelessWidget {
               child: Center(
                 child: Column(
                   children: [
-                    const Placeholder(
-                      fallbackHeight: 300,
+                    Placeholder(
+                      fallbackHeight: MediaQuery.of(context).size.height / 2,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(4.0),
