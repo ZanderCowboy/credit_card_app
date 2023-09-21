@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HistoryPage extends StatelessWidget {
   // HistoryPage({super.key, required this.creditCardRepository});
-  HistoryPage({
+  const HistoryPage({
     super.key,
   });
 

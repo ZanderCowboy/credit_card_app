@@ -24,8 +24,12 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
+    final bannedCountriesRepository = widget.bannedCountriesRepository;
+
+    // List<bool> bannedCountries =
+    //     context.read<BannedCountriesRepository>().loadBannedCountries();
     List<bool> bannedCountries =
-        context.read<BannedCountriesRepository>().loadBannedCountries();
+        bannedCountriesRepository.loadBannedCountries();
 
     // return Scaffold(
     //   appBar: AppBar(
@@ -82,6 +86,7 @@ class _SettingsPageState extends State<SettingsPage> {
     //   ),
     // );
 
+    // FIXME: Possibly move the Provider to the Home Page
     return BlocProvider(
       create: (_) => SettingsBloc()..add(SettingsInitial()),
       child: Scaffold(

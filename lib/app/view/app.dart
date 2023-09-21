@@ -33,6 +33,7 @@ class App extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        darkTheme: ThemeData.dark(),
         title: 'Title',
         home: BlocProvider(
           create: (context) => StartBloc()..add(StartInitial()),
@@ -50,7 +51,7 @@ class App extends StatelessWidget {
               ScanPage(creditCardRepository: creditCardRepository),
           // historyRoute: (_) =>
           //     HistoryPage(creditCardRepository: creditCardRepository),
-          historyRoute: (_) => HistoryPage(),
+          historyRoute: (_) => const HistoryPage(),
           settingsRoute: (_) => SettingsPage(
               bannedCountriesRepository: bannedCountriesRepository),
           resultRoute: (_) =>
