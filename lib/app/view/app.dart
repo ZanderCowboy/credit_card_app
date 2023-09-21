@@ -52,6 +52,7 @@ class App extends StatelessWidget {
               bannedCountriesRepository: bannedCountriesRepository),
           resultRoute: (_) =>
               ResultPage(creditCardRepository: creditCardRepository),
+          // resultRoute: (context) => const ResultPage(),
         },
       ),
     );

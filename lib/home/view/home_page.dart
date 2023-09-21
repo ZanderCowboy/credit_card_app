@@ -1,6 +1,7 @@
 import 'package:credit_card_app/components/constants.dart';
 import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/home/home.dart';
+import 'package:credit_card_app/settings/bloc/settings_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -55,15 +56,15 @@ class HomePage extends StatelessWidget {
                       children: [
                         const EnterButton(),
                         const SizedBox(
-                          height: 20.0,
+                          height: 16,
                         ),
                         const ScanButton(),
                         const SizedBox(
-                          height: 20.0,
+                          height: 16,
                         ),
                         const HistoryButton(),
                         const SizedBox(
-                          height: 20.0,
+                          height: 16,
                         ),
                         Text('$count'),
                       ],

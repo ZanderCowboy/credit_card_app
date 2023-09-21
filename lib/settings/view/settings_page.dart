@@ -30,19 +30,22 @@ class _SettingsPageState extends State<SettingsPage> {
         bannedCountriesRepository.loadBannedCountries();
 
     // FIXME: Possibly move the Provider to the Home Page
-    return BlocProvider(
-      create: (_) => SettingsBloc()..add(SettingsInitial()),
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(settingsAppBarTitle),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+    // return BlocProvider(
+    //   create: (_) => SettingsBloc()..add(SettingsInitial()),
+    //   child: Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(settingsAppBarTitle),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        body: BlocBuilder<SettingsBloc, SettingsState>(
+      ),
+      body: BlocProvider(
+        create: (_) => SettingsBloc()..add(SettingsInitial()),
+        child: BlocBuilder<SettingsBloc, SettingsState>(
           builder: (context, state) {
             return Column(
               children: [
@@ -71,14 +74,16 @@ class _SettingsPageState extends State<SettingsPage> {
             );
           },
         ),
-        floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () {
-            context.read<BannedCountriesRepository>().addCountry(true);
-            BlocProvider.of<SettingsBloc>(context).add(SettingsInitial());
-          },
-        ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {
+          context.read<BannedCountriesRepository>().addCountry(true);
+          BlocProvider.of<SettingsBloc>(context).add(SettingsInitial());
+        },
+      ),
+      // ),
+      // );
     );
   }
 }
