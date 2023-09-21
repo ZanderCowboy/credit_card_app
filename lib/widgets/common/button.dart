@@ -21,7 +21,10 @@ class ButtonLarge extends StatelessWidget {
         minimumSize: const Size(200, 65),
       ),
       onPressed: () => Navigator.of(context).pushNamed(routeName),
-      child: Text(text),
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
@@ -43,10 +46,10 @@ class ButtonSmall extends StatelessWidget {
     return ElevatedButton(
       style: buttonSmallStyle,
       onPressed: () => Navigator.of(context).pushNamed(routeName),
-      // onPressed: () {
-
-      // },
-      child: Text(text),
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
@@ -54,9 +57,9 @@ class ButtonSmall extends StatelessWidget {
 ButtonStyle get buttonSmallStyle {
   return ElevatedButton.styleFrom(
     textStyle: const TextStyle(
-      fontSize: 14.0,
-      fontWeight: FontWeight.bold,
+      fontSize: 16.0,
+      fontWeight: FontWeight.w600,
     ),
-    minimumSize: const Size(160, 40),
+    minimumSize: const Size(90, 40),
   );
 }

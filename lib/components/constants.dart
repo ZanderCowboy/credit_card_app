@@ -13,7 +13,7 @@ const String resultRoute = '/result';
 
 // AppBar Titles
 const String startAppBarTitle = 'Credit Card Administrator';
-const String homeAppBarTitle = 'Home';
+const String homeAppBarTitle = 'Credit Card Administrator';
 const String enterAppBarTitle = 'Enter';
 const String scanAppBarTitle = 'Scan App Bar';
 const String historyAppBarTitle = 'History App Bar';
@@ -27,6 +27,7 @@ const String enterButtonTitle = 'Enter';
 const String enterSubmitButtonTitle = 'Submit';
 const String scanButtonTitle = 'Scan';
 const String scanTakeButtonTitle = 'Take';
+const String scanRetakeButtonTitle = 'Retake';
 const String scanSubmitButtonTitle = 'Submit';
 const String historyButtonTitle = 'History';
 const String resultButtonTitle = 'Result';

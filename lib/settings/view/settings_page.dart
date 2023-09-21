@@ -78,8 +78,11 @@ class _SettingsPageState extends State<SettingsPage> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          context.read<BannedCountriesRepository>().addCountry(true);
-          BlocProvider.of<SettingsBloc>(context).add(SettingsInitial());
+          setState(() {
+            context.read<BannedCountriesRepository>().addCountry(true);
+          });
+          // context.read<BannedCountriesRepository>().addCountry(true);
+          // BlocProvider.of<SettingsBloc>(context).add(SettingsInitial());
         },
       ),
       // ),

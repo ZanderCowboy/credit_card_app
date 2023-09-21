@@ -33,6 +33,7 @@ class App extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         darkTheme: ThemeData.dark(),
         title: 'Credit Card App',
         home: BlocProvider(

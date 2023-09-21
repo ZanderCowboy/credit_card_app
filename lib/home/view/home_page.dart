@@ -1,7 +1,6 @@
 import 'package:credit_card_app/components/constants.dart';
 import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/home/home.dart';
-import 'package:credit_card_app/settings/bloc/settings_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,28 +16,41 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(homeAppBarTitle),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            const DrawerHeader(
-              child: Text(settingsTitle),
-            ),
-            ListTile(
-              title: const Text(bannedCountriesTitle),
-              onTap: () => Navigator.of(context).pushNamed(settingsRoute),
-            ),
-            ListTile(
-              title: const Text(homeLogout),
-              onTap: () {
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.settings),
+          onPressed: () => Navigator.of(context).pushNamed(settingsRoute),
+        ),
+        actions: [
+          IconButton(
+              onPressed: () {
                 Navigator.of(context).pushNamedAndRemoveUntil(
                     initialRoute, (Route<dynamic> route) => false);
               },
-            )
-          ],
-        ),
+              icon: const Icon(Icons.logout))
+        ],
       ),
+      // drawer: Drawer(
+      //   child: ListView(
+      //     padding: EdgeInsets.zero,
+      //     children: <Widget>[
+      //       const DrawerHeader(
+      //         child: Text(settingsTitle),
+      //       ),
+      //       ListTile(
+      //         title: const Text(bannedCountriesTitle),
+      //         onTap: () => Navigator.of(context).pushNamed(settingsRoute),
+      //       ),
+      //       ListTile(
+      //         title: const Text(homeLogout),
+      //         onTap: () {
+      //           Navigator.of(context).pushNamedAndRemoveUntil(
+      //               initialRoute, (Route<dynamic> route) => false);
+      //         },
+      //       )
+      //     ],
+      //   ),
+      // ),
       body: BlocProvider(
         create: (context) => HomeBloc()..add(HomeInitial()),
         child: BlocBuilder<HomeBloc, HomeState>(
