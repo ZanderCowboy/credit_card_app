@@ -16,17 +16,30 @@ dependencies:
   equatable: ^2.0.5
   flow_builder: ^0.0.9
   flutter_credit_card: ^3.0.7
+
+  # Scan Page
   camera: ^0.10.5+4
   image_picker: ^1.0.4
   permission_handler: ^11.0.0
+
+  # Hive DB
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+
 
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^2.0.0
+  
+  # Hive DB
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.6
+
+
 
 flutter:
   uses-material-design: true
