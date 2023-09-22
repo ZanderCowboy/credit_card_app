@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:credit_card_app/components/constants.dart';
 import 'package:credit_card_app/enter/bloc/enter_bloc.dart';
 import 'package:flutter/material.dart';
@@ -35,9 +37,9 @@ class _EnterPageState extends State<EnterPage> {
 
   void _onValidate() {
     if (formKey.currentState!.validate()) {
-      print('valid!');
+      log('valid!');
     } else {
-      print('invalid!');
+      log('invalid!');
     }
   }
 

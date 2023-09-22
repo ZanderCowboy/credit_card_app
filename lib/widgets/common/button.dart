@@ -60,6 +60,7 @@ ButtonStyle get buttonSmallStyle {
       fontSize: 16.0,
       fontWeight: FontWeight.w600,
     ),
-    minimumSize: const Size(90, 40),
+    // minimumSize: const Size(90, 40),
+    minimumSize: const Size(140, 40),
   );
 }

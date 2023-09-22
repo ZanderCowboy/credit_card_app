@@ -47,30 +47,50 @@ class _SettingsPageState extends State<SettingsPage> {
         create: (_) => SettingsBloc()..add(SettingsInitial()),
         child: BlocBuilder<SettingsBloc, SettingsState>(
           builder: (context, state) {
-            return Column(
-              children: [
-                const Text(bannedCountriesTitle),
-                SizedBox(
-                  height: 400,
-                  width: 300,
-                  child: ListView.builder(
-                    itemCount: bannedCountries.length,
-                    itemBuilder: (context, index) {
-                      var checkbox = bannedCountries[index];
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Material(
+                elevation: 20.0,
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      const Text(
+                        bannedCountriesTitle,
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      SizedBox(
+                        height: 400,
+                        width: 300,
+                        child: ListView.builder(
+                          itemCount: bannedCountries.length,
+                          itemBuilder: (context, index) {
+                            var checkbox = bannedCountries[index];
 
-                      return CheckboxListTile(
-                        title: const Text(bannedCountryDummy),
-                        value: checkbox,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            checkbox = value!;
-                          });
-                        },
-                      );
-                    },
+                            return CheckboxListTile(
+                              title: const Text(bannedCountryDummy),
+                              value: checkbox,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  checkbox = value!;
+                                });
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
+              ),
             );
           },
         ),

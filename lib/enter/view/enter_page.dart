@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:credit_card_app/components/constants.dart';
 import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
@@ -41,6 +43,7 @@ class _EnterPageState extends State<EnterPage> {
             builder: (context, state) {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
+                // padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
                     // Placeholder(
@@ -55,7 +58,6 @@ class _EnterPageState extends State<EnterPage> {
                           child: Center(
                             child: Column(
                               children: [
-                                // FIXME: Children takes more renderspace then that available.
                                 Form(
                                   key: _formKey,
                                   child: Column(
@@ -84,6 +86,7 @@ class _EnterPageState extends State<EnterPage> {
                                         },
                                       ),
                                       TextFormField(
+                                        readOnly: true,
                                         controller: cardTypeController,
                                         decoration: const InputDecoration(
                                           // labelText: 'Card Type',
@@ -144,10 +147,10 @@ class _EnterPageState extends State<EnterPage> {
                                           child: ElevatedButton(
                                             style: buttonSmallStyle,
                                             onPressed: () {
-                                              print(
+                                              log(
                                                 cardNumberController.text,
                                               );
-                                              print(cvvNumberController.text);
+                                              log(cvvNumberController.text);
                                               // Validate will return true if the form is valid, or false if
                                               // the form is invalid.
                                               if (_formKey.currentState!
@@ -227,12 +230,12 @@ class _CreditCardAnimationState extends State<CreditCardAnimation> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: ExactAssetImage('assets/bg.png'),
-          fit: BoxFit.fill,
-        ),
-        color: Colors.black,
-      ),
+          // image: DecorationImage(
+          //   image: ExactAssetImage('assets/bg.png'),
+          //   fit: BoxFit.fill,
+          // ),
+          // color: Colors.black,
+          ),
       child: SafeArea(
         child: Column(
           children: <Widget>[
@@ -246,7 +249,7 @@ class _CreditCardAnimationState extends State<CreditCardAnimation> {
               expiryDate: expiryDate,
               cardHolderName: cardHolderName,
               cvvCode: cvvCode,
-              bankName: 'Axis Bank',
+              bankName: 'Bank Name',
               frontCardBorder:
                   !useGlassMorphism ? Border.all(color: Colors.grey) : null,
               backCardBorder:
@@ -256,7 +259,7 @@ class _CreditCardAnimationState extends State<CreditCardAnimation> {
               obscureCardCvv: true,
               isHolderNameVisible: true,
               cardBgColor: AppColors.cardBgColor,
-              backgroundImage: useBackgroundImage ? 'assets/card_bg.png' : null,
+              // backgroundImage: useBackgroundImage ? 'assets/card_bg.png' : null,
               isSwipeGestureEnabled: true,
               onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
               customCardTypeIcons: <CustomCardTypeIcon>[
@@ -423,9 +426,9 @@ class _CreditCardAnimationState extends State<CreditCardAnimation> {
 
   void _onValidate() {
     if (formKey.currentState!.validate()) {
-      print('valid!');
+      log('valid!');
     } else {
-      print('invalid!');
+      log('invalid!');
     }
   }
 

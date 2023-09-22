@@ -6,7 +6,6 @@ import 'package:credit_card_app/widgets/common/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:camera/camera.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 // class ScanPage extends StatelessWidget {
@@ -138,10 +137,7 @@ class _ScanPageState extends State<ScanPage> {
     });
   }
 
-  Future<void> _submitPicture() async {
-    // Save the image using _imageFile.path
-    // You can use this path to upload or process the image as needed
-  }
+  Future<void> _submitPicture() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -160,14 +156,18 @@ class _ScanPageState extends State<ScanPage> {
               child: Center(
                 child: Column(
                   children: [
-                    Center(
-                      child: _cameraController != null &&
-                              _cameraController!.value.isInitialized
-                          ? AspectRatio(
-                              aspectRatio: _cameraController!.value.aspectRatio,
-                              child: CameraPreview(_cameraController!),
-                            )
-                          : const CircularProgressIndicator(),
+                    SizedBox(
+                      height: 200,
+                      child: Center(
+                        child: _cameraController != null &&
+                                _cameraController!.value.isInitialized
+                            ? AspectRatio(
+                                aspectRatio:
+                                    _cameraController!.value.aspectRatio,
+                                child: CameraPreview(_cameraController!),
+                              )
+                            : const CircularProgressIndicator(),
+                      ),
                     ),
                     SizedBox(
                       width: 200,
@@ -180,7 +180,7 @@ class _ScanPageState extends State<ScanPage> {
                               Expanded(
                                 child: Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(0, 8, 4, 8),
+                                      const EdgeInsets.fromLTRB(0, 8, 4, 4),
                                   child: ElevatedButton(
                                     style: buttonSmallStyle,
                                     // onPressed: () => Navigator.of(context).pop(),
@@ -196,7 +196,7 @@ class _ScanPageState extends State<ScanPage> {
                               Expanded(
                                 child: Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(4, 8, 0, 8),
+                                      const EdgeInsets.fromLTRB(4, 8, 0, 4),
                                   child: ElevatedButton(
                                     style: buttonSmallStyle,
                                     // onPressed: () =>
@@ -215,7 +215,7 @@ class _ScanPageState extends State<ScanPage> {
                               Expanded(
                                 child: Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(0, 8, 4, 8),
+                                      const EdgeInsets.fromLTRB(0, 4, 0, 8),
                                   child: ElevatedButton(
                                     style: buttonSmallStyle,
                                     // onPressed: () => Navigator.of(context).pop(),
