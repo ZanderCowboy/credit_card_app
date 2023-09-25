@@ -5,6 +5,8 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
+import 'package:credit_card_app/domain/banned_countries/banned_countries_repository.dart';
+import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -12,8 +14,14 @@ import 'package:credit_card_app/app/view/app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    CreditCardRepository creditCardRepository = CreditCardRepository();
+    BannedCountriesRepository bannedCountriesRepository =
+        BannedCountriesRepository();
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const App());
+    await tester.pumpWidget(App(
+      creditCardRepository: creditCardRepository,
+      bannedCountriesRepository: bannedCountriesRepository,
+    ));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

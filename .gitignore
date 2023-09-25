@@ -2,6 +2,7 @@
 
 /.idea
 /example_code
+DUMPFILE
 
 # Generated Code
 *.h
