@@ -1,5 +1,7 @@
 // This page will be used to display the results captured from either capturing it manually or by using a scanner.
 
+import 'dart:developer';
+
 import 'package:credit_card_app/components/constants.dart';
 import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
@@ -39,18 +41,27 @@ class ResultPage extends StatelessWidget {
           create: (_) => ResultBloc()..add(ResultInitial()),
           child: BlocBuilder<ResultBloc, ResultState>(
             builder: (context, state) {
-              List<CreditCard> cards = creditCardRepository.loadHistoryCards();
-              CreditCard creditCard = cards.last;
+              // List<CreditCard> cards = creditCardRepository.loadHistoryCards();
+              // CreditCard creditCard = cards.last;
+              // if (state is ResultNew) {
+
+              // }
+              CreditCard fake = const CreditCard(
+                  cardNumber: "0000",
+                  cardType: "0000",
+                  cvvNumber: 000,
+                  issuingCountry: "ZA");
+
+              log(state.toString());
+              CreditCard creditCard =
+                  state is ResultNew ? state.creditCard : fake;
 
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Placeholder(
-                      //   fallbackHeight: MediaQuery.of(context).size.height / 2,
-                      // ),
-
                       Card(
                         elevation: 5,
                         margin: const EdgeInsets.symmetric(
@@ -85,12 +96,14 @@ class ResultPage extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton(
                           style: buttonSmallStyle,
-                          onPressed: () =>
-                              Navigator.of(context).pushNamedAndRemoveUntil(
-                            homeRoute,
-                            (Route<dynamic> route) => false,
-                          ), // PushandPopUntil
-                          // onPressed: () => navigateToHome(context),
+                          onPressed: () {
+                            // creditCardRepository
+                            //                       .addCard(generateCard());
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                              homeRoute,
+                              (Route<dynamic> route) => false,
+                            );
+                          }, // PushandPopUntil
                           child: const Text(resultAddButtonTitle),
                         ),
                       ),
@@ -104,4 +117,19 @@ class ResultPage extends StatelessWidget {
       ),
     );
   }
+
+  // CreditCard generateCard() {
+  //   String cardNumber = cardNumberController.text;
+  //   String cardType = cardTypeController.text;
+  //   int cvvNumber = int.parse(cvvNumberController.text);
+  //   String issuingCountry = issuingCountryController.text;
+
+  //   CreditCard card = CreditCard(
+  //       cardNumber: cardNumber,
+  //       cardType: cardType,
+  //       cvvNumber: cvvNumber,
+  //       issuingCountry: issuingCountry);
+
+  //   return card;
+  // }
 }

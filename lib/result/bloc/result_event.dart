@@ -11,3 +11,8 @@ final class ResultInitial extends ResultEvent {}
 
 final class ResultAdd extends ResultEvent {}
 
+class ResultNewCard extends ResultEvent {
+  const ResultNewCard({required this.card});
+
+  final CreditCard card;
+}

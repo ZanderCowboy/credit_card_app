@@ -18,7 +18,8 @@ const String enterAppBarTitle = 'Enter';
 const String scanAppBarTitle = 'Scan App Bar';
 const String historyAppBarTitle = 'History App Bar';
 const String resultAppBarTitle = 'Result';
-const String settingsAppBarTitle = 'Settings App Bar';
+// const String settingsAppBarTitle = 'Settings App Bar';
+const String settingsAppBarTitle = 'Banned Countries';
 
 // Button Titles
 const String startButtonTitle = 'Start';
@@ -58,3 +59,6 @@ const String issuingCountryErrorText = 'Please enter Issuing Country';
 // Settings Page
 const String bannedCountryDummy = 'Dummy Country';
 const String checkedText = 'Checked!';
+const String addBannedCountryDialogTitle = 'Add Banned Country';
+const String cancelBannedCountryDialogButton = 'Cancel';
+const String duplicateCountryErrorMessage = 'This country is already banned.';

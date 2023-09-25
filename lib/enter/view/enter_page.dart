@@ -4,6 +4,7 @@ import 'package:credit_card_app/components/constants.dart';
 import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/enter/bloc/enter_bloc.dart';
+import 'package:credit_card_app/result/result.dart';
 import 'package:credit_card_app/widgets/common/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,19 +38,29 @@ class _EnterPageState extends State<EnterPage> {
         appBar: AppBar(
           title: const Text(enterAppBarTitle),
         ),
-        body: BlocProvider(
-          create: (_) => EnterBloc()..add(EnterInitial()),
+        body: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              //
+              create: (_) => ResultBloc()..add(ResultInitial()),
+            ),
+            BlocProvider(
+              create: (_) => EnterBloc()..add(EnterInitial()),
+            ),
+          ],
           child: BlocBuilder<EnterBloc, EnterState>(
             builder: (context, state) {
+              log('Early \t ${state.toString()}');
+              if (state is EnterLoading) {
+                return const CircularProgressIndicator();
+              }
+
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 // padding: const EdgeInsets.all(16.0),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Placeholder(
-                    //   fallbackHeight: MediaQuery.of(context).size.height / 2,
-                    //   fallbackWidth: 100,
-                    // ),
                     const CreditCardAnimation(),
                     Expanded(
                       child: SizedBox(
@@ -86,7 +97,7 @@ class _EnterPageState extends State<EnterPage> {
                                         },
                                       ),
                                       TextFormField(
-                                        readOnly: true,
+                                        // readOnly: true,
                                         controller: cardTypeController,
                                         decoration: const InputDecoration(
                                           // labelText: 'Card Type',
@@ -158,8 +169,17 @@ class _EnterPageState extends State<EnterPage> {
                                                 // Process data.
                                               }
 
-                                              creditCardRepository
-                                                  .addCard(generateCard());
+                                              BlocProvider.of<ResultBloc>(
+                                                      context)
+                                                  .add(ResultNewCard(
+                                                      card: generateCard()));
+
+                                              // context.read<ResultBloc>().add(
+                                              //     ResultNewCard(
+                                              //         card: generateCard()));
+
+                                              // creditCardRepository
+                                              //     .addCard(generateCard());
 
                                               Navigator.of(context)
                                                   .pushNamed(resultRoute);

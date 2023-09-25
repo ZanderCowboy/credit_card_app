@@ -1,5 +1,4 @@
 import 'package:credit_card_app/components/constants.dart';
-import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +10,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int count = context.read<CreditCardRepository>().loadHistoryCards().length;
+    // int count = context.read<CreditCardRepository>().loadHistoryCards().length;
 
     return Scaffold(
       appBar: AppBar(
@@ -30,27 +29,6 @@ class HomePage extends StatelessWidget {
               icon: const Icon(Icons.logout))
         ],
       ),
-      // drawer: Drawer(
-      //   child: ListView(
-      //     padding: EdgeInsets.zero,
-      //     children: <Widget>[
-      //       const DrawerHeader(
-      //         child: Text(settingsTitle),
-      //       ),
-      //       ListTile(
-      //         title: const Text(bannedCountriesTitle),
-      //         onTap: () => Navigator.of(context).pushNamed(settingsRoute),
-      //       ),
-      //       ListTile(
-      //         title: const Text(homeLogout),
-      //         onTap: () {
-      //           Navigator.of(context).pushNamedAndRemoveUntil(
-      //               initialRoute, (Route<dynamic> route) => false);
-      //         },
-      //       )
-      //     ],
-      //   ),
-      // ),
       body: BlocProvider(
         create: (context) => HomeBloc()..add(HomeInitial()),
         child: BlocBuilder<HomeBloc, HomeState>(
@@ -60,25 +38,25 @@ class HomePage extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 ),
               HomeError() => const Text("Something went wrong"),
-              HomeLoaded() => Center(
+              HomeLoaded() => const Center(
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const EnterButton(),
-                        const SizedBox(
+                        EnterButton(),
+                        SizedBox(
                           height: 16,
                         ),
-                        const ScanButton(),
-                        const SizedBox(
+                        ScanButton(),
+                        SizedBox(
                           height: 16,
                         ),
-                        const HistoryButton(),
-                        const SizedBox(
+                        HistoryButton(),
+                        SizedBox(
                           height: 16,
                         ),
-                        Text('$count'),
+                        // Text('$count'),
                       ],
                     ),
                   ),

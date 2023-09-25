@@ -155,6 +155,7 @@ class _ScanPageState extends State<ScanPage> {
               padding: const EdgeInsets.all(8.0),
               child: Center(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
                       height: 200,
