@@ -35,7 +35,7 @@ SEMBAST NoSQL Local DB
 
 ## Guidelines
 
-You are welcome to use 3rd party packages, but we are trying to gauge your skill. Please try to keep the amount of packages to the absolutely necessary. Add your application to a git repository and send that to us. Don’t hesitate to reach out to us if you have questions. Good luck and have fun!  
+You are welcome to use third party packages, but we are trying to gauge your skill. Please try to keep the amount of packages to the absolutely necessary. Add your application to a git repository and send that to us. Don’t hesitate to reach out to us if you have questions. Good luck and have fun!  
 
 ## General Links
 
