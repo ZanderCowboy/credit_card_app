@@ -17,7 +17,7 @@ jobs:
     name: Flutter Build
     runs-on: ubuntu-latest
     env: 
-      FLUTTER_VERSION: "3.13.x"
+      FLUTTER_VERSION: "3.13.5"
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.13.x
+          flutter-version: 3.13.5
           # cache: true
       
       - run: flutter --version
@@ -48,12 +48,13 @@ jobs:
         uses: flutter-actions/setup-flutter@v2
         with:
           channel: stable
-          version: 3.13.x
+          version: 3.13.5
+          cache: true
 
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.13.x
+          flutter-version: 3.13.5
           # cache: true
       
       - run: flutter --version
