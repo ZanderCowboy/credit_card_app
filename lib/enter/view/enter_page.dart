@@ -444,13 +444,13 @@ class _CreditCardAnimationState extends State<CreditCardAnimation> {
     );
   }
 
-  void _onValidate() {
-    if (formKey.currentState!.validate()) {
-      log('valid!');
-    } else {
-      log('invalid!');
-    }
-  }
+  // void _onValidate() {
+  //   if (formKey.currentState!.validate()) {
+  //     log('valid!');
+  //   } else {
+  //     log('invalid!');
+  //   }
+  // }
 
   void onCreditCardModelChange(CreditCardModel? creditCardModel) {
     setState(() {
