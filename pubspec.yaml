@@ -20,6 +20,10 @@ dependencies:
   equatable: ^2.0.5
   flow_builder: ^0.0.9
   flutter_credit_card: ^3.0.7
+  get_it: ^7.6.4
+  injectable: ^2.3.0
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
 
   # Scan Page
   camera: ^0.10.5+4
@@ -43,6 +47,10 @@ dev_dependencies:
   # Hive DB
   hive_generator: ^2.0.1
   build_runner: ^2.4.6
+
+  injectable_generator: ^2.4.0
+  freezed: ^2.4.2
+  json_serializable: ^6.7.1
 
 flutter:
   uses-material-design: true
