@@ -1,0 +1,48 @@
+# This workflow executes several linters on changed files based on languages used in your code base whenever
+# you push a code or open a pull request.
+#
+# You can adjust the behavior by modifying this file.
+# For more information, see:
+# https://github.com/github/super-linter
+name: Lint Code Base
+
+on:
+  push:
+    branches: 
+      [main]
+  pull_request:
+    branches: 
+      [main]
+
+  workflow_dispatch:
+
+    
+jobs:
+  # run-lint:
+  build:
+    name: flutter build
+    runs-on: ubuntu-latest
+    # env: 
+    #   FLUTTER_VERSION: "3.13.x"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Flutter Actions
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.13.x"
+          channel: 'stable'
+          cache: true
+
+      - run: flutter pub get
+      - run: flutter analyze
+
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: "main"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
