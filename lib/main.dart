@@ -10,16 +10,7 @@ const String creditCardBoxName = "credit_cards";
 const String bannedCountriesBoxName = "banned_countries";
 
 Future<void> main() async {
-  // await Hive.initFlutter();
-  // Hive.registerAdapter(CreditCardAdapter());
-  // Hive.registerAdapter(BannedCountriesAdapter());
-  // await Hive.openBox<CreditCard>(creditCardBoxName);
-  // await Hive.openBox<BannedCountries>(bannedCountriesBoxName);
-
   await DbDriver().driver();
-
-  // var box = await Hive.openBox<User>('userBox');
-  // var box = await Hive.openBox('testBox');
 
   Bloc.observer = const SimpleBlocObserver();
   runApp(
