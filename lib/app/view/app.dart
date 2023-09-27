@@ -37,11 +37,8 @@ class App extends StatelessWidget {
         // showPerformanceOverlay: true,
         themeMode: ThemeMode.dark,
         darkTheme: ThemeData.dark(),
-        title: 'Credit Card App',
-        home: BlocProvider(
-          create: (context) => StartBloc()..add(StartInitial()),
-          child: const StartPage(),
-        ),
+        title: appTitle,
+        home: const StartPage(),
         initialRoute: initialRoute,
         routes: {
           homeRoute: (_) => const HomePage(),
@@ -55,7 +52,6 @@ class App extends StatelessWidget {
               bannedCountriesRepository: bannedCountriesRepository),
           resultRoute: (_) =>
               ResultPage(creditCardRepository: creditCardRepository),
-          // resultRoute: (context) => const ResultPage(),
         },
       ),
     );

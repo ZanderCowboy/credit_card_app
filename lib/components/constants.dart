@@ -11,6 +11,9 @@ const String historyRoute = '/history';
 const String settingsRoute = '/settings';
 const String resultRoute = '/result';
 
+// Material App Title
+const String appTitle = 'Credit Card App';
+
 // AppBar Titles
 const String startAppBarTitle = 'Credit Card Administrator';
 const String homeAppBarTitle = 'Credit Card Administrator';
