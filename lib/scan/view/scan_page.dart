@@ -1,6 +1,7 @@
 // This page will be used to scan the card and recognize the characters.
 import 'package:credit_card_app/components/constants.dart';
 import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
+import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/scan/scan.dart';
 import 'package:credit_card_app/widgets/common/button.dart';
 import 'package:flutter/material.dart';
@@ -148,7 +149,8 @@ class _ScanPageState extends State<ScanPage> {
         title: const Text(scanAppBarTitle),
       ),
       body: BlocProvider(
-        create: (_) => ScanBloc()..add(ScanInitial()),
+        // create: (_) => ScanBloc()..add(ScanInitial()),
+        create: (_) => coreSl<ScanBloc>(),
         child: BlocBuilder<ScanBloc, ScanState>(
           builder: (context, state) {
             return Padding(
