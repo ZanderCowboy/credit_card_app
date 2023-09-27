@@ -2,6 +2,8 @@
 
 A Flutter Mobile app that allows the submission of credit card details for validation.
 
+[![GitHub Super-Linter](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE_NAME>/badge.svg)](https://github.com/marketplace/actions/super-linter)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
@@ -33,7 +35,7 @@ SEMBAST NoSQL Local DB
 
 ## Guidelines
 
-You are welcome to use 3rd party packages, but we are trying to gauge your skill. Please try to keep the amount of packages to the absolutely necessary. Add your application to a git repository and send that to us. Don’t hesitate to reach out to us if you have questions. Good luck and have fun!  
+You are welcome to use third party packages, but we are trying to gauge your skill. Please try to keep the amount of packages to the absolutely necessary. Add your application to a git repository and send that to us. Don’t hesitate to reach out to us if you have questions. Good luck and have fun!  
 
 ## General Links
 

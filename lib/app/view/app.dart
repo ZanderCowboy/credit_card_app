@@ -33,6 +33,9 @@ class App extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        // showPerformanceOverlay: true,
+        themeMode: ThemeMode.dark,
         darkTheme: ThemeData.dark(),
         title: 'Credit Card App',
         home: BlocProvider(
@@ -52,6 +55,7 @@ class App extends StatelessWidget {
               bannedCountriesRepository: bannedCountriesRepository),
           resultRoute: (_) =>
               ResultPage(creditCardRepository: creditCardRepository),
+          // resultRoute: (context) => const ResultPage(),
         },
       ),
     );

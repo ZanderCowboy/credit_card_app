@@ -6,7 +6,14 @@ part 'enter_state.dart';
 
 class EnterBloc extends Bloc<EnterEvent, EnterState> {
   EnterBloc() : super(EnterLoading()) {
-    on<EnterInitial>(_onStarted);
+    on<EnterInitial>(((event, emit) {
+      emit(EnterLoading());
+      try {
+        emit(EnterLoaded());
+      } catch (_) {
+        emit(EnterError());
+      }
+    }));
     // on<EnterPressed>(_onEnterPressed);
 
     on<EnterSubmit>(
@@ -14,18 +21,6 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
         // emit(EnterResult());
       },
     );
-  }
-
-  Future<void> _onStarted(
-    EnterInitial event,
-    Emitter<EnterState> emit,
-  ) async {
-    emit(EnterLoading());
-    try {
-      emit(EnterLoaded());
-    } catch (_) {
-      emit(EnterError());
-    }
   }
 
   // Future<void> _onEnterPressed(
@@ -42,6 +37,9 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
   // }
 
   Stream<EnterState> mapEventToState(EnterEvent event) async* {
+    if (event is EnterInitial) {
+      yield EnterLoaded();
+    }
     if (event is EnterSubmit) {
       yield EnterLoading();
     }

@@ -2,7 +2,7 @@ part of 'enter_bloc.dart';
 
 sealed class EnterState extends Equatable {
   const EnterState();
-  
+
   @override
   List<Object> get props => [];
 }

@@ -14,13 +14,12 @@ import 'package:credit_card_app/app/view/app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    CreditCardRepository cardRepository = CreditCardRepository();
+    CreditCardRepository creditCardRepository = CreditCardRepository();
     BannedCountriesRepository bannedCountriesRepository =
         BannedCountriesRepository();
-
     // Build our app and trigger a frame.
     await tester.pumpWidget(App(
-      creditCardRepository: cardRepository,
+      creditCardRepository: creditCardRepository,
       bannedCountriesRepository: bannedCountriesRepository,
     ));
 

@@ -18,7 +18,7 @@ class HistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<CreditCard> cards =
-        context.read<CreditCardRepository>().loadHistoryCards();
+        context.read<CreditCardRepository>().readHistoryCards();
 
     return Scaffold(
       appBar: AppBar(
@@ -31,7 +31,9 @@ class HistoryPage extends StatelessWidget {
             return ListView.builder(
               itemCount: cards.length,
               itemBuilder: (context, index) {
-                final creditCard = cards[index];
+                final reversedIndex = cards.length - 1 - index;
+                // final creditCard = cards[index];
+                final creditCard = cards[reversedIndex];
 
                 return Card(
                   elevation: 3,
