@@ -1,12 +1,6 @@
 part of 'history_bloc.dart';
 
-sealed class HistoryEvent extends Equatable {
-  const HistoryEvent();
-
-  @override
-  List<Object> get props => [];
+@freezed
+sealed class HistoryEvent with _$HistoryEvent {
+  const factory HistoryEvent.onInitial() = onInitial;
 }
-
-final class HistoryInitial extends HistoryEvent {}
-
-

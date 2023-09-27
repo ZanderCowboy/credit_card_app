@@ -3,6 +3,7 @@
 import 'package:credit_card_app/components/constants.dart';
 import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
+import 'package:credit_card_app/get_it_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:credit_card_app/history/history.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +26,7 @@ class HistoryPage extends StatelessWidget {
         title: const Text(historyAppBarTitle),
       ),
       body: BlocProvider(
-        create: (_) => HistoryBloc()..add(HistoryInitial()),
+        create: (_) => coreSl<HistoryBloc>(),
         child: BlocBuilder<HistoryBloc, HistoryState>(
           builder: (context, state) {
             return ListView.builder(
