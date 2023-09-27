@@ -1,24 +1,28 @@
 // This file should contain all the details that are gathered from either capturing or scanning a credit card.
 
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
+part 'credit_card.freezed.dart';
 
 part 'credit_card.g.dart';
 
 @HiveType(typeId: 0)
-class CreditCard {
-  const CreditCard({
-    required this.cardNumber,
-    required this.cardType,
-    required this.cvvNumber,
-    required this.issuingCountry,
-  });
+@freezed
+class CreditCard with _$CreditCard {
+  const factory CreditCard({
+    @HiveField(0) required String cardNumber,
+    @HiveField(1) required String cardType,
+    @HiveField(2) required int cvvNumber,
+    @HiveField(3) required String issuingCountry,
+  }) = _CreditCard;
 
-  @HiveField(0)
-  final String cardNumber;
-  @HiveField(1)
-  final String cardType;
-  @HiveField(2)
-  final int cvvNumber;
-  @HiveField(3)
-  final String issuingCountry;
+  // @HiveField(0)
+  // final String cardNumber;
+  // @HiveField(1)
+  // final String cardType;
+  // @HiveField(2)
+  // final int cvvNumber;
+  // @HiveField(3)
+  // final String issuingCountry;
 }
