@@ -4,7 +4,7 @@ import 'package:credit_card_app/components/constants.dart';
 import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/enter/bloc/enter_bloc.dart';
-import 'package:credit_card_app/result/result.dart';
+import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/widgets/common/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,20 +38,12 @@ class _EnterPageState extends State<EnterPage> {
         appBar: AppBar(
           title: const Text(enterAppBarTitle),
         ),
-        body: MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              //
-              create: (_) => ResultBloc()..add(ResultInitial()),
-            ),
-            BlocProvider(
-              create: (_) => EnterBloc()..add(EnterInitial()),
-            ),
-          ],
+        body: BlocProvider(
+          create: (_) => coreSl<EnterBloc>(),
           child: BlocBuilder<EnterBloc, EnterState>(
             builder: (context, state) {
               log('Early \t ${state.toString()}');
-              if (state is EnterLoading) {
+              if (state is Loading) {
                 return const CircularProgressIndicator();
               }
 
@@ -169,10 +161,10 @@ class _EnterPageState extends State<EnterPage> {
                                                 // Process data.
                                               }
 
-                                              BlocProvider.of<ResultBloc>(
-                                                      context)
-                                                  .add(ResultNewCard(
-                                                      card: generateCard()));
+                                              // BlocProvider.of<ResultBloc>(
+                                              //         context)
+                                              //     .add(ResultNewCard(
+                                              //         card: generateCard()));
 
                                               // context.read<ResultBloc>().add(
                                               //     ResultNewCard(

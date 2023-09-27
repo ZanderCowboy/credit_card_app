@@ -1,17 +1,16 @@
 part of 'enter_bloc.dart';
 
-sealed class EnterState extends Equatable {
-  const EnterState();
+@freezed
+sealed class EnterState with _$EnterState {
+  const factory EnterState() = _EnterState;
 
-  @override
-  List<Object> get props => [];
+  const EnterState._();
+
+  const factory EnterState.initial() = Initial;
+
+  const factory EnterState.loading() = Loading;
+
+  const factory EnterState.loaded() = Loaded;
+
+  const factory EnterState.error() = ErrorS;
 }
-
-final class EnterLoading extends EnterState {}
-
-final class EnterLoaded extends EnterState {}
-
-final class EnterError extends EnterState {} 
-
-// final class EnterResult extends EnterState {}
-

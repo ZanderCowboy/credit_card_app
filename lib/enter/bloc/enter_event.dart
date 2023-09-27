@@ -1,12 +1,7 @@
 part of 'enter_bloc.dart';
 
-sealed class EnterEvent extends Equatable {
-  const EnterEvent();
-
-  @override
-  List<Object> get props => [];
+@freezed
+sealed class EnterEvent with _$EnterEvent {
+  const factory EnterEvent.onSubmit() = onSubmit;
+  const factory EnterEvent.onChanged() = onChanged;
 }
-
-final class EnterInitial extends EnterEvent {}
-
-final class EnterSubmit extends EnterEvent {}
