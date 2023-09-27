@@ -1,12 +1,6 @@
 part of 'start_bloc.dart';
 
-sealed class StartEvent extends Equatable {
-  const StartEvent();
-
-  @override
-  List<Object> get props => [];
+@freezed
+sealed class StartEvent with _$StartEvent {
+  const factory StartEvent.onStart() = onStart;
 }
-
-final class StartInitial extends StartEvent {}
-
-
