@@ -5,6 +5,7 @@ import 'dart:developer';
 import 'package:credit_card_app/components/constants.dart';
 import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
+import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/result/bloc/result_bloc.dart';
 import 'package:credit_card_app/widgets/common/button.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,7 @@ class ResultPage extends StatelessWidget {
           title: const Text(resultAppBarTitle),
         ),
         body: BlocProvider(
-          create: (_) => ResultBloc()..add(ResultInitial()),
+          create: (_) => coreSl<ResultBloc>(),
           child: BlocBuilder<ResultBloc, ResultState>(
             builder: (context, state) {
               // List<CreditCard> cards = creditCardRepository.loadHistoryCards();
@@ -46,15 +47,15 @@ class ResultPage extends StatelessWidget {
               // if (state is ResultNew) {
 
               // }
-              CreditCard fake = const CreditCard(
+              CreditCard creditCard = const CreditCard(
                   cardNumber: "0000",
                   cardType: "0000",
                   cvvNumber: 000,
                   issuingCountry: "ZA");
 
               log(state.toString());
-              CreditCard creditCard =
-                  state is ResultNew ? state.creditCard : fake;
+              // CreditCard creditCard =
+              //     state is Initial ? : fake;
 
               return Padding(
                 padding: const EdgeInsets.all(8.0),

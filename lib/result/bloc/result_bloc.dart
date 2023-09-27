@@ -1,23 +1,14 @@
 import 'package:bloc/bloc.dart';
-import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
+part 'result_bloc.freezed.dart';
 part 'result_event.dart';
 part 'result_state.dart';
 
+@Injectable()
 class ResultBloc extends Bloc<ResultEvent, ResultState> {
-  ResultBloc() : super(ResultLoading()) {
-    on<ResultInitial>((event, emit) {
-      emit(ResultLoading());
-      try {
-        if (state is ResultLoaded) {}
-      } catch (_) {
-        emit(ResultError());
-      }
-    });
-    on<ResultAdd>(
-        (ResultAdd event, Emitter<ResultState> emit) => ResultAdded());
-
-    on<ResultNewCard>((event, emit) => ResultNew(creditCard: event.card));
+  ResultBloc() : super(const ResultState.initial()) {
+    on<ResultEvent>((event, emit) async {});
   }
 }
