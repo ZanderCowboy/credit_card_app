@@ -1,16 +1,13 @@
 part of 'settings_bloc.dart';
 
-sealed class SettingsState extends Equatable {
-  const SettingsState();
+@freezed
+sealed class SettingsState with _$SettingsState {
+  const factory SettingsState() = _SettingsState;
 
-  @override
-  List<Object> get props => [];
+  const SettingsState._();
+
+  const factory SettingsState.initial() = Initial;
+  const factory SettingsState.loading() = Loading;
+  const factory SettingsState.loaded() = Loaded;
+  const factory SettingsState.error() = ErrorS;
 }
-
-final class SettingsLoading extends SettingsState {}
-
-final class SettingsLoaded extends SettingsState {}
-
-final class SettingsError extends SettingsState {}
-
-final class SettingsBannedCountries extends SettingsState {}
