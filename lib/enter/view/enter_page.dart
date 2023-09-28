@@ -20,6 +20,8 @@ class EnterPage extends StatelessWidget {
   final cvvNumberController = TextEditingController();
   final issuingCountryController = TextEditingController();
 
+  bool isDialogOpen = false;
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -30,32 +32,37 @@ class EnterPage extends StatelessWidget {
         ),
         body: BlocListener<EnterBloc, EnterState>(
           listener: (context, state) {
-            log('*** In Listener: *** $context $state');
+            // log('*** In Listener: *** $context $state');
 
-            if (state is EnterDuplicate) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text(duplicateCardErrorMessage),
-                  duration: Duration(seconds: 3),
-                ),
-              );
-            } else if (state is EnterValid) {
-              log('*** In EnterValid *** $state $context');
-              _showDialog(context);
-            }
+            // if (state is EnterDuplicate) {
+            //   ScaffoldMessenger.of(context).showSnackBar(
+            //     const SnackBar(
+            //       content: Text(duplicateCardErrorMessage),
+            //       duration: Duration(seconds: 3),
+            //     ),
+            //   );
+            // } else if (state is EnterValid) {
+            //   log('*** In EnterValid *** $state $context');
+            //   _showDialog(context);
+            // }
           },
           child: BlocBuilder<EnterBloc, EnterState>(
             builder: (context, state) {
               log('Early \t //${state.toString()}');
 
               if (state is EnterDuplicate) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text(duplicateCardErrorMessage),
-                    duration: Duration(seconds: 3),
-                  ),
-                );
-              } else if (state is EnterValid) {
+                log('*** In EnterDuplicate *** $state $context');
+                _showSnackBar(context);
+              }
+              // if (state is EnterDuplicate && !isDialogOpen) {
+              //   ScaffoldMessenger.of(context).showSnackBar(
+              //     const SnackBar(
+              //       content: Text(duplicateCardErrorMessage),
+              //       duration: Duration(seconds: 3),
+              //     ),
+              //   );
+              // }
+              else if (state is EnterValid) {
                 log('*** In EnterValid *** $state $context');
                 _showDialog(context);
               }
@@ -112,9 +119,18 @@ class EnterPage extends StatelessWidget {
                                             onPressed: () {
                                               log('${cardNumberController.text}\t${cardTypeController.text}\t${cvvNumberController.text}\t${issuingCountryController.text}');
 
-                                              context.read<EnterBloc>().add(
-                                                  const EnterEvent
-                                                      .onValidate());
+                                              // context.read<EnterBloc>().add(
+                                              //     const EnterEvent
+                                              //         .onValidate());
+
+                                              final bloc =
+                                                  context.read<EnterBloc>();
+
+                                              if (!isDialogOpen) {
+                                                bloc.add(const EnterEvent
+                                                    .onValidate());
+                                                isDialogOpen = true;
+                                              }
                                               // BlocProvider.of<EnterBloc>(
                                               //         context)
                                               //     .add(const EnterEvent
@@ -144,61 +160,118 @@ class EnterPage extends StatelessWidget {
     );
   }
 
-  void _showDialog(BuildContext context) {
+  void _showDialog(BuildContext context) async {
     log('In _showDialog: ');
     CreditCard creditCard = generateCard();
 
-    showDialog(
+    bool? dialogResult = await showDialog<bool>(
       context: context,
       builder: (context) {
-        return BlocProvider(
-          create: (context) => coreSl<EnterBloc>(),
-          child: BlocBuilder<EnterBloc, EnterState>(
-            builder: (context, state) {
-              return AlertDialog(
-                title: const Text(resultDialogTitle),
-                content: Card(
-                  elevation: 3,
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: _creditCardListTile(creditCard),
-                ),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      // Dispatch onCancel event to EnterBloc
-                      // BlocProvider.of<EnterBloc>(context).add(
-                      //   const EnterEvent.onCancel(),
-                      // );
-                      context
-                          .read<EnterBloc>()
-                          .add(const EnterEvent.onCancel());
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text(cancelDialogButton),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // TODO: Add validation here!
-
-                      // Dispatch onSubmit event to EnterBloc
-                      context
-                          .read<EnterBloc>()
-                          .add(const EnterEvent.onSubmit());
-                      // BlocProvider.of<EnterBloc>(context).add(
-                      //   const EnterEvent.onSubmit(),
-                      // );
-                    },
-                    child: const Text(resultAddButtonTitle),
-                  ),
-                ],
-              );
-            },
+        return AlertDialog(
+          title: const Text(resultDialogTitle),
+          content: Card(
+            elevation: 3,
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: _creditCardListTile(creditCard),
           ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                // Dispatch onCancel event to EnterBloc
+                context.read<EnterBloc>().add(
+                      const EnterEvent.onCancel(),
+                    );
+                Navigator.of(context)
+                    .pop(false); // Dialog dismissed with 'false'.
+              },
+              child: const Text(cancelDialogButton),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // TODO: Add validation here!
+
+                // Dispatch onSubmit event to EnterBloc
+                context.read<EnterBloc>().add(
+                      const EnterEvent.onSubmit(),
+                    );
+                Navigator.of(context)
+                    .pop(true); // Dialog dismissed with 'true'.
+              },
+              child: const Text(resultAddButtonTitle),
+            ),
+          ],
         );
       },
     );
+
+    if (dialogResult != null) {
+      isDialogOpen = false; // Reset the flag.
+    }
   }
+
+  void _showSnackBar(BuildContext context) async {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text(duplicateCardErrorMessage),
+        duration: Duration(seconds: 3),
+      ),
+    );
+  }
+  // void _showDialog(BuildContext context) {
+  //   log('In _showDialog: ');
+  //   CreditCard creditCard = generateCard();
+
+  //   showDialog(
+  //     context: context,
+  //     builder: (context) {
+  //       return BlocProvider(
+  //         create: (context) => coreSl<EnterBloc>(),
+  //         child: BlocBuilder<EnterBloc, EnterState>(
+  //           builder: (context, state) {
+  //             return AlertDialog(
+  //               title: const Text(resultDialogTitle),
+  //               content: Card(
+  //                 elevation: 3,
+  //                 margin:
+  //                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+  //                 child: _creditCardListTile(creditCard),
+  //               ),
+  //               actions: <Widget>[
+  //                 TextButton(
+  //                   onPressed: () {
+  //                     // Dispatch onCancel event to EnterBloc
+  //                     // BlocProvider.of<EnterBloc>(context).add(
+  //                     //   const EnterEvent.onCancel(),
+  //                     // );
+  //                     context
+  //                         .read<EnterBloc>()
+  //                         .add(const EnterEvent.onCancel());
+  //                     Navigator.of(context).pop();
+  //                   },
+  //                   child: const Text(cancelDialogButton),
+  //                 ),
+  //                 ElevatedButton(
+  //                   onPressed: () {
+  //                     // TODO: Add validation here!
+
+  //                     // Dispatch onSubmit event to EnterBloc
+  //                     context
+  //                         .read<EnterBloc>()
+  //                         .add(const EnterEvent.onSubmit());
+  //                     // BlocProvider.of<EnterBloc>(context).add(
+  //                     //   const EnterEvent.onSubmit(),
+  //                     // );
+  //                   },
+  //                   child: const Text(resultAddButtonTitle),
+  //                 ),
+  //               ],
+  //             );
+  //           },
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 
   ListTile _creditCardListTile(CreditCard creditCard) {
     return ListTile(
