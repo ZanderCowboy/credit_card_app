@@ -2,14 +2,18 @@
 import 'dart:developer';
 
 import 'package:credit_card_app/data/persistance/models/banned_countries_box.dart';
+import 'package:credit_card_app/domain/banned_countries/i_banned_countries_repository.dart';
 import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
+import 'package:injectable/injectable.dart';
 
-class BannedCountriesRepository {
+@LazySingleton(as: IBannedCountriesRepository)
+class BannedCountriesRepository implements IBannedCountriesRepository {
   BannedCountriesRepository();
 
   BannedCountriesBox bannedCountriesBox = BannedCountriesBox();
 
   // add
+  @override
   void addCountry(String country) {
     BannedCountries bc =
         BannedCountries(bannedCountry: country, isBanned: true);
@@ -18,25 +22,30 @@ class BannedCountriesRepository {
   }
 
   // read
+  @override
   BannedCountries? readCountry(int index) {
     return bannedCountriesBox.readBannedCountry(index);
   }
 
   // read all
+  @override
   List<BannedCountries> readCountries() {
     return bannedCountriesBox.readAllBannedCountries();
   }
 
   // deleteAt
+  @override
   void deleteCountryAt(int index) {
     bannedCountriesBox.deleteBannedCountryAt(index);
   }
 
   // deleteAll
+  @override
   void deleteCountries() {
     bannedCountriesBox.deleteBannedCountries();
   }
 
+  @override
   bool hasCountry(String country) {
     List<BannedCountries> list = bannedCountriesBox.readAllBannedCountries();
 
@@ -44,6 +53,7 @@ class BannedCountriesRepository {
   }
 
   // Country where its value need to be updated to `value`.
+  @override
   void updateCountryChecked(String country, bool? newValue) {
     List<BannedCountries> list = bannedCountriesBox.readAllBannedCountries();
     int index = -1;

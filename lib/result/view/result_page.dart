@@ -36,7 +36,7 @@ class ResultPage extends StatelessWidget {
       // create: (context) => CreditCardRepository(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(resultAppBarTitle),
+          title: const Text(resultDialogTitle),
         ),
         body: BlocProvider(
           create: (_) => coreSl<ResultBloc>(),

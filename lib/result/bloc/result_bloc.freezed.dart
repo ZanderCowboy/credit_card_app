@@ -19,32 +19,38 @@ mixin _$ResultEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onFinish,
+    required TResult Function() onCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onFinish,
+    TResult? Function()? onCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onFinish,
+    TResult Function()? onCancel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(onFinish value) onFinish,
+    required TResult Function(onCancel value) onCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(onFinish value)? onFinish,
+    TResult? Function(onCancel value)? onCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(onFinish value)? onFinish,
+    TResult Function(onCancel value)? onCancel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +112,7 @@ class _$onFinish implements onFinish {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onFinish,
+    required TResult Function() onCancel,
   }) {
     return onFinish();
   }
@@ -114,6 +121,7 @@ class _$onFinish implements onFinish {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onFinish,
+    TResult? Function()? onCancel,
   }) {
     return onFinish?.call();
   }
@@ -122,6 +130,7 @@ class _$onFinish implements onFinish {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onFinish,
+    TResult Function()? onCancel,
     required TResult orElse(),
   }) {
     if (onFinish != null) {
@@ -134,6 +143,7 @@ class _$onFinish implements onFinish {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(onFinish value) onFinish,
+    required TResult Function(onCancel value) onCancel,
   }) {
     return onFinish(this);
   }
@@ -142,6 +152,7 @@ class _$onFinish implements onFinish {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(onFinish value)? onFinish,
+    TResult? Function(onCancel value)? onCancel,
   }) {
     return onFinish?.call(this);
   }
@@ -150,6 +161,7 @@ class _$onFinish implements onFinish {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(onFinish value)? onFinish,
+    TResult Function(onCancel value)? onCancel,
     required TResult orElse(),
   }) {
     if (onFinish != null) {
@@ -164,6 +176,107 @@ abstract class onFinish implements ResultEvent {
 }
 
 /// @nodoc
+abstract class _$$onCancelCopyWith<$Res> {
+  factory _$$onCancelCopyWith(
+          _$onCancel value, $Res Function(_$onCancel) then) =
+      __$$onCancelCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$onCancelCopyWithImpl<$Res>
+    extends _$ResultEventCopyWithImpl<$Res, _$onCancel>
+    implements _$$onCancelCopyWith<$Res> {
+  __$$onCancelCopyWithImpl(_$onCancel _value, $Res Function(_$onCancel) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$onCancel implements onCancel {
+  const _$onCancel();
+
+  @override
+  String toString() {
+    return 'ResultEvent.onCancel()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$onCancel);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onFinish,
+    required TResult Function() onCancel,
+  }) {
+    return onCancel();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onFinish,
+    TResult? Function()? onCancel,
+  }) {
+    return onCancel?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onFinish,
+    TResult Function()? onCancel,
+    required TResult orElse(),
+  }) {
+    if (onCancel != null) {
+      return onCancel();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(onFinish value) onFinish,
+    required TResult Function(onCancel value) onCancel,
+  }) {
+    return onCancel(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onFinish value)? onFinish,
+    TResult? Function(onCancel value)? onCancel,
+  }) {
+    return onCancel?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(onFinish value)? onFinish,
+    TResult Function(onCancel value)? onCancel,
+    required TResult orElse(),
+  }) {
+    if (onCancel != null) {
+      return onCancel(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class onCancel implements ResultEvent {
+  const factory onCancel() = _$onCancel;
+}
+
+/// @nodoc
 mixin _$ResultState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
@@ -172,6 +285,8 @@ mixin _$ResultState {
     required TResult Function() loading,
     required TResult Function() loaded,
     required TResult Function() error,
+    required TResult Function() valid,
+    required TResult Function() duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -181,6 +296,8 @@ mixin _$ResultState {
     TResult? Function()? loading,
     TResult? Function()? loaded,
     TResult? Function()? error,
+    TResult? Function()? valid,
+    TResult? Function()? duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -190,34 +307,42 @@ mixin _$ResultState {
     TResult Function()? loading,
     TResult Function()? loaded,
     TResult Function()? error,
+    TResult Function()? valid,
+    TResult Function()? duplicate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_ResultState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
+    required TResult Function(ResultInitial value) initial,
+    required TResult Function(ResultLoading value) loading,
+    required TResult Function(ResultLoaded value) loaded,
+    required TResult Function(ResultError value) error,
+    required TResult Function(ResultValid value) valid,
+    required TResult Function(ResultDuplicate value) duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_ResultState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
+    TResult? Function(ResultInitial value)? initial,
+    TResult? Function(ResultLoading value)? loading,
+    TResult? Function(ResultLoaded value)? loaded,
+    TResult? Function(ResultError value)? error,
+    TResult? Function(ResultValid value)? valid,
+    TResult? Function(ResultDuplicate value)? duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_ResultState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
+    TResult Function(ResultInitial value)? initial,
+    TResult Function(ResultLoading value)? loading,
+    TResult Function(ResultLoaded value)? loaded,
+    TResult Function(ResultError value)? error,
+    TResult Function(ResultValid value)? valid,
+    TResult Function(ResultDuplicate value)? duplicate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -284,6 +409,8 @@ class _$_ResultState extends _ResultState {
     required TResult Function() loading,
     required TResult Function() loaded,
     required TResult Function() error,
+    required TResult Function() valid,
+    required TResult Function() duplicate,
   }) {
     return $default();
   }
@@ -296,6 +423,8 @@ class _$_ResultState extends _ResultState {
     TResult? Function()? loading,
     TResult? Function()? loaded,
     TResult? Function()? error,
+    TResult? Function()? valid,
+    TResult? Function()? duplicate,
   }) {
     return $default?.call();
   }
@@ -308,6 +437,8 @@ class _$_ResultState extends _ResultState {
     TResult Function()? loading,
     TResult Function()? loaded,
     TResult Function()? error,
+    TResult Function()? valid,
+    TResult Function()? duplicate,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -320,10 +451,12 @@ class _$_ResultState extends _ResultState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_ResultState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
+    required TResult Function(ResultInitial value) initial,
+    required TResult Function(ResultLoading value) loading,
+    required TResult Function(ResultLoaded value) loaded,
+    required TResult Function(ResultError value) error,
+    required TResult Function(ResultValid value) valid,
+    required TResult Function(ResultDuplicate value) duplicate,
   }) {
     return $default(this);
   }
@@ -332,10 +465,12 @@ class _$_ResultState extends _ResultState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_ResultState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
+    TResult? Function(ResultInitial value)? initial,
+    TResult? Function(ResultLoading value)? loading,
+    TResult? Function(ResultLoaded value)? loaded,
+    TResult? Function(ResultError value)? error,
+    TResult? Function(ResultValid value)? valid,
+    TResult? Function(ResultDuplicate value)? duplicate,
   }) {
     return $default?.call(this);
   }
@@ -344,10 +479,12 @@ class _$_ResultState extends _ResultState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_ResultState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
+    TResult Function(ResultInitial value)? initial,
+    TResult Function(ResultLoading value)? loading,
+    TResult Function(ResultLoaded value)? loaded,
+    TResult Function(ResultError value)? error,
+    TResult Function(ResultValid value)? valid,
+    TResult Function(ResultDuplicate value)? duplicate,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -363,23 +500,25 @@ abstract class _ResultState extends ResultState {
 }
 
 /// @nodoc
-abstract class _$$InitialCopyWith<$Res> {
-  factory _$$InitialCopyWith(_$Initial value, $Res Function(_$Initial) then) =
-      __$$InitialCopyWithImpl<$Res>;
+abstract class _$$ResultInitialCopyWith<$Res> {
+  factory _$$ResultInitialCopyWith(
+          _$ResultInitial value, $Res Function(_$ResultInitial) then) =
+      __$$ResultInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$Initial>
-    implements _$$InitialCopyWith<$Res> {
-  __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
+class __$$ResultInitialCopyWithImpl<$Res>
+    extends _$ResultStateCopyWithImpl<$Res, _$ResultInitial>
+    implements _$$ResultInitialCopyWith<$Res> {
+  __$$ResultInitialCopyWithImpl(
+      _$ResultInitial _value, $Res Function(_$ResultInitial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Initial extends Initial {
-  const _$Initial() : super._();
+class _$ResultInitial extends ResultInitial {
+  const _$ResultInitial() : super._();
 
   @override
   String toString() {
@@ -389,7 +528,7 @@ class _$Initial extends Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initial);
+        (other.runtimeType == runtimeType && other is _$ResultInitial);
   }
 
   @override
@@ -403,6 +542,8 @@ class _$Initial extends Initial {
     required TResult Function() loading,
     required TResult Function() loaded,
     required TResult Function() error,
+    required TResult Function() valid,
+    required TResult Function() duplicate,
   }) {
     return initial();
   }
@@ -415,6 +556,8 @@ class _$Initial extends Initial {
     TResult? Function()? loading,
     TResult? Function()? loaded,
     TResult? Function()? error,
+    TResult? Function()? valid,
+    TResult? Function()? duplicate,
   }) {
     return initial?.call();
   }
@@ -427,6 +570,8 @@ class _$Initial extends Initial {
     TResult Function()? loading,
     TResult Function()? loaded,
     TResult Function()? error,
+    TResult Function()? valid,
+    TResult Function()? duplicate,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -439,10 +584,12 @@ class _$Initial extends Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_ResultState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
+    required TResult Function(ResultInitial value) initial,
+    required TResult Function(ResultLoading value) loading,
+    required TResult Function(ResultLoaded value) loaded,
+    required TResult Function(ResultError value) error,
+    required TResult Function(ResultValid value) valid,
+    required TResult Function(ResultDuplicate value) duplicate,
   }) {
     return initial(this);
   }
@@ -451,10 +598,12 @@ class _$Initial extends Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_ResultState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
+    TResult? Function(ResultInitial value)? initial,
+    TResult? Function(ResultLoading value)? loading,
+    TResult? Function(ResultLoaded value)? loaded,
+    TResult? Function(ResultError value)? error,
+    TResult? Function(ResultValid value)? valid,
+    TResult? Function(ResultDuplicate value)? duplicate,
   }) {
     return initial?.call(this);
   }
@@ -463,10 +612,12 @@ class _$Initial extends Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_ResultState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
+    TResult Function(ResultInitial value)? initial,
+    TResult Function(ResultLoading value)? loading,
+    TResult Function(ResultLoaded value)? loaded,
+    TResult Function(ResultError value)? error,
+    TResult Function(ResultValid value)? valid,
+    TResult Function(ResultDuplicate value)? duplicate,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -476,29 +627,31 @@ class _$Initial extends Initial {
   }
 }
 
-abstract class Initial extends ResultState {
-  const factory Initial() = _$Initial;
-  const Initial._() : super._();
+abstract class ResultInitial extends ResultState {
+  const factory ResultInitial() = _$ResultInitial;
+  const ResultInitial._() : super._();
 }
 
 /// @nodoc
-abstract class _$$LoadingCopyWith<$Res> {
-  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
-      __$$LoadingCopyWithImpl<$Res>;
+abstract class _$$ResultLoadingCopyWith<$Res> {
+  factory _$$ResultLoadingCopyWith(
+          _$ResultLoading value, $Res Function(_$ResultLoading) then) =
+      __$$ResultLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$Loading>
-    implements _$$LoadingCopyWith<$Res> {
-  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
+class __$$ResultLoadingCopyWithImpl<$Res>
+    extends _$ResultStateCopyWithImpl<$Res, _$ResultLoading>
+    implements _$$ResultLoadingCopyWith<$Res> {
+  __$$ResultLoadingCopyWithImpl(
+      _$ResultLoading _value, $Res Function(_$ResultLoading) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Loading extends Loading {
-  const _$Loading() : super._();
+class _$ResultLoading extends ResultLoading {
+  const _$ResultLoading() : super._();
 
   @override
   String toString() {
@@ -508,7 +661,7 @@ class _$Loading extends Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loading);
+        (other.runtimeType == runtimeType && other is _$ResultLoading);
   }
 
   @override
@@ -522,6 +675,8 @@ class _$Loading extends Loading {
     required TResult Function() loading,
     required TResult Function() loaded,
     required TResult Function() error,
+    required TResult Function() valid,
+    required TResult Function() duplicate,
   }) {
     return loading();
   }
@@ -534,6 +689,8 @@ class _$Loading extends Loading {
     TResult? Function()? loading,
     TResult? Function()? loaded,
     TResult? Function()? error,
+    TResult? Function()? valid,
+    TResult? Function()? duplicate,
   }) {
     return loading?.call();
   }
@@ -546,6 +703,8 @@ class _$Loading extends Loading {
     TResult Function()? loading,
     TResult Function()? loaded,
     TResult Function()? error,
+    TResult Function()? valid,
+    TResult Function()? duplicate,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -558,10 +717,12 @@ class _$Loading extends Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_ResultState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
+    required TResult Function(ResultInitial value) initial,
+    required TResult Function(ResultLoading value) loading,
+    required TResult Function(ResultLoaded value) loaded,
+    required TResult Function(ResultError value) error,
+    required TResult Function(ResultValid value) valid,
+    required TResult Function(ResultDuplicate value) duplicate,
   }) {
     return loading(this);
   }
@@ -570,10 +731,12 @@ class _$Loading extends Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_ResultState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
+    TResult? Function(ResultInitial value)? initial,
+    TResult? Function(ResultLoading value)? loading,
+    TResult? Function(ResultLoaded value)? loaded,
+    TResult? Function(ResultError value)? error,
+    TResult? Function(ResultValid value)? valid,
+    TResult? Function(ResultDuplicate value)? duplicate,
   }) {
     return loading?.call(this);
   }
@@ -582,10 +745,12 @@ class _$Loading extends Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_ResultState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
+    TResult Function(ResultInitial value)? initial,
+    TResult Function(ResultLoading value)? loading,
+    TResult Function(ResultLoaded value)? loaded,
+    TResult Function(ResultError value)? error,
+    TResult Function(ResultValid value)? valid,
+    TResult Function(ResultDuplicate value)? duplicate,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -595,29 +760,31 @@ class _$Loading extends Loading {
   }
 }
 
-abstract class Loading extends ResultState {
-  const factory Loading() = _$Loading;
-  const Loading._() : super._();
+abstract class ResultLoading extends ResultState {
+  const factory ResultLoading() = _$ResultLoading;
+  const ResultLoading._() : super._();
 }
 
 /// @nodoc
-abstract class _$$LoadedCopyWith<$Res> {
-  factory _$$LoadedCopyWith(_$Loaded value, $Res Function(_$Loaded) then) =
-      __$$LoadedCopyWithImpl<$Res>;
+abstract class _$$ResultLoadedCopyWith<$Res> {
+  factory _$$ResultLoadedCopyWith(
+          _$ResultLoaded value, $Res Function(_$ResultLoaded) then) =
+      __$$ResultLoadedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadedCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$Loaded>
-    implements _$$LoadedCopyWith<$Res> {
-  __$$LoadedCopyWithImpl(_$Loaded _value, $Res Function(_$Loaded) _then)
+class __$$ResultLoadedCopyWithImpl<$Res>
+    extends _$ResultStateCopyWithImpl<$Res, _$ResultLoaded>
+    implements _$$ResultLoadedCopyWith<$Res> {
+  __$$ResultLoadedCopyWithImpl(
+      _$ResultLoaded _value, $Res Function(_$ResultLoaded) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Loaded extends Loaded {
-  const _$Loaded() : super._();
+class _$ResultLoaded extends ResultLoaded {
+  const _$ResultLoaded() : super._();
 
   @override
   String toString() {
@@ -627,7 +794,7 @@ class _$Loaded extends Loaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loaded);
+        (other.runtimeType == runtimeType && other is _$ResultLoaded);
   }
 
   @override
@@ -641,6 +808,8 @@ class _$Loaded extends Loaded {
     required TResult Function() loading,
     required TResult Function() loaded,
     required TResult Function() error,
+    required TResult Function() valid,
+    required TResult Function() duplicate,
   }) {
     return loaded();
   }
@@ -653,6 +822,8 @@ class _$Loaded extends Loaded {
     TResult? Function()? loading,
     TResult? Function()? loaded,
     TResult? Function()? error,
+    TResult? Function()? valid,
+    TResult? Function()? duplicate,
   }) {
     return loaded?.call();
   }
@@ -665,6 +836,8 @@ class _$Loaded extends Loaded {
     TResult Function()? loading,
     TResult Function()? loaded,
     TResult Function()? error,
+    TResult Function()? valid,
+    TResult Function()? duplicate,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -677,10 +850,12 @@ class _$Loaded extends Loaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_ResultState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
+    required TResult Function(ResultInitial value) initial,
+    required TResult Function(ResultLoading value) loading,
+    required TResult Function(ResultLoaded value) loaded,
+    required TResult Function(ResultError value) error,
+    required TResult Function(ResultValid value) valid,
+    required TResult Function(ResultDuplicate value) duplicate,
   }) {
     return loaded(this);
   }
@@ -689,10 +864,12 @@ class _$Loaded extends Loaded {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_ResultState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
+    TResult? Function(ResultInitial value)? initial,
+    TResult? Function(ResultLoading value)? loading,
+    TResult? Function(ResultLoaded value)? loaded,
+    TResult? Function(ResultError value)? error,
+    TResult? Function(ResultValid value)? valid,
+    TResult? Function(ResultDuplicate value)? duplicate,
   }) {
     return loaded?.call(this);
   }
@@ -701,10 +878,12 @@ class _$Loaded extends Loaded {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_ResultState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
+    TResult Function(ResultInitial value)? initial,
+    TResult Function(ResultLoading value)? loading,
+    TResult Function(ResultLoaded value)? loaded,
+    TResult Function(ResultError value)? error,
+    TResult Function(ResultValid value)? valid,
+    TResult Function(ResultDuplicate value)? duplicate,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -714,29 +893,31 @@ class _$Loaded extends Loaded {
   }
 }
 
-abstract class Loaded extends ResultState {
-  const factory Loaded() = _$Loaded;
-  const Loaded._() : super._();
+abstract class ResultLoaded extends ResultState {
+  const factory ResultLoaded() = _$ResultLoaded;
+  const ResultLoaded._() : super._();
 }
 
 /// @nodoc
-abstract class _$$ErrorSCopyWith<$Res> {
-  factory _$$ErrorSCopyWith(_$ErrorS value, $Res Function(_$ErrorS) then) =
-      __$$ErrorSCopyWithImpl<$Res>;
+abstract class _$$ResultErrorCopyWith<$Res> {
+  factory _$$ResultErrorCopyWith(
+          _$ResultError value, $Res Function(_$ResultError) then) =
+      __$$ResultErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ErrorSCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$ErrorS>
-    implements _$$ErrorSCopyWith<$Res> {
-  __$$ErrorSCopyWithImpl(_$ErrorS _value, $Res Function(_$ErrorS) _then)
+class __$$ResultErrorCopyWithImpl<$Res>
+    extends _$ResultStateCopyWithImpl<$Res, _$ResultError>
+    implements _$$ResultErrorCopyWith<$Res> {
+  __$$ResultErrorCopyWithImpl(
+      _$ResultError _value, $Res Function(_$ResultError) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ErrorS extends ErrorS {
-  const _$ErrorS() : super._();
+class _$ResultError extends ResultError {
+  const _$ResultError() : super._();
 
   @override
   String toString() {
@@ -746,7 +927,7 @@ class _$ErrorS extends ErrorS {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ErrorS);
+        (other.runtimeType == runtimeType && other is _$ResultError);
   }
 
   @override
@@ -760,6 +941,8 @@ class _$ErrorS extends ErrorS {
     required TResult Function() loading,
     required TResult Function() loaded,
     required TResult Function() error,
+    required TResult Function() valid,
+    required TResult Function() duplicate,
   }) {
     return error();
   }
@@ -772,6 +955,8 @@ class _$ErrorS extends ErrorS {
     TResult? Function()? loading,
     TResult? Function()? loaded,
     TResult? Function()? error,
+    TResult? Function()? valid,
+    TResult? Function()? duplicate,
   }) {
     return error?.call();
   }
@@ -784,6 +969,8 @@ class _$ErrorS extends ErrorS {
     TResult Function()? loading,
     TResult Function()? loaded,
     TResult Function()? error,
+    TResult Function()? valid,
+    TResult Function()? duplicate,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -796,10 +983,12 @@ class _$ErrorS extends ErrorS {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_ResultState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
+    required TResult Function(ResultInitial value) initial,
+    required TResult Function(ResultLoading value) loading,
+    required TResult Function(ResultLoaded value) loaded,
+    required TResult Function(ResultError value) error,
+    required TResult Function(ResultValid value) valid,
+    required TResult Function(ResultDuplicate value) duplicate,
   }) {
     return error(this);
   }
@@ -808,10 +997,12 @@ class _$ErrorS extends ErrorS {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_ResultState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
+    TResult? Function(ResultInitial value)? initial,
+    TResult? Function(ResultLoading value)? loading,
+    TResult? Function(ResultLoaded value)? loaded,
+    TResult? Function(ResultError value)? error,
+    TResult? Function(ResultValid value)? valid,
+    TResult? Function(ResultDuplicate value)? duplicate,
   }) {
     return error?.call(this);
   }
@@ -820,10 +1011,12 @@ class _$ErrorS extends ErrorS {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_ResultState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
+    TResult Function(ResultInitial value)? initial,
+    TResult Function(ResultLoading value)? loading,
+    TResult Function(ResultLoaded value)? loaded,
+    TResult Function(ResultError value)? error,
+    TResult Function(ResultValid value)? valid,
+    TResult Function(ResultDuplicate value)? duplicate,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -833,7 +1026,273 @@ class _$ErrorS extends ErrorS {
   }
 }
 
-abstract class ErrorS extends ResultState {
-  const factory ErrorS() = _$ErrorS;
-  const ErrorS._() : super._();
+abstract class ResultError extends ResultState {
+  const factory ResultError() = _$ResultError;
+  const ResultError._() : super._();
+}
+
+/// @nodoc
+abstract class _$$ResultValidCopyWith<$Res> {
+  factory _$$ResultValidCopyWith(
+          _$ResultValid value, $Res Function(_$ResultValid) then) =
+      __$$ResultValidCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResultValidCopyWithImpl<$Res>
+    extends _$ResultStateCopyWithImpl<$Res, _$ResultValid>
+    implements _$$ResultValidCopyWith<$Res> {
+  __$$ResultValidCopyWithImpl(
+      _$ResultValid _value, $Res Function(_$ResultValid) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ResultValid extends ResultValid {
+  const _$ResultValid() : super._();
+
+  @override
+  String toString() {
+    return 'ResultState.valid()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResultValid);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() error,
+    required TResult Function() valid,
+    required TResult Function() duplicate,
+  }) {
+    return valid();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function()? error,
+    TResult? Function()? valid,
+    TResult? Function()? duplicate,
+  }) {
+    return valid?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    TResult Function()? valid,
+    TResult Function()? duplicate,
+    required TResult orElse(),
+  }) {
+    if (valid != null) {
+      return valid();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ResultState value) $default, {
+    required TResult Function(ResultInitial value) initial,
+    required TResult Function(ResultLoading value) loading,
+    required TResult Function(ResultLoaded value) loaded,
+    required TResult Function(ResultError value) error,
+    required TResult Function(ResultValid value) valid,
+    required TResult Function(ResultDuplicate value) duplicate,
+  }) {
+    return valid(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ResultState value)? $default, {
+    TResult? Function(ResultInitial value)? initial,
+    TResult? Function(ResultLoading value)? loading,
+    TResult? Function(ResultLoaded value)? loaded,
+    TResult? Function(ResultError value)? error,
+    TResult? Function(ResultValid value)? valid,
+    TResult? Function(ResultDuplicate value)? duplicate,
+  }) {
+    return valid?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ResultState value)? $default, {
+    TResult Function(ResultInitial value)? initial,
+    TResult Function(ResultLoading value)? loading,
+    TResult Function(ResultLoaded value)? loaded,
+    TResult Function(ResultError value)? error,
+    TResult Function(ResultValid value)? valid,
+    TResult Function(ResultDuplicate value)? duplicate,
+    required TResult orElse(),
+  }) {
+    if (valid != null) {
+      return valid(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResultValid extends ResultState {
+  const factory ResultValid() = _$ResultValid;
+  const ResultValid._() : super._();
+}
+
+/// @nodoc
+abstract class _$$ResultDuplicateCopyWith<$Res> {
+  factory _$$ResultDuplicateCopyWith(
+          _$ResultDuplicate value, $Res Function(_$ResultDuplicate) then) =
+      __$$ResultDuplicateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResultDuplicateCopyWithImpl<$Res>
+    extends _$ResultStateCopyWithImpl<$Res, _$ResultDuplicate>
+    implements _$$ResultDuplicateCopyWith<$Res> {
+  __$$ResultDuplicateCopyWithImpl(
+      _$ResultDuplicate _value, $Res Function(_$ResultDuplicate) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ResultDuplicate extends ResultDuplicate {
+  const _$ResultDuplicate() : super._();
+
+  @override
+  String toString() {
+    return 'ResultState.duplicate()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResultDuplicate);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() error,
+    required TResult Function() valid,
+    required TResult Function() duplicate,
+  }) {
+    return duplicate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function()? error,
+    TResult? Function()? valid,
+    TResult? Function()? duplicate,
+  }) {
+    return duplicate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    TResult Function()? valid,
+    TResult Function()? duplicate,
+    required TResult orElse(),
+  }) {
+    if (duplicate != null) {
+      return duplicate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ResultState value) $default, {
+    required TResult Function(ResultInitial value) initial,
+    required TResult Function(ResultLoading value) loading,
+    required TResult Function(ResultLoaded value) loaded,
+    required TResult Function(ResultError value) error,
+    required TResult Function(ResultValid value) valid,
+    required TResult Function(ResultDuplicate value) duplicate,
+  }) {
+    return duplicate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ResultState value)? $default, {
+    TResult? Function(ResultInitial value)? initial,
+    TResult? Function(ResultLoading value)? loading,
+    TResult? Function(ResultLoaded value)? loaded,
+    TResult? Function(ResultError value)? error,
+    TResult? Function(ResultValid value)? valid,
+    TResult? Function(ResultDuplicate value)? duplicate,
+  }) {
+    return duplicate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ResultState value)? $default, {
+    TResult Function(ResultInitial value)? initial,
+    TResult Function(ResultLoading value)? loading,
+    TResult Function(ResultLoaded value)? loaded,
+    TResult Function(ResultError value)? error,
+    TResult Function(ResultValid value)? valid,
+    TResult Function(ResultDuplicate value)? duplicate,
+    required TResult orElse(),
+  }) {
+    if (duplicate != null) {
+      return duplicate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResultDuplicate extends ResultState {
+  const factory ResultDuplicate() = _$ResultDuplicate;
+  const ResultDuplicate._() : super._();
 }

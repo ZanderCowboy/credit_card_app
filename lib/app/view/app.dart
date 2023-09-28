@@ -42,9 +42,10 @@ class App extends StatelessWidget {
         initialRoute: initialRoute,
         routes: {
           homeRoute: (_) => const HomePage(),
-          enterRoute: (_) => EnterPage(
-                creditCardRepository: creditCardRepository,
-              ),
+          // enterRoute: (_) => EnterPage(
+          //       creditCardRepository: creditCardRepository,
+          //     ),
+          enterRoute: (_) => EnterPage(),
           scanRoute: (_) =>
               ScanPage(creditCardRepository: creditCardRepository),
           historyRoute: (_) => const HistoryPage(),

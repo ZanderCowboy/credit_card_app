@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:credit_card_app/components/constants.dart';
-import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/enter/bloc/enter_bloc.dart';
 import 'package:credit_card_app/get_it_injection.dart';
@@ -11,16 +10,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_credit_card/credit_card_brand.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 
-class EnterPage extends StatefulWidget {
-  const EnterPage({super.key, required this.creditCardRepository});
+class EnterPage extends StatelessWidget {
+  EnterPage({super.key});
 
-  final CreditCardRepository creditCardRepository;
-
-  @override
-  State<EnterPage> createState() => _EnterPageState();
-}
-
-class _EnterPageState extends State<EnterPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final cardNumberController = TextEditingController();
@@ -30,26 +22,46 @@ class _EnterPageState extends State<EnterPage> {
 
   @override
   Widget build(BuildContext context) {
-    final creditCardRepository = widget.creditCardRepository;
-
-    return RepositoryProvider.value(
-      value: creditCardRepository,
+    return BlocProvider(
+      create: (_) => coreSl<EnterBloc>(),
       child: Scaffold(
         appBar: AppBar(
           title: const Text(enterAppBarTitle),
         ),
-        body: BlocProvider(
-          create: (_) => coreSl<EnterBloc>(),
+        body: BlocListener<EnterBloc, EnterState>(
+          listener: (context, state) {
+            log('*** In Listener: *** $context $state');
+
+            if (state is EnterDuplicate) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text(duplicateCardErrorMessage),
+                  duration: Duration(seconds: 3),
+                ),
+              );
+            } else if (state is EnterValid) {
+              log('*** In EnterValid *** $state $context');
+              _showDialog(context);
+            }
+          },
           child: BlocBuilder<EnterBloc, EnterState>(
             builder: (context, state) {
-              log('Early \t ${state.toString()}');
-              if (state is Loading) {
-                return const CircularProgressIndicator();
+              log('Early \t //${state.toString()}');
+
+              if (state is EnterDuplicate) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text(duplicateCardErrorMessage),
+                    duration: Duration(seconds: 3),
+                  ),
+                );
+              } else if (state is EnterValid) {
+                log('*** In EnterValid *** $state $context');
+                _showDialog(context);
               }
 
               return Padding(
                 padding: const EdgeInsets.all(8.0),
-                // padding: const EdgeInsets.all(16.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -67,81 +79,29 @@ class _EnterPageState extends State<EnterPage> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      TextFormField(
-                                        controller: cardNumberController,
-                                        decoration: const InputDecoration(
-                                          // labelText: 'Card Number',
-                                          labelText: cardNumberLabelText,
-                                          // hintText: 'XXXX XXXX XXXX XXXX',
-                                          hintText: cardNumberHintText,
-                                          hintStyle:
-                                              TextStyle(color: Colors.white),
-                                          labelStyle:
-                                              TextStyle(color: Colors.white),
-                                          // focusedBorder: border,
-                                          // enabledBorder: border,
-                                        ),
-                                        validator: (String? value) {
-                                          if (value == null || value.isEmpty) {
-                                            return cardNumberErrorText;
-                                          }
-                                          return null;
-                                        },
+                                      _textFormField(
+                                        cardNumberController,
+                                        cardNumberLabelText,
+                                        cardNumberHintText,
+                                        cardNumberErrorText,
                                       ),
-                                      TextFormField(
-                                        // readOnly: true,
-                                        controller: cardTypeController,
-                                        decoration: const InputDecoration(
-                                          // labelText: 'Card Type',
-                                          labelText: cardTypeLabelText,
-                                          hintText: cardTypeHintText,
-                                          hintStyle:
-                                              TextStyle(color: Colors.white),
-                                          labelStyle:
-                                              TextStyle(color: Colors.white),
-                                          // focusedBorder: border,
-                                          // enabledBorder: border,
-                                        ),
-                                        validator: (String? value) {
-                                          if (value == null || value.isEmpty) {
-                                            return cardTypeErrorText;
-                                          }
-                                          return null;
-                                        },
+                                      _textFormField(
+                                        cardTypeController,
+                                        cardTypeLabelText,
+                                        cardTypeHintText,
+                                        cardTypeErrorText,
                                       ),
-                                      TextFormField(
-                                        controller: cvvNumberController,
-                                        decoration: const InputDecoration(
-                                          labelText: cvvNumberLabelText,
-                                          hintText: cvvNumberHintText,
-                                          hintStyle:
-                                              TextStyle(color: Colors.white),
-                                          labelStyle:
-                                              TextStyle(color: Colors.white),
-                                        ),
-                                        validator: (value) {
-                                          if (value == null || value.isEmpty) {
-                                            return cvvNumberErrorText;
-                                          }
-                                          return null;
-                                        },
+                                      _textFormField(
+                                        cvvNumberController,
+                                        cvvNumberLabelText,
+                                        cvvNumberHintText,
+                                        cvvNumberErrorText,
                                       ),
-                                      TextFormField(
-                                        controller: issuingCountryController,
-                                        decoration: const InputDecoration(
-                                          labelText: issuingCountryLabelText,
-                                          hintText: issuingCountryHintText,
-                                          hintStyle:
-                                              TextStyle(color: Colors.white),
-                                          labelStyle:
-                                              TextStyle(color: Colors.white),
-                                        ),
-                                        validator: (value) {
-                                          if (value == null || value.isEmpty) {
-                                            return issuingCountryErrorText;
-                                          }
-                                          return null;
-                                        },
+                                      _textFormField(
+                                        issuingCountryController,
+                                        issuingCountryLabelText,
+                                        issuingCountryHintText,
+                                        issuingCountryErrorText,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.symmetric(
@@ -150,31 +110,15 @@ class _EnterPageState extends State<EnterPage> {
                                           child: ElevatedButton(
                                             style: buttonSmallStyle,
                                             onPressed: () {
-                                              log(
-                                                cardNumberController.text,
-                                              );
-                                              log(cvvNumberController.text);
-                                              // Validate will return true if the form is valid, or false if
-                                              // the form is invalid.
-                                              if (_formKey.currentState!
-                                                  .validate()) {
-                                                // Process data.
-                                              }
+                                              log('${cardNumberController.text}\t${cardTypeController.text}\t${cvvNumberController.text}\t${issuingCountryController.text}');
 
-                                              // BlocProvider.of<ResultBloc>(
+                                              context.read<EnterBloc>().add(
+                                                  const EnterEvent
+                                                      .onValidate());
+                                              // BlocProvider.of<EnterBloc>(
                                               //         context)
-                                              //     .add(ResultNewCard(
-                                              //         card: generateCard()));
-
-                                              // context.read<ResultBloc>().add(
-                                              //     ResultNewCard(
-                                              //         card: generateCard()));
-
-                                              // creditCardRepository
-                                              //     .addCard(generateCard());
-
-                                              Navigator.of(context)
-                                                  .pushNamed(resultRoute);
+                                              //     .add(const EnterEvent
+                                              //         .onValidate());
                                             },
                                             child: const Text(
                                                 enterSubmitButtonTitle),
@@ -200,6 +144,100 @@ class _EnterPageState extends State<EnterPage> {
     );
   }
 
+  void _showDialog(BuildContext context) {
+    log('In _showDialog: ');
+    CreditCard creditCard = generateCard();
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return BlocProvider(
+          create: (context) => coreSl<EnterBloc>(),
+          child: BlocBuilder<EnterBloc, EnterState>(
+            builder: (context, state) {
+              return AlertDialog(
+                title: const Text(resultDialogTitle),
+                content: Card(
+                  elevation: 3,
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: _creditCardListTile(creditCard),
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      // Dispatch onCancel event to EnterBloc
+                      // BlocProvider.of<EnterBloc>(context).add(
+                      //   const EnterEvent.onCancel(),
+                      // );
+                      context
+                          .read<EnterBloc>()
+                          .add(const EnterEvent.onCancel());
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text(cancelDialogButton),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      // TODO: Add validation here!
+
+                      // Dispatch onSubmit event to EnterBloc
+                      context
+                          .read<EnterBloc>()
+                          .add(const EnterEvent.onSubmit());
+                      // BlocProvider.of<EnterBloc>(context).add(
+                      //   const EnterEvent.onSubmit(),
+                      // );
+                    },
+                    child: const Text(resultAddButtonTitle),
+                  ),
+                ],
+              );
+            },
+          ),
+        );
+      },
+    );
+  }
+
+  ListTile _creditCardListTile(CreditCard creditCard) {
+    return ListTile(
+      leading: const Icon(Icons.credit_card),
+      title: Text(
+        creditCard.cardNumber,
+        style: const TextStyle(fontWeight: FontWeight.bold),
+      ),
+      subtitle: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Card Type: ${creditCard.cardType}'),
+          Text('CVV: ${creditCard.cvvNumber.toString().padLeft(3, '0')}'),
+          Text('Issuing Country: ${creditCard.issuingCountry}'),
+        ],
+      ),
+    );
+  }
+
+  TextFormField _textFormField(TextEditingController editingController,
+      String labelText, String hintText, String errorText) {
+    return TextFormField(
+      controller: editingController,
+      decoration: InputDecoration(
+        labelText: labelText,
+        hintText: hintText,
+        hintStyle: const TextStyle(color: Colors.white),
+        labelStyle: const TextStyle(color: Colors.white),
+      ),
+      validator: (String? value) {
+        if (value == null || value.isEmpty) {
+          return errorText;
+        }
+        return null;
+      },
+    );
+  }
+
   CreditCard generateCard() {
     String cardNumber = cardNumberController.text;
     String cardType = cardTypeController.text;
@@ -214,10 +252,6 @@ class _EnterPageState extends State<EnterPage> {
 
     return card;
   }
-
-  // void dispose() {
-  //   cardNumberController.dispose();
-  // }
 }
 
 class CreditCardAnimation extends StatefulWidget {

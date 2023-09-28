@@ -6,11 +6,15 @@ sealed class ResultState with _$ResultState {
 
   const ResultState._();
 
-  const factory ResultState.initial() = Initial;
+  const factory ResultState.initial() = ResultInitial;
 
-  const factory ResultState.loading() = Loading;
+  const factory ResultState.loading() = ResultLoading;
 
-  const factory ResultState.loaded() = Loaded;
+  const factory ResultState.loaded() = ResultLoaded;
 
-  const factory ResultState.error() = ErrorS;
+  const factory ResultState.error() = ResultError;
+
+  const factory ResultState.valid() = ResultValid;
+
+  const factory ResultState.duplicate() = ResultDuplicate;
 }
