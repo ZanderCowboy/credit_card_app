@@ -30,131 +30,112 @@ class EnterPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text(enterAppBarTitle),
         ),
-        body: BlocListener<EnterBloc, EnterState>(
-          listener: (context, state) {
-            // log('*** In Listener: *** $context $state');
+        body: BlocBuilder<EnterBloc, EnterState>(
+          builder: (context, state) {
+            log('Early \t //${state.toString()}');
 
-            // if (state is EnterDuplicate) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const CreditCardAnimation(),
+                  Expanded(
+                    child: SizedBox(
+                      width: 400,
+                      child: SingleChildScrollView(
+                        child: Center(
+                          child: Column(
+                            children: [
+                              Form(
+                                key: _formKey,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    _textFormField(
+                                      cardNumberController,
+                                      cardNumberLabelText,
+                                      cardNumberHintText,
+                                      cardNumberErrorText,
+                                    ),
+                                    _textFormField(
+                                      cardTypeController,
+                                      cardTypeLabelText,
+                                      cardTypeHintText,
+                                      cardTypeErrorText,
+                                    ),
+                                    _textFormField(
+                                      cvvNumberController,
+                                      cvvNumberLabelText,
+                                      cvvNumberHintText,
+                                      cvvNumberErrorText,
+                                    ),
+                                    _textFormField(
+                                      issuingCountryController,
+                                      issuingCountryLabelText,
+                                      issuingCountryHintText,
+                                      issuingCountryErrorText,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 16.0),
+                                      child: Center(
+                                        child: ElevatedButton(
+                                          style: buttonSmallStyle,
+                                          onPressed: () {
+                                            log('${cardNumberController.text}\t${cardTypeController.text}\t${cvvNumberController.text}\t${issuingCountryController.text}');
+
+                                            if (!isDialogOpen) {
+                                              context.read<EnterBloc>().add(
+                                                  const EnterEvent
+                                                      .onValidate());
+                                              isDialogOpen = true;
+                                            }
+                                            // BlocProvider.of<EnterBloc>(
+                                            //         context)
+                                            //     .add(const EnterEvent
+                                            //         .onValidate());
+                                          },
+                                          child: const Text(
+                                              enterSubmitButtonTitle),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+
+            if (state is EnterDuplicate) {
+              log('*** In EnterDuplicate *** $state $context');
+              _showSnackBar(context);
+              return const Text('Nog n naai');
+            }
+
+            // if (state is EnterDuplicate && !isDialogOpen) {
             //   ScaffoldMessenger.of(context).showSnackBar(
             //     const SnackBar(
             //       content: Text(duplicateCardErrorMessage),
             //       duration: Duration(seconds: 3),
             //     ),
             //   );
-            // } else if (state is EnterValid) {
-            //   log('*** In EnterValid *** $state $context');
-            //   _showDialog(context);
             // }
+            if (state is EnterValid) {
+              log('*** In EnterValid *** $state $context');
+              _showDialog(context);
+              return const Text('Werk jou naai');
+            } else {
+              return const Text('Werk fok');
+            }
           },
-          child: BlocBuilder<EnterBloc, EnterState>(
-            builder: (context, state) {
-              log('Early \t //${state.toString()}');
-
-              if (state is EnterDuplicate) {
-                log('*** In EnterDuplicate *** $state $context');
-                _showSnackBar(context);
-              }
-              // if (state is EnterDuplicate && !isDialogOpen) {
-              //   ScaffoldMessenger.of(context).showSnackBar(
-              //     const SnackBar(
-              //       content: Text(duplicateCardErrorMessage),
-              //       duration: Duration(seconds: 3),
-              //     ),
-              //   );
-              // }
-              else if (state is EnterValid) {
-                log('*** In EnterValid *** $state $context');
-                _showDialog(context);
-              }
-
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const CreditCardAnimation(),
-                    Expanded(
-                      child: SizedBox(
-                        width: 400,
-                        child: SingleChildScrollView(
-                          child: Center(
-                            child: Column(
-                              children: [
-                                Form(
-                                  key: _formKey,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      _textFormField(
-                                        cardNumberController,
-                                        cardNumberLabelText,
-                                        cardNumberHintText,
-                                        cardNumberErrorText,
-                                      ),
-                                      _textFormField(
-                                        cardTypeController,
-                                        cardTypeLabelText,
-                                        cardTypeHintText,
-                                        cardTypeErrorText,
-                                      ),
-                                      _textFormField(
-                                        cvvNumberController,
-                                        cvvNumberLabelText,
-                                        cvvNumberHintText,
-                                        cvvNumberErrorText,
-                                      ),
-                                      _textFormField(
-                                        issuingCountryController,
-                                        issuingCountryLabelText,
-                                        issuingCountryHintText,
-                                        issuingCountryErrorText,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 16.0),
-                                        child: Center(
-                                          child: ElevatedButton(
-                                            style: buttonSmallStyle,
-                                            onPressed: () {
-                                              log('${cardNumberController.text}\t${cardTypeController.text}\t${cvvNumberController.text}\t${issuingCountryController.text}');
-
-                                              // context.read<EnterBloc>().add(
-                                              //     const EnterEvent
-                                              //         .onValidate());
-
-                                              final bloc =
-                                                  context.read<EnterBloc>();
-
-                                              if (!isDialogOpen) {
-                                                bloc.add(const EnterEvent
-                                                    .onValidate());
-                                                isDialogOpen = true;
-                                              }
-                                              // BlocProvider.of<EnterBloc>(
-                                              //         context)
-                                              //     .add(const EnterEvent
-                                              //         .onValidate());
-                                            },
-                                            child: const Text(
-                                                enterSubmitButtonTitle),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
         ),
       ),
     );

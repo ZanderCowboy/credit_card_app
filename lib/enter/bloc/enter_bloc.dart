@@ -18,9 +18,10 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
 // In the BLoC, implement a validation method that checks if the entered credit
 // card details are correct. You can use regular expressions to validate the card details.
 
-            if (true) {
+            if (false) {
               emit(const EnterState.valid());
             } else {
+              emit(const EnterState.initial());
               emit(const EnterState.duplicate());
             }
           },
