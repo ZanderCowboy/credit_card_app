@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:credit_card_app/components/constants.dart';
+import 'package:credit_card_app/components/countries_list.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/enter/bloc/enter_bloc.dart';
 import 'package:credit_card_app/get_it_injection.dart';
@@ -19,6 +20,9 @@ class EnterPage extends StatelessWidget {
   final cardTypeController = TextEditingController();
   final cvvNumberController = TextEditingController();
   final issuingCountryController = TextEditingController();
+  String _selectedCountry = 'ZA';
+
+  List<String> countries = countryMap.keys.toList();
 
   bool isDialogOpen = false;
 
@@ -78,9 +82,6 @@ class EnterPage extends StatelessWidget {
                               TextButton(
                                 onPressed: () {
                                   log('onPressed: onCancel()');
-                                  // context
-                                  //     .read<EnterBloc>()
-                                  //     .add(const EnterEvent.onCancel());
                                   Navigator.of(context)
                                       .popAndPushNamed(enterRoute);
                                 },
@@ -91,8 +92,6 @@ class EnterPage extends StatelessWidget {
                                   context
                                       .read<EnterBloc>()
                                       .add(EnterEvent.onSubmit(creditCard));
-                                  // Navigator.of(context)
-                                  //     .pop();
 
                                   Navigator.of(context).pushNamedAndRemoveUntil(
                                       homeRoute,
@@ -109,6 +108,9 @@ class EnterPage extends StatelessWidget {
                 );
               });
             }
+
+            countries.sort();
+            // countries.add(issuingCountryLabelText);
 
             return Padding(
               padding: const EdgeInsets.all(8.0),
@@ -146,11 +148,19 @@ class EnterPage extends StatelessWidget {
                                       cvvNumberHintText,
                                       cvvNumberErrorText,
                                     ),
-                                    _textFormField(
-                                      issuingCountryController,
-                                      issuingCountryLabelText,
-                                      issuingCountryHintText,
-                                      issuingCountryErrorText,
+                                    DropdownButtonFormField<String>(
+                                      hint: const Text(issuingCountryLabelText),
+                                      value: null,
+                                      items: countries.map((country) {
+                                        return DropdownMenuItem<String>(
+                                          value: country,
+                                          child: Text(country),
+                                        );
+                                      }).toList(),
+                                      onChanged: (value) {
+                                        _selectedCountry = value!;
+                                      },
+                                      // icon: const Icon(Icons.flag),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -386,7 +396,8 @@ class EnterPage extends StatelessWidget {
     String cardNumber = cardNumberController.text;
     String cardType = cardTypeController.text;
     int cvvNumber = int.parse(cvvNumberController.text);
-    String issuingCountry = issuingCountryController.text;
+    // String issuingCountry = issuingCountryController.text;
+    String issuingCountry = _selectedCountry;
 
     CreditCard card = CreditCard(
         cardNumber: cardNumber,

@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:credit_card_app/components/validation.dart';
 import 'package:credit_card_app/domain/credit_card/i_credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -23,21 +24,15 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
             // _creditCardRepository.addCard(value.creditCard);
             log(_creditCardRepository.readHistoryCards().length.toString());
 
-            // final CreditCard creditCard = eve
+            bool invalid = isValid(value.creditCard);
 
-            // final CreditCard creditCard = state.creditCard;
-
-            // Implement Validation:
-            // In the BLoC, implement a validation method that checks if the entered credit
-            // card details are correct. You can use regular expressions to validate the card details.
-
-            if (true) {
+            if (invalid) {
+              emit(EnterState.initial());
+              emit(const EnterState.duplicate());
+            } else {
               log('In if with true');
               emit(const EnterState.valid());
               log('Emitted EnterState.valid()');
-            } else {
-              emit(EnterState.initial());
-              emit(const EnterState.duplicate());
             }
           },
           onCancel: (_) {
@@ -54,4 +49,10 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
   }
 
   final ICreditCardRepository _creditCardRepository;
+
+  bool isValid(CreditCard creditCard) {
+    List<CreditCard> list = _creditCardRepository.readHistoryCards();
+
+    return list.contains(creditCard);
+  }
 }
