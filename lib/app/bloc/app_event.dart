@@ -1,10 +1,10 @@
 part of 'app_bloc.dart';
 
-class AppEvent extends Equatable {
-  const AppEvent();
+// class AppEvent extends Equatable {
+//   const AppEvent();
 
-  @override
-  List<Object> get props => [];
-}
+//   @override
+//   List<Object> get props => [];
+// }
 
-final class AppInitial extends AppEvent {}
+// final class AppInitial extends AppEvent {}
