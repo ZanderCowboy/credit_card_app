@@ -15,8 +15,6 @@ class BannedCountries with _$BannedCountries {
     @HiveField(1) required bool isBanned,
   }) = _BannedCountries;
 
-  // @HiveField(0)
-  // final String bannedCountry;
-  // @HiveField(1)
-  // final bool isBanned;
+  factory BannedCountries.empty() =>
+      const BannedCountries(bannedCountry: '', isBanned: false);
 }

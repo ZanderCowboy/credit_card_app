@@ -65,22 +65,22 @@ class _$BannedCountriesCopyWithImpl<$Res, $Val extends BannedCountries>
 }
 
 /// @nodoc
-abstract class _$$_BannedCountriesCopyWith<$Res>
+abstract class _$$BannedCountriesImplCopyWith<$Res>
     implements $BannedCountriesCopyWith<$Res> {
-  factory _$$_BannedCountriesCopyWith(
-          _$_BannedCountries value, $Res Function(_$_BannedCountries) then) =
-      __$$_BannedCountriesCopyWithImpl<$Res>;
+  factory _$$BannedCountriesImplCopyWith(_$BannedCountriesImpl value,
+          $Res Function(_$BannedCountriesImpl) then) =
+      __$$BannedCountriesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@HiveField(0) String bannedCountry, @HiveField(1) bool isBanned});
 }
 
 /// @nodoc
-class __$$_BannedCountriesCopyWithImpl<$Res>
-    extends _$BannedCountriesCopyWithImpl<$Res, _$_BannedCountries>
-    implements _$$_BannedCountriesCopyWith<$Res> {
-  __$$_BannedCountriesCopyWithImpl(
-      _$_BannedCountries _value, $Res Function(_$_BannedCountries) _then)
+class __$$BannedCountriesImplCopyWithImpl<$Res>
+    extends _$BannedCountriesCopyWithImpl<$Res, _$BannedCountriesImpl>
+    implements _$$BannedCountriesImplCopyWith<$Res> {
+  __$$BannedCountriesImplCopyWithImpl(
+      _$BannedCountriesImpl _value, $Res Function(_$BannedCountriesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,7 +89,7 @@ class __$$_BannedCountriesCopyWithImpl<$Res>
     Object? bannedCountry = null,
     Object? isBanned = null,
   }) {
-    return _then(_$_BannedCountries(
+    return _then(_$BannedCountriesImpl(
       bannedCountry: null == bannedCountry
           ? _value.bannedCountry
           : bannedCountry // ignore: cast_nullable_to_non_nullable
@@ -104,8 +104,8 @@ class __$$_BannedCountriesCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_BannedCountries implements _BannedCountries {
-  const _$_BannedCountries(
+class _$BannedCountriesImpl implements _BannedCountries {
+  const _$BannedCountriesImpl(
       {@HiveField(0) required this.bannedCountry,
       @HiveField(1) required this.isBanned});
 
@@ -125,7 +125,7 @@ class _$_BannedCountries implements _BannedCountries {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BannedCountries &&
+            other is _$BannedCountriesImpl &&
             (identical(other.bannedCountry, bannedCountry) ||
                 other.bannedCountry == bannedCountry) &&
             (identical(other.isBanned, isBanned) ||
@@ -138,14 +138,15 @@ class _$_BannedCountries implements _BannedCountries {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BannedCountriesCopyWith<_$_BannedCountries> get copyWith =>
-      __$$_BannedCountriesCopyWithImpl<_$_BannedCountries>(this, _$identity);
+  _$$BannedCountriesImplCopyWith<_$BannedCountriesImpl> get copyWith =>
+      __$$BannedCountriesImplCopyWithImpl<_$BannedCountriesImpl>(
+          this, _$identity);
 }
 
 abstract class _BannedCountries implements BannedCountries {
   const factory _BannedCountries(
       {@HiveField(0) required final String bannedCountry,
-      @HiveField(1) required final bool isBanned}) = _$_BannedCountries;
+      @HiveField(1) required final bool isBanned}) = _$BannedCountriesImpl;
 
   @override
   @HiveField(0)
@@ -155,6 +156,6 @@ abstract class _BannedCountries implements BannedCountries {
   bool get isBanned;
   @override
   @JsonKey(ignore: true)
-  _$$_BannedCountriesCopyWith<_$_BannedCountries> get copyWith =>
+  _$$BannedCountriesImplCopyWith<_$BannedCountriesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

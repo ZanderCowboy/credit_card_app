@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:credit_card_app/data/persistance/db_driver.dart';
@@ -32,18 +34,19 @@ class BannedCountriesBox {
   }
 
   // gets an index and a new BannedCountries instance to be added.
-  void updateBannedCountry(int index, BannedCountries bc) {
+  Future<void> updateBannedCountry(int index, BannedCountries bc) async {
     if (box.containsKey(index)) {
-      box.delete(index);
+      await box.delete(index);
       // return;
     }
     if (!box.containsKey(bc)) {
-      box.put(index, bc);
+      await box.put(index, bc);
     }
   }
 
   // deleteAt
   Future<void> deleteBannedCountryAt(int index) async {
+    log('index at box: $index');
     await box.deleteAt(index);
   }
 

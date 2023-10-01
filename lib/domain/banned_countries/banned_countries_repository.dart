@@ -58,13 +58,6 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
     List<BannedCountries> list = bannedCountriesBox.readAllBannedCountries();
     int index = -1;
 
-    for (var i = 0; i < list.length; i++) {
-      log('${list[i].bannedCountry}\t${list[i].isBanned}');
-    }
-
-    // DB Entries
-    // ZA, true
-
     BannedCountries bc =
         BannedCountries(bannedCountry: country, isBanned: !newValue!);
     log('${bc.bannedCountry} - ${bc.isBanned}');
@@ -74,7 +67,6 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
         index = i;
       }
     }
-    // find country, get index
 
     log(index.toString());
 
@@ -86,5 +78,21 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
         isBanned: newValue,
       ),
     );
+  }
+
+  int lookupCountry(BannedCountries bCountry) {
+    int foundAt = -1;
+
+    List<BannedCountries> list = readCountries();
+
+    for (var i = 0; i < list.length; i++) {
+      BannedCountries bc = list[i];
+
+      if (bc == bCountry) {
+        foundAt = i;
+      }
+    }
+
+    return foundAt;
   }
 }
