@@ -5,7 +5,6 @@ import 'package:credit_card_app/data/persistance/db_driver.dart';
 class BannedCountriesBox {
   BannedCountriesBox();
 
-  // Hand over the opened box from the driver to this model
   final Box<BannedCountries> box =
       Hive.box<BannedCountries>(bannedCountriesBoxName);
 
@@ -19,12 +18,12 @@ class BannedCountriesBox {
     return box.getAt(index);
   }
 
-  // read all
+  // readAll
   List<BannedCountries> readAllBannedCountries() {
     List<BannedCountries> list = <BannedCountries>[];
-    int listLength = box.length;
+    int boxLength = box.length;
 
-    for (var i = 0; i < listLength; i++) {
+    for (var i = 0; i < boxLength; i++) {
       BannedCountries? bc = box.getAt(i);
       list.add(bc!);
     }
@@ -44,11 +43,11 @@ class BannedCountriesBox {
   }
 
   // deleteAt
-  void deleteBannedCountryAt(int index) {
-    box.deleteAt(index);
+  Future<void> deleteBannedCountryAt(int index) async {
+    await box.deleteAt(index);
   }
 
-  // delete
+  // deleteAll
   void deleteBannedCountries() {
     box.clear();
   }

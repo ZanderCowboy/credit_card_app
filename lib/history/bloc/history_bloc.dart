@@ -9,8 +9,7 @@ part 'history_state.dart';
 
 @Injectable()
 class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
-  HistoryBloc(this._creditCardRepository)
-      : super(const HistoryState.initial()) {
+  HistoryBloc(this._creditCardRepository) : super(const HistoryState.initial()) {
     on<HistoryEvent>((event, emit) async {});
   }
 

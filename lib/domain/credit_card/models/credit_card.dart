@@ -17,6 +17,13 @@ class CreditCard with _$CreditCard {
     @HiveField(3) required String issuingCountry,
   }) = _CreditCard;
 
+  factory CreditCard.empty() => const CreditCard(
+        cardNumber: '0000',
+        cardType: '0000',
+        cvvNumber: 000,
+        issuingCountry: '0000',
+      );
+
   // @HiveField(0)
   // final String cardNumber;
   // @HiveField(1)

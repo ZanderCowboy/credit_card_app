@@ -1,5 +1,7 @@
 // This page will display a list of all the cards that have been captured in the session.
 
+import 'dart:developer';
+
 import 'package:credit_card_app/components/constants.dart';
 import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
@@ -18,9 +20,14 @@ class HistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final CreditCardRepository creditCardRepository;
+    // List<CreditCard> cards =
+    //     context.read<CreditCardRepository>().readHistoryCards();
     List<CreditCard> cards =
         context.read<CreditCardRepository>().readHistoryCards();
 
+    log(cards.toString());
+    log(cards.length.toString());
     return Scaffold(
       appBar: AppBar(
         title: const Text(historyAppBarTitle),
