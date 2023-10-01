@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:credit_card_app/data/persistance/models/credit_card_box.dart';
 import 'package:credit_card_app/domain/credit_card/i_credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: ICreditCardRepository)
+// @LazySingleton(as: CreditCardRepository)
 class CreditCardRepository implements ICreditCardRepository {
   CreditCardRepository();
 
@@ -12,7 +15,9 @@ class CreditCardRepository implements ICreditCardRepository {
   // add
   @override
   void addCard(CreditCard card) {
+    log('In CreditCardRepository - addCard(): $card');
     creditCardBox.addCreditCard(card);
+    log('Length: ${creditCardBox.box.length}');
   }
 
   // read
@@ -28,7 +33,7 @@ class CreditCardRepository implements ICreditCardRepository {
 
   @override
   List<CreditCard> readHistoryCards() {
-    return CreditCardBox().readAllCreditCards();
+    return creditCardBox.readAllCreditCards();
   }
 
   // update

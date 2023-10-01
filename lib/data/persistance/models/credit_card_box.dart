@@ -4,7 +4,7 @@ import 'package:credit_card_app/data/persistance/db_driver.dart';
 
 class CreditCardBox {
   CreditCardBox();
-  // Hand over the opened box from the driver to this model
+
   final Box<CreditCard> box = Hive.box<CreditCard>(creditCardBoxName);
 
   // add
@@ -20,8 +20,9 @@ class CreditCardBox {
   // readAll
   List<CreditCard> readAllCreditCards() {
     List<CreditCard> list = <CreditCard>[];
+    int boxLength = box.length;
 
-    for (var i = 0; i < list.length; i++) {
+    for (var i = 0; i < boxLength; i++) {
       CreditCard? card = box.getAt(i);
       list.add(card!);
     }
@@ -31,11 +32,12 @@ class CreditCardBox {
 
   // update
 
-  // delete
+  // deleteAt
   void deleteCreditCardAt(int index) {
     box.deleteAt(index);
   }
 
+  // deleteAll
   void deleteCreditCards() {
     box.clear();
   }
