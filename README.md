@@ -84,3 +84,7 @@ The capture page should show a credit card frontside and if you hover over it, i
 ### result_page
 
 => landing_page
+
+
+## Commands
+- dart run build_runner build --delete-conflicting-outputs
