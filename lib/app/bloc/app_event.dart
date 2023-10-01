@@ -1,6 +1,6 @@
 part of 'app_bloc.dart';
 
-sealed class AppEvent extends Equatable {
+class AppEvent extends Equatable {
   const AppEvent();
 
   @override
@@ -8,5 +8,3 @@ sealed class AppEvent extends Equatable {
 }
 
 final class AppInitial extends AppEvent {}
-
-

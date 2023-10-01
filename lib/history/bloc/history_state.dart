@@ -1,7 +1,7 @@
 part of 'history_bloc.dart';
 
 @freezed
-sealed class HistoryState with _$HistoryState {
+class HistoryState with _$HistoryState {
   const factory HistoryState() = _HistoryState;
 
   const HistoryState._();

@@ -1,7 +1,7 @@
 part of 'result_bloc.dart';
 
 @freezed
-sealed class ResultState with _$ResultState {
+class ResultState with _$ResultState {
   const factory ResultState() = _ResultState;
 
   const ResultState._();

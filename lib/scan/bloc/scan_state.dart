@@ -1,7 +1,7 @@
 part of 'scan_bloc.dart';
 
 @freezed
-sealed class ScanState with _$ScanState {
+class ScanState with _$ScanState {
   const factory ScanState() = _ScanState;
 
   const ScanState._();
