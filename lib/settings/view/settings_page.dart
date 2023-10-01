@@ -283,7 +283,6 @@ class _SettingsPageState extends State<SettingsPage> {
     List<String> countries = countryMap.keys.toList();
     countries.sort();
 
-    // FIXME: Possibly move the Provider to the Home Page
     return Scaffold(
       appBar: AppBar(
         title: const Text(settingsAppBarTitle),
@@ -306,11 +305,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   padding: const EdgeInsets.all(8),
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black12,
-                      )
-                    ],
+                    boxShadow: [BoxShadow(color: Colors.black12)],
                   ),
                   child: Column(
                     children: [
@@ -325,7 +320,6 @@ class _SettingsPageState extends State<SettingsPage> {
                                 child: ListView.builder(
                                   itemCount: bannedCountries.length,
                                   itemBuilder: (context, index) {
-                                    // bool checkbox = true;
                                     bool checkbox =
                                         bannedCountries[index].isBanned;
 
@@ -334,26 +328,52 @@ class _SettingsPageState extends State<SettingsPage> {
                                     String? bannedCountryName =
                                         countryMap[bannedCountryCode];
 
-                                    return CheckboxListTile(
-                                      title: Text(
-                                          '$bannedCountryCode \t - $bannedCountryName'),
-                                      value: checkbox,
-                                      onChanged: (bool? value) {
-                                        setState(
-                                          () {
-                                            log('$value \t $bannedCountryCode');
-                                            // checkbox = value!;
-                                            // bannedCountriesRepository
-                                            //     .updateCountryChecked(
-                                            //         bannedCountryCode, value);
-                                            context
-                                                .read<
-                                                    BannedCountriesRepository>()
-                                                .updateCountryChecked(
-                                                    bannedCountryCode, value);
-                                          },
-                                        );
+                                    return InkWell(
+                                      onLongPress: () {
+                                        showDialog(
+                                            context: context,
+                                            builder: (_) => AlertDialog(
+                                                  content: Text(
+                                                    'Do you want to delete $bannedCountryName?',
+                                                  ),
+                                                  actions: <Widget>[
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.of(context)
+                                                              .pop(),
+                                                      child: const Text('No'),
+                                                    ),
+                                                    TextButton(
+                                                      onPressed: () async {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                        // add await and change function if DB is not updated after delete.
+                                                        bannedCountriesRepository
+                                                            .deleteCountryAt(
+                                                                index);
+                                                      },
+                                                      child: const Text('Yes'),
+                                                    )
+                                                  ],
+                                                ));
                                       },
+                                      child: CheckboxListTile(
+                                        title: Text(
+                                            '$bannedCountryCode \t - $bannedCountryName'),
+                                        value: checkbox,
+                                        onChanged: (bool? value) {
+                                          setState(
+                                            () {
+                                              log('$value \t $bannedCountryCode');
+                                              context
+                                                  .read<
+                                                      BannedCountriesRepository>()
+                                                  .updateCountryChecked(
+                                                      bannedCountryCode, value);
+                                            },
+                                          );
+                                        },
+                                      ),
                                     );
                                   },
                                 ),
