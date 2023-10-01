@@ -18,25 +18,25 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$EnterEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onValidate,
+    required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onCancel,
-    required TResult Function() onSubmit,
+    required TResult Function(CreditCard creditCard) onSubmit,
     required TResult Function() onChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onValidate,
+    TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onCancel,
-    TResult? Function()? onSubmit,
+    TResult? Function(CreditCard creditCard)? onSubmit,
     TResult? Function()? onChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onValidate,
+    TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onCancel,
-    TResult Function()? onSubmit,
+    TResult Function(CreditCard creditCard)? onSubmit,
     TResult Function()? onChanged,
     required TResult orElse(),
   }) =>
@@ -91,6 +91,10 @@ abstract class _$$onValidateCopyWith<$Res> {
   factory _$$onValidateCopyWith(
           _$onValidate value, $Res Function(_$onValidate) then) =
       __$$onValidateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CreditCard creditCard});
+
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
@@ -100,60 +104,93 @@ class __$$onValidateCopyWithImpl<$Res>
   __$$onValidateCopyWithImpl(
       _$onValidate _value, $Res Function(_$onValidate) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creditCard = null,
+  }) {
+    return _then(_$onValidate(
+      null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreditCardCopyWith<$Res> get creditCard {
+    return $CreditCardCopyWith<$Res>(_value.creditCard, (value) {
+      return _then(_value.copyWith(creditCard: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$onValidate implements onValidate {
-  const _$onValidate();
+  const _$onValidate(this.creditCard);
+
+  @override
+  final CreditCard creditCard;
 
   @override
   String toString() {
-    return 'EnterEvent.onValidate()';
+    return 'EnterEvent.onValidate(creditCard: $creditCard)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onValidate);
+        (other.runtimeType == runtimeType &&
+            other is _$onValidate &&
+            (identical(other.creditCard, creditCard) ||
+                other.creditCard == creditCard));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, creditCard);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$onValidateCopyWith<_$onValidate> get copyWith =>
+      __$$onValidateCopyWithImpl<_$onValidate>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onValidate,
+    required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onCancel,
-    required TResult Function() onSubmit,
+    required TResult Function(CreditCard creditCard) onSubmit,
     required TResult Function() onChanged,
   }) {
-    return onValidate();
+    return onValidate(creditCard);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onValidate,
+    TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onCancel,
-    TResult? Function()? onSubmit,
+    TResult? Function(CreditCard creditCard)? onSubmit,
     TResult? Function()? onChanged,
   }) {
-    return onValidate?.call();
+    return onValidate?.call(creditCard);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onValidate,
+    TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onCancel,
-    TResult Function()? onSubmit,
+    TResult Function(CreditCard creditCard)? onSubmit,
     TResult Function()? onChanged,
     required TResult orElse(),
   }) {
     if (onValidate != null) {
-      return onValidate();
+      return onValidate(creditCard);
     }
     return orElse();
   }
@@ -197,7 +234,12 @@ class _$onValidate implements onValidate {
 }
 
 abstract class onValidate implements EnterEvent {
-  const factory onValidate() = _$onValidate;
+  const factory onValidate(final CreditCard creditCard) = _$onValidate;
+
+  CreditCard get creditCard;
+  @JsonKey(ignore: true)
+  _$$onValidateCopyWith<_$onValidate> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -237,9 +279,9 @@ class _$onCancel implements onCancel {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onValidate,
+    required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onCancel,
-    required TResult Function() onSubmit,
+    required TResult Function(CreditCard creditCard) onSubmit,
     required TResult Function() onChanged,
   }) {
     return onCancel();
@@ -248,9 +290,9 @@ class _$onCancel implements onCancel {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onValidate,
+    TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onCancel,
-    TResult? Function()? onSubmit,
+    TResult? Function(CreditCard creditCard)? onSubmit,
     TResult? Function()? onChanged,
   }) {
     return onCancel?.call();
@@ -259,9 +301,9 @@ class _$onCancel implements onCancel {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onValidate,
+    TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onCancel,
-    TResult Function()? onSubmit,
+    TResult Function(CreditCard creditCard)? onSubmit,
     TResult Function()? onChanged,
     required TResult orElse(),
   }) {
@@ -318,6 +360,10 @@ abstract class _$$onSubmitCopyWith<$Res> {
   factory _$$onSubmitCopyWith(
           _$onSubmit value, $Res Function(_$onSubmit) then) =
       __$$onSubmitCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CreditCard creditCard});
+
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
@@ -326,60 +372,93 @@ class __$$onSubmitCopyWithImpl<$Res>
     implements _$$onSubmitCopyWith<$Res> {
   __$$onSubmitCopyWithImpl(_$onSubmit _value, $Res Function(_$onSubmit) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creditCard = null,
+  }) {
+    return _then(_$onSubmit(
+      null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreditCardCopyWith<$Res> get creditCard {
+    return $CreditCardCopyWith<$Res>(_value.creditCard, (value) {
+      return _then(_value.copyWith(creditCard: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$onSubmit implements onSubmit {
-  const _$onSubmit();
+  const _$onSubmit(this.creditCard);
+
+  @override
+  final CreditCard creditCard;
 
   @override
   String toString() {
-    return 'EnterEvent.onSubmit()';
+    return 'EnterEvent.onSubmit(creditCard: $creditCard)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onSubmit);
+        (other.runtimeType == runtimeType &&
+            other is _$onSubmit &&
+            (identical(other.creditCard, creditCard) ||
+                other.creditCard == creditCard));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, creditCard);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$onSubmitCopyWith<_$onSubmit> get copyWith =>
+      __$$onSubmitCopyWithImpl<_$onSubmit>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onValidate,
+    required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onCancel,
-    required TResult Function() onSubmit,
+    required TResult Function(CreditCard creditCard) onSubmit,
     required TResult Function() onChanged,
   }) {
-    return onSubmit();
+    return onSubmit(creditCard);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onValidate,
+    TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onCancel,
-    TResult? Function()? onSubmit,
+    TResult? Function(CreditCard creditCard)? onSubmit,
     TResult? Function()? onChanged,
   }) {
-    return onSubmit?.call();
+    return onSubmit?.call(creditCard);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onValidate,
+    TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onCancel,
-    TResult Function()? onSubmit,
+    TResult Function(CreditCard creditCard)? onSubmit,
     TResult Function()? onChanged,
     required TResult orElse(),
   }) {
     if (onSubmit != null) {
-      return onSubmit();
+      return onSubmit(creditCard);
     }
     return orElse();
   }
@@ -423,7 +502,12 @@ class _$onSubmit implements onSubmit {
 }
 
 abstract class onSubmit implements EnterEvent {
-  const factory onSubmit() = _$onSubmit;
+  const factory onSubmit(final CreditCard creditCard) = _$onSubmit;
+
+  CreditCard get creditCard;
+  @JsonKey(ignore: true)
+  _$$onSubmitCopyWith<_$onSubmit> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -464,9 +548,9 @@ class _$onChanged implements onChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onValidate,
+    required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onCancel,
-    required TResult Function() onSubmit,
+    required TResult Function(CreditCard creditCard) onSubmit,
     required TResult Function() onChanged,
   }) {
     return onChanged();
@@ -475,9 +559,9 @@ class _$onChanged implements onChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onValidate,
+    TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onCancel,
-    TResult? Function()? onSubmit,
+    TResult? Function(CreditCard creditCard)? onSubmit,
     TResult? Function()? onChanged,
   }) {
     return onChanged?.call();
@@ -486,9 +570,9 @@ class _$onChanged implements onChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onValidate,
+    TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onCancel,
-    TResult Function()? onSubmit,
+    TResult Function(CreditCard creditCard)? onSubmit,
     TResult Function()? onChanged,
     required TResult orElse(),
   }) {
@@ -544,81 +628,45 @@ abstract class onChanged implements EnterEvent {
 mixin _$EnterState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
+    TResult Function(CreditCard creditCard) $default, {
     required TResult Function() valid,
     required TResult Function() duplicate,
-    required TResult Function() cancel,
-    required TResult Function() submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
+    TResult? Function(CreditCard creditCard)? $default, {
     TResult? Function()? valid,
     TResult? Function()? duplicate,
-    TResult? Function()? cancel,
-    TResult? Function()? submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
+    TResult Function(CreditCard creditCard)? $default, {
     TResult Function()? valid,
     TResult Function()? duplicate,
-    TResult Function()? cancel,
-    TResult Function()? submit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_EnterState value) $default, {
-    required TResult Function(EnterInitial value) initial,
-    required TResult Function(EnterLoading value) loading,
-    required TResult Function(EnterLoaded value) loaded,
-    required TResult Function(EnterError value) error,
     required TResult Function(EnterValid value) valid,
     required TResult Function(EnterDuplicate value) duplicate,
-    required TResult Function(EnterCancel value) cancel,
-    required TResult Function(EnterSubmit value) submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_EnterState value)? $default, {
-    TResult? Function(EnterInitial value)? initial,
-    TResult? Function(EnterLoading value)? loading,
-    TResult? Function(EnterLoaded value)? loaded,
-    TResult? Function(EnterError value)? error,
     TResult? Function(EnterValid value)? valid,
     TResult? Function(EnterDuplicate value)? duplicate,
-    TResult? Function(EnterCancel value)? cancel,
-    TResult? Function(EnterSubmit value)? submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_EnterState value)? $default, {
-    TResult Function(EnterInitial value)? initial,
-    TResult Function(EnterLoading value)? loading,
-    TResult Function(EnterLoaded value)? loaded,
-    TResult Function(EnterError value)? error,
     TResult Function(EnterValid value)? valid,
     TResult Function(EnterDuplicate value)? duplicate,
-    TResult Function(EnterCancel value)? cancel,
-    TResult Function(EnterSubmit value)? submit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -647,6 +695,10 @@ abstract class _$$_EnterStateCopyWith<$Res> {
   factory _$$_EnterStateCopyWith(
           _$_EnterState value, $Res Function(_$_EnterState) then) =
       __$$_EnterStateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CreditCard creditCard});
+
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
@@ -656,75 +708,90 @@ class __$$_EnterStateCopyWithImpl<$Res>
   __$$_EnterStateCopyWithImpl(
       _$_EnterState _value, $Res Function(_$_EnterState) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creditCard = null,
+  }) {
+    return _then(_$_EnterState(
+      creditCard: null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreditCardCopyWith<$Res> get creditCard {
+    return $CreditCardCopyWith<$Res>(_value.creditCard, (value) {
+      return _then(_value.copyWith(creditCard: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_EnterState extends _EnterState {
-  const _$_EnterState() : super._();
+  const _$_EnterState({required this.creditCard}) : super._();
+
+  @override
+  final CreditCard creditCard;
 
   @override
   String toString() {
-    return 'EnterState()';
+    return 'EnterState(creditCard: $creditCard)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_EnterState);
+        (other.runtimeType == runtimeType &&
+            other is _$_EnterState &&
+            (identical(other.creditCard, creditCard) ||
+                other.creditCard == creditCard));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, creditCard);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_EnterStateCopyWith<_$_EnterState> get copyWith =>
+      __$$_EnterStateCopyWithImpl<_$_EnterState>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
+    TResult Function(CreditCard creditCard) $default, {
     required TResult Function() valid,
     required TResult Function() duplicate,
-    required TResult Function() cancel,
-    required TResult Function() submit,
   }) {
-    return $default();
+    return $default(creditCard);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
+    TResult? Function(CreditCard creditCard)? $default, {
     TResult? Function()? valid,
     TResult? Function()? duplicate,
-    TResult? Function()? cancel,
-    TResult? Function()? submit,
   }) {
-    return $default?.call();
+    return $default?.call(creditCard);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
+    TResult Function(CreditCard creditCard)? $default, {
     TResult Function()? valid,
     TResult Function()? duplicate,
-    TResult Function()? cancel,
-    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default();
+      return $default(creditCard);
     }
     return orElse();
   }
@@ -733,14 +800,8 @@ class _$_EnterState extends _EnterState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_EnterState value) $default, {
-    required TResult Function(EnterInitial value) initial,
-    required TResult Function(EnterLoading value) loading,
-    required TResult Function(EnterLoaded value) loaded,
-    required TResult Function(EnterError value) error,
     required TResult Function(EnterValid value) valid,
     required TResult Function(EnterDuplicate value) duplicate,
-    required TResult Function(EnterCancel value) cancel,
-    required TResult Function(EnterSubmit value) submit,
   }) {
     return $default(this);
   }
@@ -749,14 +810,8 @@ class _$_EnterState extends _EnterState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_EnterState value)? $default, {
-    TResult? Function(EnterInitial value)? initial,
-    TResult? Function(EnterLoading value)? loading,
-    TResult? Function(EnterLoaded value)? loaded,
-    TResult? Function(EnterError value)? error,
     TResult? Function(EnterValid value)? valid,
     TResult? Function(EnterDuplicate value)? duplicate,
-    TResult? Function(EnterCancel value)? cancel,
-    TResult? Function(EnterSubmit value)? submit,
   }) {
     return $default?.call(this);
   }
@@ -765,14 +820,8 @@ class _$_EnterState extends _EnterState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_EnterState value)? $default, {
-    TResult Function(EnterInitial value)? initial,
-    TResult Function(EnterLoading value)? loading,
-    TResult Function(EnterLoaded value)? loaded,
-    TResult Function(EnterError value)? error,
     TResult Function(EnterValid value)? valid,
     TResult Function(EnterDuplicate value)? duplicate,
-    TResult Function(EnterCancel value)? cancel,
-    TResult Function(EnterSubmit value)? submit,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -783,588 +832,14 @@ class _$_EnterState extends _EnterState {
 }
 
 abstract class _EnterState extends EnterState {
-  const factory _EnterState() = _$_EnterState;
+  const factory _EnterState({required final CreditCard creditCard}) =
+      _$_EnterState;
   const _EnterState._() : super._();
-}
 
-/// @nodoc
-abstract class _$$EnterInitialCopyWith<$Res> {
-  factory _$$EnterInitialCopyWith(
-          _$EnterInitial value, $Res Function(_$EnterInitial) then) =
-      __$$EnterInitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$EnterInitialCopyWithImpl<$Res>
-    extends _$EnterStateCopyWithImpl<$Res, _$EnterInitial>
-    implements _$$EnterInitialCopyWith<$Res> {
-  __$$EnterInitialCopyWithImpl(
-      _$EnterInitial _value, $Res Function(_$EnterInitial) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$EnterInitial extends EnterInitial {
-  const _$EnterInitial() : super._();
-
-  @override
-  String toString() {
-    return 'EnterState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EnterInitial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
-    required TResult Function() cancel,
-    required TResult Function() submit,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
-    TResult? Function()? cancel,
-    TResult? Function()? submit,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
-    TResult Function()? cancel,
-    TResult Function()? submit,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_EnterState value) $default, {
-    required TResult Function(EnterInitial value) initial,
-    required TResult Function(EnterLoading value) loading,
-    required TResult Function(EnterLoaded value) loaded,
-    required TResult Function(EnterError value) error,
-    required TResult Function(EnterValid value) valid,
-    required TResult Function(EnterDuplicate value) duplicate,
-    required TResult Function(EnterCancel value) cancel,
-    required TResult Function(EnterSubmit value) submit,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_EnterState value)? $default, {
-    TResult? Function(EnterInitial value)? initial,
-    TResult? Function(EnterLoading value)? loading,
-    TResult? Function(EnterLoaded value)? loaded,
-    TResult? Function(EnterError value)? error,
-    TResult? Function(EnterValid value)? valid,
-    TResult? Function(EnterDuplicate value)? duplicate,
-    TResult? Function(EnterCancel value)? cancel,
-    TResult? Function(EnterSubmit value)? submit,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_EnterState value)? $default, {
-    TResult Function(EnterInitial value)? initial,
-    TResult Function(EnterLoading value)? loading,
-    TResult Function(EnterLoaded value)? loaded,
-    TResult Function(EnterError value)? error,
-    TResult Function(EnterValid value)? valid,
-    TResult Function(EnterDuplicate value)? duplicate,
-    TResult Function(EnterCancel value)? cancel,
-    TResult Function(EnterSubmit value)? submit,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class EnterInitial extends EnterState {
-  const factory EnterInitial() = _$EnterInitial;
-  const EnterInitial._() : super._();
-}
-
-/// @nodoc
-abstract class _$$EnterLoadingCopyWith<$Res> {
-  factory _$$EnterLoadingCopyWith(
-          _$EnterLoading value, $Res Function(_$EnterLoading) then) =
-      __$$EnterLoadingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$EnterLoadingCopyWithImpl<$Res>
-    extends _$EnterStateCopyWithImpl<$Res, _$EnterLoading>
-    implements _$$EnterLoadingCopyWith<$Res> {
-  __$$EnterLoadingCopyWithImpl(
-      _$EnterLoading _value, $Res Function(_$EnterLoading) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$EnterLoading extends EnterLoading {
-  const _$EnterLoading() : super._();
-
-  @override
-  String toString() {
-    return 'EnterState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EnterLoading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
-    required TResult Function() cancel,
-    required TResult Function() submit,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
-    TResult? Function()? cancel,
-    TResult? Function()? submit,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
-    TResult Function()? cancel,
-    TResult Function()? submit,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_EnterState value) $default, {
-    required TResult Function(EnterInitial value) initial,
-    required TResult Function(EnterLoading value) loading,
-    required TResult Function(EnterLoaded value) loaded,
-    required TResult Function(EnterError value) error,
-    required TResult Function(EnterValid value) valid,
-    required TResult Function(EnterDuplicate value) duplicate,
-    required TResult Function(EnterCancel value) cancel,
-    required TResult Function(EnterSubmit value) submit,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_EnterState value)? $default, {
-    TResult? Function(EnterInitial value)? initial,
-    TResult? Function(EnterLoading value)? loading,
-    TResult? Function(EnterLoaded value)? loaded,
-    TResult? Function(EnterError value)? error,
-    TResult? Function(EnterValid value)? valid,
-    TResult? Function(EnterDuplicate value)? duplicate,
-    TResult? Function(EnterCancel value)? cancel,
-    TResult? Function(EnterSubmit value)? submit,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_EnterState value)? $default, {
-    TResult Function(EnterInitial value)? initial,
-    TResult Function(EnterLoading value)? loading,
-    TResult Function(EnterLoaded value)? loaded,
-    TResult Function(EnterError value)? error,
-    TResult Function(EnterValid value)? valid,
-    TResult Function(EnterDuplicate value)? duplicate,
-    TResult Function(EnterCancel value)? cancel,
-    TResult Function(EnterSubmit value)? submit,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class EnterLoading extends EnterState {
-  const factory EnterLoading() = _$EnterLoading;
-  const EnterLoading._() : super._();
-}
-
-/// @nodoc
-abstract class _$$EnterLoadedCopyWith<$Res> {
-  factory _$$EnterLoadedCopyWith(
-          _$EnterLoaded value, $Res Function(_$EnterLoaded) then) =
-      __$$EnterLoadedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$EnterLoadedCopyWithImpl<$Res>
-    extends _$EnterStateCopyWithImpl<$Res, _$EnterLoaded>
-    implements _$$EnterLoadedCopyWith<$Res> {
-  __$$EnterLoadedCopyWithImpl(
-      _$EnterLoaded _value, $Res Function(_$EnterLoaded) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$EnterLoaded extends EnterLoaded {
-  const _$EnterLoaded() : super._();
-
-  @override
-  String toString() {
-    return 'EnterState.loaded()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EnterLoaded);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
-    required TResult Function() cancel,
-    required TResult Function() submit,
-  }) {
-    return loaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
-    TResult? Function()? cancel,
-    TResult? Function()? submit,
-  }) {
-    return loaded?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
-    TResult Function()? cancel,
-    TResult Function()? submit,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_EnterState value) $default, {
-    required TResult Function(EnterInitial value) initial,
-    required TResult Function(EnterLoading value) loading,
-    required TResult Function(EnterLoaded value) loaded,
-    required TResult Function(EnterError value) error,
-    required TResult Function(EnterValid value) valid,
-    required TResult Function(EnterDuplicate value) duplicate,
-    required TResult Function(EnterCancel value) cancel,
-    required TResult Function(EnterSubmit value) submit,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_EnterState value)? $default, {
-    TResult? Function(EnterInitial value)? initial,
-    TResult? Function(EnterLoading value)? loading,
-    TResult? Function(EnterLoaded value)? loaded,
-    TResult? Function(EnterError value)? error,
-    TResult? Function(EnterValid value)? valid,
-    TResult? Function(EnterDuplicate value)? duplicate,
-    TResult? Function(EnterCancel value)? cancel,
-    TResult? Function(EnterSubmit value)? submit,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_EnterState value)? $default, {
-    TResult Function(EnterInitial value)? initial,
-    TResult Function(EnterLoading value)? loading,
-    TResult Function(EnterLoaded value)? loaded,
-    TResult Function(EnterError value)? error,
-    TResult Function(EnterValid value)? valid,
-    TResult Function(EnterDuplicate value)? duplicate,
-    TResult Function(EnterCancel value)? cancel,
-    TResult Function(EnterSubmit value)? submit,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class EnterLoaded extends EnterState {
-  const factory EnterLoaded() = _$EnterLoaded;
-  const EnterLoaded._() : super._();
-}
-
-/// @nodoc
-abstract class _$$EnterErrorCopyWith<$Res> {
-  factory _$$EnterErrorCopyWith(
-          _$EnterError value, $Res Function(_$EnterError) then) =
-      __$$EnterErrorCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$EnterErrorCopyWithImpl<$Res>
-    extends _$EnterStateCopyWithImpl<$Res, _$EnterError>
-    implements _$$EnterErrorCopyWith<$Res> {
-  __$$EnterErrorCopyWithImpl(
-      _$EnterError _value, $Res Function(_$EnterError) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$EnterError extends EnterError {
-  const _$EnterError() : super._();
-
-  @override
-  String toString() {
-    return 'EnterState.error()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EnterError);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
-    required TResult Function() cancel,
-    required TResult Function() submit,
-  }) {
-    return error();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
-    TResult? Function()? cancel,
-    TResult? Function()? submit,
-  }) {
-    return error?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
-    TResult Function()? cancel,
-    TResult Function()? submit,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_EnterState value) $default, {
-    required TResult Function(EnterInitial value) initial,
-    required TResult Function(EnterLoading value) loading,
-    required TResult Function(EnterLoaded value) loaded,
-    required TResult Function(EnterError value) error,
-    required TResult Function(EnterValid value) valid,
-    required TResult Function(EnterDuplicate value) duplicate,
-    required TResult Function(EnterCancel value) cancel,
-    required TResult Function(EnterSubmit value) submit,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_EnterState value)? $default, {
-    TResult? Function(EnterInitial value)? initial,
-    TResult? Function(EnterLoading value)? loading,
-    TResult? Function(EnterLoaded value)? loaded,
-    TResult? Function(EnterError value)? error,
-    TResult? Function(EnterValid value)? valid,
-    TResult? Function(EnterDuplicate value)? duplicate,
-    TResult? Function(EnterCancel value)? cancel,
-    TResult? Function(EnterSubmit value)? submit,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_EnterState value)? $default, {
-    TResult Function(EnterInitial value)? initial,
-    TResult Function(EnterLoading value)? loading,
-    TResult Function(EnterLoaded value)? loaded,
-    TResult Function(EnterError value)? error,
-    TResult Function(EnterValid value)? valid,
-    TResult Function(EnterDuplicate value)? duplicate,
-    TResult Function(EnterCancel value)? cancel,
-    TResult Function(EnterSubmit value)? submit,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class EnterError extends EnterState {
-  const factory EnterError() = _$EnterError;
-  const EnterError._() : super._();
+  CreditCard get creditCard;
+  @JsonKey(ignore: true)
+  _$$_EnterStateCopyWith<_$_EnterState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1405,15 +880,9 @@ class _$EnterValid extends EnterValid {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
+    TResult Function(CreditCard creditCard) $default, {
     required TResult Function() valid,
     required TResult Function() duplicate,
-    required TResult Function() cancel,
-    required TResult Function() submit,
   }) {
     return valid();
   }
@@ -1421,15 +890,9 @@ class _$EnterValid extends EnterValid {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
+    TResult? Function(CreditCard creditCard)? $default, {
     TResult? Function()? valid,
     TResult? Function()? duplicate,
-    TResult? Function()? cancel,
-    TResult? Function()? submit,
   }) {
     return valid?.call();
   }
@@ -1437,15 +900,9 @@ class _$EnterValid extends EnterValid {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
+    TResult Function(CreditCard creditCard)? $default, {
     TResult Function()? valid,
     TResult Function()? duplicate,
-    TResult Function()? cancel,
-    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (valid != null) {
@@ -1458,14 +915,8 @@ class _$EnterValid extends EnterValid {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_EnterState value) $default, {
-    required TResult Function(EnterInitial value) initial,
-    required TResult Function(EnterLoading value) loading,
-    required TResult Function(EnterLoaded value) loaded,
-    required TResult Function(EnterError value) error,
     required TResult Function(EnterValid value) valid,
     required TResult Function(EnterDuplicate value) duplicate,
-    required TResult Function(EnterCancel value) cancel,
-    required TResult Function(EnterSubmit value) submit,
   }) {
     return valid(this);
   }
@@ -1474,14 +925,8 @@ class _$EnterValid extends EnterValid {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_EnterState value)? $default, {
-    TResult? Function(EnterInitial value)? initial,
-    TResult? Function(EnterLoading value)? loading,
-    TResult? Function(EnterLoaded value)? loaded,
-    TResult? Function(EnterError value)? error,
     TResult? Function(EnterValid value)? valid,
     TResult? Function(EnterDuplicate value)? duplicate,
-    TResult? Function(EnterCancel value)? cancel,
-    TResult? Function(EnterSubmit value)? submit,
   }) {
     return valid?.call(this);
   }
@@ -1490,14 +935,8 @@ class _$EnterValid extends EnterValid {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_EnterState value)? $default, {
-    TResult Function(EnterInitial value)? initial,
-    TResult Function(EnterLoading value)? loading,
-    TResult Function(EnterLoaded value)? loaded,
-    TResult Function(EnterError value)? error,
     TResult Function(EnterValid value)? valid,
     TResult Function(EnterDuplicate value)? duplicate,
-    TResult Function(EnterCancel value)? cancel,
-    TResult Function(EnterSubmit value)? submit,
     required TResult orElse(),
   }) {
     if (valid != null) {
@@ -1550,15 +989,9 @@ class _$EnterDuplicate extends EnterDuplicate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
+    TResult Function(CreditCard creditCard) $default, {
     required TResult Function() valid,
     required TResult Function() duplicate,
-    required TResult Function() cancel,
-    required TResult Function() submit,
   }) {
     return duplicate();
   }
@@ -1566,15 +999,9 @@ class _$EnterDuplicate extends EnterDuplicate {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
+    TResult? Function(CreditCard creditCard)? $default, {
     TResult? Function()? valid,
     TResult? Function()? duplicate,
-    TResult? Function()? cancel,
-    TResult? Function()? submit,
   }) {
     return duplicate?.call();
   }
@@ -1582,15 +1009,9 @@ class _$EnterDuplicate extends EnterDuplicate {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
+    TResult Function(CreditCard creditCard)? $default, {
     TResult Function()? valid,
     TResult Function()? duplicate,
-    TResult Function()? cancel,
-    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (duplicate != null) {
@@ -1603,14 +1024,8 @@ class _$EnterDuplicate extends EnterDuplicate {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_EnterState value) $default, {
-    required TResult Function(EnterInitial value) initial,
-    required TResult Function(EnterLoading value) loading,
-    required TResult Function(EnterLoaded value) loaded,
-    required TResult Function(EnterError value) error,
     required TResult Function(EnterValid value) valid,
     required TResult Function(EnterDuplicate value) duplicate,
-    required TResult Function(EnterCancel value) cancel,
-    required TResult Function(EnterSubmit value) submit,
   }) {
     return duplicate(this);
   }
@@ -1619,14 +1034,8 @@ class _$EnterDuplicate extends EnterDuplicate {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_EnterState value)? $default, {
-    TResult? Function(EnterInitial value)? initial,
-    TResult? Function(EnterLoading value)? loading,
-    TResult? Function(EnterLoaded value)? loaded,
-    TResult? Function(EnterError value)? error,
     TResult? Function(EnterValid value)? valid,
     TResult? Function(EnterDuplicate value)? duplicate,
-    TResult? Function(EnterCancel value)? cancel,
-    TResult? Function(EnterSubmit value)? submit,
   }) {
     return duplicate?.call(this);
   }
@@ -1635,14 +1044,8 @@ class _$EnterDuplicate extends EnterDuplicate {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_EnterState value)? $default, {
-    TResult Function(EnterInitial value)? initial,
-    TResult Function(EnterLoading value)? loading,
-    TResult Function(EnterLoaded value)? loaded,
-    TResult Function(EnterError value)? error,
     TResult Function(EnterValid value)? valid,
     TResult Function(EnterDuplicate value)? duplicate,
-    TResult Function(EnterCancel value)? cancel,
-    TResult Function(EnterSubmit value)? submit,
     required TResult orElse(),
   }) {
     if (duplicate != null) {
@@ -1655,294 +1058,4 @@ class _$EnterDuplicate extends EnterDuplicate {
 abstract class EnterDuplicate extends EnterState {
   const factory EnterDuplicate() = _$EnterDuplicate;
   const EnterDuplicate._() : super._();
-}
-
-/// @nodoc
-abstract class _$$EnterCancelCopyWith<$Res> {
-  factory _$$EnterCancelCopyWith(
-          _$EnterCancel value, $Res Function(_$EnterCancel) then) =
-      __$$EnterCancelCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$EnterCancelCopyWithImpl<$Res>
-    extends _$EnterStateCopyWithImpl<$Res, _$EnterCancel>
-    implements _$$EnterCancelCopyWith<$Res> {
-  __$$EnterCancelCopyWithImpl(
-      _$EnterCancel _value, $Res Function(_$EnterCancel) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$EnterCancel extends EnterCancel {
-  const _$EnterCancel() : super._();
-
-  @override
-  String toString() {
-    return 'EnterState.cancel()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EnterCancel);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
-    required TResult Function() cancel,
-    required TResult Function() submit,
-  }) {
-    return cancel();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
-    TResult? Function()? cancel,
-    TResult? Function()? submit,
-  }) {
-    return cancel?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
-    TResult Function()? cancel,
-    TResult Function()? submit,
-    required TResult orElse(),
-  }) {
-    if (cancel != null) {
-      return cancel();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_EnterState value) $default, {
-    required TResult Function(EnterInitial value) initial,
-    required TResult Function(EnterLoading value) loading,
-    required TResult Function(EnterLoaded value) loaded,
-    required TResult Function(EnterError value) error,
-    required TResult Function(EnterValid value) valid,
-    required TResult Function(EnterDuplicate value) duplicate,
-    required TResult Function(EnterCancel value) cancel,
-    required TResult Function(EnterSubmit value) submit,
-  }) {
-    return cancel(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_EnterState value)? $default, {
-    TResult? Function(EnterInitial value)? initial,
-    TResult? Function(EnterLoading value)? loading,
-    TResult? Function(EnterLoaded value)? loaded,
-    TResult? Function(EnterError value)? error,
-    TResult? Function(EnterValid value)? valid,
-    TResult? Function(EnterDuplicate value)? duplicate,
-    TResult? Function(EnterCancel value)? cancel,
-    TResult? Function(EnterSubmit value)? submit,
-  }) {
-    return cancel?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_EnterState value)? $default, {
-    TResult Function(EnterInitial value)? initial,
-    TResult Function(EnterLoading value)? loading,
-    TResult Function(EnterLoaded value)? loaded,
-    TResult Function(EnterError value)? error,
-    TResult Function(EnterValid value)? valid,
-    TResult Function(EnterDuplicate value)? duplicate,
-    TResult Function(EnterCancel value)? cancel,
-    TResult Function(EnterSubmit value)? submit,
-    required TResult orElse(),
-  }) {
-    if (cancel != null) {
-      return cancel(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class EnterCancel extends EnterState {
-  const factory EnterCancel() = _$EnterCancel;
-  const EnterCancel._() : super._();
-}
-
-/// @nodoc
-abstract class _$$EnterSubmitCopyWith<$Res> {
-  factory _$$EnterSubmitCopyWith(
-          _$EnterSubmit value, $Res Function(_$EnterSubmit) then) =
-      __$$EnterSubmitCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$EnterSubmitCopyWithImpl<$Res>
-    extends _$EnterStateCopyWithImpl<$Res, _$EnterSubmit>
-    implements _$$EnterSubmitCopyWith<$Res> {
-  __$$EnterSubmitCopyWithImpl(
-      _$EnterSubmit _value, $Res Function(_$EnterSubmit) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$EnterSubmit extends EnterSubmit {
-  const _$EnterSubmit() : super._();
-
-  @override
-  String toString() {
-    return 'EnterState.submit()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EnterSubmit);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
-    required TResult Function() cancel,
-    required TResult Function() submit,
-  }) {
-    return submit();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
-    TResult? Function()? cancel,
-    TResult? Function()? submit,
-  }) {
-    return submit?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
-    TResult Function()? cancel,
-    TResult Function()? submit,
-    required TResult orElse(),
-  }) {
-    if (submit != null) {
-      return submit();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_EnterState value) $default, {
-    required TResult Function(EnterInitial value) initial,
-    required TResult Function(EnterLoading value) loading,
-    required TResult Function(EnterLoaded value) loaded,
-    required TResult Function(EnterError value) error,
-    required TResult Function(EnterValid value) valid,
-    required TResult Function(EnterDuplicate value) duplicate,
-    required TResult Function(EnterCancel value) cancel,
-    required TResult Function(EnterSubmit value) submit,
-  }) {
-    return submit(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_EnterState value)? $default, {
-    TResult? Function(EnterInitial value)? initial,
-    TResult? Function(EnterLoading value)? loading,
-    TResult? Function(EnterLoaded value)? loaded,
-    TResult? Function(EnterError value)? error,
-    TResult? Function(EnterValid value)? valid,
-    TResult? Function(EnterDuplicate value)? duplicate,
-    TResult? Function(EnterCancel value)? cancel,
-    TResult? Function(EnterSubmit value)? submit,
-  }) {
-    return submit?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_EnterState value)? $default, {
-    TResult Function(EnterInitial value)? initial,
-    TResult Function(EnterLoading value)? loading,
-    TResult Function(EnterLoaded value)? loaded,
-    TResult Function(EnterError value)? error,
-    TResult Function(EnterValid value)? valid,
-    TResult Function(EnterDuplicate value)? duplicate,
-    TResult Function(EnterCancel value)? cancel,
-    TResult Function(EnterSubmit value)? submit,
-    required TResult orElse(),
-  }) {
-    if (submit != null) {
-      return submit(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class EnterSubmit extends EnterState {
-  const factory EnterSubmit() = _$EnterSubmit;
-  const EnterSubmit._() : super._();
 }

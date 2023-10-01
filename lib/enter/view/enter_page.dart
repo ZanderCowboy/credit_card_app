@@ -31,8 +31,84 @@ class EnterPage extends StatelessWidget {
           title: const Text(enterAppBarTitle),
         ),
         body: BlocBuilder<EnterBloc, EnterState>(
+          // listener: (context, state) {
+          //   log('*** In listener: State $state ***');
+          //   if (state is EnterValid) {
+          //     log('*** In EnterValid *** $state $context');
+          //     _showDialog(context);
+          //   }
+          //   if (state is EnterDuplicate) {
+          //     //
+          //     log('*** In EnterDuplicate *** $state $context');
+          //     _showSnackBar(context);
+          //   }
+          // },
+          // listenWhen: (previous, current) {
+          //   log('*** Previous: $previous \t Current: $current ***');
+          //   return previous != current && current is EnterValid;
+          // },
           builder: (context, state) {
-            log('Early \t //${state.toString()}');
+            log('*** Early \t ${state.toString()} ***');
+
+            if (state is EnterDuplicate) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text(duplicateCardErrorMessage)));
+              });
+            } else if (state is EnterValid) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return BlocProvider(
+                      create: (context) => coreSl<EnterBloc>(),
+                      child: BlocBuilder<EnterBloc, EnterState>(
+                        builder: (context, state) {
+                          CreditCard creditCard = generateCard();
+
+                          return AlertDialog(
+                            title: const Text(resultDialogTitle),
+                            content: Card(
+                              elevation: 3,
+                              margin: const EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 8),
+                              child: _creditCardListTile(creditCard),
+                            ),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  log('onPressed: onCancel()');
+                                  // context
+                                  //     .read<EnterBloc>()
+                                  //     .add(const EnterEvent.onCancel());
+                                  Navigator.of(context)
+                                      .popAndPushNamed(enterRoute);
+                                },
+                                child: const Text(cancelDialogButton),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  context
+                                      .read<EnterBloc>()
+                                      .add(EnterEvent.onSubmit(creditCard));
+                                  // Navigator.of(context)
+                                  //     .pop();
+
+                                  Navigator.of(context).pushNamedAndRemoveUntil(
+                                      homeRoute,
+                                      (Route<dynamic> route) => false);
+                                },
+                                child: const Text(resultAddButtonTitle),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    );
+                  },
+                );
+              });
+            }
 
             return Padding(
               padding: const EdgeInsets.all(8.0),
@@ -85,16 +161,12 @@ class EnterPage extends StatelessWidget {
                                           onPressed: () {
                                             log('${cardNumberController.text}\t${cardTypeController.text}\t${cvvNumberController.text}\t${issuingCountryController.text}');
 
-                                            if (!isDialogOpen) {
-                                              context.read<EnterBloc>().add(
-                                                  const EnterEvent
-                                                      .onValidate());
-                                              isDialogOpen = true;
-                                            }
-                                            // BlocProvider.of<EnterBloc>(
-                                            //         context)
-                                            //     .add(const EnterEvent
-                                            //         .onValidate());
+                                            CreditCard creditCard =
+                                                generateCard();
+
+                                            context.read<EnterBloc>().add(
+                                                EnterEvent.onValidate(
+                                                    creditCard));
                                           },
                                           child: const Text(
                                               enterSubmitButtonTitle),
@@ -113,81 +185,154 @@ class EnterPage extends StatelessWidget {
                 ],
               ),
             );
-
-            if (state is EnterDuplicate) {
-              log('*** In EnterDuplicate *** $state $context');
-              _showSnackBar(context);
-              return const Text('Nog n naai');
-            }
-
-            // if (state is EnterDuplicate && !isDialogOpen) {
-            //   ScaffoldMessenger.of(context).showSnackBar(
-            //     const SnackBar(
-            //       content: Text(duplicateCardErrorMessage),
-            //       duration: Duration(seconds: 3),
-            //     ),
-            //   );
-            // }
-            if (state is EnterValid) {
-              log('*** In EnterValid *** $state $context');
-              _showDialog(context);
-              return const Text('Werk jou naai');
-            } else {
-              return const Text('Werk fok');
-            }
           },
         ),
       ),
     );
   }
 
+  Widget _enterPageView(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const CreditCardAnimation(),
+          Expanded(
+            child: SizedBox(
+              width: 400,
+              child: SingleChildScrollView(
+                child: Center(
+                  child: Column(
+                    children: [
+                      Form(
+                        key: _formKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            _textFormField(
+                              cardNumberController,
+                              cardNumberLabelText,
+                              cardNumberHintText,
+                              cardNumberErrorText,
+                            ),
+                            _textFormField(
+                              cardTypeController,
+                              cardTypeLabelText,
+                              cardTypeHintText,
+                              cardTypeErrorText,
+                            ),
+                            _textFormField(
+                              cvvNumberController,
+                              cvvNumberLabelText,
+                              cvvNumberHintText,
+                              cvvNumberErrorText,
+                            ),
+                            _textFormField(
+                              issuingCountryController,
+                              issuingCountryLabelText,
+                              issuingCountryHintText,
+                              issuingCountryErrorText,
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 16.0),
+                              child: Center(
+                                child: ElevatedButton(
+                                  style: buttonSmallStyle,
+                                  onPressed: () {
+                                    log('${cardNumberController.text}\t${cardTypeController.text}\t${cvvNumberController.text}\t${issuingCountryController.text}');
+
+                                    CreditCard creditCard = generateCard();
+
+                                    // context
+                                    //     .read<EnterBloc>()
+                                    //     .add(const EnterEvent.onValidate());
+                                    context
+                                        .read<EnterBloc>()
+                                        .add(EnterEvent.onValidate(creditCard));
+
+                                    if (!isDialogOpen) {
+                                      // context
+                                      //     .read<EnterBloc>()
+                                      //     .add(const EnterEvent.onValidate());
+                                      context.read<EnterBloc>().add(
+                                          EnterEvent.onValidate(creditCard));
+                                      isDialogOpen = true;
+                                    }
+                                  },
+                                  child: const Text(enterSubmitButtonTitle),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   void _showDialog(BuildContext context) async {
-    log('In _showDialog: ');
+    log('In _showDialog: Context $context');
     CreditCard creditCard = generateCard();
 
-    bool? dialogResult = await showDialog<bool>(
+    await showDialog(
       context: context,
       builder: (context) {
-        return AlertDialog(
-          title: const Text(resultDialogTitle),
-          content: Card(
-            elevation: 3,
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: _creditCardListTile(creditCard),
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                // Dispatch onCancel event to EnterBloc
-                context.read<EnterBloc>().add(
-                      const EnterEvent.onCancel(),
-                    );
-                Navigator.of(context)
-                    .pop(false); // Dialog dismissed with 'false'.
-              },
-              child: const Text(cancelDialogButton),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // TODO: Add validation here!
+        return BlocProvider(
+          create: (context) => coreSl<EnterBloc>(),
+          child: BlocBuilder<EnterBloc, EnterState>(
+            builder: (context, state) {
+              return AlertDialog(
+                title: const Text(resultDialogTitle),
+                content: Card(
+                  elevation: 3,
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: _creditCardListTile(creditCard),
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      log('onPressed: onCancel()');
+                      context
+                          .read<EnterBloc>()
+                          .add(const EnterEvent.onCancel());
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text(cancelDialogButton),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      context
+                          .read<EnterBloc>()
+                          .add(EnterEvent.onSubmit(creditCard));
+                      // Navigator.of(context)
+                      //     .pop();
 
-                // Dispatch onSubmit event to EnterBloc
-                context.read<EnterBloc>().add(
-                      const EnterEvent.onSubmit(),
-                    );
-                Navigator.of(context)
-                    .pop(true); // Dialog dismissed with 'true'.
-              },
-              child: const Text(resultAddButtonTitle),
-            ),
-          ],
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          homeRoute, (Route<dynamic> route) => false);
+                    },
+                    child: const Text(resultAddButtonTitle),
+                  ),
+                ],
+              );
+            },
+          ),
         );
       },
     );
 
-    if (dialogResult != null) {
-      isDialogOpen = false; // Reset the flag.
-    }
+    // if (dialogResult != null) {
+    //   isDialogOpen = false; // Reset the flag.
+    // }
   }
 
   void _showSnackBar(BuildContext context) async {
@@ -198,61 +343,6 @@ class EnterPage extends StatelessWidget {
       ),
     );
   }
-  // void _showDialog(BuildContext context) {
-  //   log('In _showDialog: ');
-  //   CreditCard creditCard = generateCard();
-
-  //   showDialog(
-  //     context: context,
-  //     builder: (context) {
-  //       return BlocProvider(
-  //         create: (context) => coreSl<EnterBloc>(),
-  //         child: BlocBuilder<EnterBloc, EnterState>(
-  //           builder: (context, state) {
-  //             return AlertDialog(
-  //               title: const Text(resultDialogTitle),
-  //               content: Card(
-  //                 elevation: 3,
-  //                 margin:
-  //                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-  //                 child: _creditCardListTile(creditCard),
-  //               ),
-  //               actions: <Widget>[
-  //                 TextButton(
-  //                   onPressed: () {
-  //                     // Dispatch onCancel event to EnterBloc
-  //                     // BlocProvider.of<EnterBloc>(context).add(
-  //                     //   const EnterEvent.onCancel(),
-  //                     // );
-  //                     context
-  //                         .read<EnterBloc>()
-  //                         .add(const EnterEvent.onCancel());
-  //                     Navigator.of(context).pop();
-  //                   },
-  //                   child: const Text(cancelDialogButton),
-  //                 ),
-  //                 ElevatedButton(
-  //                   onPressed: () {
-  //                     // TODO: Add validation here!
-
-  //                     // Dispatch onSubmit event to EnterBloc
-  //                     context
-  //                         .read<EnterBloc>()
-  //                         .add(const EnterEvent.onSubmit());
-  //                     // BlocProvider.of<EnterBloc>(context).add(
-  //                     //   const EnterEvent.onSubmit(),
-  //                     // );
-  //                   },
-  //                   child: const Text(resultAddButtonTitle),
-  //                 ),
-  //               ],
-  //             );
-  //           },
-  //         ),
-  //       );
-  //     },
-  //   );
-  // }
 
   ListTile _creditCardListTile(CreditCard creditCard) {
     return ListTile(
@@ -390,37 +480,37 @@ class _CreditCardAnimationState extends State<CreditCardAnimation> {
             //           expiryDate: expiryDate,
             //           themeColor: Colors.blue,
             //           textColor: Colors.white,
-            //           // cardNumberDecoration: InputDecoration(
-            //           //   labelText: 'Number',
-            //           //   hintText: 'XXXX XXXX XXXX XXXX',
-            //           //   hintStyle: const TextStyle(color: Colors.white),
-            //           //   labelStyle: const TextStyle(color: Colors.white),
-            //           //   focusedBorder: border,
-            //           //   enabledBorder: border,
-            //           // ),
-            //           // expiryDateDecoration: InputDecoration(
-            //           //   hintStyle: const TextStyle(color: Colors.white),
-            //           //   labelStyle: const TextStyle(color: Colors.white),
-            //           //   focusedBorder: border,
-            //           //   enabledBorder: border,
-            //           //   labelText: 'Expired Date',
-            //           //   hintText: 'XX/XX',
-            //           // ),
-            //           // cvvCodeDecoration: InputDecoration(
-            //           //   hintStyle: const TextStyle(color: Colors.white),
-            //           //   labelStyle: const TextStyle(color: Colors.white),
-            //           //   focusedBorder: border,
-            //           //   enabledBorder: border,
-            //           //   labelText: 'CVV',
-            //           //   hintText: 'XXX',
-            //           // ),
-            //           // cardHolderDecoration: InputDecoration(
-            //           //   hintStyle: const TextStyle(color: Colors.white),
-            //           //   labelStyle: const TextStyle(color: Colors.white),
-            //           //   focusedBorder: border,
-            //           //   enabledBorder: border,
-            //           //   labelText: 'Card Holder',
-            //           // ),
+            // cardNumberDecoration: InputDecoration(
+            //   labelText: 'Number',
+            //   hintText: 'XXXX XXXX XXXX XXXX',
+            //   hintStyle: const TextStyle(color: Colors.white),
+            //   labelStyle: const TextStyle(color: Colors.white),
+            //   focusedBorder: border,
+            //   enabledBorder: border,
+            // ),
+            // expiryDateDecoration: InputDecoration(
+            //   hintStyle: const TextStyle(color: Colors.white),
+            //   labelStyle: const TextStyle(color: Colors.white),
+            //   focusedBorder: border,
+            //   enabledBorder: border,
+            //   labelText: 'Expired Date',
+            //   hintText: 'XX/XX',
+            // ),
+            // cvvCodeDecoration: InputDecoration(
+            //   hintStyle: const TextStyle(color: Colors.white),
+            //   labelStyle: const TextStyle(color: Colors.white),
+            //   focusedBorder: border,
+            //   enabledBorder: border,
+            //   labelText: 'CVV',
+            //   hintText: 'XXX',
+            // ),
+            // cardHolderDecoration: InputDecoration(
+            //   hintStyle: const TextStyle(color: Colors.white),
+            //   labelStyle: const TextStyle(color: Colors.white),
+            //   focusedBorder: border,
+            //   enabledBorder: border,
+            //   labelText: 'Card Holder',
+            // ),
             //           onCreditCardModelChange: onCreditCardModelChange,
             //         ),
             //         const SizedBox(
