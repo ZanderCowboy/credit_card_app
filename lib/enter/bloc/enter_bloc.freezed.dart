@@ -87,10 +87,10 @@ class _$EnterEventCopyWithImpl<$Res, $Val extends EnterEvent>
 }
 
 /// @nodoc
-abstract class _$$onValidateCopyWith<$Res> {
-  factory _$$onValidateCopyWith(
-          _$onValidate value, $Res Function(_$onValidate) then) =
-      __$$onValidateCopyWithImpl<$Res>;
+abstract class _$$onValidateImplCopyWith<$Res> {
+  factory _$$onValidateImplCopyWith(
+          _$onValidateImpl value, $Res Function(_$onValidateImpl) then) =
+      __$$onValidateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CreditCard creditCard});
 
@@ -98,11 +98,11 @@ abstract class _$$onValidateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$onValidateCopyWithImpl<$Res>
-    extends _$EnterEventCopyWithImpl<$Res, _$onValidate>
-    implements _$$onValidateCopyWith<$Res> {
-  __$$onValidateCopyWithImpl(
-      _$onValidate _value, $Res Function(_$onValidate) _then)
+class __$$onValidateImplCopyWithImpl<$Res>
+    extends _$EnterEventCopyWithImpl<$Res, _$onValidateImpl>
+    implements _$$onValidateImplCopyWith<$Res> {
+  __$$onValidateImplCopyWithImpl(
+      _$onValidateImpl _value, $Res Function(_$onValidateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +110,7 @@ class __$$onValidateCopyWithImpl<$Res>
   $Res call({
     Object? creditCard = null,
   }) {
-    return _then(_$onValidate(
+    return _then(_$onValidateImpl(
       null == creditCard
           ? _value.creditCard
           : creditCard // ignore: cast_nullable_to_non_nullable
@@ -129,8 +129,8 @@ class __$$onValidateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$onValidate implements onValidate {
-  const _$onValidate(this.creditCard);
+class _$onValidateImpl implements onValidate {
+  const _$onValidateImpl(this.creditCard);
 
   @override
   final CreditCard creditCard;
@@ -144,7 +144,7 @@ class _$onValidate implements onValidate {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$onValidate &&
+            other is _$onValidateImpl &&
             (identical(other.creditCard, creditCard) ||
                 other.creditCard == creditCard));
   }
@@ -155,8 +155,8 @@ class _$onValidate implements onValidate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$onValidateCopyWith<_$onValidate> get copyWith =>
-      __$$onValidateCopyWithImpl<_$onValidate>(this, _$identity);
+  _$$onValidateImplCopyWith<_$onValidateImpl> get copyWith =>
+      __$$onValidateImplCopyWithImpl<_$onValidateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -234,33 +234,34 @@ class _$onValidate implements onValidate {
 }
 
 abstract class onValidate implements EnterEvent {
-  const factory onValidate(final CreditCard creditCard) = _$onValidate;
+  const factory onValidate(final CreditCard creditCard) = _$onValidateImpl;
 
   CreditCard get creditCard;
   @JsonKey(ignore: true)
-  _$$onValidateCopyWith<_$onValidate> get copyWith =>
+  _$$onValidateImplCopyWith<_$onValidateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$onCancelCopyWith<$Res> {
-  factory _$$onCancelCopyWith(
-          _$onCancel value, $Res Function(_$onCancel) then) =
-      __$$onCancelCopyWithImpl<$Res>;
+abstract class _$$onCancelImplCopyWith<$Res> {
+  factory _$$onCancelImplCopyWith(
+          _$onCancelImpl value, $Res Function(_$onCancelImpl) then) =
+      __$$onCancelImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onCancelCopyWithImpl<$Res>
-    extends _$EnterEventCopyWithImpl<$Res, _$onCancel>
-    implements _$$onCancelCopyWith<$Res> {
-  __$$onCancelCopyWithImpl(_$onCancel _value, $Res Function(_$onCancel) _then)
+class __$$onCancelImplCopyWithImpl<$Res>
+    extends _$EnterEventCopyWithImpl<$Res, _$onCancelImpl>
+    implements _$$onCancelImplCopyWith<$Res> {
+  __$$onCancelImplCopyWithImpl(
+      _$onCancelImpl _value, $Res Function(_$onCancelImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onCancel implements onCancel {
-  const _$onCancel();
+class _$onCancelImpl implements onCancel {
+  const _$onCancelImpl();
 
   @override
   String toString() {
@@ -270,7 +271,7 @@ class _$onCancel implements onCancel {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onCancel);
+        (other.runtimeType == runtimeType && other is _$onCancelImpl);
   }
 
   @override
@@ -352,14 +353,14 @@ class _$onCancel implements onCancel {
 }
 
 abstract class onCancel implements EnterEvent {
-  const factory onCancel() = _$onCancel;
+  const factory onCancel() = _$onCancelImpl;
 }
 
 /// @nodoc
-abstract class _$$onSubmitCopyWith<$Res> {
-  factory _$$onSubmitCopyWith(
-          _$onSubmit value, $Res Function(_$onSubmit) then) =
-      __$$onSubmitCopyWithImpl<$Res>;
+abstract class _$$onSubmitImplCopyWith<$Res> {
+  factory _$$onSubmitImplCopyWith(
+          _$onSubmitImpl value, $Res Function(_$onSubmitImpl) then) =
+      __$$onSubmitImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CreditCard creditCard});
 
@@ -367,10 +368,11 @@ abstract class _$$onSubmitCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$onSubmitCopyWithImpl<$Res>
-    extends _$EnterEventCopyWithImpl<$Res, _$onSubmit>
-    implements _$$onSubmitCopyWith<$Res> {
-  __$$onSubmitCopyWithImpl(_$onSubmit _value, $Res Function(_$onSubmit) _then)
+class __$$onSubmitImplCopyWithImpl<$Res>
+    extends _$EnterEventCopyWithImpl<$Res, _$onSubmitImpl>
+    implements _$$onSubmitImplCopyWith<$Res> {
+  __$$onSubmitImplCopyWithImpl(
+      _$onSubmitImpl _value, $Res Function(_$onSubmitImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -378,7 +380,7 @@ class __$$onSubmitCopyWithImpl<$Res>
   $Res call({
     Object? creditCard = null,
   }) {
-    return _then(_$onSubmit(
+    return _then(_$onSubmitImpl(
       null == creditCard
           ? _value.creditCard
           : creditCard // ignore: cast_nullable_to_non_nullable
@@ -397,8 +399,8 @@ class __$$onSubmitCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$onSubmit implements onSubmit {
-  const _$onSubmit(this.creditCard);
+class _$onSubmitImpl implements onSubmit {
+  const _$onSubmitImpl(this.creditCard);
 
   @override
   final CreditCard creditCard;
@@ -412,7 +414,7 @@ class _$onSubmit implements onSubmit {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$onSubmit &&
+            other is _$onSubmitImpl &&
             (identical(other.creditCard, creditCard) ||
                 other.creditCard == creditCard));
   }
@@ -423,8 +425,8 @@ class _$onSubmit implements onSubmit {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$onSubmitCopyWith<_$onSubmit> get copyWith =>
-      __$$onSubmitCopyWithImpl<_$onSubmit>(this, _$identity);
+  _$$onSubmitImplCopyWith<_$onSubmitImpl> get copyWith =>
+      __$$onSubmitImplCopyWithImpl<_$onSubmitImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -502,34 +504,34 @@ class _$onSubmit implements onSubmit {
 }
 
 abstract class onSubmit implements EnterEvent {
-  const factory onSubmit(final CreditCard creditCard) = _$onSubmit;
+  const factory onSubmit(final CreditCard creditCard) = _$onSubmitImpl;
 
   CreditCard get creditCard;
   @JsonKey(ignore: true)
-  _$$onSubmitCopyWith<_$onSubmit> get copyWith =>
+  _$$onSubmitImplCopyWith<_$onSubmitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$onChangedCopyWith<$Res> {
-  factory _$$onChangedCopyWith(
-          _$onChanged value, $Res Function(_$onChanged) then) =
-      __$$onChangedCopyWithImpl<$Res>;
+abstract class _$$onChangedImplCopyWith<$Res> {
+  factory _$$onChangedImplCopyWith(
+          _$onChangedImpl value, $Res Function(_$onChangedImpl) then) =
+      __$$onChangedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onChangedCopyWithImpl<$Res>
-    extends _$EnterEventCopyWithImpl<$Res, _$onChanged>
-    implements _$$onChangedCopyWith<$Res> {
-  __$$onChangedCopyWithImpl(
-      _$onChanged _value, $Res Function(_$onChanged) _then)
+class __$$onChangedImplCopyWithImpl<$Res>
+    extends _$EnterEventCopyWithImpl<$Res, _$onChangedImpl>
+    implements _$$onChangedImplCopyWith<$Res> {
+  __$$onChangedImplCopyWithImpl(
+      _$onChangedImpl _value, $Res Function(_$onChangedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onChanged implements onChanged {
-  const _$onChanged();
+class _$onChangedImpl implements onChanged {
+  const _$onChangedImpl();
 
   @override
   String toString() {
@@ -539,7 +541,7 @@ class _$onChanged implements onChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onChanged);
+        (other.runtimeType == runtimeType && other is _$onChangedImpl);
   }
 
   @override
@@ -621,7 +623,7 @@ class _$onChanged implements onChanged {
 }
 
 abstract class onChanged implements EnterEvent {
-  const factory onChanged() = _$onChanged;
+  const factory onChanged() = _$onChangedImpl;
 }
 
 /// @nodoc
@@ -691,10 +693,10 @@ class _$EnterStateCopyWithImpl<$Res, $Val extends EnterState>
 }
 
 /// @nodoc
-abstract class _$$_EnterStateCopyWith<$Res> {
-  factory _$$_EnterStateCopyWith(
-          _$_EnterState value, $Res Function(_$_EnterState) then) =
-      __$$_EnterStateCopyWithImpl<$Res>;
+abstract class _$$EnterStateImplCopyWith<$Res> {
+  factory _$$EnterStateImplCopyWith(
+          _$EnterStateImpl value, $Res Function(_$EnterStateImpl) then) =
+      __$$EnterStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CreditCard creditCard});
 
@@ -702,11 +704,11 @@ abstract class _$$_EnterStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_EnterStateCopyWithImpl<$Res>
-    extends _$EnterStateCopyWithImpl<$Res, _$_EnterState>
-    implements _$$_EnterStateCopyWith<$Res> {
-  __$$_EnterStateCopyWithImpl(
-      _$_EnterState _value, $Res Function(_$_EnterState) _then)
+class __$$EnterStateImplCopyWithImpl<$Res>
+    extends _$EnterStateCopyWithImpl<$Res, _$EnterStateImpl>
+    implements _$$EnterStateImplCopyWith<$Res> {
+  __$$EnterStateImplCopyWithImpl(
+      _$EnterStateImpl _value, $Res Function(_$EnterStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -714,7 +716,7 @@ class __$$_EnterStateCopyWithImpl<$Res>
   $Res call({
     Object? creditCard = null,
   }) {
-    return _then(_$_EnterState(
+    return _then(_$EnterStateImpl(
       creditCard: null == creditCard
           ? _value.creditCard
           : creditCard // ignore: cast_nullable_to_non_nullable
@@ -733,8 +735,8 @@ class __$$_EnterStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EnterState extends _EnterState {
-  const _$_EnterState({required this.creditCard}) : super._();
+class _$EnterStateImpl extends _EnterState {
+  const _$EnterStateImpl({required this.creditCard}) : super._();
 
   @override
   final CreditCard creditCard;
@@ -748,7 +750,7 @@ class _$_EnterState extends _EnterState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EnterState &&
+            other is _$EnterStateImpl &&
             (identical(other.creditCard, creditCard) ||
                 other.creditCard == creditCard));
   }
@@ -759,8 +761,8 @@ class _$_EnterState extends _EnterState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EnterStateCopyWith<_$_EnterState> get copyWith =>
-      __$$_EnterStateCopyWithImpl<_$_EnterState>(this, _$identity);
+  _$$EnterStateImplCopyWith<_$EnterStateImpl> get copyWith =>
+      __$$EnterStateImplCopyWithImpl<_$EnterStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -833,35 +835,35 @@ class _$_EnterState extends _EnterState {
 
 abstract class _EnterState extends EnterState {
   const factory _EnterState({required final CreditCard creditCard}) =
-      _$_EnterState;
+      _$EnterStateImpl;
   const _EnterState._() : super._();
 
   CreditCard get creditCard;
   @JsonKey(ignore: true)
-  _$$_EnterStateCopyWith<_$_EnterState> get copyWith =>
+  _$$EnterStateImplCopyWith<_$EnterStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EnterValidCopyWith<$Res> {
-  factory _$$EnterValidCopyWith(
-          _$EnterValid value, $Res Function(_$EnterValid) then) =
-      __$$EnterValidCopyWithImpl<$Res>;
+abstract class _$$EnterValidImplCopyWith<$Res> {
+  factory _$$EnterValidImplCopyWith(
+          _$EnterValidImpl value, $Res Function(_$EnterValidImpl) then) =
+      __$$EnterValidImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EnterValidCopyWithImpl<$Res>
-    extends _$EnterStateCopyWithImpl<$Res, _$EnterValid>
-    implements _$$EnterValidCopyWith<$Res> {
-  __$$EnterValidCopyWithImpl(
-      _$EnterValid _value, $Res Function(_$EnterValid) _then)
+class __$$EnterValidImplCopyWithImpl<$Res>
+    extends _$EnterStateCopyWithImpl<$Res, _$EnterValidImpl>
+    implements _$$EnterValidImplCopyWith<$Res> {
+  __$$EnterValidImplCopyWithImpl(
+      _$EnterValidImpl _value, $Res Function(_$EnterValidImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$EnterValid extends EnterValid {
-  const _$EnterValid() : super._();
+class _$EnterValidImpl extends EnterValid {
+  const _$EnterValidImpl() : super._();
 
   @override
   String toString() {
@@ -871,7 +873,7 @@ class _$EnterValid extends EnterValid {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EnterValid);
+        (other.runtimeType == runtimeType && other is _$EnterValidImpl);
   }
 
   @override
@@ -947,30 +949,30 @@ class _$EnterValid extends EnterValid {
 }
 
 abstract class EnterValid extends EnterState {
-  const factory EnterValid() = _$EnterValid;
+  const factory EnterValid() = _$EnterValidImpl;
   const EnterValid._() : super._();
 }
 
 /// @nodoc
-abstract class _$$EnterDuplicateCopyWith<$Res> {
-  factory _$$EnterDuplicateCopyWith(
-          _$EnterDuplicate value, $Res Function(_$EnterDuplicate) then) =
-      __$$EnterDuplicateCopyWithImpl<$Res>;
+abstract class _$$EnterDuplicateImplCopyWith<$Res> {
+  factory _$$EnterDuplicateImplCopyWith(_$EnterDuplicateImpl value,
+          $Res Function(_$EnterDuplicateImpl) then) =
+      __$$EnterDuplicateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EnterDuplicateCopyWithImpl<$Res>
-    extends _$EnterStateCopyWithImpl<$Res, _$EnterDuplicate>
-    implements _$$EnterDuplicateCopyWith<$Res> {
-  __$$EnterDuplicateCopyWithImpl(
-      _$EnterDuplicate _value, $Res Function(_$EnterDuplicate) _then)
+class __$$EnterDuplicateImplCopyWithImpl<$Res>
+    extends _$EnterStateCopyWithImpl<$Res, _$EnterDuplicateImpl>
+    implements _$$EnterDuplicateImplCopyWith<$Res> {
+  __$$EnterDuplicateImplCopyWithImpl(
+      _$EnterDuplicateImpl _value, $Res Function(_$EnterDuplicateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$EnterDuplicate extends EnterDuplicate {
-  const _$EnterDuplicate() : super._();
+class _$EnterDuplicateImpl extends EnterDuplicate {
+  const _$EnterDuplicateImpl() : super._();
 
   @override
   String toString() {
@@ -980,7 +982,7 @@ class _$EnterDuplicate extends EnterDuplicate {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EnterDuplicate);
+        (other.runtimeType == runtimeType && other is _$EnterDuplicateImpl);
   }
 
   @override
@@ -1056,6 +1058,6 @@ class _$EnterDuplicate extends EnterDuplicate {
 }
 
 abstract class EnterDuplicate extends EnterState {
-  const factory EnterDuplicate() = _$EnterDuplicate;
+  const factory EnterDuplicate() = _$EnterDuplicateImpl;
   const EnterDuplicate._() : super._();
 }

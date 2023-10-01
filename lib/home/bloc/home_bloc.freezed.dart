@@ -92,23 +92,25 @@ class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
 }
 
 /// @nodoc
-abstract class _$$onEnterCopyWith<$Res> {
-  factory _$$onEnterCopyWith(_$onEnter value, $Res Function(_$onEnter) then) =
-      __$$onEnterCopyWithImpl<$Res>;
+abstract class _$$onEnterImplCopyWith<$Res> {
+  factory _$$onEnterImplCopyWith(
+          _$onEnterImpl value, $Res Function(_$onEnterImpl) then) =
+      __$$onEnterImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onEnterCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$onEnter>
-    implements _$$onEnterCopyWith<$Res> {
-  __$$onEnterCopyWithImpl(_$onEnter _value, $Res Function(_$onEnter) _then)
+class __$$onEnterImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$onEnterImpl>
+    implements _$$onEnterImplCopyWith<$Res> {
+  __$$onEnterImplCopyWithImpl(
+      _$onEnterImpl _value, $Res Function(_$onEnterImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onEnter implements onEnter {
-  const _$onEnter();
+class _$onEnterImpl implements onEnter {
+  const _$onEnterImpl();
 
   @override
   String toString() {
@@ -118,7 +120,7 @@ class _$onEnter implements onEnter {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onEnter);
+        (other.runtimeType == runtimeType && other is _$onEnterImpl);
   }
 
   @override
@@ -206,27 +208,29 @@ class _$onEnter implements onEnter {
 }
 
 abstract class onEnter implements HomeEvent {
-  const factory onEnter() = _$onEnter;
+  const factory onEnter() = _$onEnterImpl;
 }
 
 /// @nodoc
-abstract class _$$onScanCopyWith<$Res> {
-  factory _$$onScanCopyWith(_$onScan value, $Res Function(_$onScan) then) =
-      __$$onScanCopyWithImpl<$Res>;
+abstract class _$$onScanImplCopyWith<$Res> {
+  factory _$$onScanImplCopyWith(
+          _$onScanImpl value, $Res Function(_$onScanImpl) then) =
+      __$$onScanImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onScanCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$onScan>
-    implements _$$onScanCopyWith<$Res> {
-  __$$onScanCopyWithImpl(_$onScan _value, $Res Function(_$onScan) _then)
+class __$$onScanImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$onScanImpl>
+    implements _$$onScanImplCopyWith<$Res> {
+  __$$onScanImplCopyWithImpl(
+      _$onScanImpl _value, $Res Function(_$onScanImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onScan implements onScan {
-  const _$onScan();
+class _$onScanImpl implements onScan {
+  const _$onScanImpl();
 
   @override
   String toString() {
@@ -236,7 +240,7 @@ class _$onScan implements onScan {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onScan);
+        (other.runtimeType == runtimeType && other is _$onScanImpl);
   }
 
   @override
@@ -324,29 +328,29 @@ class _$onScan implements onScan {
 }
 
 abstract class onScan implements HomeEvent {
-  const factory onScan() = _$onScan;
+  const factory onScan() = _$onScanImpl;
 }
 
 /// @nodoc
-abstract class _$$onHistoryCopyWith<$Res> {
-  factory _$$onHistoryCopyWith(
-          _$onHistory value, $Res Function(_$onHistory) then) =
-      __$$onHistoryCopyWithImpl<$Res>;
+abstract class _$$onHistoryImplCopyWith<$Res> {
+  factory _$$onHistoryImplCopyWith(
+          _$onHistoryImpl value, $Res Function(_$onHistoryImpl) then) =
+      __$$onHistoryImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onHistoryCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$onHistory>
-    implements _$$onHistoryCopyWith<$Res> {
-  __$$onHistoryCopyWithImpl(
-      _$onHistory _value, $Res Function(_$onHistory) _then)
+class __$$onHistoryImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$onHistoryImpl>
+    implements _$$onHistoryImplCopyWith<$Res> {
+  __$$onHistoryImplCopyWithImpl(
+      _$onHistoryImpl _value, $Res Function(_$onHistoryImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onHistory implements onHistory {
-  const _$onHistory();
+class _$onHistoryImpl implements onHistory {
+  const _$onHistoryImpl();
 
   @override
   String toString() {
@@ -356,7 +360,7 @@ class _$onHistory implements onHistory {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onHistory);
+        (other.runtimeType == runtimeType && other is _$onHistoryImpl);
   }
 
   @override
@@ -444,29 +448,29 @@ class _$onHistory implements onHistory {
 }
 
 abstract class onHistory implements HomeEvent {
-  const factory onHistory() = _$onHistory;
+  const factory onHistory() = _$onHistoryImpl;
 }
 
 /// @nodoc
-abstract class _$$onSettingsCopyWith<$Res> {
-  factory _$$onSettingsCopyWith(
-          _$onSettings value, $Res Function(_$onSettings) then) =
-      __$$onSettingsCopyWithImpl<$Res>;
+abstract class _$$onSettingsImplCopyWith<$Res> {
+  factory _$$onSettingsImplCopyWith(
+          _$onSettingsImpl value, $Res Function(_$onSettingsImpl) then) =
+      __$$onSettingsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onSettingsCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$onSettings>
-    implements _$$onSettingsCopyWith<$Res> {
-  __$$onSettingsCopyWithImpl(
-      _$onSettings _value, $Res Function(_$onSettings) _then)
+class __$$onSettingsImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$onSettingsImpl>
+    implements _$$onSettingsImplCopyWith<$Res> {
+  __$$onSettingsImplCopyWithImpl(
+      _$onSettingsImpl _value, $Res Function(_$onSettingsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onSettings implements onSettings {
-  const _$onSettings();
+class _$onSettingsImpl implements onSettings {
+  const _$onSettingsImpl();
 
   @override
   String toString() {
@@ -476,7 +480,7 @@ class _$onSettings implements onSettings {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onSettings);
+        (other.runtimeType == runtimeType && other is _$onSettingsImpl);
   }
 
   @override
@@ -564,28 +568,29 @@ class _$onSettings implements onSettings {
 }
 
 abstract class onSettings implements HomeEvent {
-  const factory onSettings() = _$onSettings;
+  const factory onSettings() = _$onSettingsImpl;
 }
 
 /// @nodoc
-abstract class _$$onLogoutCopyWith<$Res> {
-  factory _$$onLogoutCopyWith(
-          _$onLogout value, $Res Function(_$onLogout) then) =
-      __$$onLogoutCopyWithImpl<$Res>;
+abstract class _$$onLogoutImplCopyWith<$Res> {
+  factory _$$onLogoutImplCopyWith(
+          _$onLogoutImpl value, $Res Function(_$onLogoutImpl) then) =
+      __$$onLogoutImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onLogoutCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$onLogout>
-    implements _$$onLogoutCopyWith<$Res> {
-  __$$onLogoutCopyWithImpl(_$onLogout _value, $Res Function(_$onLogout) _then)
+class __$$onLogoutImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$onLogoutImpl>
+    implements _$$onLogoutImplCopyWith<$Res> {
+  __$$onLogoutImplCopyWithImpl(
+      _$onLogoutImpl _value, $Res Function(_$onLogoutImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onLogout implements onLogout {
-  const _$onLogout();
+class _$onLogoutImpl implements onLogout {
+  const _$onLogoutImpl();
 
   @override
   String toString() {
@@ -595,7 +600,7 @@ class _$onLogout implements onLogout {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onLogout);
+        (other.runtimeType == runtimeType && other is _$onLogoutImpl);
   }
 
   @override
@@ -683,7 +688,7 @@ class _$onLogout implements onLogout {
 }
 
 abstract class onLogout implements HomeEvent {
-  const factory onLogout() = _$onLogout;
+  const factory onLogout() = _$onLogoutImpl;
 }
 
 /// @nodoc
@@ -758,25 +763,25 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
 }
 
 /// @nodoc
-abstract class _$$_HomeStateCopyWith<$Res> {
-  factory _$$_HomeStateCopyWith(
-          _$_HomeState value, $Res Function(_$_HomeState) then) =
-      __$$_HomeStateCopyWithImpl<$Res>;
+abstract class _$$HomeStateImplCopyWith<$Res> {
+  factory _$$HomeStateImplCopyWith(
+          _$HomeStateImpl value, $Res Function(_$HomeStateImpl) then) =
+      __$$HomeStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_HomeStateCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$_HomeState>
-    implements _$$_HomeStateCopyWith<$Res> {
-  __$$_HomeStateCopyWithImpl(
-      _$_HomeState _value, $Res Function(_$_HomeState) _then)
+class __$$HomeStateImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$HomeStateImpl>
+    implements _$$HomeStateImplCopyWith<$Res> {
+  __$$HomeStateImplCopyWithImpl(
+      _$HomeStateImpl _value, $Res Function(_$HomeStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_HomeState extends _HomeState {
-  const _$_HomeState() : super._();
+class _$HomeStateImpl extends _HomeState {
+  const _$HomeStateImpl() : super._();
 
   @override
   String toString() {
@@ -786,7 +791,7 @@ class _$_HomeState extends _HomeState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_HomeState);
+        (other.runtimeType == runtimeType && other is _$HomeStateImpl);
   }
 
   @override
@@ -868,28 +873,30 @@ class _$_HomeState extends _HomeState {
 }
 
 abstract class _HomeState extends HomeState {
-  const factory _HomeState() = _$_HomeState;
+  const factory _HomeState() = _$HomeStateImpl;
   const _HomeState._() : super._();
 }
 
 /// @nodoc
-abstract class _$$InitialCopyWith<$Res> {
-  factory _$$InitialCopyWith(_$Initial value, $Res Function(_$Initial) then) =
-      __$$InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$Initial>
-    implements _$$InitialCopyWith<$Res> {
-  __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Initial extends Initial {
-  const _$Initial() : super._();
+class _$InitialImpl extends Initial {
+  const _$InitialImpl() : super._();
 
   @override
   String toString() {
@@ -899,7 +906,7 @@ class _$Initial extends Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -981,28 +988,30 @@ class _$Initial extends Initial {
 }
 
 abstract class Initial extends HomeState {
-  const factory Initial() = _$Initial;
+  const factory Initial() = _$InitialImpl;
   const Initial._() : super._();
 }
 
 /// @nodoc
-abstract class _$$LoadingCopyWith<$Res> {
-  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
-      __$$LoadingCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$Loading>
-    implements _$$LoadingCopyWith<$Res> {
-  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Loading extends Loading {
-  const _$Loading() : super._();
+class _$LoadingImpl extends Loading {
+  const _$LoadingImpl() : super._();
 
   @override
   String toString() {
@@ -1012,7 +1021,7 @@ class _$Loading extends Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loading);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -1094,28 +1103,30 @@ class _$Loading extends Loading {
 }
 
 abstract class Loading extends HomeState {
-  const factory Loading() = _$Loading;
+  const factory Loading() = _$LoadingImpl;
   const Loading._() : super._();
 }
 
 /// @nodoc
-abstract class _$$ErrorSCopyWith<$Res> {
-  factory _$$ErrorSCopyWith(_$ErrorS value, $Res Function(_$ErrorS) then) =
-      __$$ErrorSCopyWithImpl<$Res>;
+abstract class _$$ErrorSImplCopyWith<$Res> {
+  factory _$$ErrorSImplCopyWith(
+          _$ErrorSImpl value, $Res Function(_$ErrorSImpl) then) =
+      __$$ErrorSImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ErrorSCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$ErrorS>
-    implements _$$ErrorSCopyWith<$Res> {
-  __$$ErrorSCopyWithImpl(_$ErrorS _value, $Res Function(_$ErrorS) _then)
+class __$$ErrorSImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$ErrorSImpl>
+    implements _$$ErrorSImplCopyWith<$Res> {
+  __$$ErrorSImplCopyWithImpl(
+      _$ErrorSImpl _value, $Res Function(_$ErrorSImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ErrorS extends ErrorS {
-  const _$ErrorS() : super._();
+class _$ErrorSImpl extends ErrorS {
+  const _$ErrorSImpl() : super._();
 
   @override
   String toString() {
@@ -1125,7 +1136,7 @@ class _$ErrorS extends ErrorS {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ErrorS);
+        (other.runtimeType == runtimeType && other is _$ErrorSImpl);
   }
 
   @override
@@ -1207,6 +1218,6 @@ class _$ErrorS extends ErrorS {
 }
 
 abstract class ErrorS extends HomeState {
-  const factory ErrorS() = _$ErrorS;
+  const factory ErrorS() = _$ErrorSImpl;
   const ErrorS._() : super._();
 }

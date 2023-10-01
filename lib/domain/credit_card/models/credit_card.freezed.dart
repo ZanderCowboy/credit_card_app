@@ -83,11 +83,11 @@ class _$CreditCardCopyWithImpl<$Res, $Val extends CreditCard>
 }
 
 /// @nodoc
-abstract class _$$_CreditCardCopyWith<$Res>
+abstract class _$$CreditCardImplCopyWith<$Res>
     implements $CreditCardCopyWith<$Res> {
-  factory _$$_CreditCardCopyWith(
-          _$_CreditCard value, $Res Function(_$_CreditCard) then) =
-      __$$_CreditCardCopyWithImpl<$Res>;
+  factory _$$CreditCardImplCopyWith(
+          _$CreditCardImpl value, $Res Function(_$CreditCardImpl) then) =
+      __$$CreditCardImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -98,11 +98,11 @@ abstract class _$$_CreditCardCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CreditCardCopyWithImpl<$Res>
-    extends _$CreditCardCopyWithImpl<$Res, _$_CreditCard>
-    implements _$$_CreditCardCopyWith<$Res> {
-  __$$_CreditCardCopyWithImpl(
-      _$_CreditCard _value, $Res Function(_$_CreditCard) _then)
+class __$$CreditCardImplCopyWithImpl<$Res>
+    extends _$CreditCardCopyWithImpl<$Res, _$CreditCardImpl>
+    implements _$$CreditCardImplCopyWith<$Res> {
+  __$$CreditCardImplCopyWithImpl(
+      _$CreditCardImpl _value, $Res Function(_$CreditCardImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +113,7 @@ class __$$_CreditCardCopyWithImpl<$Res>
     Object? cvvNumber = null,
     Object? issuingCountry = null,
   }) {
-    return _then(_$_CreditCard(
+    return _then(_$CreditCardImpl(
       cardNumber: null == cardNumber
           ? _value.cardNumber
           : cardNumber // ignore: cast_nullable_to_non_nullable
@@ -136,8 +136,8 @@ class __$$_CreditCardCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CreditCard implements _CreditCard {
-  const _$_CreditCard(
+class _$CreditCardImpl implements _CreditCard {
+  const _$CreditCardImpl(
       {@HiveField(0) required this.cardNumber,
       @HiveField(1) required this.cardType,
       @HiveField(2) required this.cvvNumber,
@@ -165,7 +165,7 @@ class _$_CreditCard implements _CreditCard {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreditCard &&
+            other is _$CreditCardImpl &&
             (identical(other.cardNumber, cardNumber) ||
                 other.cardNumber == cardNumber) &&
             (identical(other.cardType, cardType) ||
@@ -183,8 +183,8 @@ class _$_CreditCard implements _CreditCard {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CreditCardCopyWith<_$_CreditCard> get copyWith =>
-      __$$_CreditCardCopyWithImpl<_$_CreditCard>(this, _$identity);
+  _$$CreditCardImplCopyWith<_$CreditCardImpl> get copyWith =>
+      __$$CreditCardImplCopyWithImpl<_$CreditCardImpl>(this, _$identity);
 }
 
 abstract class _CreditCard implements CreditCard {
@@ -192,7 +192,7 @@ abstract class _CreditCard implements CreditCard {
       {@HiveField(0) required final String cardNumber,
       @HiveField(1) required final String cardType,
       @HiveField(2) required final int cvvNumber,
-      @HiveField(3) required final String issuingCountry}) = _$_CreditCard;
+      @HiveField(3) required final String issuingCountry}) = _$CreditCardImpl;
 
   @override
   @HiveField(0)
@@ -208,6 +208,6 @@ abstract class _CreditCard implements CreditCard {
   String get issuingCountry;
   @override
   @JsonKey(ignore: true)
-  _$$_CreditCardCopyWith<_$_CreditCard> get copyWith =>
+  _$$CreditCardImplCopyWith<_$CreditCardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

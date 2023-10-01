@@ -75,24 +75,25 @@ class _$ResultEventCopyWithImpl<$Res, $Val extends ResultEvent>
 }
 
 /// @nodoc
-abstract class _$$onFinishCopyWith<$Res> {
-  factory _$$onFinishCopyWith(
-          _$onFinish value, $Res Function(_$onFinish) then) =
-      __$$onFinishCopyWithImpl<$Res>;
+abstract class _$$onFinishImplCopyWith<$Res> {
+  factory _$$onFinishImplCopyWith(
+          _$onFinishImpl value, $Res Function(_$onFinishImpl) then) =
+      __$$onFinishImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onFinishCopyWithImpl<$Res>
-    extends _$ResultEventCopyWithImpl<$Res, _$onFinish>
-    implements _$$onFinishCopyWith<$Res> {
-  __$$onFinishCopyWithImpl(_$onFinish _value, $Res Function(_$onFinish) _then)
+class __$$onFinishImplCopyWithImpl<$Res>
+    extends _$ResultEventCopyWithImpl<$Res, _$onFinishImpl>
+    implements _$$onFinishImplCopyWith<$Res> {
+  __$$onFinishImplCopyWithImpl(
+      _$onFinishImpl _value, $Res Function(_$onFinishImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onFinish implements onFinish {
-  const _$onFinish();
+class _$onFinishImpl implements onFinish {
+  const _$onFinishImpl();
 
   @override
   String toString() {
@@ -102,7 +103,7 @@ class _$onFinish implements onFinish {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onFinish);
+        (other.runtimeType == runtimeType && other is _$onFinishImpl);
   }
 
   @override
@@ -172,28 +173,29 @@ class _$onFinish implements onFinish {
 }
 
 abstract class onFinish implements ResultEvent {
-  const factory onFinish() = _$onFinish;
+  const factory onFinish() = _$onFinishImpl;
 }
 
 /// @nodoc
-abstract class _$$onCancelCopyWith<$Res> {
-  factory _$$onCancelCopyWith(
-          _$onCancel value, $Res Function(_$onCancel) then) =
-      __$$onCancelCopyWithImpl<$Res>;
+abstract class _$$onCancelImplCopyWith<$Res> {
+  factory _$$onCancelImplCopyWith(
+          _$onCancelImpl value, $Res Function(_$onCancelImpl) then) =
+      __$$onCancelImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onCancelCopyWithImpl<$Res>
-    extends _$ResultEventCopyWithImpl<$Res, _$onCancel>
-    implements _$$onCancelCopyWith<$Res> {
-  __$$onCancelCopyWithImpl(_$onCancel _value, $Res Function(_$onCancel) _then)
+class __$$onCancelImplCopyWithImpl<$Res>
+    extends _$ResultEventCopyWithImpl<$Res, _$onCancelImpl>
+    implements _$$onCancelImplCopyWith<$Res> {
+  __$$onCancelImplCopyWithImpl(
+      _$onCancelImpl _value, $Res Function(_$onCancelImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onCancel implements onCancel {
-  const _$onCancel();
+class _$onCancelImpl implements onCancel {
+  const _$onCancelImpl();
 
   @override
   String toString() {
@@ -203,7 +205,7 @@ class _$onCancel implements onCancel {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onCancel);
+        (other.runtimeType == runtimeType && other is _$onCancelImpl);
   }
 
   @override
@@ -273,7 +275,7 @@ class _$onCancel implements onCancel {
 }
 
 abstract class onCancel implements ResultEvent {
-  const factory onCancel() = _$onCancel;
+  const factory onCancel() = _$onCancelImpl;
 }
 
 /// @nodoc
@@ -367,25 +369,25 @@ class _$ResultStateCopyWithImpl<$Res, $Val extends ResultState>
 }
 
 /// @nodoc
-abstract class _$$_ResultStateCopyWith<$Res> {
-  factory _$$_ResultStateCopyWith(
-          _$_ResultState value, $Res Function(_$_ResultState) then) =
-      __$$_ResultStateCopyWithImpl<$Res>;
+abstract class _$$ResultStateImplCopyWith<$Res> {
+  factory _$$ResultStateImplCopyWith(
+          _$ResultStateImpl value, $Res Function(_$ResultStateImpl) then) =
+      __$$ResultStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ResultStateCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$_ResultState>
-    implements _$$_ResultStateCopyWith<$Res> {
-  __$$_ResultStateCopyWithImpl(
-      _$_ResultState _value, $Res Function(_$_ResultState) _then)
+class __$$ResultStateImplCopyWithImpl<$Res>
+    extends _$ResultStateCopyWithImpl<$Res, _$ResultStateImpl>
+    implements _$$ResultStateImplCopyWith<$Res> {
+  __$$ResultStateImplCopyWithImpl(
+      _$ResultStateImpl _value, $Res Function(_$ResultStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ResultState extends _ResultState {
-  const _$_ResultState() : super._();
+class _$ResultStateImpl extends _ResultState {
+  const _$ResultStateImpl() : super._();
 
   @override
   String toString() {
@@ -395,7 +397,7 @@ class _$_ResultState extends _ResultState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ResultState);
+        (other.runtimeType == runtimeType && other is _$ResultStateImpl);
   }
 
   @override
@@ -495,30 +497,30 @@ class _$_ResultState extends _ResultState {
 }
 
 abstract class _ResultState extends ResultState {
-  const factory _ResultState() = _$_ResultState;
+  const factory _ResultState() = _$ResultStateImpl;
   const _ResultState._() : super._();
 }
 
 /// @nodoc
-abstract class _$$ResultInitialCopyWith<$Res> {
-  factory _$$ResultInitialCopyWith(
-          _$ResultInitial value, $Res Function(_$ResultInitial) then) =
-      __$$ResultInitialCopyWithImpl<$Res>;
+abstract class _$$ResultInitialImplCopyWith<$Res> {
+  factory _$$ResultInitialImplCopyWith(
+          _$ResultInitialImpl value, $Res Function(_$ResultInitialImpl) then) =
+      __$$ResultInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ResultInitialCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$ResultInitial>
-    implements _$$ResultInitialCopyWith<$Res> {
-  __$$ResultInitialCopyWithImpl(
-      _$ResultInitial _value, $Res Function(_$ResultInitial) _then)
+class __$$ResultInitialImplCopyWithImpl<$Res>
+    extends _$ResultStateCopyWithImpl<$Res, _$ResultInitialImpl>
+    implements _$$ResultInitialImplCopyWith<$Res> {
+  __$$ResultInitialImplCopyWithImpl(
+      _$ResultInitialImpl _value, $Res Function(_$ResultInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ResultInitial extends ResultInitial {
-  const _$ResultInitial() : super._();
+class _$ResultInitialImpl extends ResultInitial {
+  const _$ResultInitialImpl() : super._();
 
   @override
   String toString() {
@@ -528,7 +530,7 @@ class _$ResultInitial extends ResultInitial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResultInitial);
+        (other.runtimeType == runtimeType && other is _$ResultInitialImpl);
   }
 
   @override
@@ -628,30 +630,30 @@ class _$ResultInitial extends ResultInitial {
 }
 
 abstract class ResultInitial extends ResultState {
-  const factory ResultInitial() = _$ResultInitial;
+  const factory ResultInitial() = _$ResultInitialImpl;
   const ResultInitial._() : super._();
 }
 
 /// @nodoc
-abstract class _$$ResultLoadingCopyWith<$Res> {
-  factory _$$ResultLoadingCopyWith(
-          _$ResultLoading value, $Res Function(_$ResultLoading) then) =
-      __$$ResultLoadingCopyWithImpl<$Res>;
+abstract class _$$ResultLoadingImplCopyWith<$Res> {
+  factory _$$ResultLoadingImplCopyWith(
+          _$ResultLoadingImpl value, $Res Function(_$ResultLoadingImpl) then) =
+      __$$ResultLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ResultLoadingCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$ResultLoading>
-    implements _$$ResultLoadingCopyWith<$Res> {
-  __$$ResultLoadingCopyWithImpl(
-      _$ResultLoading _value, $Res Function(_$ResultLoading) _then)
+class __$$ResultLoadingImplCopyWithImpl<$Res>
+    extends _$ResultStateCopyWithImpl<$Res, _$ResultLoadingImpl>
+    implements _$$ResultLoadingImplCopyWith<$Res> {
+  __$$ResultLoadingImplCopyWithImpl(
+      _$ResultLoadingImpl _value, $Res Function(_$ResultLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ResultLoading extends ResultLoading {
-  const _$ResultLoading() : super._();
+class _$ResultLoadingImpl extends ResultLoading {
+  const _$ResultLoadingImpl() : super._();
 
   @override
   String toString() {
@@ -661,7 +663,7 @@ class _$ResultLoading extends ResultLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResultLoading);
+        (other.runtimeType == runtimeType && other is _$ResultLoadingImpl);
   }
 
   @override
@@ -761,30 +763,30 @@ class _$ResultLoading extends ResultLoading {
 }
 
 abstract class ResultLoading extends ResultState {
-  const factory ResultLoading() = _$ResultLoading;
+  const factory ResultLoading() = _$ResultLoadingImpl;
   const ResultLoading._() : super._();
 }
 
 /// @nodoc
-abstract class _$$ResultLoadedCopyWith<$Res> {
-  factory _$$ResultLoadedCopyWith(
-          _$ResultLoaded value, $Res Function(_$ResultLoaded) then) =
-      __$$ResultLoadedCopyWithImpl<$Res>;
+abstract class _$$ResultLoadedImplCopyWith<$Res> {
+  factory _$$ResultLoadedImplCopyWith(
+          _$ResultLoadedImpl value, $Res Function(_$ResultLoadedImpl) then) =
+      __$$ResultLoadedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ResultLoadedCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$ResultLoaded>
-    implements _$$ResultLoadedCopyWith<$Res> {
-  __$$ResultLoadedCopyWithImpl(
-      _$ResultLoaded _value, $Res Function(_$ResultLoaded) _then)
+class __$$ResultLoadedImplCopyWithImpl<$Res>
+    extends _$ResultStateCopyWithImpl<$Res, _$ResultLoadedImpl>
+    implements _$$ResultLoadedImplCopyWith<$Res> {
+  __$$ResultLoadedImplCopyWithImpl(
+      _$ResultLoadedImpl _value, $Res Function(_$ResultLoadedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ResultLoaded extends ResultLoaded {
-  const _$ResultLoaded() : super._();
+class _$ResultLoadedImpl extends ResultLoaded {
+  const _$ResultLoadedImpl() : super._();
 
   @override
   String toString() {
@@ -794,7 +796,7 @@ class _$ResultLoaded extends ResultLoaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResultLoaded);
+        (other.runtimeType == runtimeType && other is _$ResultLoadedImpl);
   }
 
   @override
@@ -894,30 +896,30 @@ class _$ResultLoaded extends ResultLoaded {
 }
 
 abstract class ResultLoaded extends ResultState {
-  const factory ResultLoaded() = _$ResultLoaded;
+  const factory ResultLoaded() = _$ResultLoadedImpl;
   const ResultLoaded._() : super._();
 }
 
 /// @nodoc
-abstract class _$$ResultErrorCopyWith<$Res> {
-  factory _$$ResultErrorCopyWith(
-          _$ResultError value, $Res Function(_$ResultError) then) =
-      __$$ResultErrorCopyWithImpl<$Res>;
+abstract class _$$ResultErrorImplCopyWith<$Res> {
+  factory _$$ResultErrorImplCopyWith(
+          _$ResultErrorImpl value, $Res Function(_$ResultErrorImpl) then) =
+      __$$ResultErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ResultErrorCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$ResultError>
-    implements _$$ResultErrorCopyWith<$Res> {
-  __$$ResultErrorCopyWithImpl(
-      _$ResultError _value, $Res Function(_$ResultError) _then)
+class __$$ResultErrorImplCopyWithImpl<$Res>
+    extends _$ResultStateCopyWithImpl<$Res, _$ResultErrorImpl>
+    implements _$$ResultErrorImplCopyWith<$Res> {
+  __$$ResultErrorImplCopyWithImpl(
+      _$ResultErrorImpl _value, $Res Function(_$ResultErrorImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ResultError extends ResultError {
-  const _$ResultError() : super._();
+class _$ResultErrorImpl extends ResultError {
+  const _$ResultErrorImpl() : super._();
 
   @override
   String toString() {
@@ -927,7 +929,7 @@ class _$ResultError extends ResultError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResultError);
+        (other.runtimeType == runtimeType && other is _$ResultErrorImpl);
   }
 
   @override
@@ -1027,30 +1029,30 @@ class _$ResultError extends ResultError {
 }
 
 abstract class ResultError extends ResultState {
-  const factory ResultError() = _$ResultError;
+  const factory ResultError() = _$ResultErrorImpl;
   const ResultError._() : super._();
 }
 
 /// @nodoc
-abstract class _$$ResultValidCopyWith<$Res> {
-  factory _$$ResultValidCopyWith(
-          _$ResultValid value, $Res Function(_$ResultValid) then) =
-      __$$ResultValidCopyWithImpl<$Res>;
+abstract class _$$ResultValidImplCopyWith<$Res> {
+  factory _$$ResultValidImplCopyWith(
+          _$ResultValidImpl value, $Res Function(_$ResultValidImpl) then) =
+      __$$ResultValidImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ResultValidCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$ResultValid>
-    implements _$$ResultValidCopyWith<$Res> {
-  __$$ResultValidCopyWithImpl(
-      _$ResultValid _value, $Res Function(_$ResultValid) _then)
+class __$$ResultValidImplCopyWithImpl<$Res>
+    extends _$ResultStateCopyWithImpl<$Res, _$ResultValidImpl>
+    implements _$$ResultValidImplCopyWith<$Res> {
+  __$$ResultValidImplCopyWithImpl(
+      _$ResultValidImpl _value, $Res Function(_$ResultValidImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ResultValid extends ResultValid {
-  const _$ResultValid() : super._();
+class _$ResultValidImpl extends ResultValid {
+  const _$ResultValidImpl() : super._();
 
   @override
   String toString() {
@@ -1060,7 +1062,7 @@ class _$ResultValid extends ResultValid {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResultValid);
+        (other.runtimeType == runtimeType && other is _$ResultValidImpl);
   }
 
   @override
@@ -1160,30 +1162,30 @@ class _$ResultValid extends ResultValid {
 }
 
 abstract class ResultValid extends ResultState {
-  const factory ResultValid() = _$ResultValid;
+  const factory ResultValid() = _$ResultValidImpl;
   const ResultValid._() : super._();
 }
 
 /// @nodoc
-abstract class _$$ResultDuplicateCopyWith<$Res> {
-  factory _$$ResultDuplicateCopyWith(
-          _$ResultDuplicate value, $Res Function(_$ResultDuplicate) then) =
-      __$$ResultDuplicateCopyWithImpl<$Res>;
+abstract class _$$ResultDuplicateImplCopyWith<$Res> {
+  factory _$$ResultDuplicateImplCopyWith(_$ResultDuplicateImpl value,
+          $Res Function(_$ResultDuplicateImpl) then) =
+      __$$ResultDuplicateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ResultDuplicateCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$ResultDuplicate>
-    implements _$$ResultDuplicateCopyWith<$Res> {
-  __$$ResultDuplicateCopyWithImpl(
-      _$ResultDuplicate _value, $Res Function(_$ResultDuplicate) _then)
+class __$$ResultDuplicateImplCopyWithImpl<$Res>
+    extends _$ResultStateCopyWithImpl<$Res, _$ResultDuplicateImpl>
+    implements _$$ResultDuplicateImplCopyWith<$Res> {
+  __$$ResultDuplicateImplCopyWithImpl(
+      _$ResultDuplicateImpl _value, $Res Function(_$ResultDuplicateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ResultDuplicate extends ResultDuplicate {
-  const _$ResultDuplicate() : super._();
+class _$ResultDuplicateImpl extends ResultDuplicate {
+  const _$ResultDuplicateImpl() : super._();
 
   @override
   String toString() {
@@ -1193,7 +1195,7 @@ class _$ResultDuplicate extends ResultDuplicate {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResultDuplicate);
+        (other.runtimeType == runtimeType && other is _$ResultDuplicateImpl);
   }
 
   @override
@@ -1293,6 +1295,6 @@ class _$ResultDuplicate extends ResultDuplicate {
 }
 
 abstract class ResultDuplicate extends ResultState {
-  const factory ResultDuplicate() = _$ResultDuplicate;
+  const factory ResultDuplicate() = _$ResultDuplicateImpl;
   const ResultDuplicate._() : super._();
 }
