@@ -2,7 +2,9 @@ part of 'settings_bloc.dart';
 
 @freezed
 class SettingsEvent with _$SettingsEvent {
-  const factory SettingsEvent.onAddCountry() = onAddCountry;
-  const factory SettingsEvent.onCountrySubmit() = onCountrySubmit;
-  const factory SettingsEvent.onCountryPressed() = onCountryPressed;
+  const factory SettingsEvent.onAddCountry(String? selectedCountry) =
+      onAddCountry;
+  const factory SettingsEvent.onCountryDelete() = onCountryDelete;
+  const factory SettingsEvent.onCountryPressed(String country, bool? value) =
+      onCountryPressed;
 }

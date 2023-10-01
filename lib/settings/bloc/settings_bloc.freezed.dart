@@ -18,44 +18,44 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SettingsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onAddCountry,
-    required TResult Function() onCountrySubmit,
-    required TResult Function() onCountryPressed,
+    required TResult Function(String? selectedCountry) onAddCountry,
+    required TResult Function() onCountryDelete,
+    required TResult Function(String country, bool? value) onCountryPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onAddCountry,
-    TResult? Function()? onCountrySubmit,
-    TResult? Function()? onCountryPressed,
+    TResult? Function(String? selectedCountry)? onAddCountry,
+    TResult? Function()? onCountryDelete,
+    TResult? Function(String country, bool? value)? onCountryPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onAddCountry,
-    TResult Function()? onCountrySubmit,
-    TResult Function()? onCountryPressed,
+    TResult Function(String? selectedCountry)? onAddCountry,
+    TResult Function()? onCountryDelete,
+    TResult Function(String country, bool? value)? onCountryPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(onAddCountry value) onAddCountry,
-    required TResult Function(onCountrySubmit value) onCountrySubmit,
+    required TResult Function(onCountryDelete value) onCountryDelete,
     required TResult Function(onCountryPressed value) onCountryPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(onAddCountry value)? onAddCountry,
-    TResult? Function(onCountrySubmit value)? onCountrySubmit,
+    TResult? Function(onCountryDelete value)? onCountryDelete,
     TResult? Function(onCountryPressed value)? onCountryPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(onAddCountry value)? onAddCountry,
-    TResult Function(onCountrySubmit value)? onCountrySubmit,
+    TResult Function(onCountryDelete value)? onCountryDelete,
     TResult Function(onCountryPressed value)? onCountryPressed,
     required TResult orElse(),
   }) =>
@@ -81,76 +81,105 @@ class _$SettingsEventCopyWithImpl<$Res, $Val extends SettingsEvent>
 }
 
 /// @nodoc
-abstract class _$$onAddCountryCopyWith<$Res> {
-  factory _$$onAddCountryCopyWith(
-          _$onAddCountry value, $Res Function(_$onAddCountry) then) =
-      __$$onAddCountryCopyWithImpl<$Res>;
+abstract class _$$onAddCountryImplCopyWith<$Res> {
+  factory _$$onAddCountryImplCopyWith(
+          _$onAddCountryImpl value, $Res Function(_$onAddCountryImpl) then) =
+      __$$onAddCountryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? selectedCountry});
 }
 
 /// @nodoc
-class __$$onAddCountryCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$onAddCountry>
-    implements _$$onAddCountryCopyWith<$Res> {
-  __$$onAddCountryCopyWithImpl(
-      _$onAddCountry _value, $Res Function(_$onAddCountry) _then)
+class __$$onAddCountryImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$onAddCountryImpl>
+    implements _$$onAddCountryImplCopyWith<$Res> {
+  __$$onAddCountryImplCopyWithImpl(
+      _$onAddCountryImpl _value, $Res Function(_$onAddCountryImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedCountry = freezed,
+  }) {
+    return _then(_$onAddCountryImpl(
+      freezed == selectedCountry
+          ? _value.selectedCountry
+          : selectedCountry // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$onAddCountry with DiagnosticableTreeMixin implements onAddCountry {
-  const _$onAddCountry();
+class _$onAddCountryImpl with DiagnosticableTreeMixin implements onAddCountry {
+  const _$onAddCountryImpl(this.selectedCountry);
+
+  @override
+  final String? selectedCountry;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SettingsEvent.onAddCountry()';
+    return 'SettingsEvent.onAddCountry(selectedCountry: $selectedCountry)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SettingsEvent.onAddCountry'));
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingsEvent.onAddCountry'))
+      ..add(DiagnosticsProperty('selectedCountry', selectedCountry));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onAddCountry);
+        (other.runtimeType == runtimeType &&
+            other is _$onAddCountryImpl &&
+            (identical(other.selectedCountry, selectedCountry) ||
+                other.selectedCountry == selectedCountry));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, selectedCountry);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$onAddCountryImplCopyWith<_$onAddCountryImpl> get copyWith =>
+      __$$onAddCountryImplCopyWithImpl<_$onAddCountryImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onAddCountry,
-    required TResult Function() onCountrySubmit,
-    required TResult Function() onCountryPressed,
+    required TResult Function(String? selectedCountry) onAddCountry,
+    required TResult Function() onCountryDelete,
+    required TResult Function(String country, bool? value) onCountryPressed,
   }) {
-    return onAddCountry();
+    return onAddCountry(selectedCountry);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onAddCountry,
-    TResult? Function()? onCountrySubmit,
-    TResult? Function()? onCountryPressed,
+    TResult? Function(String? selectedCountry)? onAddCountry,
+    TResult? Function()? onCountryDelete,
+    TResult? Function(String country, bool? value)? onCountryPressed,
   }) {
-    return onAddCountry?.call();
+    return onAddCountry?.call(selectedCountry);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onAddCountry,
-    TResult Function()? onCountrySubmit,
-    TResult Function()? onCountryPressed,
+    TResult Function(String? selectedCountry)? onAddCountry,
+    TResult Function()? onCountryDelete,
+    TResult Function(String country, bool? value)? onCountryPressed,
     required TResult orElse(),
   }) {
     if (onAddCountry != null) {
-      return onAddCountry();
+      return onAddCountry(selectedCountry);
     }
     return orElse();
   }
@@ -159,7 +188,7 @@ class _$onAddCountry with DiagnosticableTreeMixin implements onAddCountry {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(onAddCountry value) onAddCountry,
-    required TResult Function(onCountrySubmit value) onCountrySubmit,
+    required TResult Function(onCountryDelete value) onCountryDelete,
     required TResult Function(onCountryPressed value) onCountryPressed,
   }) {
     return onAddCountry(this);
@@ -169,7 +198,7 @@ class _$onAddCountry with DiagnosticableTreeMixin implements onAddCountry {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(onAddCountry value)? onAddCountry,
-    TResult? Function(onCountrySubmit value)? onCountrySubmit,
+    TResult? Function(onCountryDelete value)? onCountryDelete,
     TResult? Function(onCountryPressed value)? onCountryPressed,
   }) {
     return onAddCountry?.call(this);
@@ -179,7 +208,7 @@ class _$onAddCountry with DiagnosticableTreeMixin implements onAddCountry {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(onAddCountry value)? onAddCountry,
-    TResult Function(onCountrySubmit value)? onCountrySubmit,
+    TResult Function(onCountryDelete value)? onCountryDelete,
     TResult Function(onCountryPressed value)? onCountryPressed,
     required TResult orElse(),
   }) {
@@ -191,48 +220,54 @@ class _$onAddCountry with DiagnosticableTreeMixin implements onAddCountry {
 }
 
 abstract class onAddCountry implements SettingsEvent {
-  const factory onAddCountry() = _$onAddCountry;
+  const factory onAddCountry(final String? selectedCountry) =
+      _$onAddCountryImpl;
+
+  String? get selectedCountry;
+  @JsonKey(ignore: true)
+  _$$onAddCountryImplCopyWith<_$onAddCountryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$onCountrySubmitCopyWith<$Res> {
-  factory _$$onCountrySubmitCopyWith(
-          _$onCountrySubmit value, $Res Function(_$onCountrySubmit) then) =
-      __$$onCountrySubmitCopyWithImpl<$Res>;
+abstract class _$$onCountryDeleteImplCopyWith<$Res> {
+  factory _$$onCountryDeleteImplCopyWith(_$onCountryDeleteImpl value,
+          $Res Function(_$onCountryDeleteImpl) then) =
+      __$$onCountryDeleteImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onCountrySubmitCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$onCountrySubmit>
-    implements _$$onCountrySubmitCopyWith<$Res> {
-  __$$onCountrySubmitCopyWithImpl(
-      _$onCountrySubmit _value, $Res Function(_$onCountrySubmit) _then)
+class __$$onCountryDeleteImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$onCountryDeleteImpl>
+    implements _$$onCountryDeleteImplCopyWith<$Res> {
+  __$$onCountryDeleteImplCopyWithImpl(
+      _$onCountryDeleteImpl _value, $Res Function(_$onCountryDeleteImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onCountrySubmit
+class _$onCountryDeleteImpl
     with DiagnosticableTreeMixin
-    implements onCountrySubmit {
-  const _$onCountrySubmit();
+    implements onCountryDelete {
+  const _$onCountryDeleteImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SettingsEvent.onCountrySubmit()';
+    return 'SettingsEvent.onCountryDelete()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-        .add(DiagnosticsProperty('type', 'SettingsEvent.onCountrySubmit'));
+        .add(DiagnosticsProperty('type', 'SettingsEvent.onCountryDelete'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onCountrySubmit);
+        (other.runtimeType == runtimeType && other is _$onCountryDeleteImpl);
   }
 
   @override
@@ -241,33 +276,33 @@ class _$onCountrySubmit
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onAddCountry,
-    required TResult Function() onCountrySubmit,
-    required TResult Function() onCountryPressed,
+    required TResult Function(String? selectedCountry) onAddCountry,
+    required TResult Function() onCountryDelete,
+    required TResult Function(String country, bool? value) onCountryPressed,
   }) {
-    return onCountrySubmit();
+    return onCountryDelete();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onAddCountry,
-    TResult? Function()? onCountrySubmit,
-    TResult? Function()? onCountryPressed,
+    TResult? Function(String? selectedCountry)? onAddCountry,
+    TResult? Function()? onCountryDelete,
+    TResult? Function(String country, bool? value)? onCountryPressed,
   }) {
-    return onCountrySubmit?.call();
+    return onCountryDelete?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onAddCountry,
-    TResult Function()? onCountrySubmit,
-    TResult Function()? onCountryPressed,
+    TResult Function(String? selectedCountry)? onAddCountry,
+    TResult Function()? onCountryDelete,
+    TResult Function(String country, bool? value)? onCountryPressed,
     required TResult orElse(),
   }) {
-    if (onCountrySubmit != null) {
-      return onCountrySubmit();
+    if (onCountryDelete != null) {
+      return onCountryDelete();
     }
     return orElse();
   }
@@ -276,115 +311,152 @@ class _$onCountrySubmit
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(onAddCountry value) onAddCountry,
-    required TResult Function(onCountrySubmit value) onCountrySubmit,
+    required TResult Function(onCountryDelete value) onCountryDelete,
     required TResult Function(onCountryPressed value) onCountryPressed,
   }) {
-    return onCountrySubmit(this);
+    return onCountryDelete(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(onAddCountry value)? onAddCountry,
-    TResult? Function(onCountrySubmit value)? onCountrySubmit,
+    TResult? Function(onCountryDelete value)? onCountryDelete,
     TResult? Function(onCountryPressed value)? onCountryPressed,
   }) {
-    return onCountrySubmit?.call(this);
+    return onCountryDelete?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(onAddCountry value)? onAddCountry,
-    TResult Function(onCountrySubmit value)? onCountrySubmit,
+    TResult Function(onCountryDelete value)? onCountryDelete,
     TResult Function(onCountryPressed value)? onCountryPressed,
     required TResult orElse(),
   }) {
-    if (onCountrySubmit != null) {
-      return onCountrySubmit(this);
+    if (onCountryDelete != null) {
+      return onCountryDelete(this);
     }
     return orElse();
   }
 }
 
-abstract class onCountrySubmit implements SettingsEvent {
-  const factory onCountrySubmit() = _$onCountrySubmit;
+abstract class onCountryDelete implements SettingsEvent {
+  const factory onCountryDelete() = _$onCountryDeleteImpl;
 }
 
 /// @nodoc
-abstract class _$$onCountryPressedCopyWith<$Res> {
-  factory _$$onCountryPressedCopyWith(
-          _$onCountryPressed value, $Res Function(_$onCountryPressed) then) =
-      __$$onCountryPressedCopyWithImpl<$Res>;
+abstract class _$$onCountryPressedImplCopyWith<$Res> {
+  factory _$$onCountryPressedImplCopyWith(_$onCountryPressedImpl value,
+          $Res Function(_$onCountryPressedImpl) then) =
+      __$$onCountryPressedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String country, bool? value});
 }
 
 /// @nodoc
-class __$$onCountryPressedCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$onCountryPressed>
-    implements _$$onCountryPressedCopyWith<$Res> {
-  __$$onCountryPressedCopyWithImpl(
-      _$onCountryPressed _value, $Res Function(_$onCountryPressed) _then)
+class __$$onCountryPressedImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$onCountryPressedImpl>
+    implements _$$onCountryPressedImplCopyWith<$Res> {
+  __$$onCountryPressedImplCopyWithImpl(_$onCountryPressedImpl _value,
+      $Res Function(_$onCountryPressedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? country = null,
+    Object? value = freezed,
+  }) {
+    return _then(_$onCountryPressedImpl(
+      null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$onCountryPressed
+class _$onCountryPressedImpl
     with DiagnosticableTreeMixin
     implements onCountryPressed {
-  const _$onCountryPressed();
+  const _$onCountryPressedImpl(this.country, this.value);
+
+  @override
+  final String country;
+  @override
+  final bool? value;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SettingsEvent.onCountryPressed()';
+    return 'SettingsEvent.onCountryPressed(country: $country, value: $value)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-        .add(DiagnosticsProperty('type', 'SettingsEvent.onCountryPressed'));
+      ..add(DiagnosticsProperty('type', 'SettingsEvent.onCountryPressed'))
+      ..add(DiagnosticsProperty('country', country))
+      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onCountryPressed);
+        (other.runtimeType == runtimeType &&
+            other is _$onCountryPressedImpl &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, country, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$onCountryPressedImplCopyWith<_$onCountryPressedImpl> get copyWith =>
+      __$$onCountryPressedImplCopyWithImpl<_$onCountryPressedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onAddCountry,
-    required TResult Function() onCountrySubmit,
-    required TResult Function() onCountryPressed,
+    required TResult Function(String? selectedCountry) onAddCountry,
+    required TResult Function() onCountryDelete,
+    required TResult Function(String country, bool? value) onCountryPressed,
   }) {
-    return onCountryPressed();
+    return onCountryPressed(country, value);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onAddCountry,
-    TResult? Function()? onCountrySubmit,
-    TResult? Function()? onCountryPressed,
+    TResult? Function(String? selectedCountry)? onAddCountry,
+    TResult? Function()? onCountryDelete,
+    TResult? Function(String country, bool? value)? onCountryPressed,
   }) {
-    return onCountryPressed?.call();
+    return onCountryPressed?.call(country, value);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onAddCountry,
-    TResult Function()? onCountrySubmit,
-    TResult Function()? onCountryPressed,
+    TResult Function(String? selectedCountry)? onAddCountry,
+    TResult Function()? onCountryDelete,
+    TResult Function(String country, bool? value)? onCountryPressed,
     required TResult orElse(),
   }) {
     if (onCountryPressed != null) {
-      return onCountryPressed();
+      return onCountryPressed(country, value);
     }
     return orElse();
   }
@@ -393,7 +465,7 @@ class _$onCountryPressed
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(onAddCountry value) onAddCountry,
-    required TResult Function(onCountrySubmit value) onCountrySubmit,
+    required TResult Function(onCountryDelete value) onCountryDelete,
     required TResult Function(onCountryPressed value) onCountryPressed,
   }) {
     return onCountryPressed(this);
@@ -403,7 +475,7 @@ class _$onCountryPressed
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(onAddCountry value)? onAddCountry,
-    TResult? Function(onCountrySubmit value)? onCountrySubmit,
+    TResult? Function(onCountryDelete value)? onCountryDelete,
     TResult? Function(onCountryPressed value)? onCountryPressed,
   }) {
     return onCountryPressed?.call(this);
@@ -413,7 +485,7 @@ class _$onCountryPressed
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(onAddCountry value)? onAddCountry,
-    TResult Function(onCountrySubmit value)? onCountrySubmit,
+    TResult Function(onCountryDelete value)? onCountryDelete,
     TResult Function(onCountryPressed value)? onCountryPressed,
     required TResult orElse(),
   }) {
@@ -425,64 +497,71 @@ class _$onCountryPressed
 }
 
 abstract class onCountryPressed implements SettingsEvent {
-  const factory onCountryPressed() = _$onCountryPressed;
+  const factory onCountryPressed(final String country, final bool? value) =
+      _$onCountryPressedImpl;
+
+  String get country;
+  bool? get value;
+  @JsonKey(ignore: true)
+  _$$onCountryPressedImplCopyWith<_$onCountryPressedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$SettingsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
+    TResult Function(BannedCountries bannedCountries) $default, {
     required TResult Function() loading,
     required TResult Function() loaded,
     required TResult Function() error,
+    required TResult Function() duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
+    TResult? Function(BannedCountries bannedCountries)? $default, {
     TResult? Function()? loading,
     TResult? Function()? loaded,
     TResult? Function()? error,
+    TResult? Function()? duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
+    TResult Function(BannedCountries bannedCountries)? $default, {
     TResult Function()? loading,
     TResult Function()? loaded,
     TResult Function()? error,
+    TResult Function()? duplicate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_SettingsState value) $default, {
-    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Loaded value) loaded,
     required TResult Function(ErrorS value) error,
+    required TResult Function(SettingsDuplicate value) duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_SettingsState value)? $default, {
-    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Loaded value)? loaded,
     TResult? Function(ErrorS value)? error,
+    TResult? Function(SettingsDuplicate value)? duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_SettingsState value)? $default, {
-    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Loaded value)? loaded,
     TResult Function(ErrorS value)? error,
+    TResult Function(SettingsDuplicate value)? duplicate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -507,82 +586,121 @@ class _$SettingsStateCopyWithImpl<$Res, $Val extends SettingsState>
 }
 
 /// @nodoc
-abstract class _$$_SettingsStateCopyWith<$Res> {
-  factory _$$_SettingsStateCopyWith(
-          _$_SettingsState value, $Res Function(_$_SettingsState) then) =
-      __$$_SettingsStateCopyWithImpl<$Res>;
+abstract class _$$SettingsStateImplCopyWith<$Res> {
+  factory _$$SettingsStateImplCopyWith(
+          _$SettingsStateImpl value, $Res Function(_$SettingsStateImpl) then) =
+      __$$SettingsStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BannedCountries bannedCountries});
+
+  $BannedCountriesCopyWith<$Res> get bannedCountries;
 }
 
 /// @nodoc
-class __$$_SettingsStateCopyWithImpl<$Res>
-    extends _$SettingsStateCopyWithImpl<$Res, _$_SettingsState>
-    implements _$$_SettingsStateCopyWith<$Res> {
-  __$$_SettingsStateCopyWithImpl(
-      _$_SettingsState _value, $Res Function(_$_SettingsState) _then)
+class __$$SettingsStateImplCopyWithImpl<$Res>
+    extends _$SettingsStateCopyWithImpl<$Res, _$SettingsStateImpl>
+    implements _$$SettingsStateImplCopyWith<$Res> {
+  __$$SettingsStateImplCopyWithImpl(
+      _$SettingsStateImpl _value, $Res Function(_$SettingsStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? bannedCountries = null,
+  }) {
+    return _then(_$SettingsStateImpl(
+      bannedCountries: null == bannedCountries
+          ? _value.bannedCountries
+          : bannedCountries // ignore: cast_nullable_to_non_nullable
+              as BannedCountries,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BannedCountriesCopyWith<$Res> get bannedCountries {
+    return $BannedCountriesCopyWith<$Res>(_value.bannedCountries, (value) {
+      return _then(_value.copyWith(bannedCountries: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$_SettingsState extends _SettingsState with DiagnosticableTreeMixin {
-  const _$_SettingsState() : super._();
+class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
+  const _$SettingsStateImpl({required this.bannedCountries}) : super._();
+
+  @override
+  final BannedCountries bannedCountries;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SettingsState()';
+    return 'SettingsState(bannedCountries: $bannedCountries)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SettingsState'));
+    properties
+      ..add(DiagnosticsProperty('type', 'SettingsState'))
+      ..add(DiagnosticsProperty('bannedCountries', bannedCountries));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_SettingsState);
+        (other.runtimeType == runtimeType &&
+            other is _$SettingsStateImpl &&
+            (identical(other.bannedCountries, bannedCountries) ||
+                other.bannedCountries == bannedCountries));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, bannedCountries);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SettingsStateImplCopyWith<_$SettingsStateImpl> get copyWith =>
+      __$$SettingsStateImplCopyWithImpl<_$SettingsStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
+    TResult Function(BannedCountries bannedCountries) $default, {
     required TResult Function() loading,
     required TResult Function() loaded,
     required TResult Function() error,
+    required TResult Function() duplicate,
   }) {
-    return $default();
+    return $default(bannedCountries);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
+    TResult? Function(BannedCountries bannedCountries)? $default, {
     TResult? Function()? loading,
     TResult? Function()? loaded,
     TResult? Function()? error,
+    TResult? Function()? duplicate,
   }) {
-    return $default?.call();
+    return $default?.call(bannedCountries);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
+    TResult Function(BannedCountries bannedCountries)? $default, {
     TResult Function()? loading,
     TResult Function()? loaded,
     TResult Function()? error,
+    TResult Function()? duplicate,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default();
+      return $default(bannedCountries);
     }
     return orElse();
   }
@@ -591,10 +709,10 @@ class _$_SettingsState extends _SettingsState with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_SettingsState value) $default, {
-    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Loaded value) loaded,
     required TResult Function(ErrorS value) error,
+    required TResult Function(SettingsDuplicate value) duplicate,
   }) {
     return $default(this);
   }
@@ -603,10 +721,10 @@ class _$_SettingsState extends _SettingsState with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_SettingsState value)? $default, {
-    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Loaded value)? loaded,
     TResult? Function(ErrorS value)? error,
+    TResult? Function(SettingsDuplicate value)? duplicate,
   }) {
     return $default?.call(this);
   }
@@ -615,10 +733,10 @@ class _$_SettingsState extends _SettingsState with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_SettingsState value)? $default, {
-    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Loaded value)? loaded,
     TResult Function(ErrorS value)? error,
+    TResult Function(SettingsDuplicate value)? duplicate,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -629,153 +747,36 @@ class _$_SettingsState extends _SettingsState with DiagnosticableTreeMixin {
 }
 
 abstract class _SettingsState extends SettingsState {
-  const factory _SettingsState() = _$_SettingsState;
+  const factory _SettingsState(
+      {required final BannedCountries bannedCountries}) = _$SettingsStateImpl;
   const _SettingsState._() : super._();
+
+  BannedCountries get bannedCountries;
+  @JsonKey(ignore: true)
+  _$$SettingsStateImplCopyWith<_$SettingsStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InitialCopyWith<$Res> {
-  factory _$$InitialCopyWith(_$Initial value, $Res Function(_$Initial) then) =
-      __$$InitialCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialCopyWithImpl<$Res>
-    extends _$SettingsStateCopyWithImpl<$Res, _$Initial>
-    implements _$$InitialCopyWith<$Res> {
-  __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$SettingsStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Initial extends Initial with DiagnosticableTreeMixin {
-  const _$Initial() : super._();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SettingsState.initial()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SettingsState.initial'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_SettingsState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_SettingsState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_SettingsState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Initial extends SettingsState {
-  const factory Initial() = _$Initial;
-  const Initial._() : super._();
-}
-
-/// @nodoc
-abstract class _$$LoadingCopyWith<$Res> {
-  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
-      __$$LoadingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadingCopyWithImpl<$Res>
-    extends _$SettingsStateCopyWithImpl<$Res, _$Loading>
-    implements _$$LoadingCopyWith<$Res> {
-  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$Loading extends Loading with DiagnosticableTreeMixin {
-  const _$Loading() : super._();
+class _$LoadingImpl extends Loading with DiagnosticableTreeMixin {
+  const _$LoadingImpl() : super._();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -791,7 +792,7 @@ class _$Loading extends Loading with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loading);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -800,11 +801,11 @@ class _$Loading extends Loading with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
+    TResult Function(BannedCountries bannedCountries) $default, {
     required TResult Function() loading,
     required TResult Function() loaded,
     required TResult Function() error,
+    required TResult Function() duplicate,
   }) {
     return loading();
   }
@@ -812,11 +813,11 @@ class _$Loading extends Loading with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
+    TResult? Function(BannedCountries bannedCountries)? $default, {
     TResult? Function()? loading,
     TResult? Function()? loaded,
     TResult? Function()? error,
+    TResult? Function()? duplicate,
   }) {
     return loading?.call();
   }
@@ -824,11 +825,11 @@ class _$Loading extends Loading with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
+    TResult Function(BannedCountries bannedCountries)? $default, {
     TResult Function()? loading,
     TResult Function()? loaded,
     TResult Function()? error,
+    TResult Function()? duplicate,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -841,10 +842,10 @@ class _$Loading extends Loading with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_SettingsState value) $default, {
-    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Loaded value) loaded,
     required TResult Function(ErrorS value) error,
+    required TResult Function(SettingsDuplicate value) duplicate,
   }) {
     return loading(this);
   }
@@ -853,10 +854,10 @@ class _$Loading extends Loading with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_SettingsState value)? $default, {
-    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Loaded value)? loaded,
     TResult? Function(ErrorS value)? error,
+    TResult? Function(SettingsDuplicate value)? duplicate,
   }) {
     return loading?.call(this);
   }
@@ -865,10 +866,10 @@ class _$Loading extends Loading with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_SettingsState value)? $default, {
-    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Loaded value)? loaded,
     TResult Function(ErrorS value)? error,
+    TResult Function(SettingsDuplicate value)? duplicate,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -879,28 +880,30 @@ class _$Loading extends Loading with DiagnosticableTreeMixin {
 }
 
 abstract class Loading extends SettingsState {
-  const factory Loading() = _$Loading;
+  const factory Loading() = _$LoadingImpl;
   const Loading._() : super._();
 }
 
 /// @nodoc
-abstract class _$$LoadedCopyWith<$Res> {
-  factory _$$LoadedCopyWith(_$Loaded value, $Res Function(_$Loaded) then) =
-      __$$LoadedCopyWithImpl<$Res>;
+abstract class _$$LoadedImplCopyWith<$Res> {
+  factory _$$LoadedImplCopyWith(
+          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadedCopyWithImpl<$Res>
-    extends _$SettingsStateCopyWithImpl<$Res, _$Loaded>
-    implements _$$LoadedCopyWith<$Res> {
-  __$$LoadedCopyWithImpl(_$Loaded _value, $Res Function(_$Loaded) _then)
+class __$$LoadedImplCopyWithImpl<$Res>
+    extends _$SettingsStateCopyWithImpl<$Res, _$LoadedImpl>
+    implements _$$LoadedImplCopyWith<$Res> {
+  __$$LoadedImplCopyWithImpl(
+      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Loaded extends Loaded with DiagnosticableTreeMixin {
-  const _$Loaded() : super._();
+class _$LoadedImpl extends Loaded with DiagnosticableTreeMixin {
+  const _$LoadedImpl() : super._();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -916,7 +919,7 @@ class _$Loaded extends Loaded with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loaded);
+        (other.runtimeType == runtimeType && other is _$LoadedImpl);
   }
 
   @override
@@ -925,11 +928,11 @@ class _$Loaded extends Loaded with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
+    TResult Function(BannedCountries bannedCountries) $default, {
     required TResult Function() loading,
     required TResult Function() loaded,
     required TResult Function() error,
+    required TResult Function() duplicate,
   }) {
     return loaded();
   }
@@ -937,11 +940,11 @@ class _$Loaded extends Loaded with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
+    TResult? Function(BannedCountries bannedCountries)? $default, {
     TResult? Function()? loading,
     TResult? Function()? loaded,
     TResult? Function()? error,
+    TResult? Function()? duplicate,
   }) {
     return loaded?.call();
   }
@@ -949,11 +952,11 @@ class _$Loaded extends Loaded with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
+    TResult Function(BannedCountries bannedCountries)? $default, {
     TResult Function()? loading,
     TResult Function()? loaded,
     TResult Function()? error,
+    TResult Function()? duplicate,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -966,10 +969,10 @@ class _$Loaded extends Loaded with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_SettingsState value) $default, {
-    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Loaded value) loaded,
     required TResult Function(ErrorS value) error,
+    required TResult Function(SettingsDuplicate value) duplicate,
   }) {
     return loaded(this);
   }
@@ -978,10 +981,10 @@ class _$Loaded extends Loaded with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_SettingsState value)? $default, {
-    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Loaded value)? loaded,
     TResult? Function(ErrorS value)? error,
+    TResult? Function(SettingsDuplicate value)? duplicate,
   }) {
     return loaded?.call(this);
   }
@@ -990,10 +993,10 @@ class _$Loaded extends Loaded with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_SettingsState value)? $default, {
-    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Loaded value)? loaded,
     TResult Function(ErrorS value)? error,
+    TResult Function(SettingsDuplicate value)? duplicate,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1004,28 +1007,30 @@ class _$Loaded extends Loaded with DiagnosticableTreeMixin {
 }
 
 abstract class Loaded extends SettingsState {
-  const factory Loaded() = _$Loaded;
+  const factory Loaded() = _$LoadedImpl;
   const Loaded._() : super._();
 }
 
 /// @nodoc
-abstract class _$$ErrorSCopyWith<$Res> {
-  factory _$$ErrorSCopyWith(_$ErrorS value, $Res Function(_$ErrorS) then) =
-      __$$ErrorSCopyWithImpl<$Res>;
+abstract class _$$ErrorSImplCopyWith<$Res> {
+  factory _$$ErrorSImplCopyWith(
+          _$ErrorSImpl value, $Res Function(_$ErrorSImpl) then) =
+      __$$ErrorSImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ErrorSCopyWithImpl<$Res>
-    extends _$SettingsStateCopyWithImpl<$Res, _$ErrorS>
-    implements _$$ErrorSCopyWith<$Res> {
-  __$$ErrorSCopyWithImpl(_$ErrorS _value, $Res Function(_$ErrorS) _then)
+class __$$ErrorSImplCopyWithImpl<$Res>
+    extends _$SettingsStateCopyWithImpl<$Res, _$ErrorSImpl>
+    implements _$$ErrorSImplCopyWith<$Res> {
+  __$$ErrorSImplCopyWithImpl(
+      _$ErrorSImpl _value, $Res Function(_$ErrorSImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ErrorS extends ErrorS with DiagnosticableTreeMixin {
-  const _$ErrorS() : super._();
+class _$ErrorSImpl extends ErrorS with DiagnosticableTreeMixin {
+  const _$ErrorSImpl() : super._();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1041,7 +1046,7 @@ class _$ErrorS extends ErrorS with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ErrorS);
+        (other.runtimeType == runtimeType && other is _$ErrorSImpl);
   }
 
   @override
@@ -1050,11 +1055,11 @@ class _$ErrorS extends ErrorS with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
+    TResult Function(BannedCountries bannedCountries) $default, {
     required TResult Function() loading,
     required TResult Function() loaded,
     required TResult Function() error,
+    required TResult Function() duplicate,
   }) {
     return error();
   }
@@ -1062,11 +1067,11 @@ class _$ErrorS extends ErrorS with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
+    TResult? Function(BannedCountries bannedCountries)? $default, {
     TResult? Function()? loading,
     TResult? Function()? loaded,
     TResult? Function()? error,
+    TResult? Function()? duplicate,
   }) {
     return error?.call();
   }
@@ -1074,11 +1079,11 @@ class _$ErrorS extends ErrorS with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
+    TResult Function(BannedCountries bannedCountries)? $default, {
     TResult Function()? loading,
     TResult Function()? loaded,
     TResult Function()? error,
+    TResult Function()? duplicate,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1091,10 +1096,10 @@ class _$ErrorS extends ErrorS with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_SettingsState value) $default, {
-    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Loaded value) loaded,
     required TResult Function(ErrorS value) error,
+    required TResult Function(SettingsDuplicate value) duplicate,
   }) {
     return error(this);
   }
@@ -1103,10 +1108,10 @@ class _$ErrorS extends ErrorS with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_SettingsState value)? $default, {
-    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Loaded value)? loaded,
     TResult? Function(ErrorS value)? error,
+    TResult? Function(SettingsDuplicate value)? duplicate,
   }) {
     return error?.call(this);
   }
@@ -1115,10 +1120,10 @@ class _$ErrorS extends ErrorS with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_SettingsState value)? $default, {
-    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Loaded value)? loaded,
     TResult Function(ErrorS value)? error,
+    TResult Function(SettingsDuplicate value)? duplicate,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1129,6 +1134,134 @@ class _$ErrorS extends ErrorS with DiagnosticableTreeMixin {
 }
 
 abstract class ErrorS extends SettingsState {
-  const factory ErrorS() = _$ErrorS;
+  const factory ErrorS() = _$ErrorSImpl;
   const ErrorS._() : super._();
+}
+
+/// @nodoc
+abstract class _$$SettingsDuplicateImplCopyWith<$Res> {
+  factory _$$SettingsDuplicateImplCopyWith(_$SettingsDuplicateImpl value,
+          $Res Function(_$SettingsDuplicateImpl) then) =
+      __$$SettingsDuplicateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SettingsDuplicateImplCopyWithImpl<$Res>
+    extends _$SettingsStateCopyWithImpl<$Res, _$SettingsDuplicateImpl>
+    implements _$$SettingsDuplicateImplCopyWith<$Res> {
+  __$$SettingsDuplicateImplCopyWithImpl(_$SettingsDuplicateImpl _value,
+      $Res Function(_$SettingsDuplicateImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SettingsDuplicateImpl extends SettingsDuplicate
+    with DiagnosticableTreeMixin {
+  const _$SettingsDuplicateImpl() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SettingsState.duplicate()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'SettingsState.duplicate'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SettingsDuplicateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(BannedCountries bannedCountries) $default, {
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() error,
+    required TResult Function() duplicate,
+  }) {
+    return duplicate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(BannedCountries bannedCountries)? $default, {
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function()? error,
+    TResult? Function()? duplicate,
+  }) {
+    return duplicate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(BannedCountries bannedCountries)? $default, {
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    TResult Function()? duplicate,
+    required TResult orElse(),
+  }) {
+    if (duplicate != null) {
+      return duplicate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_SettingsState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(ErrorS value) error,
+    required TResult Function(SettingsDuplicate value) duplicate,
+  }) {
+    return duplicate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_SettingsState value)? $default, {
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+    TResult? Function(ErrorS value)? error,
+    TResult? Function(SettingsDuplicate value)? duplicate,
+  }) {
+    return duplicate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_SettingsState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(ErrorS value)? error,
+    TResult Function(SettingsDuplicate value)? duplicate,
+    required TResult orElse(),
+  }) {
+    if (duplicate != null) {
+      return duplicate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SettingsDuplicate extends SettingsState {
+  const factory SettingsDuplicate() = _$SettingsDuplicateImpl;
+  const SettingsDuplicate._() : super._();
 }
