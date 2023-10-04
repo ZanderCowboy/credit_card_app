@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:ffi';
 
 import 'package:bloc/bloc.dart';
 // import 'package:credit_card_app/domain/banned_countries/banned_countries_repository.dart';
@@ -26,15 +27,21 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
             // in case a new country needs to be added to the list
             _bannedCountriesRepository.addCountry(value.selectedCountry!);
             log('In settings_bloc: bc_repo ${_bannedCountriesRepository.readCountries()}');
-            emit(const SettingsState.loaded());
+            emit(SettingsState.loaded(true));
+            var newCountry = value.selectedCountry;
+            // var newValue = value.value;
+            log('*** newCount: $newCountry ***');
           }
         },
         onCountryDelete: (_) async {},
         onCountryPressed: (value) async {
           _bannedCountriesRepository.updateCountryChecked(
-              value.bannedCountryCode, value.value);
+              value.country, value.value);
           log('onCountryPresses() in settings_bloc: ${_bannedCountriesRepository.readCountries()}');
-          emit(const SettingsState.loaded());
+          emit(SettingsState.loaded(true));
+          var newCountry = value.country;
+          var newValue = value.value;
+          log('*** newCount: $newCountry *** newValue: $newValue');
         },
       );
     });

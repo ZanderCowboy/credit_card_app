@@ -511,27 +511,24 @@ abstract class onCountryPressed implements SettingsEvent {
 mixin _$SettingsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(BannedCountries bannedCountries) $default, {
+    TResult Function(bool isChecked, String? country) $default, {
     required TResult Function() loading,
-    required TResult Function() loaded,
     required TResult Function() error,
     required TResult Function() duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(BannedCountries bannedCountries)? $default, {
+    TResult? Function(bool isChecked, String? country)? $default, {
     TResult? Function()? loading,
-    TResult? Function()? loaded,
     TResult? Function()? error,
     TResult? Function()? duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(BannedCountries bannedCountries)? $default, {
+    TResult Function(bool isChecked, String? country)? $default, {
     TResult Function()? loading,
-    TResult Function()? loaded,
     TResult Function()? error,
     TResult Function()? duplicate,
     required TResult orElse(),
@@ -541,7 +538,6 @@ mixin _$SettingsState {
   TResult map<TResult extends Object?>(
     TResult Function(_SettingsState value) $default, {
     required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
     required TResult Function(ErrorS value) error,
     required TResult Function(SettingsDuplicate value) duplicate,
   }) =>
@@ -550,7 +546,6 @@ mixin _$SettingsState {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_SettingsState value)? $default, {
     TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
     TResult? Function(ErrorS value)? error,
     TResult? Function(SettingsDuplicate value)? duplicate,
   }) =>
@@ -559,7 +554,6 @@ mixin _$SettingsState {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_SettingsState value)? $default, {
     TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
     TResult Function(ErrorS value)? error,
     TResult Function(SettingsDuplicate value)? duplicate,
     required TResult orElse(),
@@ -591,9 +585,7 @@ abstract class _$$SettingsStateImplCopyWith<$Res> {
           _$SettingsStateImpl value, $Res Function(_$SettingsStateImpl) then) =
       __$$SettingsStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({BannedCountries bannedCountries});
-
-  $BannedCountriesCopyWith<$Res> get bannedCountries;
+  $Res call({bool isChecked, String? country});
 }
 
 /// @nodoc
@@ -607,36 +599,36 @@ class __$$SettingsStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bannedCountries = null,
+    Object? isChecked = null,
+    Object? country = freezed,
   }) {
     return _then(_$SettingsStateImpl(
-      bannedCountries: null == bannedCountries
-          ? _value.bannedCountries
-          : bannedCountries // ignore: cast_nullable_to_non_nullable
-              as BannedCountries,
+      isChecked: null == isChecked
+          ? _value.isChecked
+          : isChecked // ignore: cast_nullable_to_non_nullable
+              as bool,
+      country: freezed == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $BannedCountriesCopyWith<$Res> get bannedCountries {
-    return $BannedCountriesCopyWith<$Res>(_value.bannedCountries, (value) {
-      return _then(_value.copyWith(bannedCountries: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
-  const _$SettingsStateImpl({required this.bannedCountries}) : super._();
+  const _$SettingsStateImpl({required this.isChecked, this.country})
+      : super._();
 
   @override
-  final BannedCountries bannedCountries;
+  final bool isChecked;
+  @override
+  final String? country;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SettingsState(bannedCountries: $bannedCountries)';
+    return 'SettingsState(isChecked: $isChecked, country: $country)';
   }
 
   @override
@@ -644,7 +636,8 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'SettingsState'))
-      ..add(DiagnosticsProperty('bannedCountries', bannedCountries));
+      ..add(DiagnosticsProperty('isChecked', isChecked))
+      ..add(DiagnosticsProperty('country', country));
   }
 
   @override
@@ -652,12 +645,13 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SettingsStateImpl &&
-            (identical(other.bannedCountries, bannedCountries) ||
-                other.bannedCountries == bannedCountries));
+            (identical(other.isChecked, isChecked) ||
+                other.isChecked == isChecked) &&
+            (identical(other.country, country) || other.country == country));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bannedCountries);
+  int get hashCode => Object.hash(runtimeType, isChecked, country);
 
   @JsonKey(ignore: true)
   @override
@@ -668,39 +662,36 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(BannedCountries bannedCountries) $default, {
+    TResult Function(bool isChecked, String? country) $default, {
     required TResult Function() loading,
-    required TResult Function() loaded,
     required TResult Function() error,
     required TResult Function() duplicate,
   }) {
-    return $default(bannedCountries);
+    return $default(isChecked, country);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(BannedCountries bannedCountries)? $default, {
+    TResult? Function(bool isChecked, String? country)? $default, {
     TResult? Function()? loading,
-    TResult? Function()? loaded,
     TResult? Function()? error,
     TResult? Function()? duplicate,
   }) {
-    return $default?.call(bannedCountries);
+    return $default?.call(isChecked, country);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(BannedCountries bannedCountries)? $default, {
+    TResult Function(bool isChecked, String? country)? $default, {
     TResult Function()? loading,
-    TResult Function()? loaded,
     TResult Function()? error,
     TResult Function()? duplicate,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(bannedCountries);
+      return $default(isChecked, country);
     }
     return orElse();
   }
@@ -710,7 +701,6 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
   TResult map<TResult extends Object?>(
     TResult Function(_SettingsState value) $default, {
     required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
     required TResult Function(ErrorS value) error,
     required TResult Function(SettingsDuplicate value) duplicate,
   }) {
@@ -722,7 +712,6 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_SettingsState value)? $default, {
     TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
     TResult? Function(ErrorS value)? error,
     TResult? Function(SettingsDuplicate value)? duplicate,
   }) {
@@ -734,7 +723,6 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_SettingsState value)? $default, {
     TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
     TResult Function(ErrorS value)? error,
     TResult Function(SettingsDuplicate value)? duplicate,
     required TResult orElse(),
@@ -748,10 +736,12 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
 
 abstract class _SettingsState extends SettingsState {
   const factory _SettingsState(
-      {required final BannedCountries bannedCountries}) = _$SettingsStateImpl;
+      {required final bool isChecked,
+      final String? country}) = _$SettingsStateImpl;
   const _SettingsState._() : super._();
 
-  BannedCountries get bannedCountries;
+  bool get isChecked;
+  String? get country;
   @JsonKey(ignore: true)
   _$$SettingsStateImplCopyWith<_$SettingsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -801,9 +791,8 @@ class _$LoadingImpl extends Loading with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(BannedCountries bannedCountries) $default, {
+    TResult Function(bool isChecked, String? country) $default, {
     required TResult Function() loading,
-    required TResult Function() loaded,
     required TResult Function() error,
     required TResult Function() duplicate,
   }) {
@@ -813,9 +802,8 @@ class _$LoadingImpl extends Loading with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(BannedCountries bannedCountries)? $default, {
+    TResult? Function(bool isChecked, String? country)? $default, {
     TResult? Function()? loading,
-    TResult? Function()? loaded,
     TResult? Function()? error,
     TResult? Function()? duplicate,
   }) {
@@ -825,9 +813,8 @@ class _$LoadingImpl extends Loading with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(BannedCountries bannedCountries)? $default, {
+    TResult Function(bool isChecked, String? country)? $default, {
     TResult Function()? loading,
-    TResult Function()? loaded,
     TResult Function()? error,
     TResult Function()? duplicate,
     required TResult orElse(),
@@ -843,7 +830,6 @@ class _$LoadingImpl extends Loading with DiagnosticableTreeMixin {
   TResult map<TResult extends Object?>(
     TResult Function(_SettingsState value) $default, {
     required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
     required TResult Function(ErrorS value) error,
     required TResult Function(SettingsDuplicate value) duplicate,
   }) {
@@ -855,7 +841,6 @@ class _$LoadingImpl extends Loading with DiagnosticableTreeMixin {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_SettingsState value)? $default, {
     TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
     TResult? Function(ErrorS value)? error,
     TResult? Function(SettingsDuplicate value)? duplicate,
   }) {
@@ -867,7 +852,6 @@ class _$LoadingImpl extends Loading with DiagnosticableTreeMixin {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_SettingsState value)? $default, {
     TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
     TResult Function(ErrorS value)? error,
     TResult Function(SettingsDuplicate value)? duplicate,
     required TResult orElse(),
@@ -882,133 +866,6 @@ class _$LoadingImpl extends Loading with DiagnosticableTreeMixin {
 abstract class Loading extends SettingsState {
   const factory Loading() = _$LoadingImpl;
   const Loading._() : super._();
-}
-
-/// @nodoc
-abstract class _$$LoadedImplCopyWith<$Res> {
-  factory _$$LoadedImplCopyWith(
-          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
-      __$$LoadedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$SettingsStateCopyWithImpl<$Res, _$LoadedImpl>
-    implements _$$LoadedImplCopyWith<$Res> {
-  __$$LoadedImplCopyWithImpl(
-      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$LoadedImpl extends Loaded with DiagnosticableTreeMixin {
-  const _$LoadedImpl() : super._();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SettingsState.loaded()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SettingsState.loaded'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(BannedCountries bannedCountries) $default, {
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() duplicate,
-  }) {
-    return loaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(BannedCountries bannedCountries)? $default, {
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? duplicate,
-  }) {
-    return loaded?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(BannedCountries bannedCountries)? $default, {
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? duplicate,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_SettingsState value) $default, {
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-    required TResult Function(SettingsDuplicate value) duplicate,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_SettingsState value)? $default, {
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-    TResult? Function(SettingsDuplicate value)? duplicate,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_SettingsState value)? $default, {
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    TResult Function(SettingsDuplicate value)? duplicate,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Loaded extends SettingsState {
-  const factory Loaded() = _$LoadedImpl;
-  const Loaded._() : super._();
 }
 
 /// @nodoc
@@ -1055,9 +912,8 @@ class _$ErrorSImpl extends ErrorS with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(BannedCountries bannedCountries) $default, {
+    TResult Function(bool isChecked, String? country) $default, {
     required TResult Function() loading,
-    required TResult Function() loaded,
     required TResult Function() error,
     required TResult Function() duplicate,
   }) {
@@ -1067,9 +923,8 @@ class _$ErrorSImpl extends ErrorS with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(BannedCountries bannedCountries)? $default, {
+    TResult? Function(bool isChecked, String? country)? $default, {
     TResult? Function()? loading,
-    TResult? Function()? loaded,
     TResult? Function()? error,
     TResult? Function()? duplicate,
   }) {
@@ -1079,9 +934,8 @@ class _$ErrorSImpl extends ErrorS with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(BannedCountries bannedCountries)? $default, {
+    TResult Function(bool isChecked, String? country)? $default, {
     TResult Function()? loading,
-    TResult Function()? loaded,
     TResult Function()? error,
     TResult Function()? duplicate,
     required TResult orElse(),
@@ -1097,7 +951,6 @@ class _$ErrorSImpl extends ErrorS with DiagnosticableTreeMixin {
   TResult map<TResult extends Object?>(
     TResult Function(_SettingsState value) $default, {
     required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
     required TResult Function(ErrorS value) error,
     required TResult Function(SettingsDuplicate value) duplicate,
   }) {
@@ -1109,7 +962,6 @@ class _$ErrorSImpl extends ErrorS with DiagnosticableTreeMixin {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_SettingsState value)? $default, {
     TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
     TResult? Function(ErrorS value)? error,
     TResult? Function(SettingsDuplicate value)? duplicate,
   }) {
@@ -1121,7 +973,6 @@ class _$ErrorSImpl extends ErrorS with DiagnosticableTreeMixin {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_SettingsState value)? $default, {
     TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
     TResult Function(ErrorS value)? error,
     TResult Function(SettingsDuplicate value)? duplicate,
     required TResult orElse(),
@@ -1183,9 +1034,8 @@ class _$SettingsDuplicateImpl extends SettingsDuplicate
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(BannedCountries bannedCountries) $default, {
+    TResult Function(bool isChecked, String? country) $default, {
     required TResult Function() loading,
-    required TResult Function() loaded,
     required TResult Function() error,
     required TResult Function() duplicate,
   }) {
@@ -1195,9 +1045,8 @@ class _$SettingsDuplicateImpl extends SettingsDuplicate
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(BannedCountries bannedCountries)? $default, {
+    TResult? Function(bool isChecked, String? country)? $default, {
     TResult? Function()? loading,
-    TResult? Function()? loaded,
     TResult? Function()? error,
     TResult? Function()? duplicate,
   }) {
@@ -1207,9 +1056,8 @@ class _$SettingsDuplicateImpl extends SettingsDuplicate
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(BannedCountries bannedCountries)? $default, {
+    TResult Function(bool isChecked, String? country)? $default, {
     TResult Function()? loading,
-    TResult Function()? loaded,
     TResult Function()? error,
     TResult Function()? duplicate,
     required TResult orElse(),
@@ -1225,7 +1073,6 @@ class _$SettingsDuplicateImpl extends SettingsDuplicate
   TResult map<TResult extends Object?>(
     TResult Function(_SettingsState value) $default, {
     required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
     required TResult Function(ErrorS value) error,
     required TResult Function(SettingsDuplicate value) duplicate,
   }) {
@@ -1237,7 +1084,6 @@ class _$SettingsDuplicateImpl extends SettingsDuplicate
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_SettingsState value)? $default, {
     TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
     TResult? Function(ErrorS value)? error,
     TResult? Function(SettingsDuplicate value)? duplicate,
   }) {
@@ -1249,7 +1095,6 @@ class _$SettingsDuplicateImpl extends SettingsDuplicate
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_SettingsState value)? $default, {
     TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
     TResult Function(ErrorS value)? error,
     TResult Function(SettingsDuplicate value)? duplicate,
     required TResult orElse(),

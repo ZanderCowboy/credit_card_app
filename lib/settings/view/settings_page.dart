@@ -34,7 +34,7 @@ class SettingsPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => coreSl<SettingsBloc>(),
       child: BlocBuilder<SettingsBloc, SettingsState>(
-        builder: (context, state) {
+        builder: (context, SettingsState state) {
           if (state is SettingsDuplicate) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
               ScaffoldMessenger.of(context).showSnackBar(
@@ -78,8 +78,11 @@ class SettingsPage extends StatelessWidget {
                                     BannedCountries bCountry =
                                         bannedCountriesList[index];
 
-                                    return _bannedCountryListItem(context,
-                                        bCountry, bannedCountriesRepository);
+                                    return _bannedCountryListItem(
+                                        context,
+                                        bCountry,
+                                        bannedCountriesRepository,
+                                        state);
                                   },
                                 ),
                               ),
@@ -101,9 +104,13 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
-  InkWell _bannedCountryListItem(BuildContext context, BannedCountries bCountry,
-      BannedCountriesRepository bannedCountriesRepository) {
+  InkWell _bannedCountryListItem(
+      BuildContext context,
+      BannedCountries bCountry,
+      BannedCountriesRepository bannedCountriesRepository,
+      SettingsState state) {
     bool checkbox = bCountry.isBanned;
+    // bool checkbox = state.isChecked;
 
     String bannedCountryCode = bCountry.bannedCountry;
     String? bannedCountryName = countryMap[bannedCountryCode];
@@ -140,6 +147,7 @@ class SettingsPage extends StatelessWidget {
       child: CheckboxListTile(
         title: Text('$bannedCountryCode \t - $bannedCountryName'),
         value: checkbox,
+        // value: ,
         onChanged: (bool? value) {
           log('$value \t $bannedCountryCode');
           context
