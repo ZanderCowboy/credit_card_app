@@ -4,7 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 part 'credit_card.freezed.dart';
-
 part 'credit_card.g.dart';
 
 @HiveType(typeId: 0)
@@ -15,14 +14,15 @@ class CreditCard with _$CreditCard {
     @HiveField(1) required String cardType,
     @HiveField(2) required int cvvNumber,
     @HiveField(3) required String issuingCountry,
+    @HiveField(4) required bool isValid,
   }) = _CreditCard;
 
   factory CreditCard.empty() => const CreditCard(
-        cardNumber: '0000',
-        cardType: '0000',
-        cvvNumber: 000,
-        issuingCountry: '0000',
-      );
+      cardNumber: '0000',
+      cardType: '0000',
+      cvvNumber: 000,
+      issuingCountry: '0000',
+      isValid: false);
 
   // @HiveField(0)
   // final String cardNumber;

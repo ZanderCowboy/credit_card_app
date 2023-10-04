@@ -51,7 +51,8 @@ class ResultPage extends StatelessWidget {
                   cardNumber: "0000",
                   cardType: "0000",
                   cvvNumber: 000,
-                  issuingCountry: "ZA");
+                  issuingCountry: "ZA",
+                  isValid: false);
 
               log(state.toString());
               // CreditCard creditCard =
