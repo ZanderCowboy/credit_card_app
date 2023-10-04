@@ -1,0 +1,21 @@
+part of 'enter_bloc.dart';
+
+@freezed
+class EnterState with _$EnterState {
+  const factory EnterState({
+    required CreditCard creditCard,
+    required bool isLoading,
+    required bool isSaving,
+    required String? errorMessage,
+  }) = _EnterState;
+
+  const EnterState._();
+
+  factory EnterState.initial() => EnterState(
+      creditCard: CreditCard.empty(),
+      isLoading: false,
+      isSaving: false,
+      errorMessage: '');
+
+  // factory EnterState.cancel() => EnterState(creditCard: CreditCard.empty());
+}

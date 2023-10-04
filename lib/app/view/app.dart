@@ -1,15 +1,15 @@
-import 'package:credit_card_app/components/constants.dart';
-import 'package:credit_card_app/domain/banned_countries/banned_countries_repository.dart';
-import 'package:credit_card_app/domain/credit_card/credit_card_repository.dart';
+import 'package:credit_card_app/constants/constants.dart';
+import 'package:credit_card_app/infrastructure/banned_countries/banned_countries_repository.dart';
+import 'package:credit_card_app/infrastructure/credit_card/credit_card_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../home/home.dart';
-import '../../start/start.dart';
-import '../../history/history.dart';
-import 'package:credit_card_app/enter/enter.dart';
-import '../../result/result.dart';
-import '../../scan/scan.dart';
-import '../../settings/settings.dart';
+import '../../application/enter/enter.dart';
+import '../../application/home/home.dart';
+import '../../application/history/history.dart';
+import '../../application/result/result.dart';
+import '../../application/scan/scan.dart';
+import '../../application/settings/settings.dart';
+import '../../application/start/start.dart';
 
 class App extends StatelessWidget {
   const App({
