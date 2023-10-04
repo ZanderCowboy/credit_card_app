@@ -18,10 +18,10 @@ class CreditCard with _$CreditCard {
   }) = _CreditCard;
 
   factory CreditCard.empty() => const CreditCard(
-      cardNumber: '0000',
-      cardType: '0000',
-      cvvNumber: 000,
-      issuingCountry: '0000',
+      cardNumber: '',
+      cardType: '',
+      cvvNumber: 0,
+      issuingCountry: '',
       isValid: false);
 
   // @HiveField(0)

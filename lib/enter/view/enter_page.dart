@@ -49,10 +49,6 @@ class _EnterPage extends HookWidget {
               .showSnackBar(SnackBar(content: Text(state.errorMessage!)));
         }
       },
-      listenWhen: (previous, current) {
-        return previous.errorMessage.isNotNullAndNotEmpty &&
-            previous.errorMessage != current.errorMessage;
-      },
       builder: (context, state) {
         return SizedBox(
           //height: 200,
@@ -65,31 +61,82 @@ class _EnterPage extends HookWidget {
               TextFormField(
                 controller: cardNumberTextController,
                 decoration: const InputDecoration(hintText: 'Card Number'),
-                onChanged: (value) =>
-                    coreSl<EnterBloc>()..add(EnterEvent.onChangedNumber(value)),
+                onChanged: (value) => context.read<EnterBloc>()
+                  ..add(EnterEvent.onChangedNumber(value)),
               ),
               TextFormField(
                 controller: cardTypeTextController,
                 decoration: const InputDecoration(hintText: 'Card Type'),
-                onChanged: (value) => coreSl<EnterBloc>()
+                onChanged: (value) => context.read<EnterBloc>()
                   ..add(EnterEvent.onChangedCardType(value)),
               ),
               TextFormField(
                 controller: cardCvvTextController,
                 decoration: const InputDecoration(hintText: 'Card cvv'),
-                onChanged: (value) =>
-                    coreSl<EnterBloc>()..add(EnterEvent.onChangedCVV(value)),
+                keyboardType: TextInputType.number,
+                onChanged: (value) => context.read<EnterBloc>()
+                  ..add(EnterEvent.onChangedCVV(value)),
               ),
               TextFormField(
                 controller: countryTextController,
                 decoration: const InputDecoration(hintText: 'country'),
-                onChanged: (value) => coreSl<EnterBloc>()
+                onChanged: (value) => context.read<EnterBloc>()
                   ..add(EnterEvent.onChangedCountry(value)),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        context
+                            .read<EnterBloc>()
+                            .add(const EnterEvent.onCancel());
+                        cardCvvTextController.clear();
+                        cardNumberTextController.clear();
+                        cardTypeTextController.clear();
+                        countryTextController.clear();
+                      },
+                      child: const Text('Clear')),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  TextButton(
+                      onPressed: state.creditCard.isValid
+                          ? () => context
+                              .read<EnterBloc>()
+                              .add(const EnterEvent.onSubmit())
+                          : null,
+                      child: const Text('Submit')),
+                ],
               )
             ],
           ),
         );
       },
+    );
+  }
+
+  Future<void> _showDialog(BuildContext context) async {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        content: const Text(
+          'Are you sure you want to submit this card? ',
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('No'),
+          ),
+          TextButton(
+            onPressed: () async {},
+            child: const Text('Yes'),
+          )
+        ],
+      ),
     );
   }
 }
@@ -99,7 +146,8 @@ class _CardDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EnterBloc, EnterState>(
+    return BlocConsumer<EnterBloc, EnterState>(
+      listener: (context, state) {},
       builder: (context, state) {
         return ListView(
           shrinkWrap: true,

@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:credit_card_app/domain/credit_card/i_credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
+import 'package:flutter_credit_card/extension.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -15,7 +16,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
       (event, emit) {
         event.map(
           onCancel: (_) {
-            emit(EnterState.reset());
+            emit(EnterState.initial());
           },
           onSubmit: (_) {
             emit(state.copyWith(isSaving: true, errorMessage: null));
@@ -82,14 +83,17 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
           },
           onChangedCVV: (value) {
             emit(state.copyWith(isLoading: true, errorMessage: null));
-            emit(
-              state.copyWith(
-                creditCard: state.creditCard.copyWith(
-                    cvvNumber: int.parse(
-                  value.text,
-                )),
-              ),
-            );
+            if (value.text.isNotEmpty) {
+              emit(
+                state.copyWith(
+                  creditCard: state.creditCard.copyWith(
+                      cvvNumber: int.parse(
+                    value.text,
+                  )),
+                ),
+              );
+            }
+
             final isValidTextValue = _isValid(state.creditCard);
             emit(
               state.copyWith(
@@ -127,6 +131,9 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
   final ICreditCardRepository _creditCardRepository;
 
   bool _isValid(CreditCard creditCard) {
+    return creditCard.cardNumber.isNotNullAndNotEmpty &&
+        creditCard.cardType.isNotNullAndNotEmpty &&
+        creditCard.cvvNumber > 0;
     List<CreditCard> list = _creditCardRepository.readHistoryCards();
 
     return list.contains(creditCard);
