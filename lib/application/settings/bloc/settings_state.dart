@@ -1,16 +1,23 @@
 part of 'settings_bloc.dart';
 
-sealed class SettingsState extends Equatable {
-  const SettingsState();
+@freezed
+class SettingsState with _$SettingsState {
+  const factory SettingsState({
+    required bool isChecked,
+    String? country,
+  }) = _SettingsState;
 
-  @override
-  List<Object> get props => [];
+  const SettingsState._();
+
+  factory SettingsState.initial() => const SettingsState(
+        country: '',
+        isChecked: false,
+      );
+  const factory SettingsState.loading() = Loading;
+  // const factory SettingsState.loaded() = Loaded;
+  factory SettingsState.loaded(bool isChecked) =>
+      SettingsState(country: '', isChecked: isChecked);
+  const factory SettingsState.error() = ErrorS;
+
+  const factory SettingsState.duplicate() = SettingsDuplicate;
 }
-
-final class SettingsLoading extends SettingsState {}
-
-final class SettingsLoaded extends SettingsState {}
-
-final class SettingsError extends SettingsState {}
-
-final class SettingsBannedCountries extends SettingsState {}

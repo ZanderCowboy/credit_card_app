@@ -1,18 +1,10 @@
 part of 'home_bloc.dart';
 
-sealed class HomeEvent extends Equatable {
-  const HomeEvent();
-
-  @override
-  List<Object> get props => [];
+@freezed
+class HomeEvent with _$HomeEvent {
+  const factory HomeEvent.onEnter() = onEnter;
+  const factory HomeEvent.onScan() = onScan;
+  const factory HomeEvent.onHistory() = onHistory;
+  const factory HomeEvent.onSettings() = onSettings;
+  const factory HomeEvent.onLogout() = onLogout;
 }
-
-final class HomeInitial extends HomeEvent {}
-
-final class HomeEnter extends HomeEvent {}
-
-final class HomeScan extends HomeEvent {}
-
-final class HomeHistory extends HomeEvent {}
-
-final class HomeSettings extends HomeEvent {}

@@ -11,13 +11,17 @@ const String historyRoute = '/history';
 const String settingsRoute = '/settings';
 const String resultRoute = '/result';
 
+// Material App Title
+const String appTitle = 'Credit Card App';
+
 // AppBar Titles
 const String startAppBarTitle = 'Credit Card Administrator';
 const String homeAppBarTitle = 'Credit Card Administrator';
 const String enterAppBarTitle = 'Enter';
 const String scanAppBarTitle = 'Scan App Bar';
 const String historyAppBarTitle = 'History App Bar';
-const String resultAppBarTitle = 'Result';
+const String resultAppBarTitle = 'Result App Bar';
+const String resultDialogTitle = 'Result';
 // const String settingsAppBarTitle = 'Settings App Bar';
 const String settingsAppBarTitle = 'Banned Countries';
 
@@ -25,14 +29,14 @@ const String settingsAppBarTitle = 'Banned Countries';
 const String startButtonTitle = 'Start';
 const String homeButtonTitle = 'Home';
 const String enterButtonTitle = 'Enter';
-const String enterSubmitButtonTitle = 'Submit';
+const String enterSubmitButtonTitle = 'Validate';
 const String scanButtonTitle = 'Scan';
 const String scanTakeButtonTitle = 'Take';
 const String scanRetakeButtonTitle = 'Retake';
 const String scanSubmitButtonTitle = 'Submit';
 const String historyButtonTitle = 'History';
 const String resultButtonTitle = 'Result';
-const String resultAddButtonTitle = 'Finish';
+const String resultAddButtonTitle = 'Submit';
 
 // Drawer Tile Titles
 const String settingsTitle = 'Settings';
@@ -56,9 +60,19 @@ const String issuingCountryLabelText = 'Issuing Country';
 const String issuingCountryHintText = 'Enter Issuing Country';
 const String issuingCountryErrorText = 'Please enter Issuing Country';
 
+// Enter Page
+const String duplicateCardErrorMessage =
+    'This credit card is already captured.';
+
+// Result Dialog
+const String successfulCaptureCardMessage = 'Credit card captured successfully';
+
 // Settings Page
 const String bannedCountryDummy = 'Dummy Country';
 const String checkedText = 'Checked!';
 const String addBannedCountryDialogTitle = 'Add Banned Country';
 const String cancelBannedCountryDialogButton = 'Cancel';
 const String duplicateCountryErrorMessage = 'This country is already banned.';
+
+// Global Widgets
+const String cancelDialogButton = 'Cancel';

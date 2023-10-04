@@ -1,18 +1,15 @@
 part of 'scan_bloc.dart';
 
-sealed class ScanState extends Equatable {
-  const ScanState();
-  
-  @override
-  List<Object> get props => [];
+@freezed
+class ScanState with _$ScanState {
+  const factory ScanState() = _ScanState;
+
+  const ScanState._();
+
+  const factory ScanState.initial() = Initial;
+  const factory ScanState.loading() = Loading;
+  const factory ScanState.loaded() = Loaded;
+  const factory ScanState.error() = ErrorS;
+  const factory ScanState.camera() = Camera;
+  const factory ScanState.result() = Result;
 }
-
-final class ScanLoading extends ScanState {}
-
-final class ScanLoaded extends ScanState {}
-
-final class ScanError extends ScanState {}
-
-final class ScanCamera extends ScanState {}
-
-final class ScanResult extends ScanState {}

@@ -1,14 +1,13 @@
 part of 'history_bloc.dart';
 
-sealed class HistoryState extends Equatable {
-  const HistoryState();
-  
-  @override
-  List<Object> get props => [];
+@freezed
+class HistoryState with _$HistoryState {
+  const factory HistoryState() = _HistoryState;
+
+  const HistoryState._();
+
+  const factory HistoryState.initial() = Initial;
+  const factory HistoryState.loading() = Loading;
+  const factory HistoryState.loaded() = Loaded;
+  const factory HistoryState.error() = ErrorS;
 }
-
-final class HistoryLoading extends HistoryState {}
-
-final class HistoryLoaded extends HistoryState {}
-
-final class HistoryError extends HistoryState {}

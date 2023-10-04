@@ -1,22 +1,20 @@
 part of 'result_bloc.dart';
 
-sealed class ResultState extends Equatable {
-  const ResultState();
+@freezed
+class ResultState with _$ResultState {
+  const factory ResultState() = _ResultState;
 
-  @override
-  List<Object> get props => [];
-}
+  const ResultState._();
 
-final class ResultLoading extends ResultState {}
+  const factory ResultState.initial() = ResultInitial;
 
-final class ResultLoaded extends ResultState {}
+  const factory ResultState.loading() = ResultLoading;
 
-final class ResultError extends ResultState {}
+  const factory ResultState.loaded() = ResultLoaded;
 
-final class ResultAdded extends ResultState {}
+  const factory ResultState.error() = ResultError;
 
-class ResultNew extends ResultState {
-  const ResultNew({required this.creditCard});
+  const factory ResultState.valid() = ResultValid;
 
-  final CreditCard creditCard;
+  const factory ResultState.duplicate() = ResultDuplicate;
 }

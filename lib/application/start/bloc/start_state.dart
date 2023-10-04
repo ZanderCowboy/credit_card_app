@@ -1,14 +1,12 @@
 part of 'start_bloc.dart';
 
-sealed class StartState extends Equatable {
-  const StartState();
-  
-  @override
-  List<Object> get props => [];
+@freezed
+class StartState with _$StartState {
+  const factory StartState() = _StartState;
+
+  const StartState._();
+
+  const factory StartState.initial() = Initial;
+
+  const factory StartState.loading() = Loading;
 }
-
-final class StartLoading extends StartState {}
-
-final class StartLoaded extends StartState {}
-
-final class StartError extends StartState {}

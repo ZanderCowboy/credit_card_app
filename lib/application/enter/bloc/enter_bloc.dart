@@ -1,3 +1,4 @@
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:credit_card_app/domain/credit_card/i_credit_card_repository.dart';
@@ -15,7 +16,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
     on<EnterEvent>(
       ((event, emit) async {
         // event.map(
-        //   onSubmit: (value) {
+        //   onValidate: (value) {
         //     log('In EnterBloc: onValidate - event=$event \t emit=$emit');
         //     log('Credit Card: ${value.creditCard}');
 
@@ -26,10 +27,10 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
 
         //     if (invalid) {
         //       emit(EnterState.initial());
-        //       // emit(const EnterState.duplicate());
+        //       emit(const EnterState.duplicate());
         //     } else {
         //       log('In if with true');
-        //       // emit(const EnterState.valid());
+        //       emit(const EnterState.valid());
         //       log('Emitted EnterState.valid()');
         //     }
         //   },

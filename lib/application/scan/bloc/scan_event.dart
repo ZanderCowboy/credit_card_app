@@ -1,18 +1,8 @@
 part of 'scan_bloc.dart';
 
-sealed class ScanEvent extends Equatable {
-  const ScanEvent();
-
-  @override
-  List<Object> get props => [];
+@freezed
+class ScanEvent with _$ScanEvent {
+  const factory ScanEvent.onSubmit() = onSubmit;
+  const factory ScanEvent.onTake() = onTake;
+  const factory ScanEvent.onRetake() = onRetake;
 }
-
-final class ScanInitial extends ScanEvent {}
-
-final class ScanTake extends ScanEvent {}
-
-final class ScanRetake extends ScanEvent {}
-
-final class ScanSubmit extends ScanEvent {}
-
-

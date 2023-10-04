@@ -1,6 +1,9 @@
 // This file should contain all the details that are gathered from either capturing or scanning a credit card.
 
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
+part 'credit_card.freezed.dart';
 
 part 'credit_card.g.dart';
 

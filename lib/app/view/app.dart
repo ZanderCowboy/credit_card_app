@@ -1,15 +1,16 @@
+import 'package:credit_card_app/application/start/start.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/infrastructure/banned_countries/banned_countries_repository.dart';
 import 'package:credit_card_app/infrastructure/credit_card/credit_card_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../application/enter/enter.dart';
-import '../../application/home/home.dart';
 import '../../application/history/history.dart';
+import '../../application/home/home.dart';
 import '../../application/result/result.dart';
 import '../../application/scan/scan.dart';
 import '../../application/settings/settings.dart';
-import '../../application/start/start.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -37,25 +38,16 @@ class App extends StatelessWidget {
         // showPerformanceOverlay: true,
         themeMode: ThemeMode.dark,
         darkTheme: ThemeData.dark(),
-        title: 'Credit Card App',
-        home: BlocProvider(
-          create: (context) => StartBloc()..add(StartInitial()),
-          child: const StartPage(),
-        ),
+        title: appTitle,
+        home: const StartPage(),
         initialRoute: initialRoute,
         routes: {
           homeRoute: (_) => const HomePage(),
-          enterRoute: (_) => EnterPage(
-                creditCardRepository: creditCardRepository,
-              ),
-          scanRoute: (_) =>
-              ScanPage(creditCardRepository: creditCardRepository),
+          enterRoute: (_) => EnterPage(),
+          scanRoute: (_) => ScanPage(),
           historyRoute: (_) => const HistoryPage(),
-          settingsRoute: (_) => SettingsPage(
-              bannedCountriesRepository: bannedCountriesRepository),
-          resultRoute: (_) =>
-              ResultPage(creditCardRepository: creditCardRepository),
-          // resultRoute: (context) => const ResultPage(),
+          settingsRoute: (_) => const SettingsPage(),
+          resultRoute: (_) => ResultPage(),
         },
       ),
     );

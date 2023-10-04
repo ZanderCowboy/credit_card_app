@@ -1,14 +1,19 @@
+// This file will contain the repository for the banned countries.
 import 'dart:developer';
 
 import 'package:credit_card_app/data/persistance/models/banned_countries_box.dart';
+import 'package:credit_card_app/domain/banned_countries/i_banned_countries_repository.dart';
 import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
+import 'package:injectable/injectable.dart';
 
-class BannedCountriesRepository {
+@LazySingleton(as: IBannedCountriesRepository)
+class BannedCountriesRepository implements IBannedCountriesRepository {
   BannedCountriesRepository();
 
   BannedCountriesBox bannedCountriesBox = BannedCountriesBox();
 
   // add
+  @override
   void addCountry(String country) {
     BannedCountries bc =
         BannedCountries(bannedCountry: country, isBanned: true);
@@ -17,25 +22,30 @@ class BannedCountriesRepository {
   }
 
   // read
+  @override
   BannedCountries? readCountry(int index) {
     return bannedCountriesBox.readBannedCountry(index);
   }
 
   // read all
+  @override
   List<BannedCountries> readCountries() {
     return bannedCountriesBox.readAllBannedCountries();
   }
 
   // deleteAt
+  @override
   void deleteCountryAt(int index) {
     bannedCountriesBox.deleteBannedCountryAt(index);
   }
 
   // deleteAll
+  @override
   void deleteCountries() {
     bannedCountriesBox.deleteBannedCountries();
   }
 
+  @override
   bool hasCountry(String country) {
     List<BannedCountries> list = bannedCountriesBox.readAllBannedCountries();
 
@@ -43,16 +53,10 @@ class BannedCountriesRepository {
   }
 
   // Country where its value need to be updated to `value`.
+  @override
   void updateCountryChecked(String country, bool? newValue) {
     List<BannedCountries> list = bannedCountriesBox.readAllBannedCountries();
     int index = -1;
-
-    for (var i = 0; i < list.length; i++) {
-      log('${list[i].bannedCountry}\t${list[i].isBanned}');
-    }
-
-    // DB Entries
-    // ZA, true
 
     BannedCountries bc =
         BannedCountries(bannedCountry: country, isBanned: !newValue!);
@@ -63,7 +67,6 @@ class BannedCountriesRepository {
         index = i;
       }
     }
-    // find country, get index
 
     log(index.toString());
 
@@ -75,5 +78,21 @@ class BannedCountriesRepository {
         isBanned: newValue,
       ),
     );
+  }
+
+  int lookupCountry(BannedCountries bCountry) {
+    int foundAt = -1;
+
+    List<BannedCountries> list = readCountries();
+
+    for (var i = 0; i < list.length; i++) {
+      BannedCountries bc = list[i];
+
+      if (bc == bCountry) {
+        foundAt = i;
+      }
+    }
+
+    return foundAt;
   }
 }

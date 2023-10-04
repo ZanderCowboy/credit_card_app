@@ -31,39 +31,42 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: BlocProvider(
-        create: (context) => HomeBloc()..add(HomeInitial()),
+        create: (context) => coreSl<HomeBloc>(),
         child: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
-            return switch (state) {
-              HomeLoading() => const Center(
-                  child: CircularProgressIndicator(),
-                ),
-              HomeError() => const Text("Something went wrong"),
-              HomeLoaded() => const Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        EnterButton(),
-                        SizedBox(
-                          height: 16,
-                        ),
-                        ScanButton(),
-                        SizedBox(
-                          height: 16,
-                        ),
-                        HistoryButton(),
-                        SizedBox(
-                          height: 16,
-                        ),
-                        // Text('$count'),
-                      ],
+            return const Center(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    EnterButton(),
+                    SizedBox(
+                      height: 16,
                     ),
-                  ),
+                    ScanButton(),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    HistoryButton(),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    // Text('$count'),
+                  ],
                 ),
-              HomeEnterLoad() => const Text("HomeEnter"),
-            };
+              ),
+            );
+            // return switch (state) {
+            //   HomeLoading() => const Center(
+            //       child: CircularProgressIndicator(),
+            //     ),
+            //   HomeError() => const Text("Something went wrong"),
+            //   HomeLoaded() =>
+            //   // HomeEnterLoad() => const Text("HomeEnter"),
+            //   // TODO: Handle this case.
+            //   HomeState() => null,
+            // };
           },
         ),
       ),

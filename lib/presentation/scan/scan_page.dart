@@ -70,10 +70,10 @@ import 'package:permission_handler/permission_handler.dart';
 class ScanPage extends StatefulWidget {
   const ScanPage({
     super.key,
-    required this.creditCardRepository,
+    // required this.creditCardRepository,
   });
 
-  final CreditCardRepository creditCardRepository;
+  // final CreditCardRepository creditCardRepository;
 
   @override
   State<ScanPage> createState() => _ScanPageState();
@@ -148,7 +148,7 @@ class _ScanPageState extends State<ScanPage> {
         title: const Text(scanAppBarTitle),
       ),
       body: BlocProvider(
-        create: (_) => ScanBloc()..add(ScanInitial()),
+        create: (_) => coreSl<ScanBloc>(),
         child: BlocBuilder<ScanBloc, ScanState>(
           builder: (context, state) {
             return Padding(
