@@ -1,10 +1,7 @@
-import 'dart:developer';
-
 import 'package:credit_card_app/application/settings/bloc/settings_bloc.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
 import 'package:credit_card_app/infrastructure/banned_countries/banned_countries_repository.dart';
-import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SettingsPage extends StatefulWidget {
   const SettingsPage({
     super.key,
-    // required this.bannedCountriesRepository,
   });
 
   // final BannedCountriesRepository bannedCountriesRepository;
@@ -35,7 +31,6 @@ class _SettingsPageState extends State<SettingsPage> {
     List<String> countries = countryMap.keys.toList();
     countries.sort();
 
-    // FIXME: Possibly move the Provider to the Home Page
     return Scaffold(
       appBar: AppBar(
         title: const Text(settingsAppBarTitle),

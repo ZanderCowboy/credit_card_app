@@ -8,14 +8,16 @@ part 'start_state.dart';
 
 @Injectable()
 class StartBloc extends Bloc<StartEvent, StartState> {
-  StartBloc() : super(const StartState.initial()) {
-    on<StartEvent>((event, emit) async {
-      event.map(onStart: (_) {
-        emit(const StartState.loading());
-        // Future.delayed(
-        //   const Duration(seconds: 5),
-        // );
-      });
+  StartBloc() : super(StartState.initial()) {
+    on<StartEvent>((event, emit) {
+      event.map(
+        onStart: (_) {
+          // nothing is required here. Only page navigation, which happens in the UI
+          emit(state.copyWith(isLoading: true, errorMessage: null));
+          emit(StartState.initial());
+          emit(state.copyWith(isLoading: false, errorMessage: null));
+        },
+      );
     });
   }
 }

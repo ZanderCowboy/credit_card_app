@@ -5,14 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({
-    super.key,
-  });
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // int count = context.read<CreditCardRepository>().loadHistoryCards().length;
-
     return Scaffold(
       appBar: AppBar(
         title: const Text(homeAppBarTitle),
@@ -23,91 +19,62 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-              onPressed: () {
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                    initialRoute, (Route<dynamic> route) => false);
-              },
-              icon: const Icon(Icons.logout))
+            onPressed: () {
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                  initialRoute, (Route<dynamic> route) => false);
+            },
+            icon: const Icon(Icons.logout),
+          ),
         ],
       ),
       body: BlocProvider(
-        create: (context) => coreSl<HomeBloc>(),
-        child: BlocBuilder<HomeBloc, HomeState>(
-          builder: (context, state) {
-            return const Center(
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    EnterButton(),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    ScanButton(),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    HistoryButton(),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    // Text('$count'),
-                  ],
+        create: (_) => coreSl<HomeBloc>(),
+        child: const _HomePage(),
+      ),
+    );
+  }
+}
+
+class _HomePage extends StatelessWidget {
+  const _HomePage();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        return const Center(
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _ElevButton(buttonTitle: enterButtonTitle, route: enterRoute),
+                SizedBox(
+                  height: 16,
                 ),
-              ),
-            );
-            // return switch (state) {
-            //   HomeLoading() => const Center(
-            //       child: CircularProgressIndicator(),
-            //     ),
-            //   HomeError() => const Text("Something went wrong"),
-            //   HomeLoaded() =>
-            //   // HomeEnterLoad() => const Text("HomeEnter"),
-            //   // TODO: Handle this case.
-            //   HomeState() => null,
-            // };
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class EnterButton extends StatelessWidget {
-  const EnterButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocListener<HomeBloc, HomeState>(
-      listener: (context, state) {
-        // responsible for listening when HOME changes and then passes state to ENTER
-        // BlocProvider.of<EnterBloc>(context).add(EnterInitial());
-        // BlocProvider.of<EnterBloc>(context).add(EnterSubmit());
-      },
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          textStyle: const TextStyle(
-            fontSize: 22.0,
-            fontWeight: FontWeight.bold,
+                _ElevButton(buttonTitle: scanButtonTitle, route: scanRoute),
+                SizedBox(
+                  height: 16,
+                ),
+                _ElevButton(
+                    buttonTitle: historyButtonTitle, route: historyRoute),
+                SizedBox(
+                  height: 16,
+                ),
+              ],
+            ),
           ),
-          minimumSize: const Size(200, 80),
-        ),
-        onPressed: () {
-          // responsible for emitting a state in HOME
-          // BlocProvider.of<HomeBloc>(context).add(HomeEnter());
-          // BlocProvider.of<HomeBloc>(context).add(HomeInitial());
-          Navigator.of(context).pushNamed(enterRoute);
-          // this changes pages from HOME to ENTER
-        },
-        child: const Text(enterButtonTitle),
-      ),
+        );
+      },
     );
   }
 }
 
-class ScanButton extends StatelessWidget {
-  const ScanButton({super.key});
+class _ElevButton extends StatelessWidget {
+  const _ElevButton({required this.buttonTitle, required this.route});
+
+  final String buttonTitle;
+  final String route;
 
   @override
   Widget build(BuildContext context) {
@@ -119,27 +86,10 @@ class ScanButton extends StatelessWidget {
         ),
         minimumSize: const Size(200, 80),
       ),
-      onPressed: () => Navigator.of(context).pushNamed(scanRoute),
-      child: const Text(scanButtonTitle),
-    );
-  }
-}
-
-class HistoryButton extends StatelessWidget {
-  const HistoryButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        textStyle: const TextStyle(
-          fontSize: 22.0,
-          fontWeight: FontWeight.bold,
-        ),
-        minimumSize: const Size(200, 80),
-      ),
-      onPressed: () => Navigator.of(context).pushNamed(historyRoute),
-      child: const Text(historyButtonTitle),
+      onPressed: () {
+        Navigator.of(context).pushNamed(route);
+      },
+      child: Text(buttonTitle),
     );
   }
 }

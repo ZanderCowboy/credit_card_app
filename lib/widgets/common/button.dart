@@ -34,12 +34,10 @@ class ButtonSmall extends StatelessWidget {
     super.key,
     required this.routeName,
     required this.text,
-    // this.function,
   });
 
   final String routeName;
   final String text;
-  // void function;
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +58,6 @@ ButtonStyle get buttonSmallStyle {
       fontSize: 16.0,
       fontWeight: FontWeight.w600,
     ),
-    // minimumSize: const Size(90, 40),
     minimumSize: const Size(140, 40),
   );
 }

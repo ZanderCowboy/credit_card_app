@@ -44,10 +44,10 @@ class App extends StatelessWidget {
         routes: {
           homeRoute: (_) => const HomePage(),
           enterRoute: (_) => EnterPage(),
-          scanRoute: (_) => ScanPage(),
+          scanRoute: (_) => const ScanPage(),
           historyRoute: (_) => const HistoryPage(),
           settingsRoute: (_) => const SettingsPage(),
-          resultRoute: (_) => ResultPage(),
+          resultRoute: (_) => const ResultPage(),
         },
       ),
     );
