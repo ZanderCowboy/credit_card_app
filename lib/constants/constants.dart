@@ -63,6 +63,8 @@ const String issuingCountryErrorText = 'Please enter Issuing Country';
 // Enter Page
 const String duplicateCardErrorMessage =
     'This credit card is already captured.';
+const String enterValidateButtonTitle = 'Validate';
+const String enterSubmissionDialogTitle = 'Confirm details?';
 
 // Result Dialog
 const String successfulCaptureCardMessage = 'Credit card captured successfully';

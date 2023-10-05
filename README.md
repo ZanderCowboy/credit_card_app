@@ -2,7 +2,7 @@
 
 A Flutter Mobile app that allows the submission of credit card details for validation.
 
-[![GitHub Super-Linter](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE_NAME>/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![GitHub Super-Linter](https://github.com/ZanderCowboy/credit_card_app/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 ## Getting Started
 
@@ -38,6 +38,8 @@ SEMBAST NoSQL Local DB
 You are welcome to use third party packages, but we are trying to gauge your skill. Please try to keep the amount of packages to the absolutely necessary. Add your application to a git repository and send that to us. Don’t hesitate to reach out to us if you have questions. Good luck and have fun!  
 
 ## General Links
+
+<https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge>
 
 <https://blog.devgenius.io/easy-git-hooks-for-flutter-f2927cbbcfd4>
 
@@ -82,3 +84,7 @@ The capture page should show a credit card frontside and if you hover over it, i
 ### result_page
 
 => landing_page
+
+## Commands
+
+- dart run build_runner build --delete-conflicting-outputs
