@@ -15,7 +15,7 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
   // add
   @override
   Future<void> addCountry(String country) async {
-    BannedCountries bc =
+    final BannedCountries bc =
         BannedCountries(bannedCountry: country, isBanned: true);
 
     await bannedCountriesBox.addBannedCountry(bc);
@@ -47,7 +47,8 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
 
   @override
   bool hasCountry(String country) {
-    List<BannedCountries> list = bannedCountriesBox.readAllBannedCountries();
+    final List<BannedCountries> list =
+        bannedCountriesBox.readAllBannedCountries();
 
     return list.any((element) => element.bannedCountry == country);
   }
@@ -55,15 +56,16 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
   // Country where its value need to be updated to `value`.
   @override
   Future<void> updateCountryChecked(String country, bool? newValue) async {
-    List<BannedCountries> list = bannedCountriesBox.readAllBannedCountries();
+    final List<BannedCountries> list =
+        bannedCountriesBox.readAllBannedCountries();
     int index = -1;
 
-    BannedCountries bc =
+    final BannedCountries bc =
         BannedCountries(bannedCountry: country, isBanned: !newValue!);
     log('${bc.bannedCountry} - ${bc.isBanned}');
 
     for (var i = 0; i < list.length; i++) {
-      if (list[i].bannedCountry.toString() == country.toString()) {
+      if (list[i].bannedCountry == country) {
         index = i;
       }
     }
@@ -83,10 +85,10 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
   int lookupCountry(BannedCountries bCountry) {
     int foundAt = -1;
 
-    List<BannedCountries> list = readCountries();
+    final List<BannedCountries> list = readCountries();
 
     for (var i = 0; i < list.length; i++) {
-      BannedCountries bc = list[i];
+      final BannedCountries bc = list[i];
 
       if (bc == bCountry) {
         foundAt = i;

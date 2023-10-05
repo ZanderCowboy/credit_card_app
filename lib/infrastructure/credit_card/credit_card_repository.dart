@@ -51,12 +51,14 @@ class CreditCardRepository implements ICreditCardRepository {
 
   @override
   bool hasCreditCard(CreditCard card) {
-    List<CreditCard> list = creditCardBox.readAllCreditCards();
+    final List<CreditCard> list = creditCardBox.readAllCreditCards();
 
-    return list.any((element) =>
-        element.cardNumber == card.cardNumber &&
-        element.cardType == card.cardType &&
-        element.cvvNumber == card.cvvNumber &&
-        element.issuingCountry == card.issuingCountry);
+    return list.any(
+      (element) =>
+          element.cardNumber == card.cardNumber &&
+          element.cardType == card.cardType &&
+          element.cvvNumber == card.cvvNumber &&
+          element.issuingCountry == card.issuingCountry,
+    );
   }
 }

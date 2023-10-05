@@ -1,6 +1,6 @@
+import 'package:credit_card_app/application/home/home.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/get_it_injection.dart';
-import 'package:credit_card_app/application/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,7 +21,9 @@ class HomePage extends StatelessWidget {
           IconButton(
             onPressed: () {
               Navigator.of(context).pushNamedAndRemoveUntil(
-                  initialRoute, (Route<dynamic> route) => false);
+                initialRoute,
+                (Route<dynamic> route) => false,
+              );
             },
             icon: const Icon(Icons.logout),
           ),
@@ -44,7 +46,7 @@ class _HomePage extends StatelessWidget {
       builder: (context, state) {
         return const Center(
           child: Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -57,7 +59,9 @@ class _HomePage extends StatelessWidget {
                   height: 16,
                 ),
                 _ElevButton(
-                    buttonTitle: historyButtonTitle, route: historyRoute),
+                  buttonTitle: historyButtonTitle,
+                  route: historyRoute,
+                ),
                 SizedBox(
                   height: 16,
                 ),
@@ -81,7 +85,7 @@ class _ElevButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         textStyle: const TextStyle(
-          fontSize: 22.0,
+          fontSize: 22,
           fontWeight: FontWeight.bold,
         ),
         minimumSize: const Size(200, 80),

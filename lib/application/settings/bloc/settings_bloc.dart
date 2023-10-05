@@ -21,16 +21,19 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         onAddCountry: (value) async {
           emit(state.copyWith(isLoading: true));
 
-          bool hasDuplicate =
+          final bool hasDuplicate =
               _bannedCountriesRepository.hasCountry(value.selectedCountry!);
 
           if (hasDuplicate) {
             //! in case we have a duplicate
             log('*** duplicate country: country=${value.selectedCountry}');
-            emit(state.copyWith(
+            emit(
+              state.copyWith(
                 country: value.selectedCountry,
                 isDuplicate: true,
-                errorMessage: duplicateCountryErrorMessage));
+                errorMessage: duplicateCountryErrorMessage,
+              ),
+            );
           } else {
             //! in case we do not have the country in the DB already
             log('*** first country: country=${value.selectedCountry}');
@@ -54,7 +57,9 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           emit(state.copyWith(isChecked: true));
 
           _bannedCountriesRepository.updateCountryChecked(
-              value.country, value.value);
+            value.country,
+            value.value,
+          );
 
           emit(
             state.copyWith(

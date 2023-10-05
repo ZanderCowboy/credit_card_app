@@ -20,7 +20,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
           onValidate: (value) {
             emit(state.copyWith(isLoading: true));
 
-            bool hasDuplicate =
+            final bool hasDuplicate =
                 _creditCardRepository.hasCreditCard(value.creditCard);
 
             if (hasDuplicate) {
@@ -167,8 +167,8 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
     return creditCard.cardNumber.isNotNullAndNotEmpty &&
         creditCard.cardType.isNotNullAndNotEmpty &&
         creditCard.cvvNumber.isNotNullAndNotEmpty;
-    List<CreditCard> list = _creditCardRepository.readHistoryCards();
+    // final List<CreditCard> list = _creditCardRepository.readHistoryCards();
 
-    return list.contains(creditCard);
+    // return list.contains(creditCard);
   }
 }

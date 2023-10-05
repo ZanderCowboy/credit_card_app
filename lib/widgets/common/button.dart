@@ -2,27 +2,28 @@ import 'package:flutter/material.dart';
 
 class ButtonLarge extends StatelessWidget {
   const ButtonLarge({
+    required String routeName,
+    required String text,
     super.key,
-    required this.routeName,
-    required this.text,
-  });
+  })  : _text = text,
+        _routeName = routeName;
 
-  final String routeName;
-  final String text;
+  final String _routeName;
+  final String _text;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         textStyle: const TextStyle(
-          fontSize: 22.0,
+          fontSize: 22,
           fontWeight: FontWeight.bold,
         ),
         minimumSize: const Size(200, 65),
       ),
-      onPressed: () => Navigator.of(context).pushNamed(routeName),
+      onPressed: () => Navigator.of(context).pushNamed(_routeName),
       child: Text(
-        text,
+        _text,
         textAlign: TextAlign.center,
       ),
     );
@@ -31,21 +32,22 @@ class ButtonLarge extends StatelessWidget {
 
 class ButtonSmall extends StatelessWidget {
   const ButtonSmall({
+    required String routeName,
+    required String text,
     super.key,
-    required this.routeName,
-    required this.text,
-  });
+  })  : _text = text,
+        _routeName = routeName;
 
-  final String routeName;
-  final String text;
+  final String _routeName;
+  final String _text;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: buttonSmallStyle,
-      onPressed: () => Navigator.of(context).pushNamed(routeName),
+      onPressed: () => Navigator.of(context).pushNamed(_routeName),
       child: Text(
-        text,
+        _text,
         textAlign: TextAlign.center,
       ),
     );
@@ -55,7 +57,7 @@ class ButtonSmall extends StatelessWidget {
 ButtonStyle get buttonSmallStyle {
   return ElevatedButton.styleFrom(
     textStyle: const TextStyle(
-      fontSize: 16.0,
+      fontSize: 16,
       fontWeight: FontWeight.w600,
     ),
     minimumSize: const Size(140, 40),

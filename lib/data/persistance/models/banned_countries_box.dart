@@ -1,8 +1,8 @@
 import 'dart:developer';
 
+import 'package:credit_card_app/data/persistance/db_driver.dart';
 import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:credit_card_app/data/persistance/db_driver.dart';
 
 class BannedCountriesBox {
   BannedCountriesBox();
@@ -22,11 +22,11 @@ class BannedCountriesBox {
 
   // readAll
   List<BannedCountries> readAllBannedCountries() {
-    List<BannedCountries> list = <BannedCountries>[];
-    int boxLength = box.length;
+    final List<BannedCountries> list = <BannedCountries>[];
+    final int boxLength = box.length;
 
     for (var i = 0; i < boxLength; i++) {
-      BannedCountries? bc = box.getAt(i);
+      final BannedCountries? bc = box.getAt(i);
       list.add(bc!);
     }
 

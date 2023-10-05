@@ -4,11 +4,11 @@ part of 'settings_bloc.dart';
 class SettingsState with _$SettingsState {
   const factory SettingsState({
     required BannedCountries bannedCountries,
-    String? country,
     required bool isChecked,
     required bool isLoading,
     required bool isDuplicate,
     required String? errorMessage,
+    String? country,
   }) = _SettingsState;
 
   const SettingsState._();

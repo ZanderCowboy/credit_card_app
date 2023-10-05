@@ -113,10 +113,10 @@ class _EnterPage extends HookWidget {
         }
       },
       builder: (context, state) {
-        String? selectedCountry = 'ZA';
+        const String? selectedCountry = 'ZA';
 
         return Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -198,7 +198,6 @@ class _EnterPage extends HookWidget {
                                 ),
                                 DropdownButtonFormField<String>(
                                   hint: const Text(issuingCountryLabelText),
-                                  value: null,
                                   items: countriesList.map((country) {
                                     return DropdownMenuItem<String>(
                                       value: country,
@@ -214,7 +213,7 @@ class _EnterPage extends HookWidget {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
-                                    vertical: 16.0,
+                                    vertical: 16,
                                   ),
                                   child: Center(
                                     child: Row(
@@ -239,7 +238,8 @@ class _EnterPage extends HookWidget {
                                         ElevatedButton(
                                           style: buttonSmallStyle,
                                           onPressed: () {
-                                            CreditCard creditCard = CreditCard(
+                                            final CreditCard creditCard =
+                                                CreditCard(
                                               cardNumber:
                                                   cardNumberTextController.text,
                                               cardType:
@@ -341,7 +341,7 @@ class _EnterPage extends HookWidget {
     );
   }
 
-  void _showDialogWithCard(BuildContext context) async {
+  Future<void> _showDialogWithCard(BuildContext context) async {
     log('In _showDialog: Context $context');
 
     await showDialog(
@@ -404,7 +404,7 @@ class _EnterPage extends HookWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Card Type: ${creditCard.cardType}'),
-          Text('CVV: ${creditCard.cvvNumber.toString().padLeft(3, '0')}'),
+          Text('CVV: ${creditCard.cvvNumber.padLeft(3, '0')}'),
           Text('Issuing Country: ${creditCard.issuingCountry}'),
         ],
       ),
@@ -425,7 +425,7 @@ class _CardDetails extends StatelessWidget {
           children: [
             Text(state.creditCard.cardNumber),
             Text(state.creditCard.cardType),
-            Text(state.creditCard.cvvNumber.toString()),
+            Text(state.creditCard.cvvNumber),
           ],
         );
       },
@@ -438,9 +438,8 @@ class CreditCardAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isCvvFocused = false;
-    bool useGlassMorphism = false;
-    bool useBackgroundImage = false;
+    const bool isCvvFocused = false;
+    const bool useGlassMorphism = false;
     OutlineInputBorder? border;
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -454,7 +453,7 @@ class CreditCardAnimation extends StatelessWidget {
                 cardNumber: state.creditCard.cardNumber,
                 expiryDate: state.creditCard.cardType,
                 cardHolderName: state.creditCard.issuingCountry,
-                cvvCode: state.creditCard.cvvNumber.toString(),
+                cvvCode: state.creditCard.cvvNumber,
                 bankName: 'Bank Name',
                 frontCardBorder:
                     !useGlassMorphism ? Border.all(color: Colors.grey) : null,
@@ -464,8 +463,7 @@ class CreditCardAnimation extends StatelessWidget {
                 obscureCardNumber: false,
                 obscureCardCvv: false,
                 isHolderNameVisible: true,
-                cardBgColor: AppColors.cardBgColor,
-                isSwipeGestureEnabled: true,
+                cardBgColor: _AppColors.cardBgColor,
                 onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
                 customCardTypeIcons: <CustomCardTypeIcon>[
                   CustomCardTypeIcon(
@@ -486,8 +484,8 @@ class CreditCardAnimation extends StatelessWidget {
   }
 }
 
-class AppColors {
-  AppColors._();
+class _AppColors {
+  _AppColors._();
 
   static const Color cardBgColor = Color(0xff363636);
   static const Color colorB58D67 = Color(0xffB58D67);

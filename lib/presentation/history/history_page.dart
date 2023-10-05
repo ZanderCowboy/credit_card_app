@@ -1,9 +1,9 @@
+import 'package:credit_card_app/application/history/history.dart';
 import 'package:credit_card_app/constants/constants.dart';
+import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/infrastructure/credit_card/credit_card_repository.dart';
-import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:flutter/material.dart';
-import 'package:credit_card_app/application/history/history.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HistoryPage extends StatelessWidget {
@@ -28,7 +28,7 @@ class _HistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<CreditCard> cards =
+    final List<CreditCard> cards =
         context.read<CreditCardRepository>().readHistoryCards();
 
     return BlocBuilder<HistoryBloc, HistoryState>(
@@ -53,7 +53,8 @@ class _HistoryPage extends StatelessWidget {
                   children: [
                     Text('Card Type: ${creditCard.cardType}'),
                     Text(
-                        'CVV: ${creditCard.cvvNumber.toString().padLeft(3, '0')}'),
+                      'CVV: ${creditCard.cvvNumber.padLeft(3, '0')}',
+                    ),
                     Text('Issuing Country: ${creditCard.issuingCountry}'),
                   ],
                 ),

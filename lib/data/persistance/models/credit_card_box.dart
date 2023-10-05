@@ -19,10 +19,10 @@ class CreditCardBox {
 
   // readAll
   List<CreditCard> readAllCreditCards() {
-    List<CreditCard> list = <CreditCard>[];
+    final List<CreditCard> list = <CreditCard>[];
 
     for (var i = 0; i < box.length; i++) {
-      CreditCard? card = box.getAt(i);
+      final CreditCard? card = box.getAt(i);
       list.add(card!);
     }
 

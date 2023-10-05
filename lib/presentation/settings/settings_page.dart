@@ -4,8 +4,8 @@ import 'package:credit_card_app/application/settings/bloc/settings_bloc.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
 import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
-import 'package:credit_card_app/infrastructure/banned_countries/banned_countries_repository.dart';
 import 'package:credit_card_app/get_it_injection.dart';
+import 'package:credit_card_app/infrastructure/banned_countries/banned_countries_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_credit_card/extension.dart';
@@ -15,7 +15,7 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> countries = countryMap.keys.toList();
+    final List<String> countries = countryMap.keys.toList();
     countries.sort();
 
     return BlocProvider(
@@ -72,9 +72,9 @@ class _SettingsPage extends StatelessWidget {
       },
       builder: (context, state) {
         return Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8),
           child: Material(
-            elevation: 20.0,
+            elevation: 20,
             child: Container(
               padding: const EdgeInsets.all(8),
               decoration: const BoxDecoration(
@@ -82,7 +82,7 @@ class _SettingsPage extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black12,
-                  )
+                  ),
                 ],
               ),
               child: const Column(
@@ -120,14 +120,13 @@ class _AddBannedCountryDialog extends StatelessWidget {
         return FloatingActionButton(
           child: const Icon(Icons.add),
           onPressed: () async {
-            showDialog(
+            await showDialog(
               context: context,
               builder: (_) {
                 return AlertDialog(
                   title: const Text(addBannedCountryDialogTitle),
                   content: DropdownButtonFormField<String>(
                     hint: const Text(issuingCountryLabelText),
-                    value: null,
                     items: countries.map((country) {
                       return DropdownMenuItem<String>(
                         value: country,
@@ -174,10 +173,10 @@ class _BannedCountriesList extends StatelessWidget {
     return BlocConsumer<SettingsBloc, SettingsState>(
       listener: (context, state) {},
       builder: (context, state) {
-        BannedCountriesRepository bannedCountriesRepository =
+        final BannedCountriesRepository bannedCountriesRepository =
             context.read<BannedCountriesRepository>();
 
-        List<BannedCountries> bannedCountries =
+        final List<BannedCountries> bannedCountries =
             bannedCountriesRepository.readCountries();
         bannedCountries
             .sort((a, b) => a.bannedCountry.compareTo(b.bannedCountry));
@@ -188,10 +187,11 @@ class _BannedCountriesList extends StatelessWidget {
           child: ListView.builder(
             itemCount: bannedCountries.length,
             itemBuilder: (context, index) {
-              bool checkbox = bannedCountries[index].isBanned;
+              final bool checkbox = bannedCountries[index].isBanned;
 
-              String bannedCountryCode = bannedCountries[index].bannedCountry;
-              String? bannedCountryName = countryMap[bannedCountryCode];
+              final String bannedCountryCode =
+                  bannedCountries[index].bannedCountry;
+              final String? bannedCountryName = countryMap[bannedCountryCode];
 
               return CheckboxListTile(
                 title: Text('$bannedCountryCode \t - $bannedCountryName'),
@@ -200,7 +200,9 @@ class _BannedCountriesList extends StatelessWidget {
                   log('$value \t $bannedCountryCode');
                   context.read<SettingsBloc>().add(
                         SettingsEvent.onCountryPressed(
-                            bannedCountryCode, value),
+                          bannedCountryCode,
+                          value,
+                        ),
                       );
                 },
               );

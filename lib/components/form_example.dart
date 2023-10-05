@@ -1,6 +1,6 @@
-// This should do all the checks that are required. 
+// This should do all the checks that are required.
 
-// Is the card number complete? 
+// Is the card number complete?
 // Is the card type valid?
 // Is the country valid?
 // Is the CVV number of valid length?
@@ -20,20 +20,20 @@ class FormExampleApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Text('Form Sample')),
-        body: const FormExample(),
+        body: const _FormExample(),
       ),
     );
   }
 }
 
-class FormExample extends StatefulWidget {
-  const FormExample({super.key});
+class _FormExample extends StatefulWidget {
+  const _FormExample();
 
   @override
-  State<FormExample> createState() => _FormExampleState();
+  State<_FormExample> createState() => _FormExampleState();
 }
 
-class _FormExampleState extends State<FormExample> {
+class _FormExampleState extends State<_FormExample> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -55,7 +55,7 @@ class _FormExampleState extends State<FormExample> {
             },
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            padding: const EdgeInsets.symmetric(vertical: 16),
             child: ElevatedButton(
               onPressed: () {
                 // Validate will return true if the form is valid, or false if

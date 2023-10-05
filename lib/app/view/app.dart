@@ -1,3 +1,9 @@
+import 'package:credit_card_app/application/enter/enter.dart';
+import 'package:credit_card_app/application/history/history.dart';
+import 'package:credit_card_app/application/home/home.dart';
+import 'package:credit_card_app/application/result/result.dart';
+import 'package:credit_card_app/application/scan/scan.dart';
+import 'package:credit_card_app/application/settings/settings.dart';
 import 'package:credit_card_app/application/start/start.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/infrastructure/banned_countries/banned_countries_repository.dart';
@@ -5,32 +11,26 @@ import 'package:credit_card_app/infrastructure/credit_card/credit_card_repositor
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../application/enter/enter.dart';
-import '../../application/history/history.dart';
-import '../../application/home/home.dart';
-import '../../application/result/result.dart';
-import '../../application/scan/scan.dart';
-import '../../application/settings/settings.dart';
-
 class App extends StatelessWidget {
   const App({
-    required this.creditCardRepository,
-    required this.bannedCountriesRepository,
+    required CreditCardRepository creditCardRepository,
+    required BannedCountriesRepository bannedCountriesRepository,
     super.key,
-  });
+  })  : _bannedCountriesRepository = bannedCountriesRepository,
+        _creditCardRepository = creditCardRepository;
 
-  final CreditCardRepository creditCardRepository;
-  final BannedCountriesRepository bannedCountriesRepository;
+  final CreditCardRepository _creditCardRepository;
+  final BannedCountriesRepository _bannedCountriesRepository;
 
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider(
-          create: (context) => creditCardRepository,
+          create: (context) => _creditCardRepository,
         ),
         RepositoryProvider(
-          create: (context) => bannedCountriesRepository,
+          create: (context) => _bannedCountriesRepository,
         ),
       ],
       child: MaterialApp(

@@ -6,10 +6,9 @@ import 'package:credit_card_app/infrastructure/credit_card/credit_card_repositor
 import 'package:credit_card_app/simple_bloc_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:very_good_analysis/very_good_analysis.dart';
 
-const String creditCardBoxName = "credit_cards";
-const String bannedCountriesBoxName = "banned_countries";
+const String creditCardBoxName = 'credit_cards';
+const String bannedCountriesBoxName = 'banned_countries';
 
 Future<void> main() async {
   await DbDriver().driver();

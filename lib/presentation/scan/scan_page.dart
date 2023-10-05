@@ -1,10 +1,10 @@
+import 'package:camera/camera.dart';
 import 'package:credit_card_app/application/scan/bloc/scan_bloc.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/widgets/common/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:camera/camera.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class ScanPage extends StatelessWidget {
@@ -97,7 +97,7 @@ class _ScanPageState extends State<_ScanPage> {
         child: BlocBuilder<ScanBloc, ScanState>(
           builder: (context, state) {
             return Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -173,7 +173,8 @@ class _ScanPageState extends State<_ScanPage> {
                           ),
                           Center(
                             child: Text(
-                                'Camera Permission Status: $_cameraPermissionStatus'),
+                              'Camera Permission Status: $_cameraPermissionStatus',
+                            ),
                           ),
                         ],
                       ),
@@ -189,8 +190,8 @@ class _ScanPageState extends State<_ScanPage> {
   }
 }
 
-class TakeButton extends StatelessWidget {
-  const TakeButton({super.key});
+class _TakeButton extends StatelessWidget {
+  const _TakeButton();
 
   @override
   Widget build(BuildContext context) {
@@ -208,8 +209,8 @@ class TakeButton extends StatelessWidget {
   }
 }
 
-class RetakeButton extends StatelessWidget {
-  const RetakeButton({super.key});
+class _RetakeButton extends StatelessWidget {
+  const _RetakeButton();
 
   @override
   Widget build(BuildContext context) {

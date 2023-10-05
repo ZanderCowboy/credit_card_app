@@ -15,10 +15,11 @@ class EnterState with _$EnterState {
 
   // const factory EnterState.initial() = EnterInitial;
   factory EnterState.initial() => EnterState(
-      creditCard: CreditCard.empty(),
-      isLoading: false,
-      isSaving: false,
-      isValid: false,
-      isDuplicate: false,
-      errorMessage: '');
+        creditCard: CreditCard.empty(),
+        isLoading: false,
+        isSaving: false,
+        isValid: false,
+        isDuplicate: false,
+        errorMessage: '',
+      );
 }
