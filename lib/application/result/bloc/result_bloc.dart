@@ -13,34 +13,11 @@ class ResultBloc extends Bloc<ResultEvent, ResultState> {
     on<ResultEvent>(
       (event, emit) {
         event.map(
-          onFinish: (_) {
-            // CreditCard card = _creditCardRepository.readHistoryCards().last;
-
-            if (true) {
-              emit(const ResultState.valid());
-            } else {
-              emit(const ResultState.duplicate());
-            }
-          },
+          onFinish: (_) {},
           onCancel: (_) {},
         );
       },
     );
-    // on<onFinish>((event, emit) {
-    //   log('$event $state');
-    //   emit(const ResultState.valid());
-    //   // event.map(
-    //   //   onFinish: (_) {
-    //   //     // emit(const ResultState.loading());
-
-    //   //     // if (true) {
-    //   //     //   emit(const ResultState.duplicate());
-    //   //     // }
-    //   //     emit(const ResultDuplicate());
-    //   //   },
-    //   //   onCancel: (_) {},
-    //   // );
-    // });
   }
 
   final ICreditCardRepository _creditCardRepository;

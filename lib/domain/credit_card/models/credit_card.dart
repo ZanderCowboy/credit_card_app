@@ -19,9 +19,10 @@ class CreditCard with _$CreditCard {
   }) = _CreditCard;
 
   factory CreditCard.empty() => const CreditCard(
-      cardNumber: '',
-      cardType: '',
-      cvvNumber: '',
-      issuingCountry: '',
-      isValid: false);
+        cardNumber: '',
+        cardType: '',
+        cvvNumber: '',
+        issuingCountry: '',
+        isValid: false,
+      );
 }

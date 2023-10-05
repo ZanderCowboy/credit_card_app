@@ -41,8 +41,13 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
               );
             }
 
-            emit(state.copyWith(
-                isLoading: false, isDuplicate: false, isValid: false));
+            emit(
+              state.copyWith(
+                isLoading: false,
+                isDuplicate: false,
+                isValid: false,
+              ),
+            );
           },
           onSubmit: (_) async {
             log('in onSumbit in bloc');
@@ -61,10 +66,11 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
             } else {
               emit(
                 state.copyWith(
-                    creditCard: state.creditCard.copyWith(
-                      isValid: isValidTextValue,
-                    ),
-                    errorMessage: 'The details provided are not valid'),
+                  creditCard: state.creditCard.copyWith(
+                    isValid: isValidTextValue,
+                  ),
+                  errorMessage: 'The details provided are not valid',
+                ),
               );
             }
 

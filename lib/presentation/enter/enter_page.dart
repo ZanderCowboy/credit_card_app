@@ -80,7 +80,9 @@ class _EnterPage extends HookWidget {
                           .add(const EnterEvent.onSubmit());
 
                       Navigator.of(context).pushNamedAndRemoveUntil(
-                          homeRoute, (Route<dynamic> route) => false);
+                        homeRoute,
+                        (Route<dynamic> route) => false,
+                      );
                     },
                     child: const Text(resultAddButtonTitle),
                   ),
@@ -170,7 +172,8 @@ class _EnterPage extends HookWidget {
                                   },
                                   onChanged: (value) {
                                     context.read<EnterBloc>().add(
-                                        EnterEvent.onChangedCardType(value));
+                                          EnterEvent.onChangedCardType(value),
+                                        );
                                   },
                                 ),
                                 TextFormField(
@@ -205,7 +208,8 @@ class _EnterPage extends HookWidget {
                                   onChanged: (value) {
                                     // selectedCountry = value;
                                     context.read<EnterBloc>().add(
-                                        EnterEvent.onChangedCountry(value!));
+                                          EnterEvent.onChangedCountry(value!),
+                                        );
                                   },
                                 ),
                                 Padding(
@@ -220,7 +224,8 @@ class _EnterPage extends HookWidget {
                                         TextButton(
                                           onPressed: () {
                                             context.read<EnterBloc>().add(
-                                                const EnterEvent.onCancel());
+                                                  const EnterEvent.onCancel(),
+                                                );
                                             cardNumberTextController.clear();
                                             cardTypeTextController.clear();
                                             cardCvvTextController.clear();
@@ -235,20 +240,21 @@ class _EnterPage extends HookWidget {
                                           style: buttonSmallStyle,
                                           onPressed: () {
                                             CreditCard creditCard = CreditCard(
-                                                cardNumber:
-                                                    cardNumberTextController
-                                                        .text,
-                                                cardType:
-                                                    cardTypeTextController.text,
-                                                cvvNumber:
-                                                    cardCvvTextController.text,
-                                                issuingCountry:
-                                                    countryTextController.text,
-                                                isValid: false);
+                                              cardNumber:
+                                                  cardNumberTextController.text,
+                                              cardType:
+                                                  cardTypeTextController.text,
+                                              cvvNumber:
+                                                  cardCvvTextController.text,
+                                              issuingCountry:
+                                                  countryTextController.text,
+                                              isValid: false,
+                                            );
 
                                             context.read<EnterBloc>().add(
                                                   EnterEvent.onValidate(
-                                                      creditCard),
+                                                    creditCard,
+                                                  ),
                                                 );
                                             // state.creditCard.isValid
                                             //     ? () => context
@@ -258,7 +264,8 @@ class _EnterPage extends HookWidget {
                                             //     : null;
                                           },
                                           child: const Text(
-                                              enterValidateButtonTitle),
+                                            enterValidateButtonTitle,
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -328,7 +335,7 @@ class _EnterPage extends HookWidget {
               context.read<EnterBloc>().add(const EnterEvent.onSubmit());
             },
             child: const Text('Yes'),
-          )
+          ),
         ],
       ),
     );
@@ -370,7 +377,9 @@ class _EnterPage extends HookWidget {
                           .add(const EnterEvent.onSubmit());
 
                       Navigator.of(context).pushNamedAndRemoveUntil(
-                          homeRoute, (Route<dynamic> route) => false);
+                        homeRoute,
+                        (Route<dynamic> route) => false,
+                      );
                     },
                     child: const Text(resultAddButtonTitle),
                   ),

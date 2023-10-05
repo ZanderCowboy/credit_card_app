@@ -43,7 +43,7 @@ class App extends StatelessWidget {
         initialRoute: initialRoute,
         routes: {
           homeRoute: (_) => const HomePage(),
-          enterRoute: (_) => EnterPage(),
+          enterRoute: (_) => const EnterPage(),
           scanRoute: (_) => const ScanPage(),
           historyRoute: (_) => const HistoryPage(),
           settingsRoute: (_) => const SettingsPage(),
