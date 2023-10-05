@@ -21,10 +21,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           onHistory: (_) {
             emit(const HomeState.loading());
           },
-          onSettings: (_) async {
-            // await Future.delayed(const Duration(seconds: 5));
+          onSettings: (_) {
             emit(const HomeState.loading());
-            emit(const HomeState.initial());
           },
           onLogout: (_) {
             emit(const HomeState.loading());
