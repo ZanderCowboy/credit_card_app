@@ -14,9 +14,9 @@ class CreditCardRepository implements ICreditCardRepository {
 
   // add
   @override
-  void addCard(CreditCard card) {
+  Future<void> addCard(CreditCard card) async {
     log('In CreditCardRepository - addCard(): $card');
-    creditCardBox.addCreditCard(card);
+    await creditCardBox.addCreditCard(card);
     log('Length: ${creditCardBox.box.length}');
   }
 

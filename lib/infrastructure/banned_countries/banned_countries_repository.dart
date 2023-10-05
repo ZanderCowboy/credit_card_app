@@ -14,11 +14,11 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
 
   // add
   @override
-  void addCountry(String country) {
+  Future<void> addCountry(String country) async {
     BannedCountries bc =
         BannedCountries(bannedCountry: country, isBanned: true);
 
-    bannedCountriesBox.addBannedCountry(bc);
+    await bannedCountriesBox.addBannedCountry(bc);
   }
 
   // read
@@ -35,14 +35,14 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
 
   // deleteAt
   @override
-  void deleteCountryAt(int index) {
-    bannedCountriesBox.deleteBannedCountryAt(index);
+  Future<void> deleteCountryAt(int index) async {
+    await bannedCountriesBox.deleteBannedCountryAt(index);
   }
 
   // deleteAll
   @override
-  void deleteCountries() {
-    bannedCountriesBox.deleteBannedCountries();
+  Future<void> deleteCountries() async {
+    await bannedCountriesBox.deleteBannedCountries();
   }
 
   @override
@@ -54,7 +54,7 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
 
   // Country where its value need to be updated to `value`.
   @override
-  void updateCountryChecked(String country, bool? newValue) {
+  Future<void> updateCountryChecked(String country, bool? newValue) async {
     List<BannedCountries> list = bannedCountriesBox.readAllBannedCountries();
     int index = -1;
 
@@ -71,7 +71,7 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
     log(index.toString());
 
     // pass an index and a new BannedCountry to be added
-    bannedCountriesBox.updateBannedCountry(
+    await bannedCountriesBox.updateBannedCountry(
       index,
       BannedCountries(
         bannedCountry: country,
