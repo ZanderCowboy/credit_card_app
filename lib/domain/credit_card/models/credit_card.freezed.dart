@@ -21,7 +21,7 @@ mixin _$CreditCard {
   @HiveField(1)
   String get cardType => throw _privateConstructorUsedError;
   @HiveField(2)
-  int get cvvNumber => throw _privateConstructorUsedError;
+  String get cvvNumber => throw _privateConstructorUsedError;
   @HiveField(3)
   String get issuingCountry => throw _privateConstructorUsedError;
   @HiveField(4)
@@ -41,7 +41,7 @@ abstract class $CreditCardCopyWith<$Res> {
   $Res call(
       {@HiveField(0) String cardNumber,
       @HiveField(1) String cardType,
-      @HiveField(2) int cvvNumber,
+      @HiveField(2) String cvvNumber,
       @HiveField(3) String issuingCountry,
       @HiveField(4) bool isValid});
 }
@@ -77,7 +77,7 @@ class _$CreditCardCopyWithImpl<$Res, $Val extends CreditCard>
       cvvNumber: null == cvvNumber
           ? _value.cvvNumber
           : cvvNumber // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       issuingCountry: null == issuingCountry
           ? _value.issuingCountry
           : issuingCountry // ignore: cast_nullable_to_non_nullable
@@ -101,7 +101,7 @@ abstract class _$$CreditCardImplCopyWith<$Res>
   $Res call(
       {@HiveField(0) String cardNumber,
       @HiveField(1) String cardType,
-      @HiveField(2) int cvvNumber,
+      @HiveField(2) String cvvNumber,
       @HiveField(3) String issuingCountry,
       @HiveField(4) bool isValid});
 }
@@ -135,7 +135,7 @@ class __$$CreditCardImplCopyWithImpl<$Res>
       cvvNumber: null == cvvNumber
           ? _value.cvvNumber
           : cvvNumber // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       issuingCountry: null == issuingCountry
           ? _value.issuingCountry
           : issuingCountry // ignore: cast_nullable_to_non_nullable
@@ -166,7 +166,7 @@ class _$CreditCardImpl implements _CreditCard {
   final String cardType;
   @override
   @HiveField(2)
-  final int cvvNumber;
+  final String cvvNumber;
   @override
   @HiveField(3)
   final String issuingCountry;
@@ -210,7 +210,7 @@ abstract class _CreditCard implements CreditCard {
   const factory _CreditCard(
       {@HiveField(0) required final String cardNumber,
       @HiveField(1) required final String cardType,
-      @HiveField(2) required final int cvvNumber,
+      @HiveField(2) required final String cvvNumber,
       @HiveField(3) required final String issuingCountry,
       @HiveField(4) required final bool isValid}) = _$CreditCardImpl;
 
@@ -222,7 +222,7 @@ abstract class _CreditCard implements CreditCard {
   String get cardType;
   @override
   @HiveField(2)
-  int get cvvNumber;
+  String get cvvNumber;
   @override
   @HiveField(3)
   String get issuingCountry;

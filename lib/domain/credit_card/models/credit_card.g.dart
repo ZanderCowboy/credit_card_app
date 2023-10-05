@@ -19,7 +19,7 @@ class CreditCardAdapter extends TypeAdapter<CreditCard> {
     return CreditCard(
       cardNumber: fields[0] as String,
       cardType: fields[1] as String,
-      cvvNumber: fields[2] as int,
+      cvvNumber: fields[2] as String,
       issuingCountry: fields[3] as String,
       isValid: fields[4] as bool,
     );
