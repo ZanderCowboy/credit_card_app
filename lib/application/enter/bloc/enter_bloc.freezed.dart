@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$EnterEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
     required TResult Function(String text) onChangedNumber,
@@ -28,6 +29,7 @@ mixin _$EnterEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
     TResult? Function(String text)? onChangedNumber,
@@ -38,6 +40,7 @@ mixin _$EnterEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
     TResult Function(String text)? onChangedNumber,
@@ -49,6 +52,7 @@ mixin _$EnterEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
     required TResult Function(onChangedNumber value) onChangedNumber,
@@ -59,6 +63,7 @@ mixin _$EnterEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
     TResult? Function(onChangedNumber value)? onChangedNumber,
@@ -69,6 +74,7 @@ mixin _$EnterEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
     TResult Function(onChangedNumber value)? onChangedNumber,
@@ -96,6 +102,180 @@ class _$EnterEventCopyWithImpl<$Res, $Val extends EnterEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$onValidateImplCopyWith<$Res> {
+  factory _$$onValidateImplCopyWith(
+          _$onValidateImpl value, $Res Function(_$onValidateImpl) then) =
+      __$$onValidateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CreditCard creditCard});
+
+  $CreditCardCopyWith<$Res> get creditCard;
+}
+
+/// @nodoc
+class __$$onValidateImplCopyWithImpl<$Res>
+    extends _$EnterEventCopyWithImpl<$Res, _$onValidateImpl>
+    implements _$$onValidateImplCopyWith<$Res> {
+  __$$onValidateImplCopyWithImpl(
+      _$onValidateImpl _value, $Res Function(_$onValidateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creditCard = null,
+  }) {
+    return _then(_$onValidateImpl(
+      null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreditCardCopyWith<$Res> get creditCard {
+    return $CreditCardCopyWith<$Res>(_value.creditCard, (value) {
+      return _then(_value.copyWith(creditCard: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$onValidateImpl implements onValidate {
+  const _$onValidateImpl(this.creditCard);
+
+  @override
+  final CreditCard creditCard;
+
+  @override
+  String toString() {
+    return 'EnterEvent.onValidate(creditCard: $creditCard)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$onValidateImpl &&
+            (identical(other.creditCard, creditCard) ||
+                other.creditCard == creditCard));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, creditCard);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$onValidateImplCopyWith<_$onValidateImpl> get copyWith =>
+      __$$onValidateImplCopyWithImpl<_$onValidateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onValidate,
+    required TResult Function() onSubmit,
+    required TResult Function() onCancel,
+    required TResult Function(String text) onChangedNumber,
+    required TResult Function(String text) onChangedCardType,
+    required TResult Function(String text) onChangedCVV,
+    required TResult Function(String text) onChangedCountry,
+  }) {
+    return onValidate(creditCard);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onValidate,
+    TResult? Function()? onSubmit,
+    TResult? Function()? onCancel,
+    TResult? Function(String text)? onChangedNumber,
+    TResult? Function(String text)? onChangedCardType,
+    TResult? Function(String text)? onChangedCVV,
+    TResult? Function(String text)? onChangedCountry,
+  }) {
+    return onValidate?.call(creditCard);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onValidate,
+    TResult Function()? onSubmit,
+    TResult Function()? onCancel,
+    TResult Function(String text)? onChangedNumber,
+    TResult Function(String text)? onChangedCardType,
+    TResult Function(String text)? onChangedCVV,
+    TResult Function(String text)? onChangedCountry,
+    required TResult orElse(),
+  }) {
+    if (onValidate != null) {
+      return onValidate(creditCard);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(onValidate value) onValidate,
+    required TResult Function(onSubmit value) onSubmit,
+    required TResult Function(onCancel value) onCancel,
+    required TResult Function(onChangedNumber value) onChangedNumber,
+    required TResult Function(onChangedCardType value) onChangedCardType,
+    required TResult Function(onChangedCvv value) onChangedCVV,
+    required TResult Function(onChangedCountry value) onChangedCountry,
+  }) {
+    return onValidate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onValidate value)? onValidate,
+    TResult? Function(onSubmit value)? onSubmit,
+    TResult? Function(onCancel value)? onCancel,
+    TResult? Function(onChangedNumber value)? onChangedNumber,
+    TResult? Function(onChangedCardType value)? onChangedCardType,
+    TResult? Function(onChangedCvv value)? onChangedCVV,
+    TResult? Function(onChangedCountry value)? onChangedCountry,
+  }) {
+    return onValidate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(onValidate value)? onValidate,
+    TResult Function(onSubmit value)? onSubmit,
+    TResult Function(onCancel value)? onCancel,
+    TResult Function(onChangedNumber value)? onChangedNumber,
+    TResult Function(onChangedCardType value)? onChangedCardType,
+    TResult Function(onChangedCvv value)? onChangedCVV,
+    TResult Function(onChangedCountry value)? onChangedCountry,
+    required TResult orElse(),
+  }) {
+    if (onValidate != null) {
+      return onValidate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class onValidate implements EnterEvent {
+  const factory onValidate(final CreditCard creditCard) = _$onValidateImpl;
+
+  CreditCard get creditCard;
+  @JsonKey(ignore: true)
+  _$$onValidateImplCopyWith<_$onValidateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -136,6 +316,7 @@ class _$onSubmitImpl implements onSubmit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
     required TResult Function(String text) onChangedNumber,
@@ -149,6 +330,7 @@ class _$onSubmitImpl implements onSubmit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
     TResult? Function(String text)? onChangedNumber,
@@ -162,6 +344,7 @@ class _$onSubmitImpl implements onSubmit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
     TResult Function(String text)? onChangedNumber,
@@ -179,6 +362,7 @@ class _$onSubmitImpl implements onSubmit {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
     required TResult Function(onChangedNumber value) onChangedNumber,
@@ -192,6 +376,7 @@ class _$onSubmitImpl implements onSubmit {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
     TResult? Function(onChangedNumber value)? onChangedNumber,
@@ -205,6 +390,7 @@ class _$onSubmitImpl implements onSubmit {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
     TResult Function(onChangedNumber value)? onChangedNumber,
@@ -262,6 +448,7 @@ class _$onCancelImpl implements onCancel {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
     required TResult Function(String text) onChangedNumber,
@@ -275,6 +462,7 @@ class _$onCancelImpl implements onCancel {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
     TResult? Function(String text)? onChangedNumber,
@@ -288,6 +476,7 @@ class _$onCancelImpl implements onCancel {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
     TResult Function(String text)? onChangedNumber,
@@ -305,6 +494,7 @@ class _$onCancelImpl implements onCancel {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
     required TResult Function(onChangedNumber value) onChangedNumber,
@@ -318,6 +508,7 @@ class _$onCancelImpl implements onCancel {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
     TResult? Function(onChangedNumber value)? onChangedNumber,
@@ -331,6 +522,7 @@ class _$onCancelImpl implements onCancel {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
     TResult Function(onChangedNumber value)? onChangedNumber,
@@ -415,6 +607,7 @@ class _$onChangedNumberImpl implements onChangedNumber {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
     required TResult Function(String text) onChangedNumber,
@@ -428,6 +621,7 @@ class _$onChangedNumberImpl implements onChangedNumber {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
     TResult? Function(String text)? onChangedNumber,
@@ -441,6 +635,7 @@ class _$onChangedNumberImpl implements onChangedNumber {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
     TResult Function(String text)? onChangedNumber,
@@ -458,6 +653,7 @@ class _$onChangedNumberImpl implements onChangedNumber {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
     required TResult Function(onChangedNumber value) onChangedNumber,
@@ -471,6 +667,7 @@ class _$onChangedNumberImpl implements onChangedNumber {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
     TResult? Function(onChangedNumber value)? onChangedNumber,
@@ -484,6 +681,7 @@ class _$onChangedNumberImpl implements onChangedNumber {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
     TResult Function(onChangedNumber value)? onChangedNumber,
@@ -573,6 +771,7 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
     required TResult Function(String text) onChangedNumber,
@@ -586,6 +785,7 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
     TResult? Function(String text)? onChangedNumber,
@@ -599,6 +799,7 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
     TResult Function(String text)? onChangedNumber,
@@ -616,6 +817,7 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
     required TResult Function(onChangedNumber value) onChangedNumber,
@@ -629,6 +831,7 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
     TResult? Function(onChangedNumber value)? onChangedNumber,
@@ -642,6 +845,7 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
     TResult Function(onChangedNumber value)? onChangedNumber,
@@ -730,6 +934,7 @@ class _$onChangedCvvImpl implements onChangedCvv {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
     required TResult Function(String text) onChangedNumber,
@@ -743,6 +948,7 @@ class _$onChangedCvvImpl implements onChangedCvv {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
     TResult? Function(String text)? onChangedNumber,
@@ -756,6 +962,7 @@ class _$onChangedCvvImpl implements onChangedCvv {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
     TResult Function(String text)? onChangedNumber,
@@ -773,6 +980,7 @@ class _$onChangedCvvImpl implements onChangedCvv {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
     required TResult Function(onChangedNumber value) onChangedNumber,
@@ -786,6 +994,7 @@ class _$onChangedCvvImpl implements onChangedCvv {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
     TResult? Function(onChangedNumber value)? onChangedNumber,
@@ -799,6 +1008,7 @@ class _$onChangedCvvImpl implements onChangedCvv {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
     TResult Function(onChangedNumber value)? onChangedNumber,
@@ -888,6 +1098,7 @@ class _$onChangedCountryImpl implements onChangedCountry {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
     required TResult Function(String text) onChangedNumber,
@@ -901,6 +1112,7 @@ class _$onChangedCountryImpl implements onChangedCountry {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
     TResult? Function(String text)? onChangedNumber,
@@ -914,6 +1126,7 @@ class _$onChangedCountryImpl implements onChangedCountry {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
     TResult Function(String text)? onChangedNumber,
@@ -931,6 +1144,7 @@ class _$onChangedCountryImpl implements onChangedCountry {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
     required TResult Function(onChangedNumber value) onChangedNumber,
@@ -944,6 +1158,7 @@ class _$onChangedCountryImpl implements onChangedCountry {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
     TResult? Function(onChangedNumber value)? onChangedNumber,
@@ -957,6 +1172,7 @@ class _$onChangedCountryImpl implements onChangedCountry {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
     TResult Function(onChangedNumber value)? onChangedNumber,
@@ -986,6 +1202,8 @@ mixin _$EnterState {
   CreditCard get creditCard => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
+  bool get isValid => throw _privateConstructorUsedError;
+  bool get isDuplicate => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1003,6 +1221,8 @@ abstract class $EnterStateCopyWith<$Res> {
       {CreditCard creditCard,
       bool isLoading,
       bool isSaving,
+      bool isValid,
+      bool isDuplicate,
       String? errorMessage});
 
   $CreditCardCopyWith<$Res> get creditCard;
@@ -1024,6 +1244,8 @@ class _$EnterStateCopyWithImpl<$Res, $Val extends EnterState>
     Object? creditCard = null,
     Object? isLoading = null,
     Object? isSaving = null,
+    Object? isValid = null,
+    Object? isDuplicate = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1038,6 +1260,14 @@ class _$EnterStateCopyWithImpl<$Res, $Val extends EnterState>
       isSaving: null == isSaving
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isValid: null == isValid
+          ? _value.isValid
+          : isValid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDuplicate: null == isDuplicate
+          ? _value.isDuplicate
+          : isDuplicate // ignore: cast_nullable_to_non_nullable
               as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
@@ -1067,6 +1297,8 @@ abstract class _$$EnterStateImplCopyWith<$Res>
       {CreditCard creditCard,
       bool isLoading,
       bool isSaving,
+      bool isValid,
+      bool isDuplicate,
       String? errorMessage});
 
   @override
@@ -1087,6 +1319,8 @@ class __$$EnterStateImplCopyWithImpl<$Res>
     Object? creditCard = null,
     Object? isLoading = null,
     Object? isSaving = null,
+    Object? isValid = null,
+    Object? isDuplicate = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_$EnterStateImpl(
@@ -1101,6 +1335,14 @@ class __$$EnterStateImplCopyWithImpl<$Res>
       isSaving: null == isSaving
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isValid: null == isValid
+          ? _value.isValid
+          : isValid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDuplicate: null == isDuplicate
+          ? _value.isDuplicate
+          : isDuplicate // ignore: cast_nullable_to_non_nullable
               as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
@@ -1117,6 +1359,8 @@ class _$EnterStateImpl extends _EnterState {
       {required this.creditCard,
       required this.isLoading,
       required this.isSaving,
+      required this.isValid,
+      required this.isDuplicate,
       required this.errorMessage})
       : super._();
 
@@ -1127,11 +1371,15 @@ class _$EnterStateImpl extends _EnterState {
   @override
   final bool isSaving;
   @override
+  final bool isValid;
+  @override
+  final bool isDuplicate;
+  @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'EnterState(creditCard: $creditCard, isLoading: $isLoading, isSaving: $isSaving, errorMessage: $errorMessage)';
+    return 'EnterState(creditCard: $creditCard, isLoading: $isLoading, isSaving: $isSaving, isValid: $isValid, isDuplicate: $isDuplicate, errorMessage: $errorMessage)';
   }
 
   @override
@@ -1145,13 +1393,16 @@ class _$EnterStateImpl extends _EnterState {
                 other.isLoading == isLoading) &&
             (identical(other.isSaving, isSaving) ||
                 other.isSaving == isSaving) &&
+            (identical(other.isValid, isValid) || other.isValid == isValid) &&
+            (identical(other.isDuplicate, isDuplicate) ||
+                other.isDuplicate == isDuplicate) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, creditCard, isLoading, isSaving, errorMessage);
+  int get hashCode => Object.hash(runtimeType, creditCard, isLoading, isSaving,
+      isValid, isDuplicate, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -1165,6 +1416,8 @@ abstract class _EnterState extends EnterState {
       {required final CreditCard creditCard,
       required final bool isLoading,
       required final bool isSaving,
+      required final bool isValid,
+      required final bool isDuplicate,
       required final String? errorMessage}) = _$EnterStateImpl;
   const _EnterState._() : super._();
 
@@ -1174,6 +1427,10 @@ abstract class _EnterState extends EnterState {
   bool get isLoading;
   @override
   bool get isSaving;
+  @override
+  bool get isValid;
+  @override
+  bool get isDuplicate;
   @override
   String? get errorMessage;
   @override

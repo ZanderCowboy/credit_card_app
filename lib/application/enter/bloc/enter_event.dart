@@ -2,6 +2,7 @@ part of 'enter_bloc.dart';
 
 @freezed
 class EnterEvent with _$EnterEvent {
+  const factory EnterEvent.onValidate(CreditCard creditCard) = onValidate;
   const factory EnterEvent.onSubmit() = onSubmit;
   const factory EnterEvent.onCancel() = onCancel;
 

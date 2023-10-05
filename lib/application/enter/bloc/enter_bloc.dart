@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:credit_card_app/domain/credit_card/i_credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
@@ -15,14 +17,40 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
     on<EnterEvent>(
       (event, emit) {
         event.map(
-          onCancel: (_) {
-            emit(EnterState.initial());
+          onValidate: (value) {
+            emit(state.copyWith(isLoading: true));
+
+            bool hasDuplicate =
+                _creditCardRepository.hasCreditCard(value.creditCard);
+
+            if (hasDuplicate) {
+              emit(state.copyWith(isDuplicate: true));
+            } else {
+              emit(state.copyWith(isValid: true));
+
+              emit(
+                state.copyWith(
+                  creditCard: state.creditCard.copyWith(
+                    cardNumber: state.creditCard.cardNumber,
+                    cardType: state.creditCard.cardType,
+                    cvvNumber: state.creditCard.cvvNumber,
+                    issuingCountry: state.creditCard.issuingCountry,
+                    isValid: state.creditCard.isValid,
+                  ),
+                ),
+              );
+            }
+
+            emit(state.copyWith(
+                isLoading: false, isDuplicate: false, isValid: false));
           },
-          onSubmit: (_) {
+          onSubmit: (_) async {
+            log('in onSumbit in bloc');
             emit(state.copyWith(isSaving: true, errorMessage: null));
 
             final isValidTextValue = _isValid(state.creditCard);
             if (isValidTextValue) {
+              _creditCardRepository.addCard(state.creditCard);
               emit(
                 state.copyWith(
                   creditCard: state.creditCard.copyWith(
@@ -30,7 +58,6 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
                   ),
                 ),
               );
-              _creditCardRepository.addCard(state.creditCard);
             } else {
               emit(
                 state.copyWith(
@@ -42,6 +69,9 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
             }
 
             emit(state.copyWith(isSaving: false));
+          },
+          onCancel: (_) {
+            emit(EnterState.initial());
           },
           onChangedNumber: (value) {
             emit(state.copyWith(isLoading: true, errorMessage: null));
@@ -86,10 +116,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
             if (value.text.isNotEmpty) {
               emit(
                 state.copyWith(
-                  creditCard: state.creditCard.copyWith(
-                      cvvNumber: int.parse(
-                    value.text,
-                  )),
+                  creditCard: state.creditCard.copyWith(cvvNumber: value.text),
                 ),
               );
             }
@@ -133,68 +160,9 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
   bool _isValid(CreditCard creditCard) {
     return creditCard.cardNumber.isNotNullAndNotEmpty &&
         creditCard.cardType.isNotNullAndNotEmpty &&
-        creditCard.cvvNumber > 0;
+        creditCard.cvvNumber.isNotNullAndNotEmpty;
     List<CreditCard> list = _creditCardRepository.readHistoryCards();
 
     return list.contains(creditCard);
   }
 }
-
-
-// import 'package:bloc/bloc.dart';
-// import 'package:credit_card_app/domain/credit_card/i_credit_card_repository.dart';
-// import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
-// import 'package:freezed_annotation/freezed_annotation.dart';
-// import 'package:injectable/injectable.dart';
-
-// part 'enter_bloc.freezed.dart';
-// part 'enter_event.dart';
-// part 'enter_state.dart';
-
-// @Injectable()
-// class EnterBloc extends Bloc<EnterEvent, EnterState> {
-//   EnterBloc(this._creditCardRepository) : super(EnterState.initial()) {
-//     on<EnterEvent>(
-//       ((event, emit) async {
-//         // event.map(
-//         //   onValidate: (value) {
-//         //     log('In EnterBloc: onValidate - event=$event \t emit=$emit');
-//         //     log('Credit Card: ${value.creditCard}');
-
-//         //     // _creditCardRepository.addCard(value.creditCard);
-//         //     log(_creditCardRepository.readHistoryCards().length.toString());
-
-//         //     bool invalid = isValid(value.creditCard);
-
-//         //     if (invalid) {
-//         //       emit(EnterState.initial());
-//         //       emit(const EnterState.duplicate());
-//         //     } else {
-//         //       log('In if with true');
-//         //       emit(const EnterState.valid());
-//         //       log('Emitted EnterState.valid()');
-//         //     }
-//         //   },
-//         //   onCancel: (_) {
-//         //     // emit(const EnterState.initial());
-//         //     log('*** Emitted EnterState.initial() in onCancel() ***');
-//         //   },
-//         //   onSubmit: (value) {
-//         //     _creditCardRepository.addCard(value.creditCard);
-//         //   },
-//         //   onChanged: (_) {},
-//         // );
-//       }),
-//     );
-//   }
-
-//   final ICreditCardRepository _creditCardRepository;
-
-//   bool isValid(CreditCard creditCard) {
-//     List<CreditCard> list = _creditCardRepository.readHistoryCards();
-
-//     return list.contains(creditCard);
-//   }
-// }
-
-

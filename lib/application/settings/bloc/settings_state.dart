@@ -3,21 +3,22 @@ part of 'settings_bloc.dart';
 @freezed
 class SettingsState with _$SettingsState {
   const factory SettingsState({
-    required bool isChecked,
+    required BannedCountries bannedCountries,
     String? country,
+    required bool isChecked,
+    required bool isLoading,
+    required bool isDuplicate,
+    required String? errorMessage,
   }) = _SettingsState;
 
   const SettingsState._();
 
-  factory SettingsState.initial() => const SettingsState(
+  factory SettingsState.initial() => SettingsState(
+        bannedCountries: BannedCountries.empty(),
         country: '',
         isChecked: false,
+        isLoading: false,
+        isDuplicate: false,
+        errorMessage: '',
       );
-  const factory SettingsState.loading() = Loading;
-  // const factory SettingsState.loaded() = Loaded;
-  factory SettingsState.loaded(bool isChecked) =>
-      SettingsState(country: '', isChecked: isChecked);
-  const factory SettingsState.error() = ErrorS;
-
-  const factory SettingsState.duplicate() = SettingsDuplicate;
 }

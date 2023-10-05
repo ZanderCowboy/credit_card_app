@@ -1,9 +1,11 @@
+import 'dart:developer';
 
 import 'package:credit_card_app/application/enter/bloc/enter_bloc.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/get_it_injection.dart';
+import 'package:credit_card_app/widgets/common/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_credit_card/credit_card_brand.dart';
@@ -11,33 +13,27 @@ import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class EnterPage extends StatelessWidget {
-  EnterPage({super.key});
-
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  final cardNumberController = TextEditingController();
-  final cardTypeController = TextEditingController();
-  final cvvNumberController = TextEditingController();
-  final issuingCountryController = TextEditingController();
-  final String _selectedCountry = 'ZA';
-
-  List<String> countries = countryMap.keys.toList();
-
-  bool isDialogOpen = false;
+  const EnterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(enterAppBarTitle),
+      ),
       body: BlocProvider(
         create: (_) => coreSl<EnterBloc>(),
-        child: const _EnterPage(),
+        child: _EnterPage(),
       ),
     );
   }
 }
 
 class _EnterPage extends HookWidget {
-  const _EnterPage();
+  _EnterPage();
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final List<String> countriesList = countryMap.keys.toList();
 
   @override
   Widget build(BuildContext context) {
@@ -50,103 +46,340 @@ class _EnterPage extends HookWidget {
       listener: (context, state) {
         if (state.isLoading) {
           ScaffoldMessenger.of(context).clearSnackBars();
-          ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text('loading...')));
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('loading...'),
+              duration: Duration(seconds: 3),
+            ),
+          );
+        }
+
+        if (state.isValid) {
+          showDialog(
+            context: context,
+            builder: (_) {
+              return AlertDialog(
+                title: const Text(enterSubmissionDialogTitle),
+                content: Card(
+                  elevation: 3,
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: _creditCardListTile(state.creditCard),
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text(cancelDialogButton),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      context
+                          .read<EnterBloc>()
+                          .add(const EnterEvent.onSubmit());
+
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          homeRoute, (Route<dynamic> route) => false);
+                    },
+                    child: const Text(resultAddButtonTitle),
+                  ),
+                ],
+              );
+            },
+          );
+        }
+        if (state.isDuplicate) {
+          ScaffoldMessenger.of(context).clearSnackBars();
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(duplicateCardErrorMessage),
+              duration: Duration(seconds: 3),
+            ),
+          );
         }
         if (state.isSaving) {
           ScaffoldMessenger.of(context).clearSnackBars();
           ScaffoldMessenger.of(context)
               .showSnackBar(const SnackBar(content: Text('saving...')));
+          // _showDialog(context);
         }
-        // if (state.errorMessage.isNotNullAndNotEmpty) {
-        //   ScaffoldMessenger.of(context).clearSnackBars();
-        //   ScaffoldMessenger.of(context)
-        //       .showSnackBar(SnackBar(content: Text(state.errorMessage!)));
-        // }
+        if (state.errorMessage!.isNotEmpty) {
+          ScaffoldMessenger.of(context).clearSnackBars();
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(state.errorMessage!)));
+        }
       },
       builder: (context, state) {
-        return SizedBox(
-          //height: 200,
+        String? selectedCountry = 'ZA';
+
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // const _CardDetails(),
-              const SizedBox(
-                height: 20,
-              ),
-              TextFormField(
-                controller: cardNumberTextController,
-                decoration: const InputDecoration(hintText: 'Card Number'),
-                onChanged: (value) => context.read<EnterBloc>()
-                  ..add(EnterEvent.onChangedNumber(value)),
-              ),
-              TextFormField(
-                controller: cardTypeTextController,
-                decoration: const InputDecoration(hintText: 'Card Type'),
-                onChanged: (value) => context.read<EnterBloc>()
-                  ..add(EnterEvent.onChangedCardType(value)),
-              ),
-              TextFormField(
-                controller: cardCvvTextController,
-                decoration: const InputDecoration(hintText: 'Card cvv'),
-                keyboardType: TextInputType.number,
-                onChanged: (value) => context.read<EnterBloc>()
-                  ..add(EnterEvent.onChangedCVV(value)),
-              ),
-              TextFormField(
-                controller: countryTextController,
-                decoration: const InputDecoration(hintText: 'country'),
-                onChanged: (value) => context.read<EnterBloc>()
-                  ..add(EnterEvent.onChangedCountry(value)),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      context
-                          .read<EnterBloc>()
-                          .add(const EnterEvent.onCancel());
-                      cardCvvTextController.clear();
-                      cardNumberTextController.clear();
-                      cardTypeTextController.clear();
-                      countryTextController.clear();
-                    },
-                    child: const Text('Clear'),
+              const CreditCardAnimation(),
+              Expanded(
+                child: SizedBox(
+                  width: 400,
+                  child: SingleChildScrollView(
+                    child: Center(
+                      child: Column(
+                        children: [
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Form(
+                            key: _formKey,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                TextFormField(
+                                  controller: cardNumberTextController,
+                                  decoration: const InputDecoration(
+                                    labelText: cardNumberLabelText,
+                                    hintText: cardNumberHintText,
+                                    hintStyle: TextStyle(color: Colors.white),
+                                    labelStyle: TextStyle(color: Colors.white),
+                                  ),
+                                  validator: (String? value) {
+                                    if (value == null || value.isEmpty) {
+                                      return cardNumberErrorText;
+                                    }
+                                    return null;
+                                  },
+                                  onChanged: (value) {
+                                    context
+                                        .read<EnterBloc>()
+                                        .add(EnterEvent.onChangedNumber(value));
+                                  },
+                                ),
+                                TextFormField(
+                                  controller: cardTypeTextController,
+                                  decoration: const InputDecoration(
+                                    labelText: cardTypeLabelText,
+                                    hintText: cardTypeHintText,
+                                    hintStyle: TextStyle(color: Colors.white),
+                                    labelStyle: TextStyle(color: Colors.white),
+                                  ),
+                                  validator: (String? value) {
+                                    if (value == null || value.isEmpty) {
+                                      return cardTypeErrorText;
+                                    }
+                                    return null;
+                                  },
+                                  onChanged: (value) {
+                                    context.read<EnterBloc>().add(
+                                        EnterEvent.onChangedCardType(value));
+                                  },
+                                ),
+                                TextFormField(
+                                  controller: cardCvvTextController,
+                                  decoration: const InputDecoration(
+                                    labelText: cvvNumberLabelText,
+                                    hintText: cvvNumberHintText,
+                                    hintStyle: TextStyle(color: Colors.white),
+                                    labelStyle: TextStyle(color: Colors.white),
+                                  ),
+                                  validator: (String? value) {
+                                    if (value == null || value.isEmpty) {
+                                      return cvvNumberErrorText;
+                                    }
+                                    return null;
+                                  },
+                                  onChanged: (value) {
+                                    context
+                                        .read<EnterBloc>()
+                                        .add(EnterEvent.onChangedCVV(value));
+                                  },
+                                ),
+                                DropdownButtonFormField<String>(
+                                  hint: const Text(issuingCountryLabelText),
+                                  value: null,
+                                  items: countriesList.map((country) {
+                                    return DropdownMenuItem<String>(
+                                      value: country,
+                                      child: Text(country),
+                                    );
+                                  }).toList(),
+                                  onChanged: (value) {
+                                    // selectedCountry = value;
+                                    context.read<EnterBloc>().add(
+                                        EnterEvent.onChangedCountry(value!));
+                                  },
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 16.0,
+                                  ),
+                                  child: Center(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        TextButton(
+                                          onPressed: () {
+                                            context.read<EnterBloc>().add(
+                                                const EnterEvent.onCancel());
+                                            cardNumberTextController.clear();
+                                            cardTypeTextController.clear();
+                                            cardCvvTextController.clear();
+                                            countryTextController.clear();
+                                          },
+                                          child: const Text('Clear'),
+                                        ),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
+                                        ElevatedButton(
+                                          style: buttonSmallStyle,
+                                          onPressed: () {
+                                            CreditCard creditCard = CreditCard(
+                                                cardNumber:
+                                                    cardNumberTextController
+                                                        .text,
+                                                cardType:
+                                                    cardTypeTextController.text,
+                                                cvvNumber:
+                                                    cardCvvTextController.text,
+                                                issuingCountry:
+                                                    countryTextController.text,
+                                                isValid: false);
+
+                                            context.read<EnterBloc>().add(
+                                                  EnterEvent.onValidate(
+                                                      creditCard),
+                                                );
+                                            // state.creditCard.isValid
+                                            //     ? () => context
+                                            //         .read<EnterBloc>()
+                                            //         .add(const EnterEvent
+                                            //             .onSubmit())
+                                            //     : null;
+                                          },
+                                          child: const Text(
+                                              enterValidateButtonTitle),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.center,
+                          //   children: [
+                          //     TextButton(
+                          //       onPressed: () {
+                          //         context
+                          //             .read<EnterBloc>()
+                          //             .add(const EnterEvent.onCancel());
+                          //         cardNumberTextController.clear();
+                          //         cardTypeTextController.clear();
+                          //         cardCvvTextController.clear();
+                          //         countryTextController.clear();
+                          //       },
+                          //       child: const Text('Clear'),
+                          //     ),
+                          //     const SizedBox(
+                          //       width: 10,
+                          //     ),
+                          //     TextButton(
+                          //       onPressed: state.creditCard.isValid
+                          //           ? () => context
+                          //               .read<EnterBloc>()
+                          //               .add(const EnterEvent.onSubmit())
+                          //           : null,
+                          //       child: const Text('Submit'),
+                          //     ),
+                          //   ],
+                          // ),
+                          // }
+                        ],
+                      ),
+                    ),
                   ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  TextButton(
-                    onPressed: state.creditCard.isValid
-                        ? () => context
-                            .read<EnterBloc>()
-                            .add(const EnterEvent.onSubmit())
-                        : null,
-                    child: const Text('Submit'),
-                  ),
-                ],
+                ),
               ),
-              // }
             ],
           ),
         );
       },
     );
-
-    // if (dialogResult != null) {
-    //   isDialogOpen = false; // Reset the flag.
-    // }
   }
 
-  void _showSnackBar(BuildContext context) async {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text(duplicateCardErrorMessage),
-        duration: Duration(seconds: 3),
+  void _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        content: const Text(
+          'Are you sure you want to submit this card? ',
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('No'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              context.read<EnterBloc>().add(const EnterEvent.onSubmit());
+            },
+            child: const Text('Yes'),
+          )
+        ],
       ),
+    );
+  }
+
+  void _showDialogWithCard(BuildContext context) async {
+    log('In _showDialog: Context $context');
+
+    await showDialog(
+      context: context,
+      builder: (_) {
+        return BlocProvider(
+          create: (context) => coreSl<EnterBloc>(),
+          child: BlocBuilder<EnterBloc, EnterState>(
+            builder: (context, state) {
+              return AlertDialog(
+                title: const Text(resultDialogTitle),
+                content: Card(
+                  elevation: 3,
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: _creditCardListTile(state.creditCard),
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      log('onPressed: onCancel()');
+                      context
+                          .read<EnterBloc>()
+                          .add(const EnterEvent.onCancel());
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text(cancelDialogButton),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      context
+                          .read<EnterBloc>()
+                          .add(const EnterEvent.onSubmit());
+
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          homeRoute, (Route<dynamic> route) => false);
+                    },
+                    child: const Text(resultAddButtonTitle),
+                  ),
+                ],
+              );
+            },
+          ),
+        );
+      },
     );
   }
 
@@ -168,275 +401,79 @@ class _EnterPage extends HookWidget {
       ),
     );
   }
-
-  TextFormField _textFormField(TextEditingController editingController,
-      String labelText, String hintText, String errorText) {
-    return TextFormField(
-      controller: editingController,
-      decoration: InputDecoration(
-        labelText: labelText,
-        hintText: hintText,
-        hintStyle: const TextStyle(color: Colors.white),
-        labelStyle: const TextStyle(color: Colors.white),
-      ),
-      validator: (String? value) {
-        if (value == null || value.isEmpty) {
-          return errorText;
-        }
-        return null;
-      },
-    );
-  }
-
-  // CreditCard generateCard() {
-  //   String cardNumber = cardNumberController.text;
-  //   String cardType = cardTypeController.text;
-  //   int cvvNumber = int.parse(cvvNumberController.text);
-  //   // String issuingCountry = issuingCountryController.text;
-  //   String issuingCountry = _selectedCountry;
-
-  //   CreditCard card = CreditCard(
-  //       cardNumber: cardNumber,
-  //       cardType: cardType,
-  //       cvvNumber: cvvNumber,
-  //       issuingCountry: issuingCountry);
-
-  //   return card;
-  // }
 }
 
-class CreditCardAnimation extends StatefulWidget {
-  const CreditCardAnimation({super.key});
-
-  @override
-  State<CreditCardAnimation> createState() => _CreditCardAnimationState();
-}
-
-class _CreditCardAnimationState extends State<CreditCardAnimation> {
-  String cardNumber = '';
-  String expiryDate = '';
-  String cardHolderName = '';
-  String cvvCode = '';
-  bool isCvvFocused = false;
-  bool useGlassMorphism = false;
-  bool useBackgroundImage = false;
-  OutlineInputBorder? border;
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+class _CardDetails extends StatelessWidget {
+  const _CardDetails();
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          // image: DecorationImage(
-          //   image: ExactAssetImage('assets/bg.png'),
-          //   fit: BoxFit.fill,
-          // ),
-          // color: Colors.black,
-          ),
-      child: SafeArea(
-        child: Column(
-          children: <Widget>[
-            // const SizedBox(
-            //   height: 30,
-            // ),
-            CreditCardWidget(
-              // glassmorphismConfig:
-              //     useGlassMorphism ? Glassmorphism.defaultConfig() : null,
-              cardNumber: cardNumber,
-              expiryDate: expiryDate,
-              cardHolderName: cardHolderName,
-              cvvCode: cvvCode,
-              bankName: 'Bank Name',
-              frontCardBorder:
-                  !useGlassMorphism ? Border.all(color: Colors.grey) : null,
-              backCardBorder:
-                  !useGlassMorphism ? Border.all(color: Colors.grey) : null,
-              showBackView: isCvvFocused,
-              obscureCardNumber: true,
-              obscureCardCvv: true,
-              isHolderNameVisible: true,
-              cardBgColor: AppColors.cardBgColor,
-              // backgroundImage: useBackgroundImage ? 'assets/card_bg.png' : null,
-              isSwipeGestureEnabled: true,
-              onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
-              customCardTypeIcons: <CustomCardTypeIcon>[
-                CustomCardTypeIcon(
-                  cardType: CardType.mastercard,
-                  cardImage: Image.asset(
-                    'assets/mastercard.png',
-                    height: 48,
-                    width: 48,
-                  ),
-                ),
-              ],
-            ),
-            // Expanded(
-            //   child: SingleChildScrollView(
-            //     child: Column(
-            //       children: <Widget>[
-            //         CreditCardForm(
-            //           formKey: formKey,
-            //           obscureCvv: true,
-            //           obscureNumber: true,
-            //           cardNumber: cardNumber,
-            //           cvvCode: cvvCode,
-            //           isHolderNameVisible: true,
-            //           isCardNumberVisible: true,
-            //           isExpiryDateVisible: true,
-            //           cardHolderName: cardHolderName,
-            //           expiryDate: expiryDate,
-            //           themeColor: Colors.blue,
-            //           textColor: Colors.white,
-            // cardNumberDecoration: InputDecoration(
-            //   labelText: 'Number',
-            //   hintText: 'XXXX XXXX XXXX XXXX',
-            //   hintStyle: const TextStyle(color: Colors.white),
-            //   labelStyle: const TextStyle(color: Colors.white),
-            //   focusedBorder: border,
-            //   enabledBorder: border,
-            // ),
-            // expiryDateDecoration: InputDecoration(
-            //   hintStyle: const TextStyle(color: Colors.white),
-            //   labelStyle: const TextStyle(color: Colors.white),
-            //   focusedBorder: border,
-            //   enabledBorder: border,
-            //   labelText: 'Expired Date',
-            //   hintText: 'XX/XX',
-            // ),
-            // cvvCodeDecoration: InputDecoration(
-            //   hintStyle: const TextStyle(color: Colors.white),
-            //   labelStyle: const TextStyle(color: Colors.white),
-            //   focusedBorder: border,
-            //   enabledBorder: border,
-            //   labelText: 'CVV',
-            //   hintText: 'XXX',
-            // ),
-            // cardHolderDecoration: InputDecoration(
-            //   hintStyle: const TextStyle(color: Colors.white),
-            //   labelStyle: const TextStyle(color: Colors.white),
-            //   focusedBorder: border,
-            //   enabledBorder: border,
-            //   labelText: 'Card Holder',
-            // ),
-            //           onCreditCardModelChange: onCreditCardModelChange,
-            //         ),
-            //         const SizedBox(
-            //           height: 20,
-            //         ),
-            //         Padding(
-            //           padding: const EdgeInsets.symmetric(horizontal: 16),
-            //           child: Row(
-            //             mainAxisAlignment: MainAxisAlignment.center,
-            //             children: <Widget>[
-            //               const Text(
-            //                 'Glassmorphism',
-            //                 style: TextStyle(
-            //                   color: Colors.white,
-            //                   fontSize: 18,
-            //                 ),
-            //               ),
-            //               const Spacer(),
-            //               Switch(
-            //                 value: useGlassMorphism,
-            //                 inactiveTrackColor: Colors.grey,
-            //                 activeColor: Colors.white,
-            //                 activeTrackColor: AppColors.colorE5D1B2,
-            //                 onChanged: (bool value) => setState(() {
-            //                   useGlassMorphism = value;
-            //                 }),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //         Padding(
-            //           padding: const EdgeInsets.symmetric(horizontal: 16),
-            //           child: Row(
-            //             mainAxisAlignment: MainAxisAlignment.center,
-            //             children: <Widget>[
-            //               const Text(
-            //                 'Card Image',
-            //                 style: TextStyle(
-            //                   color: Colors.white,
-            //                   fontSize: 18,
-            //                 ),
-            //               ),
-            //               const Spacer(),
-            //               Switch(
-            //                 value: useBackgroundImage,
-            //                 inactiveTrackColor: Colors.grey,
-            //                 activeColor: Colors.white,
-            //                 activeTrackColor: AppColors.colorE5D1B2,
-            //                 onChanged: (bool value) => setState(() {
-            //                   useBackgroundImage = value;
-            //                 }),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           height: 20,
-            //         ),
-            //         GestureDetector(
-            //           onTap: _onValidate,
-            //           child: Container(
-            //             margin: const EdgeInsets.symmetric(
-            //                 horizontal: 16, vertical: 8),
-            //             decoration: BoxDecoration(
-            //               gradient: const LinearGradient(
-            //                 colors: <Color>[
-            //                   AppColors.colorB58D67,
-            //                   AppColors.colorB58D67,
-            //                   AppColors.colorE5D1B2,
-            //                   AppColors.colorF9EED2,
-            //                   AppColors.colorFFFFFD,
-            //                   AppColors.colorF9EED2,
-            //                   AppColors.colorB58D67,
-            //                 ],
-            //                 begin: Alignment(-1, -4),
-            //                 end: Alignment(1, 4),
-            //               ),
-            //               borderRadius: BorderRadius.circular(8),
-            //             ),
-            //             padding: const EdgeInsets.symmetric(vertical: 15),
-            //             width: double.infinity,
-            //             alignment: Alignment.center,
-            //             child: const Text(
-            //               'Validate',
-            //               style: TextStyle(
-            //                 color: Colors.black,
-            //                 fontFamily: 'halter',
-            //                 fontSize: 14,
-            //                 package: 'flutter_credit_card',
-            //               ),
-            //             ),
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
+    return BlocConsumer<EnterBloc, EnterState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        return ListView(
+          shrinkWrap: true,
+          children: [
+            Text(state.creditCard.cardNumber),
+            Text(state.creditCard.cardType),
+            Text(state.creditCard.cvvNumber.toString()),
           ],
-        ),
-      ),
+        );
+      },
     );
   }
+}
 
-  // void _onValidate() {
-  //   if (formKey.currentState!.validate()) {
-  //     log('valid!');
-  //   } else {
-  //     log('invalid!');
-  //   }
-  // }
+class CreditCardAnimation extends StatelessWidget {
+  const CreditCardAnimation({super.key});
 
-  void onCreditCardModelChange(CreditCardModel? creditCardModel) {
-    setState(() {
-      cardNumber = creditCardModel!.cardNumber;
-      expiryDate = creditCardModel.expiryDate;
-      cardHolderName = creditCardModel.cardHolderName;
-      cvvCode = creditCardModel.cvvCode;
-      isCvvFocused = creditCardModel.isCvvFocused;
-    });
+  @override
+  Widget build(BuildContext context) {
+    bool isCvvFocused = false;
+    bool useGlassMorphism = false;
+    bool useBackgroundImage = false;
+    OutlineInputBorder? border;
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+    return BlocConsumer<EnterBloc, EnterState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        return SafeArea(
+          child: Column(
+            children: <Widget>[
+              CreditCardWidget(
+                cardNumber: state.creditCard.cardNumber,
+                expiryDate: state.creditCard.cardType,
+                cardHolderName: state.creditCard.issuingCountry,
+                cvvCode: state.creditCard.cvvNumber.toString(),
+                bankName: 'Bank Name',
+                frontCardBorder:
+                    !useGlassMorphism ? Border.all(color: Colors.grey) : null,
+                backCardBorder:
+                    !useGlassMorphism ? Border.all(color: Colors.grey) : null,
+                showBackView: isCvvFocused,
+                obscureCardNumber: false,
+                obscureCardCvv: false,
+                isHolderNameVisible: true,
+                cardBgColor: AppColors.cardBgColor,
+                isSwipeGestureEnabled: true,
+                onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
+                customCardTypeIcons: <CustomCardTypeIcon>[
+                  CustomCardTypeIcon(
+                    cardType: CardType.mastercard,
+                    cardImage: Image.asset(
+                      'assets/mastercard.png',
+                      height: 48,
+                      width: 48,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
 

@@ -6,6 +6,8 @@ class EnterState with _$EnterState {
     required CreditCard creditCard,
     required bool isLoading,
     required bool isSaving,
+    required bool isValid,
+    required bool isDuplicate,
     required String? errorMessage,
   }) = _EnterState;
 
@@ -16,5 +18,7 @@ class EnterState with _$EnterState {
       creditCard: CreditCard.empty(),
       isLoading: false,
       isSaving: false,
+      isValid: false,
+      isDuplicate: false,
       errorMessage: '');
 }

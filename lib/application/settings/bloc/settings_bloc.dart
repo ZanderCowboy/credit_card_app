@@ -1,8 +1,9 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-// import 'package:credit_card_app/domain/banned_countries/banned_countries_repository.dart';
+import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/domain/banned_countries/i_banned_countries_repository.dart';
+import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -15,31 +16,56 @@ part 'settings_state.dart';
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc(this._bannedCountriesRepository)
       : super(SettingsState.initial()) {
-    on<SettingsEvent>((event, emit) async {
+    on<SettingsEvent>((event, emit) {
       event.map(
         onAddCountry: (value) async {
-          // in case a duplicate country is already in the list
-          if (_bannedCountriesRepository.hasCountry(value.selectedCountry!)) {
-            emit(const SettingsState.duplicate());
+          emit(state.copyWith(isLoading: true));
+
+          bool hasDuplicate =
+              _bannedCountriesRepository.hasCountry(value.selectedCountry!);
+
+          if (hasDuplicate) {
+            //! in case we have a duplicate
+            log('*** duplicate country: country=${value.selectedCountry}');
+            emit(state.copyWith(
+                country: value.selectedCountry,
+                isDuplicate: true,
+                errorMessage: duplicateCountryErrorMessage));
           } else {
-            // in case a new country needs to be added to the list
+            //! in case we do not have the country in the DB already
+            log('*** first country: country=${value.selectedCountry}');
+
+            emit(
+              state.copyWith(
+                bannedCountries: state.bannedCountries.copyWith(
+                  bannedCountry: value.selectedCountry!,
+                  isBanned: true,
+                ),
+              ),
+            );
             _bannedCountriesRepository.addCountry(value.selectedCountry!);
-            log('In settings_bloc: bc_repo ${_bannedCountriesRepository.readCountries()}');
-            emit(SettingsState.loaded(true));
-            var newCountry = value.selectedCountry;
-            // var newValue = value.value;
-            log('*** newCount: $newCountry ***');
+            // emit(state.copyWith(country: value.selectedCountry));
           }
+
+          emit(state.copyWith(isLoading: false, isDuplicate: false));
         },
         onCountryDelete: (_) async {},
         onCountryPressed: (value) async {
+          emit(state.copyWith(isChecked: true));
+
           _bannedCountriesRepository.updateCountryChecked(
               value.country, value.value);
-          log('onCountryPresses() in settings_bloc: ${_bannedCountriesRepository.readCountries()}');
-          emit(SettingsState.loaded(true));
-          var newCountry = value.country;
-          var newValue = value.value;
-          log('*** newCount: $newCountry *** newValue: $newValue');
+
+          emit(
+            state.copyWith(
+              bannedCountries: state.bannedCountries.copyWith(
+                bannedCountry: value.country,
+                isBanned: value.value!,
+              ),
+            ),
+          );
+
+          emit(state.copyWith(isChecked: false));
         },
       );
     });

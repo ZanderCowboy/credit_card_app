@@ -7,78 +7,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:camera/camera.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-// class ScanPage extends StatelessWidget {
-//   const ScanPage({
-//     super.key,
-//     required this.creditCardRepository,
-//   });
+class ScanPage extends StatelessWidget {
+  const ScanPage({super.key});
 
-//   final CreditCardRepository creditCardRepository;
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text(scanAppBarTitle),
-//       ),
-//       body: BlocProvider(
-//         create: (_) => ScanBloc()..add(ScanInitial()),
-//         child: BlocBuilder<ScanBloc, ScanState>(
-//           builder: (context, state) {
-//             return const Padding(
-//               padding: EdgeInsets.all(8.0),
-//               child: Center(
-//                 child: Column(
-//                   children: [
-//                     Placeholder(),
-//                     SizedBox(
-//                       width: 200,
-//                       child: Column(
-//                         children: [
-//                           Row(
-//                             mainAxisAlignment: MainAxisAlignment.center,
-//                             children: [
-//                               TakeButton(),
-//                               RetakeButton(),
-//                             ],
-//                           ),
-//                           Row(
-//                             children: [
-//                               Expanded(
-//                                 child: ButtonSmall(
-//                                   routeName: resultRoute,
-//                                   text: scanSubmitButtonTitle,
-//                                 ),
-//                               ),
-//                             ],
-//                           ),
-//                         ],
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             );
-//           },
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-class ScanPage extends StatefulWidget {
-  const ScanPage({
-    super.key,
-    // required this.creditCardRepository,
-  });
+// TODO: Refactor Scan Page
+class _ScanPage extends StatefulWidget {
+  const _ScanPage();
 
   // final CreditCardRepository creditCardRepository;
 
   @override
-  State<ScanPage> createState() => _ScanPageState();
+  State<_ScanPage> createState() => _ScanPageState();
 }
 
-class _ScanPageState extends State<ScanPage> {
+class _ScanPageState extends State<_ScanPage> {
   late List<CameraDescription> cameras;
   CameraController? _cameraController;
   XFile? _imageFile;
@@ -140,8 +88,6 @@ class _ScanPageState extends State<ScanPage> {
 
   @override
   Widget build(BuildContext context) {
-    // final creditCardRepository = widget.creditCardRepository;
-
     return Scaffold(
       appBar: AppBar(
         title: const Text(scanAppBarTitle),
@@ -183,7 +129,6 @@ class _ScanPageState extends State<ScanPage> {
                                       const EdgeInsets.fromLTRB(0, 8, 4, 4),
                                   child: ElevatedButton(
                                     style: buttonSmallStyle,
-                                    // onPressed: () => Navigator.of(context).pop(),
                                     onPressed: _imageFile == null
                                         ? _takePicture
                                         : null,
@@ -199,8 +144,6 @@ class _ScanPageState extends State<ScanPage> {
                                       const EdgeInsets.fromLTRB(4, 8, 0, 4),
                                   child: ElevatedButton(
                                     style: buttonSmallStyle,
-                                    // onPressed: () =>
-                                    //     Navigator.of(context).pop(),
                                     onPressed: _imageFile == null
                                         ? _retakePicture
                                         : null,
