@@ -41,7 +41,7 @@ class BannedCountriesBox {
       bannedCountry: bc.bannedCountry,
       isBanned: !bc.isBanned,
     );
-    var list = <BannedCountries>[];
+    final list = <BannedCountries>[];
     list.addAll(box.values);
     for (var i = 0; i < list.length; i++) {
       if (bCountry == list[i]) {
@@ -59,13 +59,13 @@ class BannedCountriesBox {
   }
 
   // deleteAt
-  void deleteBannedCountryAt(int index) async {
+  void deleteBannedCountryAt(int index) {
     log('index at box: $index');
     box.deleteAt(index);
   }
 
   // deleteAll
-  void deleteBannedCountries() async {
+  void deleteBannedCountries() {
     box.clear();
   }
 }

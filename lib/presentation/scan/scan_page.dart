@@ -99,7 +99,7 @@ class _ScanPageState extends State<_ScanPage> {
         create: (_) => coreSl<ScanBloc>(),
         child: BlocBuilder<ScanBloc, ScanState>(
           builder: (context, state) {
-            CreditCard creditCard = CreditCard.empty();
+            final creditCard = CreditCard.empty();
             return Padding(
               padding: const EdgeInsets.all(8),
               child: Center(
@@ -126,7 +126,7 @@ class _ScanPageState extends State<_ScanPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              // TakeButton(),
+                              const _TakeButton(),
                               Expanded(
                                 child: Padding(
                                   padding:
@@ -140,8 +140,7 @@ class _ScanPageState extends State<_ScanPage> {
                                   ),
                                 ),
                               ),
-
-                              // RetakeButton(),
+                              const _RetakeButton(),
                               Expanded(
                                 child: Padding(
                                   padding:
@@ -166,11 +165,10 @@ class _ScanPageState extends State<_ScanPage> {
                                   child: ElevatedButton(
                                     style: buttonSmallStyle,
                                     onPressed: () {
-                                      _imageFile == null
-                                          // ? _submitPicture
-                                          ? context.read<ScanBloc>().add(
-                                              ScanEvent.onSubmit(creditCard))
-                                          : null;
+                                      _submitPicture();
+                                      context.read<ScanBloc>().add(
+                                            ScanEvent.onSubmit(creditCard),
+                                          );
                                     },
                                     child: const Text(scanSubmitButtonTitle),
                                   ),
@@ -204,11 +202,13 @@ class _TakeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 8, 4, 8),
+        padding: const EdgeInsets.fromLTRB(0, 8, 4, 4),
         child: ElevatedButton(
           style: buttonSmallStyle,
           onPressed: () => Navigator.of(context).pop(),
-          // onPressed: _imageFile == null ? _takePicture : null,
+          // onPressed: _imageFile == null
+          //                               ? _takePicture
+          //                               : null,
           child: const Text(scanTakeButtonTitle),
         ),
       ),

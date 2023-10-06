@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:credit_card_app/application/enter/bloc/enter_bloc.dart';
 import 'package:credit_card_app/constants/constants.dart';
@@ -55,7 +54,7 @@ class _EnterPage extends HookWidget {
         }
 
         if (state.isValid) {
-          showDialog(
+          showDialog<AlertDialog>(
             context: context,
             builder: (_) {
               return AlertDialog(
@@ -113,8 +112,6 @@ class _EnterPage extends HookWidget {
         }
       },
       builder: (context, state) {
-        const String? selectedCountry = 'ZA';
-
         return Padding(
           padding: const EdgeInsets.all(8),
           child: Column(
@@ -238,8 +235,7 @@ class _EnterPage extends HookWidget {
                                         ElevatedButton(
                                           style: buttonSmallStyle,
                                           onPressed: () {
-                                            final CreditCard creditCard =
-                                                CreditCard(
+                                            final creditCard = CreditCard(
                                               cardNumber:
                                                   cardNumberTextController.text,
                                               cardType:
@@ -256,12 +252,6 @@ class _EnterPage extends HookWidget {
                                                     creditCard,
                                                   ),
                                                 );
-                                            // state.creditCard.isValid
-                                            //     ? () => context
-                                            //         .read<EnterBloc>()
-                                            //         .add(const EnterEvent
-                                            //             .onSubmit())
-                                            //     : null;
                                           },
                                           child: const Text(
                                             enterValidateButtonTitle,
@@ -274,36 +264,6 @@ class _EnterPage extends HookWidget {
                               ],
                             ),
                           ),
-
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.center,
-                          //   children: [
-                          //     TextButton(
-                          //       onPressed: () {
-                          //         context
-                          //             .read<EnterBloc>()
-                          //             .add(const EnterEvent.onCancel());
-                          //         cardNumberTextController.clear();
-                          //         cardTypeTextController.clear();
-                          //         cardCvvTextController.clear();
-                          //         countryTextController.clear();
-                          //       },
-                          //       child: const Text('Clear'),
-                          //     ),
-                          //     const SizedBox(
-                          //       width: 10,
-                          //     ),
-                          //     TextButton(
-                          //       onPressed: state.creditCard.isValid
-                          //           ? () => context
-                          //               .read<EnterBloc>()
-                          //               .add(const EnterEvent.onSubmit())
-                          //           : null,
-                          //       child: const Text('Submit'),
-                          //     ),
-                          //   ],
-                          // ),
-                          // }
                         ],
                       ),
                     ),
@@ -317,80 +277,80 @@ class _EnterPage extends HookWidget {
     );
   }
 
-  void _showDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (_) => AlertDialog(
-        content: const Text(
-          'Are you sure you want to submit this card? ',
-        ),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('No'),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-              context.read<EnterBloc>().add(const EnterEvent.onSubmit());
-            },
-            child: const Text('Yes'),
-          ),
-        ],
-      ),
-    );
-  }
+  // void _showDialog(BuildContext context) {
+  //   showDialog<AlertDialog>(
+  //     context: context,
+  //     builder: (_) => AlertDialog(
+  //       content: const Text(
+  //         'Are you sure you want to submit this card? ',
+  //       ),
+  //       actions: <Widget>[
+  //         TextButton(
+  //           onPressed: () => Navigator.of(context).pop(),
+  //           child: const Text('No'),
+  //         ),
+  //         TextButton(
+  //           onPressed: () {
+  //             Navigator.of(context).pop();
+  //             context.read<EnterBloc>().add(const EnterEvent.onSubmit());
+  //           },
+  //           child: const Text('Yes'),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
-  Future<void> _showDialogWithCard(BuildContext context) async {
-    log('In _showDialog: Context $context');
+  // Future<void> _showDialogWithCard(BuildContext context) async {
+  //   log('In _showDialog: Context $context');
 
-    await showDialog(
-      context: context,
-      builder: (_) {
-        return BlocProvider(
-          create: (context) => coreSl<EnterBloc>(),
-          child: BlocBuilder<EnterBloc, EnterState>(
-            builder: (context, state) {
-              return AlertDialog(
-                title: const Text(resultDialogTitle),
-                content: Card(
-                  elevation: 3,
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: _creditCardListTile(state.creditCard),
-                ),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      log('onPressed: onCancel()');
-                      context
-                          .read<EnterBloc>()
-                          .add(const EnterEvent.onCancel());
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text(cancelDialogButton),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      context
-                          .read<EnterBloc>()
-                          .add(const EnterEvent.onSubmit());
+  //   await showDialog<AlertDialog>(
+  //     context: context,
+  //     builder: (_) {
+  //       return BlocProvider(
+  //         create: (context) => coreSl<EnterBloc>(),
+  //         child: BlocBuilder<EnterBloc, EnterState>(
+  //           builder: (context, state) {
+  //             return AlertDialog(
+  //               title: const Text(resultDialogTitle),
+  //               content: Card(
+  //                 elevation: 3,
+  //                 margin:
+  //                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+  //                 child: _creditCardListTile(state.creditCard),
+  //               ),
+  //               actions: <Widget>[
+  //                 TextButton(
+  //                   onPressed: () {
+  //                     log('onPressed: onCancel()');
+  //                     context
+  //                         .read<EnterBloc>()
+  //                         .add(const EnterEvent.onCancel());
+  //                     Navigator.of(context).pop();
+  //                   },
+  //                   child: const Text(cancelDialogButton),
+  //                 ),
+  //                 ElevatedButton(
+  //                   onPressed: () {
+  //                     context
+  //                         .read<EnterBloc>()
+  //                         .add(const EnterEvent.onSubmit());
 
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                        homeRoute,
-                        (Route<dynamic> route) => false,
-                      );
-                    },
-                    child: const Text(resultAddButtonTitle),
-                  ),
-                ],
-              );
-            },
-          ),
-        );
-      },
-    );
-  }
+  //                     Navigator.of(context).pushNamedAndRemoveUntil(
+  //                       homeRoute,
+  //                       (Route<dynamic> route) => false,
+  //                     );
+  //                   },
+  //                   child: const Text(resultAddButtonTitle),
+  //                 ),
+  //               ],
+  //             );
+  //           },
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 
   ListTile _creditCardListTile(CreditCard creditCard) {
     return ListTile(
@@ -412,36 +372,35 @@ class _EnterPage extends HookWidget {
   }
 }
 
-class _CardDetails extends StatelessWidget {
-  const _CardDetails();
+// class _CardDetails extends StatelessWidget {
+//   const _CardDetails();
 
-  @override
-  Widget build(BuildContext context) {
-    return BlocConsumer<EnterBloc, EnterState>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        return ListView(
-          shrinkWrap: true,
-          children: [
-            Text(state.creditCard.cardNumber),
-            Text(state.creditCard.cardType),
-            Text(state.creditCard.cvvNumber),
-          ],
-        );
-      },
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocConsumer<EnterBloc, EnterState>(
+//       listener: (context, state) {},
+//       builder: (context, state) {
+//         return ListView(
+//           shrinkWrap: true,
+//           children: [
+//             Text(state.creditCard.cardNumber),
+//             Text(state.creditCard.cardType),
+//             Text(state.creditCard.cvvNumber),
+//           ],
+//         );
+//       },
+//     );
+//   }
+// }
 
 class CreditCardAnimation extends StatelessWidget {
   const CreditCardAnimation({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const bool isCvvFocused = false;
-    const bool useGlassMorphism = false;
-    OutlineInputBorder? border;
-    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+    const isCvvFocused = false;
+    // OutlineInputBorder? border;
+    // final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     return BlocConsumer<EnterBloc, EnterState>(
       listener: (context, state) {},
@@ -455,10 +414,8 @@ class CreditCardAnimation extends StatelessWidget {
                 cardHolderName: state.creditCard.issuingCountry,
                 cvvCode: state.creditCard.cvvNumber,
                 bankName: 'Bank Name',
-                frontCardBorder:
-                    !useGlassMorphism ? Border.all(color: Colors.grey) : null,
-                backCardBorder:
-                    !useGlassMorphism ? Border.all(color: Colors.grey) : null,
+                frontCardBorder: Border.all(color: Colors.grey),
+                backCardBorder: Border.all(color: Colors.grey),
                 showBackView: isCvvFocused,
                 obscureCardNumber: false,
                 obscureCardCvv: false,
@@ -488,8 +445,8 @@ class _AppColors {
   _AppColors._();
 
   static const Color cardBgColor = Color(0xff363636);
-  static const Color colorB58D67 = Color(0xffB58D67);
-  static const Color colorE5D1B2 = Color(0xffE5D1B2);
-  static const Color colorF9EED2 = Color(0xffF9EED2);
-  static const Color colorFFFFFD = Color(0xffFFFFFD);
+  // static const Color colorB58D67 = Color(0xffB58D67);
+  // static const Color colorE5D1B2 = Color(0xffE5D1B2);
+  // static const Color colorF9EED2 = Color(0xffF9EED2);
+  // static const Color colorFFFFFD = Color(0xffFFFFFD);
 }

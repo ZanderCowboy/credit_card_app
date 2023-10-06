@@ -52,8 +52,13 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
             // emit(state.copyWith(isAdded: true));
           }
 
-          emit(state.copyWith(
-              isLoading: false, isDuplicate: false, isAdded: false));
+          emit(
+            state.copyWith(
+              isLoading: false,
+              isDuplicate: false,
+              isAdded: false,
+            ),
+          );
         },
         onCountryDelete: (value) {
           emit(state.copyWith(isLoading: true));
@@ -63,7 +68,6 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
           emit(
             state.copyWith(
-              // bannedCountries: state.bannedCountries,
               isLoading: false,
               isDeleted: true,
             ),
@@ -82,23 +86,10 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         onCountryPressed: (value) {
           emit(state.copyWith(isChecked: true));
 
-          // emit(
-          //   state.bannedCountries
-          //       .copyWith(bannedCountry: value.country, isBanned: value.value!),
-          // );
-          // emit(state.copyWith(bannedCountries: ));
-
           _bannedCountriesRepository.updateCountryChecked(
             value.country,
             value.value,
           );
-
-          // This adds a new country in UI
-          // emit(state.copyWith(
-          //     bannedCountries: state.bannedCountries.copyWith(
-          //   bannedCountry: value.country,
-          //   isBanned: value.value!,
-          // )));
 
           emit(state.copyWith(isChecked: false));
         },

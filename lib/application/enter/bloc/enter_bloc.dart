@@ -55,7 +55,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
 
             final isValidTextValue = _isValid(state.creditCard);
             if (isValidTextValue) {
-              _creditCardRepository.addCard(state.creditCard);
+              await _creditCardRepository.addCard(state.creditCard);
               emit(
                 state.copyWith(
                   creditCard: state.creditCard.copyWith(

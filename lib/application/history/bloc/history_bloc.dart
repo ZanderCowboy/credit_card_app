@@ -12,11 +12,11 @@ part 'history_state.dart';
 class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
   HistoryBloc(this._creditCardRepository) : super(HistoryState.initial()) {
     on<HistoryEvent>((event, emit) async {
-      event.map(
+      await event.map(
         onCardDelete: (value) async {
           emit(state.copyWith(isLoading: true));
 
-          int indexAt = _creditCardRepository.lookupCard(value.creditCard);
+          final indexAt = _creditCardRepository.lookupCard(value.creditCard);
           await _creditCardRepository.deleteCreditCardAt(indexAt);
 
           emit(state.copyWith(isDeleted: true, isLoading: false));
