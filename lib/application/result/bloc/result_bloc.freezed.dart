@@ -284,33 +284,18 @@ mixin _$ResultState {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -318,33 +303,18 @@ mixin _$ResultState {
   TResult map<TResult extends Object?>(
     TResult Function(_ResultState value) $default, {
     required TResult Function(ResultInitial value) initial,
-    required TResult Function(ResultLoading value) loading,
-    required TResult Function(ResultLoaded value) loaded,
-    required TResult Function(ResultError value) error,
-    required TResult Function(ResultValid value) valid,
-    required TResult Function(ResultDuplicate value) duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_ResultState value)? $default, {
     TResult? Function(ResultInitial value)? initial,
-    TResult? Function(ResultLoading value)? loading,
-    TResult? Function(ResultLoaded value)? loaded,
-    TResult? Function(ResultError value)? error,
-    TResult? Function(ResultValid value)? valid,
-    TResult? Function(ResultDuplicate value)? duplicate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_ResultState value)? $default, {
     TResult Function(ResultInitial value)? initial,
-    TResult Function(ResultLoading value)? loading,
-    TResult Function(ResultLoaded value)? loaded,
-    TResult Function(ResultError value)? error,
-    TResult Function(ResultValid value)? valid,
-    TResult Function(ResultDuplicate value)? duplicate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -408,11 +378,6 @@ class _$ResultStateImpl extends _ResultState {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
   }) {
     return $default();
   }
@@ -422,11 +387,6 @@ class _$ResultStateImpl extends _ResultState {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
   }) {
     return $default?.call();
   }
@@ -436,11 +396,6 @@ class _$ResultStateImpl extends _ResultState {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -454,11 +409,6 @@ class _$ResultStateImpl extends _ResultState {
   TResult map<TResult extends Object?>(
     TResult Function(_ResultState value) $default, {
     required TResult Function(ResultInitial value) initial,
-    required TResult Function(ResultLoading value) loading,
-    required TResult Function(ResultLoaded value) loaded,
-    required TResult Function(ResultError value) error,
-    required TResult Function(ResultValid value) valid,
-    required TResult Function(ResultDuplicate value) duplicate,
   }) {
     return $default(this);
   }
@@ -468,11 +418,6 @@ class _$ResultStateImpl extends _ResultState {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_ResultState value)? $default, {
     TResult? Function(ResultInitial value)? initial,
-    TResult? Function(ResultLoading value)? loading,
-    TResult? Function(ResultLoaded value)? loaded,
-    TResult? Function(ResultError value)? error,
-    TResult? Function(ResultValid value)? valid,
-    TResult? Function(ResultDuplicate value)? duplicate,
   }) {
     return $default?.call(this);
   }
@@ -482,11 +427,6 @@ class _$ResultStateImpl extends _ResultState {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_ResultState value)? $default, {
     TResult Function(ResultInitial value)? initial,
-    TResult Function(ResultLoading value)? loading,
-    TResult Function(ResultLoaded value)? loaded,
-    TResult Function(ResultError value)? error,
-    TResult Function(ResultValid value)? valid,
-    TResult Function(ResultDuplicate value)? duplicate,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -541,11 +481,6 @@ class _$ResultInitialImpl extends ResultInitial {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
   }) {
     return initial();
   }
@@ -555,11 +490,6 @@ class _$ResultInitialImpl extends ResultInitial {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
   }) {
     return initial?.call();
   }
@@ -569,11 +499,6 @@ class _$ResultInitialImpl extends ResultInitial {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -587,11 +512,6 @@ class _$ResultInitialImpl extends ResultInitial {
   TResult map<TResult extends Object?>(
     TResult Function(_ResultState value) $default, {
     required TResult Function(ResultInitial value) initial,
-    required TResult Function(ResultLoading value) loading,
-    required TResult Function(ResultLoaded value) loaded,
-    required TResult Function(ResultError value) error,
-    required TResult Function(ResultValid value) valid,
-    required TResult Function(ResultDuplicate value) duplicate,
   }) {
     return initial(this);
   }
@@ -601,11 +521,6 @@ class _$ResultInitialImpl extends ResultInitial {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_ResultState value)? $default, {
     TResult? Function(ResultInitial value)? initial,
-    TResult? Function(ResultLoading value)? loading,
-    TResult? Function(ResultLoaded value)? loaded,
-    TResult? Function(ResultError value)? error,
-    TResult? Function(ResultValid value)? valid,
-    TResult? Function(ResultDuplicate value)? duplicate,
   }) {
     return initial?.call(this);
   }
@@ -615,11 +530,6 @@ class _$ResultInitialImpl extends ResultInitial {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_ResultState value)? $default, {
     TResult Function(ResultInitial value)? initial,
-    TResult Function(ResultLoading value)? loading,
-    TResult Function(ResultLoaded value)? loaded,
-    TResult Function(ResultError value)? error,
-    TResult Function(ResultValid value)? valid,
-    TResult Function(ResultDuplicate value)? duplicate,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -632,669 +542,4 @@ class _$ResultInitialImpl extends ResultInitial {
 abstract class ResultInitial extends ResultState {
   const factory ResultInitial() = _$ResultInitialImpl;
   const ResultInitial._() : super._();
-}
-
-/// @nodoc
-abstract class _$$ResultLoadingImplCopyWith<$Res> {
-  factory _$$ResultLoadingImplCopyWith(
-          _$ResultLoadingImpl value, $Res Function(_$ResultLoadingImpl) then) =
-      __$$ResultLoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ResultLoadingImplCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$ResultLoadingImpl>
-    implements _$$ResultLoadingImplCopyWith<$Res> {
-  __$$ResultLoadingImplCopyWithImpl(
-      _$ResultLoadingImpl _value, $Res Function(_$ResultLoadingImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ResultLoadingImpl extends ResultLoading {
-  const _$ResultLoadingImpl() : super._();
-
-  @override
-  String toString() {
-    return 'ResultState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResultLoadingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ResultState value) $default, {
-    required TResult Function(ResultInitial value) initial,
-    required TResult Function(ResultLoading value) loading,
-    required TResult Function(ResultLoaded value) loaded,
-    required TResult Function(ResultError value) error,
-    required TResult Function(ResultValid value) valid,
-    required TResult Function(ResultDuplicate value) duplicate,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ResultState value)? $default, {
-    TResult? Function(ResultInitial value)? initial,
-    TResult? Function(ResultLoading value)? loading,
-    TResult? Function(ResultLoaded value)? loaded,
-    TResult? Function(ResultError value)? error,
-    TResult? Function(ResultValid value)? valid,
-    TResult? Function(ResultDuplicate value)? duplicate,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ResultState value)? $default, {
-    TResult Function(ResultInitial value)? initial,
-    TResult Function(ResultLoading value)? loading,
-    TResult Function(ResultLoaded value)? loaded,
-    TResult Function(ResultError value)? error,
-    TResult Function(ResultValid value)? valid,
-    TResult Function(ResultDuplicate value)? duplicate,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ResultLoading extends ResultState {
-  const factory ResultLoading() = _$ResultLoadingImpl;
-  const ResultLoading._() : super._();
-}
-
-/// @nodoc
-abstract class _$$ResultLoadedImplCopyWith<$Res> {
-  factory _$$ResultLoadedImplCopyWith(
-          _$ResultLoadedImpl value, $Res Function(_$ResultLoadedImpl) then) =
-      __$$ResultLoadedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ResultLoadedImplCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$ResultLoadedImpl>
-    implements _$$ResultLoadedImplCopyWith<$Res> {
-  __$$ResultLoadedImplCopyWithImpl(
-      _$ResultLoadedImpl _value, $Res Function(_$ResultLoadedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ResultLoadedImpl extends ResultLoaded {
-  const _$ResultLoadedImpl() : super._();
-
-  @override
-  String toString() {
-    return 'ResultState.loaded()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResultLoadedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
-  }) {
-    return loaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
-  }) {
-    return loaded?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ResultState value) $default, {
-    required TResult Function(ResultInitial value) initial,
-    required TResult Function(ResultLoading value) loading,
-    required TResult Function(ResultLoaded value) loaded,
-    required TResult Function(ResultError value) error,
-    required TResult Function(ResultValid value) valid,
-    required TResult Function(ResultDuplicate value) duplicate,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ResultState value)? $default, {
-    TResult? Function(ResultInitial value)? initial,
-    TResult? Function(ResultLoading value)? loading,
-    TResult? Function(ResultLoaded value)? loaded,
-    TResult? Function(ResultError value)? error,
-    TResult? Function(ResultValid value)? valid,
-    TResult? Function(ResultDuplicate value)? duplicate,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ResultState value)? $default, {
-    TResult Function(ResultInitial value)? initial,
-    TResult Function(ResultLoading value)? loading,
-    TResult Function(ResultLoaded value)? loaded,
-    TResult Function(ResultError value)? error,
-    TResult Function(ResultValid value)? valid,
-    TResult Function(ResultDuplicate value)? duplicate,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ResultLoaded extends ResultState {
-  const factory ResultLoaded() = _$ResultLoadedImpl;
-  const ResultLoaded._() : super._();
-}
-
-/// @nodoc
-abstract class _$$ResultErrorImplCopyWith<$Res> {
-  factory _$$ResultErrorImplCopyWith(
-          _$ResultErrorImpl value, $Res Function(_$ResultErrorImpl) then) =
-      __$$ResultErrorImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ResultErrorImplCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$ResultErrorImpl>
-    implements _$$ResultErrorImplCopyWith<$Res> {
-  __$$ResultErrorImplCopyWithImpl(
-      _$ResultErrorImpl _value, $Res Function(_$ResultErrorImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ResultErrorImpl extends ResultError {
-  const _$ResultErrorImpl() : super._();
-
-  @override
-  String toString() {
-    return 'ResultState.error()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResultErrorImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
-  }) {
-    return error();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
-  }) {
-    return error?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ResultState value) $default, {
-    required TResult Function(ResultInitial value) initial,
-    required TResult Function(ResultLoading value) loading,
-    required TResult Function(ResultLoaded value) loaded,
-    required TResult Function(ResultError value) error,
-    required TResult Function(ResultValid value) valid,
-    required TResult Function(ResultDuplicate value) duplicate,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ResultState value)? $default, {
-    TResult? Function(ResultInitial value)? initial,
-    TResult? Function(ResultLoading value)? loading,
-    TResult? Function(ResultLoaded value)? loaded,
-    TResult? Function(ResultError value)? error,
-    TResult? Function(ResultValid value)? valid,
-    TResult? Function(ResultDuplicate value)? duplicate,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ResultState value)? $default, {
-    TResult Function(ResultInitial value)? initial,
-    TResult Function(ResultLoading value)? loading,
-    TResult Function(ResultLoaded value)? loaded,
-    TResult Function(ResultError value)? error,
-    TResult Function(ResultValid value)? valid,
-    TResult Function(ResultDuplicate value)? duplicate,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ResultError extends ResultState {
-  const factory ResultError() = _$ResultErrorImpl;
-  const ResultError._() : super._();
-}
-
-/// @nodoc
-abstract class _$$ResultValidImplCopyWith<$Res> {
-  factory _$$ResultValidImplCopyWith(
-          _$ResultValidImpl value, $Res Function(_$ResultValidImpl) then) =
-      __$$ResultValidImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ResultValidImplCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$ResultValidImpl>
-    implements _$$ResultValidImplCopyWith<$Res> {
-  __$$ResultValidImplCopyWithImpl(
-      _$ResultValidImpl _value, $Res Function(_$ResultValidImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ResultValidImpl extends ResultValid {
-  const _$ResultValidImpl() : super._();
-
-  @override
-  String toString() {
-    return 'ResultState.valid()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResultValidImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
-  }) {
-    return valid();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
-  }) {
-    return valid?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
-    required TResult orElse(),
-  }) {
-    if (valid != null) {
-      return valid();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ResultState value) $default, {
-    required TResult Function(ResultInitial value) initial,
-    required TResult Function(ResultLoading value) loading,
-    required TResult Function(ResultLoaded value) loaded,
-    required TResult Function(ResultError value) error,
-    required TResult Function(ResultValid value) valid,
-    required TResult Function(ResultDuplicate value) duplicate,
-  }) {
-    return valid(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ResultState value)? $default, {
-    TResult? Function(ResultInitial value)? initial,
-    TResult? Function(ResultLoading value)? loading,
-    TResult? Function(ResultLoaded value)? loaded,
-    TResult? Function(ResultError value)? error,
-    TResult? Function(ResultValid value)? valid,
-    TResult? Function(ResultDuplicate value)? duplicate,
-  }) {
-    return valid?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ResultState value)? $default, {
-    TResult Function(ResultInitial value)? initial,
-    TResult Function(ResultLoading value)? loading,
-    TResult Function(ResultLoaded value)? loaded,
-    TResult Function(ResultError value)? error,
-    TResult Function(ResultValid value)? valid,
-    TResult Function(ResultDuplicate value)? duplicate,
-    required TResult orElse(),
-  }) {
-    if (valid != null) {
-      return valid(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ResultValid extends ResultState {
-  const factory ResultValid() = _$ResultValidImpl;
-  const ResultValid._() : super._();
-}
-
-/// @nodoc
-abstract class _$$ResultDuplicateImplCopyWith<$Res> {
-  factory _$$ResultDuplicateImplCopyWith(_$ResultDuplicateImpl value,
-          $Res Function(_$ResultDuplicateImpl) then) =
-      __$$ResultDuplicateImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ResultDuplicateImplCopyWithImpl<$Res>
-    extends _$ResultStateCopyWithImpl<$Res, _$ResultDuplicateImpl>
-    implements _$$ResultDuplicateImplCopyWith<$Res> {
-  __$$ResultDuplicateImplCopyWithImpl(
-      _$ResultDuplicateImpl _value, $Res Function(_$ResultDuplicateImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ResultDuplicateImpl extends ResultDuplicate {
-  const _$ResultDuplicateImpl() : super._();
-
-  @override
-  String toString() {
-    return 'ResultState.duplicate()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResultDuplicateImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() valid,
-    required TResult Function() duplicate,
-  }) {
-    return duplicate();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? valid,
-    TResult? Function()? duplicate,
-  }) {
-    return duplicate?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? valid,
-    TResult Function()? duplicate,
-    required TResult orElse(),
-  }) {
-    if (duplicate != null) {
-      return duplicate();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ResultState value) $default, {
-    required TResult Function(ResultInitial value) initial,
-    required TResult Function(ResultLoading value) loading,
-    required TResult Function(ResultLoaded value) loaded,
-    required TResult Function(ResultError value) error,
-    required TResult Function(ResultValid value) valid,
-    required TResult Function(ResultDuplicate value) duplicate,
-  }) {
-    return duplicate(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ResultState value)? $default, {
-    TResult? Function(ResultInitial value)? initial,
-    TResult? Function(ResultLoading value)? loading,
-    TResult? Function(ResultLoaded value)? loaded,
-    TResult? Function(ResultError value)? error,
-    TResult? Function(ResultValid value)? valid,
-    TResult? Function(ResultDuplicate value)? duplicate,
-  }) {
-    return duplicate?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ResultState value)? $default, {
-    TResult Function(ResultInitial value)? initial,
-    TResult Function(ResultLoading value)? loading,
-    TResult Function(ResultLoaded value)? loaded,
-    TResult Function(ResultError value)? error,
-    TResult Function(ResultValid value)? valid,
-    TResult Function(ResultDuplicate value)? duplicate,
-    required TResult orElse(),
-  }) {
-    if (duplicate != null) {
-      return duplicate(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ResultDuplicate extends ResultState {
-  const factory ResultDuplicate() = _$ResultDuplicateImpl;
-  const ResultDuplicate._() : super._();
 }
