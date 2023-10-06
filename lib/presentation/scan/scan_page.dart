@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:credit_card_app/application/scan/bloc/scan_bloc.dart';
 import 'package:credit_card_app/constants/constants.dart';
+import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/widgets/common/button.dart';
 import 'package:flutter/material.dart';
@@ -84,7 +85,9 @@ class _ScanPageState extends State<_ScanPage> {
     });
   }
 
-  Future<void> _submitPicture() async {}
+  Future<void> _submitPicture() async {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,6 +99,7 @@ class _ScanPageState extends State<_ScanPage> {
         create: (_) => coreSl<ScanBloc>(),
         child: BlocBuilder<ScanBloc, ScanState>(
           builder: (context, state) {
+            CreditCard creditCard = CreditCard.empty();
             return Padding(
               padding: const EdgeInsets.all(8),
               child: Center(
@@ -161,10 +165,13 @@ class _ScanPageState extends State<_ScanPage> {
                                       const EdgeInsets.fromLTRB(0, 4, 0, 8),
                                   child: ElevatedButton(
                                     style: buttonSmallStyle,
-                                    // onPressed: () => Navigator.of(context).pop(),
-                                    onPressed: _imageFile == null
-                                        ? _submitPicture
-                                        : null,
+                                    onPressed: () {
+                                      _imageFile == null
+                                          // ? _submitPicture
+                                          ? context.read<ScanBloc>().add(
+                                              ScanEvent.onSubmit(creditCard))
+                                          : null;
+                                    },
                                     child: const Text(scanSubmitButtonTitle),
                                   ),
                                 ),

@@ -41,8 +41,7 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i5.BannedCountriesRepository());
     gh.lazySingleton<_i6.ICreditCardRepository>(
         () => _i7.CreditCardRepository());
-    gh.factory<_i8.ResultBloc>(
-        () => _i8.ResultBloc(gh<_i6.ICreditCardRepository>()));
+    gh.factory<_i8.ResultBloc>(() => _i8.ResultBloc());
     gh.factory<_i9.ScanBloc>(
         () => _i9.ScanBloc(gh<_i6.ICreditCardRepository>()));
     gh.factory<_i10.SettingsBloc>(
