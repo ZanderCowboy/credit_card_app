@@ -73,6 +73,7 @@ const String successfulCaptureCardMessage = 'Credit card captured successfully';
 const String bannedCountryDummy = 'Dummy Country';
 const String checkedText = 'Checked!';
 const String addBannedCountryDialogTitle = 'Add Banned Country';
+const String deletedBannedCountryMessage = 'Deleted.';
 const String cancelBannedCountryDialogButton = 'Cancel';
 const String duplicateCountryErrorMessage = 'This country is already banned.';
 

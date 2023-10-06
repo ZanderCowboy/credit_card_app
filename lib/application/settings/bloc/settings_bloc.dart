@@ -16,7 +16,7 @@ part 'settings_state.dart';
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc(this._bannedCountriesRepository)
       : super(SettingsState.initial()) {
-    on<SettingsEvent>((event, emit) {
+    on<SettingsEvent>((event, emit) async {
       event.map(
         onAddCountry: (value) async {
           emit(state.copyWith(isLoading: true));
@@ -52,11 +52,21 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
           emit(state.copyWith(isLoading: false, isDuplicate: false));
         },
-        onCountryDelete: (_) async {},
+        onCountryDelete: (value) async {
+          emit(state.copyWith(isLoading: true));
+
+          int indexAt =
+              _bannedCountriesRepository.lookupCountry(value.bannedCountry);
+
+          await _bannedCountriesRepository.deleteCountryAt(indexAt);
+
+          emit(state.copyWith(isDeleted: true));
+          emit(state.copyWith(isLoading: false, isDeleted: false));
+        },
         onCountryPressed: (value) async {
           emit(state.copyWith(isChecked: true));
 
-          _bannedCountriesRepository.updateCountryChecked(
+          await _bannedCountriesRepository.updateCountryChecked(
             value.country,
             value.value,
           );

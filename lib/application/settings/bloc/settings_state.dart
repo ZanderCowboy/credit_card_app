@@ -6,6 +6,7 @@ class SettingsState with _$SettingsState {
     required BannedCountries bannedCountries,
     required bool isChecked,
     required bool isLoading,
+    required bool isDeleted,
     required bool isDuplicate,
     required String? errorMessage,
     String? country,
@@ -18,6 +19,7 @@ class SettingsState with _$SettingsState {
         country: '',
         isChecked: false,
         isLoading: false,
+        isDeleted: false,
         isDuplicate: false,
         errorMessage: '',
       );

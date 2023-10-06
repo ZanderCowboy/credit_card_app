@@ -60,6 +60,14 @@ class _SettingsPage extends StatelessWidget {
             ),
           );
         }
+        if (state.isDeleted) {
+          ScaffoldMessenger.of(context).clearSnackBars();
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(deletedBannedCountryMessage),
+            ),
+          );
+        }
         if (state.isChecked) {
           ScaffoldMessenger.of(context).clearSnackBars();
           ScaffoldMessenger.of(context).showSnackBar(
@@ -91,7 +99,8 @@ class _SettingsPage extends StatelessWidget {
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          _BannedCountriesList(),
+                          // _BannedCountriesList(),
+                          BannedCountryListItem(),
                         ],
                       ),
                     ),
@@ -206,6 +215,93 @@ class _BannedCountriesList extends StatelessWidget {
                       );
                 },
               );
+            },
+          ),
+        );
+      },
+    );
+  }
+}
+
+class BannedCountryListItem extends StatelessWidget {
+  const BannedCountryListItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<SettingsBloc, SettingsState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        final BannedCountriesRepository repository =
+            context.read<BannedCountriesRepository>();
+
+        final List<BannedCountries> bannedCountriesList =
+            repository.readCountries();
+        bannedCountriesList
+            .sort((a, b) => a.bannedCountry.compareTo(b.bannedCountry));
+
+        return SizedBox(
+          height: MediaQuery.of(context).size.height * 0.75,
+          width: MediaQuery.of(context).size.width,
+          child: ListView.builder(
+            itemCount: bannedCountriesList.length,
+            itemBuilder: (context, index) {
+              final bool checkbox = bannedCountriesList[index].isBanned;
+              final BannedCountries bannedCountry = bannedCountriesList[index];
+
+              final String bannedCountryCode =
+                  bannedCountriesList[index].bannedCountry;
+              final String? bannedCountryName = countryMap[bannedCountryCode];
+
+              return InkWell(
+                onLongPress: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => AlertDialog(
+                      content: Text(
+                        'Do you want to delete $bannedCountryName?',
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          child: const Text('No'),
+                        ),
+                        TextButton(
+                          onPressed: () async {
+                            Navigator.of(context).pop();
+                            context.read<SettingsBloc>().add(
+                                SettingsEvent.onCountryDelete(bannedCountry));
+                          },
+                          child: const Text('Yes'),
+                        )
+                      ],
+                    ),
+                  );
+                },
+                child: CheckboxListTile(
+                  title: Text('$bannedCountryCode \t - $bannedCountryName'),
+                  value: checkbox,
+                  onChanged: (bool? value) {
+                    log('$value \t $bannedCountryCode');
+                    context.read<SettingsBloc>().add(
+                        SettingsEvent.onCountryPressed(
+                            bannedCountryCode, value));
+                  },
+                ),
+              );
+
+              // return CheckboxListTile(
+              //   title: Text('$bannedCountryCode \t - $bannedCountryName'),
+              //   value: checkbox,
+              //   onChanged: (bool? value) {
+              //     log('$value \t $bannedCountryCode');
+              //     context.read<SettingsBloc>().add(
+              //           SettingsEvent.onCountryPressed(
+              //             bannedCountryCode,
+              //             value,
+              //           ),
+              //         );
+              //   },
+              // );
             },
           ),
         );
