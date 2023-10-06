@@ -16,37 +16,42 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HistoryEvent {
+  CreditCard get creditCard => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onInitial,
+    required TResult Function(CreditCard creditCard) onCardDelete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onInitial,
+    TResult? Function(CreditCard creditCard)? onCardDelete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onInitial,
+    TResult Function(CreditCard creditCard)? onCardDelete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onInitial value) onInitial,
+    required TResult Function(onCardDelete value) onCardDelete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onInitial value)? onInitial,
+    TResult? Function(onCardDelete value)? onCardDelete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onInitial value)? onInitial,
+    TResult Function(onCardDelete value)? onCardDelete,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $HistoryEventCopyWith<HistoryEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -55,6 +60,10 @@ abstract class $HistoryEventCopyWith<$Res> {
   factory $HistoryEventCopyWith(
           HistoryEvent value, $Res Function(HistoryEvent) then) =
       _$HistoryEventCopyWithImpl<$Res, HistoryEvent>;
+  @useResult
+  $Res call({CreditCard creditCard});
+
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
@@ -66,67 +75,120 @@ class _$HistoryEventCopyWithImpl<$Res, $Val extends HistoryEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creditCard = null,
+  }) {
+    return _then(_value.copyWith(
+      creditCard: null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreditCardCopyWith<$Res> get creditCard {
+    return $CreditCardCopyWith<$Res>(_value.creditCard, (value) {
+      return _then(_value.copyWith(creditCard: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$onInitialImplCopyWith<$Res> {
-  factory _$$onInitialImplCopyWith(
-          _$onInitialImpl value, $Res Function(_$onInitialImpl) then) =
-      __$$onInitialImplCopyWithImpl<$Res>;
+abstract class _$$onCardDeleteImplCopyWith<$Res>
+    implements $HistoryEventCopyWith<$Res> {
+  factory _$$onCardDeleteImplCopyWith(
+          _$onCardDeleteImpl value, $Res Function(_$onCardDeleteImpl) then) =
+      __$$onCardDeleteImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CreditCard creditCard});
+
+  @override
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
-class __$$onInitialImplCopyWithImpl<$Res>
-    extends _$HistoryEventCopyWithImpl<$Res, _$onInitialImpl>
-    implements _$$onInitialImplCopyWith<$Res> {
-  __$$onInitialImplCopyWithImpl(
-      _$onInitialImpl _value, $Res Function(_$onInitialImpl) _then)
+class __$$onCardDeleteImplCopyWithImpl<$Res>
+    extends _$HistoryEventCopyWithImpl<$Res, _$onCardDeleteImpl>
+    implements _$$onCardDeleteImplCopyWith<$Res> {
+  __$$onCardDeleteImplCopyWithImpl(
+      _$onCardDeleteImpl _value, $Res Function(_$onCardDeleteImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creditCard = null,
+  }) {
+    return _then(_$onCardDeleteImpl(
+      null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$onInitialImpl implements onInitial {
-  const _$onInitialImpl();
+class _$onCardDeleteImpl implements onCardDelete {
+  const _$onCardDeleteImpl(this.creditCard);
+
+  @override
+  final CreditCard creditCard;
 
   @override
   String toString() {
-    return 'HistoryEvent.onInitial()';
+    return 'HistoryEvent.onCardDelete(creditCard: $creditCard)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onInitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$onCardDeleteImpl &&
+            (identical(other.creditCard, creditCard) ||
+                other.creditCard == creditCard));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, creditCard);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$onCardDeleteImplCopyWith<_$onCardDeleteImpl> get copyWith =>
+      __$$onCardDeleteImplCopyWithImpl<_$onCardDeleteImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onInitial,
+    required TResult Function(CreditCard creditCard) onCardDelete,
   }) {
-    return onInitial();
+    return onCardDelete(creditCard);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onInitial,
+    TResult? Function(CreditCard creditCard)? onCardDelete,
   }) {
-    return onInitial?.call();
+    return onCardDelete?.call(creditCard);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onInitial,
+    TResult Function(CreditCard creditCard)? onCardDelete,
     required TResult orElse(),
   }) {
-    if (onInitial != null) {
-      return onInitial();
+    if (onCardDelete != null) {
+      return onCardDelete(creditCard);
     }
     return orElse();
   }
@@ -134,93 +196,52 @@ class _$onInitialImpl implements onInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onInitial value) onInitial,
+    required TResult Function(onCardDelete value) onCardDelete,
   }) {
-    return onInitial(this);
+    return onCardDelete(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onInitial value)? onInitial,
+    TResult? Function(onCardDelete value)? onCardDelete,
   }) {
-    return onInitial?.call(this);
+    return onCardDelete?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onInitial value)? onInitial,
+    TResult Function(onCardDelete value)? onCardDelete,
     required TResult orElse(),
   }) {
-    if (onInitial != null) {
-      return onInitial(this);
+    if (onCardDelete != null) {
+      return onCardDelete(this);
     }
     return orElse();
   }
 }
 
-abstract class onInitial implements HistoryEvent {
-  const factory onInitial() = _$onInitialImpl;
+abstract class onCardDelete implements HistoryEvent {
+  const factory onCardDelete(final CreditCard creditCard) = _$onCardDeleteImpl;
+
+  @override
+  CreditCard get creditCard;
+  @override
+  @JsonKey(ignore: true)
+  _$$onCardDeleteImplCopyWith<_$onCardDeleteImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$HistoryState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_HistoryState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_HistoryState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_HistoryState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    required TResult orElse(),
-  }) =>
+  CreditCard get creditCard => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isDeleted => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $HistoryStateCopyWith<HistoryState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -229,6 +250,14 @@ abstract class $HistoryStateCopyWith<$Res> {
   factory $HistoryStateCopyWith(
           HistoryState value, $Res Function(HistoryState) then) =
       _$HistoryStateCopyWithImpl<$Res, HistoryState>;
+  @useResult
+  $Res call(
+      {CreditCard creditCard,
+      bool isLoading,
+      bool isDeleted,
+      String? errorMessage});
+
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
@@ -240,13 +269,60 @@ class _$HistoryStateCopyWithImpl<$Res, $Val extends HistoryState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creditCard = null,
+    Object? isLoading = null,
+    Object? isDeleted = null,
+    Object? errorMessage = freezed,
+  }) {
+    return _then(_value.copyWith(
+      creditCard: null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDeleted: null == isDeleted
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreditCardCopyWith<$Res> get creditCard {
+    return $CreditCardCopyWith<$Res>(_value.creditCard, (value) {
+      return _then(_value.copyWith(creditCard: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$HistoryStateImplCopyWith<$Res> {
+abstract class _$$HistoryStateImplCopyWith<$Res>
+    implements $HistoryStateCopyWith<$Res> {
   factory _$$HistoryStateImplCopyWith(
           _$HistoryStateImpl value, $Res Function(_$HistoryStateImpl) then) =
       __$$HistoryStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {CreditCard creditCard,
+      bool isLoading,
+      bool isDeleted,
+      String? errorMessage});
+
+  @override
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
@@ -256,593 +332,104 @@ class __$$HistoryStateImplCopyWithImpl<$Res>
   __$$HistoryStateImplCopyWithImpl(
       _$HistoryStateImpl _value, $Res Function(_$HistoryStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creditCard = null,
+    Object? isLoading = null,
+    Object? isDeleted = null,
+    Object? errorMessage = freezed,
+  }) {
+    return _then(_$HistoryStateImpl(
+      creditCard: null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDeleted: null == isDeleted
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$HistoryStateImpl extends _HistoryState {
-  const _$HistoryStateImpl() : super._();
+  const _$HistoryStateImpl(
+      {required this.creditCard,
+      required this.isLoading,
+      required this.isDeleted,
+      required this.errorMessage})
+      : super._();
+
+  @override
+  final CreditCard creditCard;
+  @override
+  final bool isLoading;
+  @override
+  final bool isDeleted;
+  @override
+  final String? errorMessage;
 
   @override
   String toString() {
-    return 'HistoryState()';
+    return 'HistoryState(creditCard: $creditCard, isLoading: $isLoading, isDeleted: $isDeleted, errorMessage: $errorMessage)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HistoryStateImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$HistoryStateImpl &&
+            (identical(other.creditCard, creditCard) ||
+                other.creditCard == creditCard) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isDeleted, isDeleted) ||
+                other.isDeleted == isDeleted) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, creditCard, isLoading, isDeleted, errorMessage);
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-  }) {
-    return $default();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-  }) {
-    return $default?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_HistoryState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_HistoryState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_HistoryState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$HistoryStateImplCopyWith<_$HistoryStateImpl> get copyWith =>
+      __$$HistoryStateImplCopyWithImpl<_$HistoryStateImpl>(this, _$identity);
 }
 
 abstract class _HistoryState extends HistoryState {
-  const factory _HistoryState() = _$HistoryStateImpl;
+  const factory _HistoryState(
+      {required final CreditCard creditCard,
+      required final bool isLoading,
+      required final bool isDeleted,
+      required final String? errorMessage}) = _$HistoryStateImpl;
   const _HistoryState._() : super._();
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$HistoryStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$InitialImpl extends Initial {
-  const _$InitialImpl() : super._();
 
   @override
-  String toString() {
-    return 'HistoryState.initial()';
-  }
-
+  CreditCard get creditCard;
   @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
-  }
-
+  bool get isLoading;
   @override
-  int get hashCode => runtimeType.hashCode;
-
+  bool get isDeleted;
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-  }) {
-    return initial();
-  }
-
+  String? get errorMessage;
   @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_HistoryState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_HistoryState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_HistoryState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Initial extends HistoryState {
-  const factory Initial() = _$InitialImpl;
-  const Initial._() : super._();
-}
-
-/// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$HistoryStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$LoadingImpl extends Loading {
-  const _$LoadingImpl() : super._();
-
-  @override
-  String toString() {
-    return 'HistoryState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_HistoryState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_HistoryState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_HistoryState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Loading extends HistoryState {
-  const factory Loading() = _$LoadingImpl;
-  const Loading._() : super._();
-}
-
-/// @nodoc
-abstract class _$$LoadedImplCopyWith<$Res> {
-  factory _$$LoadedImplCopyWith(
-          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
-      __$$LoadedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$HistoryStateCopyWithImpl<$Res, _$LoadedImpl>
-    implements _$$LoadedImplCopyWith<$Res> {
-  __$$LoadedImplCopyWithImpl(
-      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$LoadedImpl extends Loaded {
-  const _$LoadedImpl() : super._();
-
-  @override
-  String toString() {
-    return 'HistoryState.loaded()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-  }) {
-    return loaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-  }) {
-    return loaded?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_HistoryState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_HistoryState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_HistoryState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Loaded extends HistoryState {
-  const factory Loaded() = _$LoadedImpl;
-  const Loaded._() : super._();
-}
-
-/// @nodoc
-abstract class _$$ErrorSImplCopyWith<$Res> {
-  factory _$$ErrorSImplCopyWith(
-          _$ErrorSImpl value, $Res Function(_$ErrorSImpl) then) =
-      __$$ErrorSImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ErrorSImplCopyWithImpl<$Res>
-    extends _$HistoryStateCopyWithImpl<$Res, _$ErrorSImpl>
-    implements _$$ErrorSImplCopyWith<$Res> {
-  __$$ErrorSImplCopyWithImpl(
-      _$ErrorSImpl _value, $Res Function(_$ErrorSImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ErrorSImpl extends ErrorS {
-  const _$ErrorSImpl() : super._();
-
-  @override
-  String toString() {
-    return 'HistoryState.error()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ErrorSImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-  }) {
-    return error();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-  }) {
-    return error?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_HistoryState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_HistoryState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_HistoryState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ErrorS extends HistoryState {
-  const factory ErrorS() = _$ErrorSImpl;
-  const ErrorS._() : super._();
+  @JsonKey(ignore: true)
+  _$$HistoryStateImplCopyWith<_$HistoryStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
