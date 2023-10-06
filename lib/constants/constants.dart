@@ -76,6 +76,8 @@ const String addBannedCountryDialogTitle = 'Add Banned Country';
 const String deletedBannedCountryMessage = 'Deleted.';
 const String cancelBannedCountryDialogButton = 'Cancel';
 const String duplicateCountryErrorMessage = 'This country is already banned.';
+const String settingsNoBannedCountriesMessage =
+    'No countries currently banned. Click + to add.';
 
 // Global Widgets
 const String cancelDialogButton = 'Cancel';
