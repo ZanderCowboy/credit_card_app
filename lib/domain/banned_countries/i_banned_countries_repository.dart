@@ -12,13 +12,13 @@ abstract class IBannedCountriesRepository {
 
   // update
   // Country where its value need to be updated to `value`.
-  Future<void> updateCountryChecked(String country, bool? newValue);
+  void updateCountryChecked(String country, bool? newValue);
 
   // deleteAt
-  Future<void> deleteCountryAt(int index);
+  void deleteCountryAt(int index);
 
   // deleteAll
-  Future<void> deleteCountries();
+  void deleteCountries();
 
   bool hasCountry(String country);
 
