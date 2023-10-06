@@ -40,13 +40,13 @@ class CreditCardRepository implements ICreditCardRepository {
 
   // delete
   @override
-  void deleteCreditCardAt(int index) {
-    creditCardBox.deleteCreditCardAt(index);
+  Future<void> deleteCreditCardAt(int index) async {
+    await creditCardBox.deleteCreditCardAt(index);
   }
 
   @override
-  void deleteCreditCards() {
-    creditCardBox.deleteCreditCards();
+  Future<void> deleteCreditCards() async {
+    await creditCardBox.deleteCreditCards();
   }
 
   @override
@@ -60,5 +60,22 @@ class CreditCardRepository implements ICreditCardRepository {
           element.cvvNumber == card.cvvNumber &&
           element.issuingCountry == card.issuingCountry,
     );
+  }
+
+  @override
+  int lookupCard(CreditCard creditCard) {
+    int foundAt = -1;
+
+    final List<CreditCard> list = readHistoryCards();
+
+    for (var i = 0; i < list.length; i++) {
+      final CreditCard cc = list[i];
+
+      if (cc == creditCard) {
+        foundAt = i;
+      }
+    }
+
+    return foundAt;
   }
 }
