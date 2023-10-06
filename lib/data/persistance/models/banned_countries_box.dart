@@ -33,25 +33,39 @@ class BannedCountriesBox {
     return list;
   }
 
-  // gets an index and a new BannedCountries instance to be added.
-  Future<void> updateBannedCountry(int index, BannedCountries bc) async {
-    if (box.containsKey(index)) {
-      await box.delete(index);
-      // return;
+  void updateBannedCountry(BannedCountries bc) {
+    int index = -1;
+    var itemKey = null;
+
+    final BannedCountries bCountry = BannedCountries(
+      bannedCountry: bc.bannedCountry,
+      isBanned: !bc.isBanned,
+    );
+    var list = <BannedCountries>[];
+    list.addAll(box.values);
+    for (var i = 0; i < list.length; i++) {
+      if (bCountry == list[i]) {
+        itemKey = box.keyAt(i);
+        index = i;
+      }
     }
-    if (!box.containsKey(bc)) {
-      await box.put(index, bc);
+
+    if (box.containsKey(itemKey)) {
+      box.deleteAt(index);
+      log('deleting bCountry instance: ${bCountry}');
+      box.add(bc);
+      log('added new instance.');
     }
   }
 
   // deleteAt
-  Future<void> deleteBannedCountryAt(int index) async {
+  void deleteBannedCountryAt(int index) async {
     log('index at box: $index');
-    await box.deleteAt(index);
+    box.deleteAt(index);
   }
 
   // deleteAll
-  Future<void> deleteBannedCountries() async {
-    await box.clear();
+  void deleteBannedCountries() async {
+    box.clear();
   }
 }
