@@ -559,6 +559,7 @@ mixin _$SettingsState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isDeleted => throw _privateConstructorUsedError;
   bool get isDuplicate => throw _privateConstructorUsedError;
+  bool get isAdded => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
 
@@ -579,6 +580,7 @@ abstract class $SettingsStateCopyWith<$Res> {
       bool isLoading,
       bool isDeleted,
       bool isDuplicate,
+      bool isAdded,
       String? errorMessage,
       String? country});
 
@@ -603,6 +605,7 @@ class _$SettingsStateCopyWithImpl<$Res, $Val extends SettingsState>
     Object? isLoading = null,
     Object? isDeleted = null,
     Object? isDuplicate = null,
+    Object? isAdded = null,
     Object? errorMessage = freezed,
     Object? country = freezed,
   }) {
@@ -626,6 +629,10 @@ class _$SettingsStateCopyWithImpl<$Res, $Val extends SettingsState>
       isDuplicate: null == isDuplicate
           ? _value.isDuplicate
           : isDuplicate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAdded: null == isAdded
+          ? _value.isAdded
+          : isAdded // ignore: cast_nullable_to_non_nullable
               as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
@@ -661,6 +668,7 @@ abstract class _$$SettingsStateImplCopyWith<$Res>
       bool isLoading,
       bool isDeleted,
       bool isDuplicate,
+      bool isAdded,
       String? errorMessage,
       String? country});
 
@@ -684,6 +692,7 @@ class __$$SettingsStateImplCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? isDeleted = null,
     Object? isDuplicate = null,
+    Object? isAdded = null,
     Object? errorMessage = freezed,
     Object? country = freezed,
   }) {
@@ -708,6 +717,10 @@ class __$$SettingsStateImplCopyWithImpl<$Res>
           ? _value.isDuplicate
           : isDuplicate // ignore: cast_nullable_to_non_nullable
               as bool,
+      isAdded: null == isAdded
+          ? _value.isAdded
+          : isAdded // ignore: cast_nullable_to_non_nullable
+              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -729,6 +742,7 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
       required this.isLoading,
       required this.isDeleted,
       required this.isDuplicate,
+      required this.isAdded,
       required this.errorMessage,
       this.country})
       : super._();
@@ -744,13 +758,15 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
   @override
   final bool isDuplicate;
   @override
+  final bool isAdded;
+  @override
   final String? errorMessage;
   @override
   final String? country;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SettingsState(bannedCountries: $bannedCountries, isChecked: $isChecked, isLoading: $isLoading, isDeleted: $isDeleted, isDuplicate: $isDuplicate, errorMessage: $errorMessage, country: $country)';
+    return 'SettingsState(bannedCountries: $bannedCountries, isChecked: $isChecked, isLoading: $isLoading, isDeleted: $isDeleted, isDuplicate: $isDuplicate, isAdded: $isAdded, errorMessage: $errorMessage, country: $country)';
   }
 
   @override
@@ -763,6 +779,7 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('isLoading', isLoading))
       ..add(DiagnosticsProperty('isDeleted', isDeleted))
       ..add(DiagnosticsProperty('isDuplicate', isDuplicate))
+      ..add(DiagnosticsProperty('isAdded', isAdded))
       ..add(DiagnosticsProperty('errorMessage', errorMessage))
       ..add(DiagnosticsProperty('country', country));
   }
@@ -782,6 +799,7 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
                 other.isDeleted == isDeleted) &&
             (identical(other.isDuplicate, isDuplicate) ||
                 other.isDuplicate == isDuplicate) &&
+            (identical(other.isAdded, isAdded) || other.isAdded == isAdded) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.country, country) || other.country == country));
@@ -789,7 +807,7 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
 
   @override
   int get hashCode => Object.hash(runtimeType, bannedCountries, isChecked,
-      isLoading, isDeleted, isDuplicate, errorMessage, country);
+      isLoading, isDeleted, isDuplicate, isAdded, errorMessage, country);
 
   @JsonKey(ignore: true)
   @override
@@ -805,6 +823,7 @@ abstract class _SettingsState extends SettingsState {
       required final bool isLoading,
       required final bool isDeleted,
       required final bool isDuplicate,
+      required final bool isAdded,
       required final String? errorMessage,
       final String? country}) = _$SettingsStateImpl;
   const _SettingsState._() : super._();
@@ -819,6 +838,8 @@ abstract class _SettingsState extends SettingsState {
   bool get isDeleted;
   @override
   bool get isDuplicate;
+  @override
+  bool get isAdded;
   @override
   String? get errorMessage;
   @override

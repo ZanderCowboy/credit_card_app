@@ -52,6 +52,14 @@ class _SettingsPage extends StatelessWidget {
             ),
           );
         }
+        if (state.isAdded) {
+          ScaffoldMessenger.of(context).clearSnackBars();
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Added.'),
+            ),
+          );
+        }
         if (state.isDuplicate) {
           ScaffoldMessenger.of(context).clearSnackBars();
           ScaffoldMessenger.of(context).showSnackBar(
@@ -72,7 +80,7 @@ class _SettingsPage extends StatelessWidget {
           ScaffoldMessenger.of(context).clearSnackBars();
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
-              content: Text('Registered.'),
+              content: Text('Checked.'),
             ),
           );
         }
@@ -280,28 +288,14 @@ class BannedCountryListItem extends StatelessWidget {
                 child: CheckboxListTile(
                   title: Text('$bannedCountryCode \t - $bannedCountryName'),
                   value: checkbox,
-                  onChanged: (bool? value) {
-                    log('$value \t $bannedCountryCode');
+                  onChanged: (bool? newValue) {
+                    log('$newValue \t $bannedCountryCode');
                     context.read<SettingsBloc>().add(
                         SettingsEvent.onCountryPressed(
-                            bannedCountryCode, value));
+                            bannedCountryCode, newValue));
                   },
                 ),
               );
-
-              // return CheckboxListTile(
-              //   title: Text('$bannedCountryCode \t - $bannedCountryName'),
-              //   value: checkbox,
-              //   onChanged: (bool? value) {
-              //     log('$value \t $bannedCountryCode');
-              //     context.read<SettingsBloc>().add(
-              //           SettingsEvent.onCountryPressed(
-              //             bannedCountryCode,
-              //             value,
-              //           ),
-              //         );
-              //   },
-              // );
             },
           ),
         );

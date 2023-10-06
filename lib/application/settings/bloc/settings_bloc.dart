@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/domain/banned_countries/i_banned_countries_repository.dart';
@@ -18,7 +16,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       : super(SettingsState.initial()) {
     on<SettingsEvent>((event, emit) async {
       event.map(
-        onAddCountry: (value) async {
+        onAddCountry: (value) {
           emit(state.copyWith(isLoading: true));
 
           final bool hasDuplicate =
@@ -26,59 +24,81 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
           if (hasDuplicate) {
             //! in case we have a duplicate
-            log('*** duplicate country: country=${value.selectedCountry}');
-            emit(
-              state.copyWith(
-                country: value.selectedCountry,
-                isDuplicate: true,
-                errorMessage: duplicateCountryErrorMessage,
-              ),
-            );
-          } else {
-            //! in case we do not have the country in the DB already
-            log('*** first country: country=${value.selectedCountry}');
-
             emit(
               state.copyWith(
                 bannedCountries: state.bannedCountries.copyWith(
                   bannedCountry: value.selectedCountry!,
                   isBanned: true,
                 ),
+                country: value.selectedCountry,
+                isLoading: false,
+                isDuplicate: true,
+                errorMessage: duplicateCountryErrorMessage,
+              ),
+            );
+          } else {
+            //! in case we do not have the country in the DB already
+            emit(
+              state.copyWith(
+                bannedCountries: state.bannedCountries.copyWith(
+                  bannedCountry: value.selectedCountry!,
+                  isBanned: true,
+                ),
+                isLoading: false,
+                isAdded: true,
               ),
             );
             _bannedCountriesRepository.addCountry(value.selectedCountry!);
-            // emit(state.copyWith(country: value.selectedCountry));
+            // emit(state.copyWith(isAdded: true));
           }
 
-          emit(state.copyWith(isLoading: false, isDuplicate: false));
+          emit(state.copyWith(
+              isLoading: false, isDuplicate: false, isAdded: false));
         },
-        onCountryDelete: (value) async {
+        onCountryDelete: (value) {
           emit(state.copyWith(isLoading: true));
 
           int indexAt =
               _bannedCountriesRepository.lookupCountry(value.bannedCountry);
 
-          await _bannedCountriesRepository.deleteCountryAt(indexAt);
+          emit(
+            state.copyWith(
+              // bannedCountries: state.bannedCountries,
+              isLoading: false,
+              isDeleted: true,
+            ),
+          );
 
-          emit(state.copyWith(isDeleted: true));
-          emit(state.copyWith(isLoading: false, isDeleted: false));
+          _bannedCountriesRepository.deleteCountryAt(indexAt);
+
+          emit(
+            state.copyWith(
+              bannedCountries: state.bannedCountries,
+              isLoading: false,
+              isDeleted: false,
+            ),
+          );
         },
-        onCountryPressed: (value) async {
+        onCountryPressed: (value) {
           emit(state.copyWith(isChecked: true));
 
-          await _bannedCountriesRepository.updateCountryChecked(
+          // emit(
+          //   state.bannedCountries
+          //       .copyWith(bannedCountry: value.country, isBanned: value.value!),
+          // );
+          // emit(state.copyWith(bannedCountries: ));
+
+          _bannedCountriesRepository.updateCountryChecked(
             value.country,
             value.value,
           );
 
-          emit(
-            state.copyWith(
-              bannedCountries: state.bannedCountries.copyWith(
-                bannedCountry: value.country,
-                isBanned: value.value!,
-              ),
-            ),
-          );
+          // This adds a new country in UI
+          // emit(state.copyWith(
+          //     bannedCountries: state.bannedCountries.copyWith(
+          //   bannedCountry: value.country,
+          //   isBanned: value.value!,
+          // )));
 
           emit(state.copyWith(isChecked: false));
         },

@@ -8,6 +8,7 @@ class SettingsState with _$SettingsState {
     required bool isLoading,
     required bool isDeleted,
     required bool isDuplicate,
+    required bool isAdded,
     required String? errorMessage,
     String? country,
   }) = _SettingsState;
@@ -21,6 +22,7 @@ class SettingsState with _$SettingsState {
         isLoading: false,
         isDeleted: false,
         isDuplicate: false,
+        isAdded: false,
         errorMessage: '',
       );
 }
