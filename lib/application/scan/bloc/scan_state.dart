@@ -2,14 +2,25 @@ part of 'scan_bloc.dart';
 
 @freezed
 class ScanState with _$ScanState {
-  const factory ScanState() = _ScanState;
+  const factory ScanState({
+    required CreditCard creditCard,
+    required bool isLoading,
+    required bool isSubmitted,
+    required bool isCaptured,
+    required bool isTake,
+    required bool isRetake,
+    required String? errorMessage,
+  }) = _ScanState;
 
   const ScanState._();
 
-  const factory ScanState.initial() = Initial;
-  const factory ScanState.loading() = Loading;
-  const factory ScanState.loaded() = Loaded;
-  const factory ScanState.error() = ErrorS;
-  const factory ScanState.camera() = Camera;
-  const factory ScanState.result() = Result;
+  factory ScanState.initial() => ScanState(
+        creditCard: CreditCard.empty(),
+        isLoading: false,
+        isSubmitted: false,
+        isCaptured: false,
+        isTake: false,
+        isRetake: false,
+        errorMessage: '',
+      );
 }

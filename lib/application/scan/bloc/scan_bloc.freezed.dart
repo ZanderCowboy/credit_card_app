@@ -18,23 +18,29 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ScanEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onSubmit,
+    required TResult Function(CreditCard creditCard) onSubmit,
     required TResult Function() onTake,
     required TResult Function() onRetake,
+    required TResult Function() onRequestCameraPermission,
+    required TResult Function() onInitializeCamera,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onSubmit,
+    TResult? Function(CreditCard creditCard)? onSubmit,
     TResult? Function()? onTake,
     TResult? Function()? onRetake,
+    TResult? Function()? onRequestCameraPermission,
+    TResult? Function()? onInitializeCamera,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onSubmit,
+    TResult Function(CreditCard creditCard)? onSubmit,
     TResult Function()? onTake,
     TResult Function()? onRetake,
+    TResult Function()? onRequestCameraPermission,
+    TResult Function()? onInitializeCamera,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +49,9 @@ mixin _$ScanEvent {
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onTake value) onTake,
     required TResult Function(onRetake value) onRetake,
+    required TResult Function(onRequestCameraPermission value)
+        onRequestCameraPermission,
+    required TResult Function(onInitializeCamera value) onInitializeCamera,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +59,9 @@ mixin _$ScanEvent {
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onTake value)? onTake,
     TResult? Function(onRetake value)? onRetake,
+    TResult? Function(onRequestCameraPermission value)?
+        onRequestCameraPermission,
+    TResult? Function(onInitializeCamera value)? onInitializeCamera,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +69,9 @@ mixin _$ScanEvent {
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onTake value)? onTake,
     TResult Function(onRetake value)? onRetake,
+    TResult Function(onRequestCameraPermission value)?
+        onRequestCameraPermission,
+    TResult Function(onInitializeCamera value)? onInitializeCamera,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -84,6 +99,10 @@ abstract class _$$onSubmitImplCopyWith<$Res> {
   factory _$$onSubmitImplCopyWith(
           _$onSubmitImpl value, $Res Function(_$onSubmitImpl) then) =
       __$$onSubmitImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CreditCard creditCard});
+
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
@@ -93,57 +112,96 @@ class __$$onSubmitImplCopyWithImpl<$Res>
   __$$onSubmitImplCopyWithImpl(
       _$onSubmitImpl _value, $Res Function(_$onSubmitImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creditCard = null,
+  }) {
+    return _then(_$onSubmitImpl(
+      null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreditCardCopyWith<$Res> get creditCard {
+    return $CreditCardCopyWith<$Res>(_value.creditCard, (value) {
+      return _then(_value.copyWith(creditCard: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$onSubmitImpl implements onSubmit {
-  const _$onSubmitImpl();
+  const _$onSubmitImpl(this.creditCard);
+
+  @override
+  final CreditCard creditCard;
 
   @override
   String toString() {
-    return 'ScanEvent.onSubmit()';
+    return 'ScanEvent.onSubmit(creditCard: $creditCard)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onSubmitImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$onSubmitImpl &&
+            (identical(other.creditCard, creditCard) ||
+                other.creditCard == creditCard));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, creditCard);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$onSubmitImplCopyWith<_$onSubmitImpl> get copyWith =>
+      __$$onSubmitImplCopyWithImpl<_$onSubmitImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onSubmit,
+    required TResult Function(CreditCard creditCard) onSubmit,
     required TResult Function() onTake,
     required TResult Function() onRetake,
+    required TResult Function() onRequestCameraPermission,
+    required TResult Function() onInitializeCamera,
   }) {
-    return onSubmit();
+    return onSubmit(creditCard);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onSubmit,
+    TResult? Function(CreditCard creditCard)? onSubmit,
     TResult? Function()? onTake,
     TResult? Function()? onRetake,
+    TResult? Function()? onRequestCameraPermission,
+    TResult? Function()? onInitializeCamera,
   }) {
-    return onSubmit?.call();
+    return onSubmit?.call(creditCard);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onSubmit,
+    TResult Function(CreditCard creditCard)? onSubmit,
     TResult Function()? onTake,
     TResult Function()? onRetake,
+    TResult Function()? onRequestCameraPermission,
+    TResult Function()? onInitializeCamera,
     required TResult orElse(),
   }) {
     if (onSubmit != null) {
-      return onSubmit();
+      return onSubmit(creditCard);
     }
     return orElse();
   }
@@ -154,6 +212,9 @@ class _$onSubmitImpl implements onSubmit {
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onTake value) onTake,
     required TResult Function(onRetake value) onRetake,
+    required TResult Function(onRequestCameraPermission value)
+        onRequestCameraPermission,
+    required TResult Function(onInitializeCamera value) onInitializeCamera,
   }) {
     return onSubmit(this);
   }
@@ -164,6 +225,9 @@ class _$onSubmitImpl implements onSubmit {
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onTake value)? onTake,
     TResult? Function(onRetake value)? onRetake,
+    TResult? Function(onRequestCameraPermission value)?
+        onRequestCameraPermission,
+    TResult? Function(onInitializeCamera value)? onInitializeCamera,
   }) {
     return onSubmit?.call(this);
   }
@@ -174,6 +238,9 @@ class _$onSubmitImpl implements onSubmit {
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onTake value)? onTake,
     TResult Function(onRetake value)? onRetake,
+    TResult Function(onRequestCameraPermission value)?
+        onRequestCameraPermission,
+    TResult Function(onInitializeCamera value)? onInitializeCamera,
     required TResult orElse(),
   }) {
     if (onSubmit != null) {
@@ -184,7 +251,12 @@ class _$onSubmitImpl implements onSubmit {
 }
 
 abstract class onSubmit implements ScanEvent {
-  const factory onSubmit() = _$onSubmitImpl;
+  const factory onSubmit(final CreditCard creditCard) = _$onSubmitImpl;
+
+  CreditCard get creditCard;
+  @JsonKey(ignore: true)
+  _$$onSubmitImplCopyWith<_$onSubmitImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -225,9 +297,11 @@ class _$onTakeImpl implements onTake {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onSubmit,
+    required TResult Function(CreditCard creditCard) onSubmit,
     required TResult Function() onTake,
     required TResult Function() onRetake,
+    required TResult Function() onRequestCameraPermission,
+    required TResult Function() onInitializeCamera,
   }) {
     return onTake();
   }
@@ -235,9 +309,11 @@ class _$onTakeImpl implements onTake {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onSubmit,
+    TResult? Function(CreditCard creditCard)? onSubmit,
     TResult? Function()? onTake,
     TResult? Function()? onRetake,
+    TResult? Function()? onRequestCameraPermission,
+    TResult? Function()? onInitializeCamera,
   }) {
     return onTake?.call();
   }
@@ -245,9 +321,11 @@ class _$onTakeImpl implements onTake {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onSubmit,
+    TResult Function(CreditCard creditCard)? onSubmit,
     TResult Function()? onTake,
     TResult Function()? onRetake,
+    TResult Function()? onRequestCameraPermission,
+    TResult Function()? onInitializeCamera,
     required TResult orElse(),
   }) {
     if (onTake != null) {
@@ -262,6 +340,9 @@ class _$onTakeImpl implements onTake {
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onTake value) onTake,
     required TResult Function(onRetake value) onRetake,
+    required TResult Function(onRequestCameraPermission value)
+        onRequestCameraPermission,
+    required TResult Function(onInitializeCamera value) onInitializeCamera,
   }) {
     return onTake(this);
   }
@@ -272,6 +353,9 @@ class _$onTakeImpl implements onTake {
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onTake value)? onTake,
     TResult? Function(onRetake value)? onRetake,
+    TResult? Function(onRequestCameraPermission value)?
+        onRequestCameraPermission,
+    TResult? Function(onInitializeCamera value)? onInitializeCamera,
   }) {
     return onTake?.call(this);
   }
@@ -282,6 +366,9 @@ class _$onTakeImpl implements onTake {
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onTake value)? onTake,
     TResult Function(onRetake value)? onRetake,
+    TResult Function(onRequestCameraPermission value)?
+        onRequestCameraPermission,
+    TResult Function(onInitializeCamera value)? onInitializeCamera,
     required TResult orElse(),
   }) {
     if (onTake != null) {
@@ -333,9 +420,11 @@ class _$onRetakeImpl implements onRetake {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onSubmit,
+    required TResult Function(CreditCard creditCard) onSubmit,
     required TResult Function() onTake,
     required TResult Function() onRetake,
+    required TResult Function() onRequestCameraPermission,
+    required TResult Function() onInitializeCamera,
   }) {
     return onRetake();
   }
@@ -343,9 +432,11 @@ class _$onRetakeImpl implements onRetake {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onSubmit,
+    TResult? Function(CreditCard creditCard)? onSubmit,
     TResult? Function()? onTake,
     TResult? Function()? onRetake,
+    TResult? Function()? onRequestCameraPermission,
+    TResult? Function()? onInitializeCamera,
   }) {
     return onRetake?.call();
   }
@@ -353,9 +444,11 @@ class _$onRetakeImpl implements onRetake {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onSubmit,
+    TResult Function(CreditCard creditCard)? onSubmit,
     TResult Function()? onTake,
     TResult Function()? onRetake,
+    TResult Function()? onRequestCameraPermission,
+    TResult Function()? onInitializeCamera,
     required TResult orElse(),
   }) {
     if (onRetake != null) {
@@ -370,6 +463,9 @@ class _$onRetakeImpl implements onRetake {
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onTake value) onTake,
     required TResult Function(onRetake value) onRetake,
+    required TResult Function(onRequestCameraPermission value)
+        onRequestCameraPermission,
+    required TResult Function(onInitializeCamera value) onInitializeCamera,
   }) {
     return onRetake(this);
   }
@@ -380,6 +476,9 @@ class _$onRetakeImpl implements onRetake {
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onTake value)? onTake,
     TResult? Function(onRetake value)? onRetake,
+    TResult? Function(onRequestCameraPermission value)?
+        onRequestCameraPermission,
+    TResult? Function(onInitializeCamera value)? onInitializeCamera,
   }) {
     return onRetake?.call(this);
   }
@@ -390,6 +489,9 @@ class _$onRetakeImpl implements onRetake {
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onTake value)? onTake,
     TResult Function(onRetake value)? onRetake,
+    TResult Function(onRequestCameraPermission value)?
+        onRequestCameraPermission,
+    TResult Function(onInitializeCamera value)? onInitializeCamera,
     required TResult orElse(),
   }) {
     if (onRetake != null) {
@@ -404,74 +506,266 @@ abstract class onRetake implements ScanEvent {
 }
 
 /// @nodoc
+abstract class _$$onRequestCameraPermissionImplCopyWith<$Res> {
+  factory _$$onRequestCameraPermissionImplCopyWith(
+          _$onRequestCameraPermissionImpl value,
+          $Res Function(_$onRequestCameraPermissionImpl) then) =
+      __$$onRequestCameraPermissionImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$onRequestCameraPermissionImplCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$onRequestCameraPermissionImpl>
+    implements _$$onRequestCameraPermissionImplCopyWith<$Res> {
+  __$$onRequestCameraPermissionImplCopyWithImpl(
+      _$onRequestCameraPermissionImpl _value,
+      $Res Function(_$onRequestCameraPermissionImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$onRequestCameraPermissionImpl implements onRequestCameraPermission {
+  const _$onRequestCameraPermissionImpl();
+
+  @override
+  String toString() {
+    return 'ScanEvent.onRequestCameraPermission()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$onRequestCameraPermissionImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onSubmit,
+    required TResult Function() onTake,
+    required TResult Function() onRetake,
+    required TResult Function() onRequestCameraPermission,
+    required TResult Function() onInitializeCamera,
+  }) {
+    return onRequestCameraPermission();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onSubmit,
+    TResult? Function()? onTake,
+    TResult? Function()? onRetake,
+    TResult? Function()? onRequestCameraPermission,
+    TResult? Function()? onInitializeCamera,
+  }) {
+    return onRequestCameraPermission?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onSubmit,
+    TResult Function()? onTake,
+    TResult Function()? onRetake,
+    TResult Function()? onRequestCameraPermission,
+    TResult Function()? onInitializeCamera,
+    required TResult orElse(),
+  }) {
+    if (onRequestCameraPermission != null) {
+      return onRequestCameraPermission();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(onSubmit value) onSubmit,
+    required TResult Function(onTake value) onTake,
+    required TResult Function(onRetake value) onRetake,
+    required TResult Function(onRequestCameraPermission value)
+        onRequestCameraPermission,
+    required TResult Function(onInitializeCamera value) onInitializeCamera,
+  }) {
+    return onRequestCameraPermission(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onSubmit value)? onSubmit,
+    TResult? Function(onTake value)? onTake,
+    TResult? Function(onRetake value)? onRetake,
+    TResult? Function(onRequestCameraPermission value)?
+        onRequestCameraPermission,
+    TResult? Function(onInitializeCamera value)? onInitializeCamera,
+  }) {
+    return onRequestCameraPermission?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(onSubmit value)? onSubmit,
+    TResult Function(onTake value)? onTake,
+    TResult Function(onRetake value)? onRetake,
+    TResult Function(onRequestCameraPermission value)?
+        onRequestCameraPermission,
+    TResult Function(onInitializeCamera value)? onInitializeCamera,
+    required TResult orElse(),
+  }) {
+    if (onRequestCameraPermission != null) {
+      return onRequestCameraPermission(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class onRequestCameraPermission implements ScanEvent {
+  const factory onRequestCameraPermission() = _$onRequestCameraPermissionImpl;
+}
+
+/// @nodoc
+abstract class _$$onInitializeCameraImplCopyWith<$Res> {
+  factory _$$onInitializeCameraImplCopyWith(_$onInitializeCameraImpl value,
+          $Res Function(_$onInitializeCameraImpl) then) =
+      __$$onInitializeCameraImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$onInitializeCameraImplCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$onInitializeCameraImpl>
+    implements _$$onInitializeCameraImplCopyWith<$Res> {
+  __$$onInitializeCameraImplCopyWithImpl(_$onInitializeCameraImpl _value,
+      $Res Function(_$onInitializeCameraImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$onInitializeCameraImpl implements onInitializeCamera {
+  const _$onInitializeCameraImpl();
+
+  @override
+  String toString() {
+    return 'ScanEvent.onInitializeCamera()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$onInitializeCameraImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onSubmit,
+    required TResult Function() onTake,
+    required TResult Function() onRetake,
+    required TResult Function() onRequestCameraPermission,
+    required TResult Function() onInitializeCamera,
+  }) {
+    return onInitializeCamera();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onSubmit,
+    TResult? Function()? onTake,
+    TResult? Function()? onRetake,
+    TResult? Function()? onRequestCameraPermission,
+    TResult? Function()? onInitializeCamera,
+  }) {
+    return onInitializeCamera?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onSubmit,
+    TResult Function()? onTake,
+    TResult Function()? onRetake,
+    TResult Function()? onRequestCameraPermission,
+    TResult Function()? onInitializeCamera,
+    required TResult orElse(),
+  }) {
+    if (onInitializeCamera != null) {
+      return onInitializeCamera();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(onSubmit value) onSubmit,
+    required TResult Function(onTake value) onTake,
+    required TResult Function(onRetake value) onRetake,
+    required TResult Function(onRequestCameraPermission value)
+        onRequestCameraPermission,
+    required TResult Function(onInitializeCamera value) onInitializeCamera,
+  }) {
+    return onInitializeCamera(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onSubmit value)? onSubmit,
+    TResult? Function(onTake value)? onTake,
+    TResult? Function(onRetake value)? onRetake,
+    TResult? Function(onRequestCameraPermission value)?
+        onRequestCameraPermission,
+    TResult? Function(onInitializeCamera value)? onInitializeCamera,
+  }) {
+    return onInitializeCamera?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(onSubmit value)? onSubmit,
+    TResult Function(onTake value)? onTake,
+    TResult Function(onRetake value)? onRetake,
+    TResult Function(onRequestCameraPermission value)?
+        onRequestCameraPermission,
+    TResult Function(onInitializeCamera value)? onInitializeCamera,
+    required TResult orElse(),
+  }) {
+    if (onInitializeCamera != null) {
+      return onInitializeCamera(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class onInitializeCamera implements ScanEvent {
+  const factory onInitializeCamera() = _$onInitializeCameraImpl;
+}
+
+/// @nodoc
 mixin _$ScanState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() camera,
-    required TResult Function() result,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? camera,
-    TResult? Function()? result,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? camera,
-    TResult Function()? result,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ScanState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-    required TResult Function(Camera value) camera,
-    required TResult Function(Result value) result,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ScanState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-    TResult? Function(Camera value)? camera,
-    TResult? Function(Result value)? result,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ScanState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    TResult Function(Camera value)? camera,
-    TResult Function(Result value)? result,
-    required TResult orElse(),
-  }) =>
+  CreditCard get creditCard => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isSubmitted => throw _privateConstructorUsedError;
+  bool get isCaptured => throw _privateConstructorUsedError;
+  bool get isTake => throw _privateConstructorUsedError;
+  bool get isRetake => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ScanStateCopyWith<ScanState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -479,6 +773,17 @@ mixin _$ScanState {
 abstract class $ScanStateCopyWith<$Res> {
   factory $ScanStateCopyWith(ScanState value, $Res Function(ScanState) then) =
       _$ScanStateCopyWithImpl<$Res, ScanState>;
+  @useResult
+  $Res call(
+      {CreditCard creditCard,
+      bool isLoading,
+      bool isSubmitted,
+      bool isCaptured,
+      bool isTake,
+      bool isRetake,
+      String? errorMessage});
+
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
@@ -490,13 +795,78 @@ class _$ScanStateCopyWithImpl<$Res, $Val extends ScanState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creditCard = null,
+    Object? isLoading = null,
+    Object? isSubmitted = null,
+    Object? isCaptured = null,
+    Object? isTake = null,
+    Object? isRetake = null,
+    Object? errorMessage = freezed,
+  }) {
+    return _then(_value.copyWith(
+      creditCard: null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSubmitted: null == isSubmitted
+          ? _value.isSubmitted
+          : isSubmitted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCaptured: null == isCaptured
+          ? _value.isCaptured
+          : isCaptured // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isTake: null == isTake
+          ? _value.isTake
+          : isTake // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRetake: null == isRetake
+          ? _value.isRetake
+          : isRetake // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreditCardCopyWith<$Res> get creditCard {
+    return $CreditCardCopyWith<$Res>(_value.creditCard, (value) {
+      return _then(_value.copyWith(creditCard: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$ScanStateImplCopyWith<$Res> {
+abstract class _$$ScanStateImplCopyWith<$Res>
+    implements $ScanStateCopyWith<$Res> {
   factory _$$ScanStateImplCopyWith(
           _$ScanStateImpl value, $Res Function(_$ScanStateImpl) then) =
       __$$ScanStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {CreditCard creditCard,
+      bool isLoading,
+      bool isSubmitted,
+      bool isCaptured,
+      bool isTake,
+      bool isRetake,
+      String? errorMessage});
+
+  @override
+  $CreditCardCopyWith<$Res> get creditCard;
 }
 
 /// @nodoc
@@ -506,919 +876,142 @@ class __$$ScanStateImplCopyWithImpl<$Res>
   __$$ScanStateImplCopyWithImpl(
       _$ScanStateImpl _value, $Res Function(_$ScanStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? creditCard = null,
+    Object? isLoading = null,
+    Object? isSubmitted = null,
+    Object? isCaptured = null,
+    Object? isTake = null,
+    Object? isRetake = null,
+    Object? errorMessage = freezed,
+  }) {
+    return _then(_$ScanStateImpl(
+      creditCard: null == creditCard
+          ? _value.creditCard
+          : creditCard // ignore: cast_nullable_to_non_nullable
+              as CreditCard,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSubmitted: null == isSubmitted
+          ? _value.isSubmitted
+          : isSubmitted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCaptured: null == isCaptured
+          ? _value.isCaptured
+          : isCaptured // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isTake: null == isTake
+          ? _value.isTake
+          : isTake // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRetake: null == isRetake
+          ? _value.isRetake
+          : isRetake // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ScanStateImpl extends _ScanState {
-  const _$ScanStateImpl() : super._();
+  const _$ScanStateImpl(
+      {required this.creditCard,
+      required this.isLoading,
+      required this.isSubmitted,
+      required this.isCaptured,
+      required this.isTake,
+      required this.isRetake,
+      required this.errorMessage})
+      : super._();
+
+  @override
+  final CreditCard creditCard;
+  @override
+  final bool isLoading;
+  @override
+  final bool isSubmitted;
+  @override
+  final bool isCaptured;
+  @override
+  final bool isTake;
+  @override
+  final bool isRetake;
+  @override
+  final String? errorMessage;
 
   @override
   String toString() {
-    return 'ScanState()';
+    return 'ScanState(creditCard: $creditCard, isLoading: $isLoading, isSubmitted: $isSubmitted, isCaptured: $isCaptured, isTake: $isTake, isRetake: $isRetake, errorMessage: $errorMessage)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ScanStateImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ScanStateImpl &&
+            (identical(other.creditCard, creditCard) ||
+                other.creditCard == creditCard) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isSubmitted, isSubmitted) ||
+                other.isSubmitted == isSubmitted) &&
+            (identical(other.isCaptured, isCaptured) ||
+                other.isCaptured == isCaptured) &&
+            (identical(other.isTake, isTake) || other.isTake == isTake) &&
+            (identical(other.isRetake, isRetake) ||
+                other.isRetake == isRetake) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, creditCard, isLoading,
+      isSubmitted, isCaptured, isTake, isRetake, errorMessage);
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() camera,
-    required TResult Function() result,
-  }) {
-    return $default();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? camera,
-    TResult? Function()? result,
-  }) {
-    return $default?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? camera,
-    TResult Function()? result,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ScanState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-    required TResult Function(Camera value) camera,
-    required TResult Function(Result value) result,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ScanState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-    TResult? Function(Camera value)? camera,
-    TResult? Function(Result value)? result,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ScanState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    TResult Function(Camera value)? camera,
-    TResult Function(Result value)? result,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$ScanStateImplCopyWith<_$ScanStateImpl> get copyWith =>
+      __$$ScanStateImplCopyWithImpl<_$ScanStateImpl>(this, _$identity);
 }
 
 abstract class _ScanState extends ScanState {
-  const factory _ScanState() = _$ScanStateImpl;
+  const factory _ScanState(
+      {required final CreditCard creditCard,
+      required final bool isLoading,
+      required final bool isSubmitted,
+      required final bool isCaptured,
+      required final bool isTake,
+      required final bool isRetake,
+      required final String? errorMessage}) = _$ScanStateImpl;
   const _ScanState._() : super._();
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ScanStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$InitialImpl extends Initial {
-  const _$InitialImpl() : super._();
 
   @override
-  String toString() {
-    return 'ScanState.initial()';
-  }
-
+  CreditCard get creditCard;
   @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
-  }
-
+  bool get isLoading;
   @override
-  int get hashCode => runtimeType.hashCode;
-
+  bool get isSubmitted;
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() camera,
-    required TResult Function() result,
-  }) {
-    return initial();
-  }
-
+  bool get isCaptured;
   @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? camera,
-    TResult? Function()? result,
-  }) {
-    return initial?.call();
-  }
-
+  bool get isTake;
   @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? camera,
-    TResult Function()? result,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
+  bool get isRetake;
   @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ScanState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-    required TResult Function(Camera value) camera,
-    required TResult Function(Result value) result,
-  }) {
-    return initial(this);
-  }
-
+  String? get errorMessage;
   @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ScanState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-    TResult? Function(Camera value)? camera,
-    TResult? Function(Result value)? result,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ScanState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    TResult Function(Camera value)? camera,
-    TResult Function(Result value)? result,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Initial extends ScanState {
-  const factory Initial() = _$InitialImpl;
-  const Initial._() : super._();
-}
-
-/// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$ScanStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$LoadingImpl extends Loading {
-  const _$LoadingImpl() : super._();
-
-  @override
-  String toString() {
-    return 'ScanState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() camera,
-    required TResult Function() result,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? camera,
-    TResult? Function()? result,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? camera,
-    TResult Function()? result,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ScanState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-    required TResult Function(Camera value) camera,
-    required TResult Function(Result value) result,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ScanState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-    TResult? Function(Camera value)? camera,
-    TResult? Function(Result value)? result,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ScanState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    TResult Function(Camera value)? camera,
-    TResult Function(Result value)? result,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Loading extends ScanState {
-  const factory Loading() = _$LoadingImpl;
-  const Loading._() : super._();
-}
-
-/// @nodoc
-abstract class _$$LoadedImplCopyWith<$Res> {
-  factory _$$LoadedImplCopyWith(
-          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
-      __$$LoadedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$ScanStateCopyWithImpl<$Res, _$LoadedImpl>
-    implements _$$LoadedImplCopyWith<$Res> {
-  __$$LoadedImplCopyWithImpl(
-      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$LoadedImpl extends Loaded {
-  const _$LoadedImpl() : super._();
-
-  @override
-  String toString() {
-    return 'ScanState.loaded()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() camera,
-    required TResult Function() result,
-  }) {
-    return loaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? camera,
-    TResult? Function()? result,
-  }) {
-    return loaded?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? camera,
-    TResult Function()? result,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ScanState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-    required TResult Function(Camera value) camera,
-    required TResult Function(Result value) result,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ScanState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-    TResult? Function(Camera value)? camera,
-    TResult? Function(Result value)? result,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ScanState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    TResult Function(Camera value)? camera,
-    TResult Function(Result value)? result,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Loaded extends ScanState {
-  const factory Loaded() = _$LoadedImpl;
-  const Loaded._() : super._();
-}
-
-/// @nodoc
-abstract class _$$ErrorSImplCopyWith<$Res> {
-  factory _$$ErrorSImplCopyWith(
-          _$ErrorSImpl value, $Res Function(_$ErrorSImpl) then) =
-      __$$ErrorSImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ErrorSImplCopyWithImpl<$Res>
-    extends _$ScanStateCopyWithImpl<$Res, _$ErrorSImpl>
-    implements _$$ErrorSImplCopyWith<$Res> {
-  __$$ErrorSImplCopyWithImpl(
-      _$ErrorSImpl _value, $Res Function(_$ErrorSImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ErrorSImpl extends ErrorS {
-  const _$ErrorSImpl() : super._();
-
-  @override
-  String toString() {
-    return 'ScanState.error()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ErrorSImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() camera,
-    required TResult Function() result,
-  }) {
-    return error();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? camera,
-    TResult? Function()? result,
-  }) {
-    return error?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? camera,
-    TResult Function()? result,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ScanState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-    required TResult Function(Camera value) camera,
-    required TResult Function(Result value) result,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ScanState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-    TResult? Function(Camera value)? camera,
-    TResult? Function(Result value)? result,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ScanState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    TResult Function(Camera value)? camera,
-    TResult Function(Result value)? result,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ErrorS extends ScanState {
-  const factory ErrorS() = _$ErrorSImpl;
-  const ErrorS._() : super._();
-}
-
-/// @nodoc
-abstract class _$$CameraImplCopyWith<$Res> {
-  factory _$$CameraImplCopyWith(
-          _$CameraImpl value, $Res Function(_$CameraImpl) then) =
-      __$$CameraImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$CameraImplCopyWithImpl<$Res>
-    extends _$ScanStateCopyWithImpl<$Res, _$CameraImpl>
-    implements _$$CameraImplCopyWith<$Res> {
-  __$$CameraImplCopyWithImpl(
-      _$CameraImpl _value, $Res Function(_$CameraImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$CameraImpl extends Camera {
-  const _$CameraImpl() : super._();
-
-  @override
-  String toString() {
-    return 'ScanState.camera()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CameraImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() camera,
-    required TResult Function() result,
-  }) {
-    return camera();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? camera,
-    TResult? Function()? result,
-  }) {
-    return camera?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? camera,
-    TResult Function()? result,
-    required TResult orElse(),
-  }) {
-    if (camera != null) {
-      return camera();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ScanState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-    required TResult Function(Camera value) camera,
-    required TResult Function(Result value) result,
-  }) {
-    return camera(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ScanState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-    TResult? Function(Camera value)? camera,
-    TResult? Function(Result value)? result,
-  }) {
-    return camera?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ScanState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    TResult Function(Camera value)? camera,
-    TResult Function(Result value)? result,
-    required TResult orElse(),
-  }) {
-    if (camera != null) {
-      return camera(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Camera extends ScanState {
-  const factory Camera() = _$CameraImpl;
-  const Camera._() : super._();
-}
-
-/// @nodoc
-abstract class _$$ResultImplCopyWith<$Res> {
-  factory _$$ResultImplCopyWith(
-          _$ResultImpl value, $Res Function(_$ResultImpl) then) =
-      __$$ResultImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ResultImplCopyWithImpl<$Res>
-    extends _$ScanStateCopyWithImpl<$Res, _$ResultImpl>
-    implements _$$ResultImplCopyWith<$Res> {
-  __$$ResultImplCopyWithImpl(
-      _$ResultImpl _value, $Res Function(_$ResultImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ResultImpl extends Result {
-  const _$ResultImpl() : super._();
-
-  @override
-  String toString() {
-    return 'ScanState.result()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResultImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-    required TResult Function() camera,
-    required TResult Function() result,
-  }) {
-    return result();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-    TResult? Function()? camera,
-    TResult? Function()? result,
-  }) {
-    return result?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    TResult Function()? camera,
-    TResult Function()? result,
-    required TResult orElse(),
-  }) {
-    if (result != null) {
-      return result();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ScanState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(ErrorS value) error,
-    required TResult Function(Camera value) camera,
-    required TResult Function(Result value) result,
-  }) {
-    return result(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ScanState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(ErrorS value)? error,
-    TResult? Function(Camera value)? camera,
-    TResult? Function(Result value)? result,
-  }) {
-    return result?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ScanState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(ErrorS value)? error,
-    TResult Function(Camera value)? camera,
-    TResult Function(Result value)? result,
-    required TResult orElse(),
-  }) {
-    if (result != null) {
-      return result(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Result extends ScanState {
-  const factory Result() = _$ResultImpl;
-  const Result._() : super._();
+  @JsonKey(ignore: true)
+  _$$ScanStateImplCopyWith<_$ScanStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
