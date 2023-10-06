@@ -21,38 +21,19 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
     await bannedCountriesBox.addBannedCountry(bc);
   }
 
-  // read
+  // readAt
   @override
   BannedCountries? readCountry(int index) {
     return bannedCountriesBox.readBannedCountry(index);
   }
 
-  // read all
+  // readAll
   @override
   List<BannedCountries> readCountries() {
     return bannedCountriesBox.readAllBannedCountries();
   }
 
-  // deleteAt
-  @override
-  Future<void> deleteCountryAt(int index) async {
-    await bannedCountriesBox.deleteBannedCountryAt(index);
-  }
-
-  // deleteAll
-  @override
-  Future<void> deleteCountries() async {
-    await bannedCountriesBox.deleteBannedCountries();
-  }
-
-  @override
-  bool hasCountry(String country) {
-    final List<BannedCountries> list =
-        bannedCountriesBox.readAllBannedCountries();
-
-    return list.any((element) => element.bannedCountry == country);
-  }
-
+  // update
   // Country where its value need to be updated to `value`.
   @override
   Future<void> updateCountryChecked(String country, bool? newValue) async {
@@ -80,6 +61,26 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
         isBanned: newValue,
       ),
     );
+  }
+
+  // deleteAt
+  @override
+  Future<void> deleteCountryAt(int index) async {
+    await bannedCountriesBox.deleteBannedCountryAt(index);
+  }
+
+  // deleteAll
+  @override
+  Future<void> deleteCountries() async {
+    await bannedCountriesBox.deleteBannedCountries();
+  }
+
+  @override
+  bool hasCountry(String country) {
+    final List<BannedCountries> list =
+        bannedCountriesBox.readAllBannedCountries();
+
+    return list.any((element) => element.bannedCountry == country);
   }
 
   int lookupCountry(BannedCountries bCountry) {
