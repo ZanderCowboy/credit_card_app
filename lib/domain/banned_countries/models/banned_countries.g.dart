@@ -17,8 +17,8 @@ class BannedCountriesAdapter extends TypeAdapter<BannedCountries> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return BannedCountries(
-      bannedCountry: fields[0] as String,
-      isBanned: fields[1] as bool,
+      bannedCountry: fields[0] == null ? '' : fields[0] as String,
+      isBanned: fields[1] == null ? false : fields[1] as bool,
     );
   }
 
