@@ -12,9 +12,9 @@ class StartBloc extends Bloc<StartEvent, StartState> {
     on<StartEvent>((event, emit) {
       event.map(
         onStart: (_) {
-          // nothing is required here. Only page navigation, which happens in the UI
+          // nothing is required here. Only page navigation, which happens in
+          // the UI
           emit(state.copyWith(isLoading: true, errorMessage: null));
-          emit(StartState.initial());
           emit(state.copyWith(isLoading: false, errorMessage: null));
         },
       );

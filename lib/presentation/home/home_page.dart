@@ -59,9 +59,7 @@ class _HomePage extends StatelessWidget {
                   height: 16,
                 ),
                 _ElevButton(
-                  buttonTitle: historyButtonTitle,
-                  route: historyRoute,
-                ),
+                    buttonTitle: historyButtonTitle, route: historyRoute),
                 SizedBox(
                   height: 16,
                 ),

@@ -51,7 +51,6 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
               ),
             );
             _bannedCountriesRepository.addCountry(value.selectedCountry!);
-            // emit(state.copyWith(isAdded: true));
           }
 
           emit(
@@ -98,7 +97,12 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
             value.value,
           );
 
-          emit(state.copyWith(isChecked: false, isUnchecked: false));
+          emit(
+            state.copyWith(
+              isChecked: false,
+              isUnchecked: false,
+            ),
+          );
         },
       );
     });
