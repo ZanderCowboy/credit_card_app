@@ -31,38 +31,60 @@ class _HistoryPage extends StatelessWidget {
     final List<CreditCard> cards =
         context.read<CreditCardRepository>().readHistoryCards();
 
-    return BlocBuilder<HistoryBloc, HistoryState>(
+    return BlocConsumer<HistoryBloc, HistoryState>(
+      listener: (context, state) {},
       builder: (context, state) {
-        return ListView.builder(
-          itemCount: cards.length,
-          itemBuilder: (context, index) {
-            final reversedIndex = cards.length - 1 - index;
-            final creditCard = cards[reversedIndex];
+        return cards.isEmpty
+            ? _EmptyListView()
+            : ListView.builder(
+                itemCount: cards.length,
+                itemBuilder: (context, index) {
+                  final reversedIndex = cards.length - 1 - index;
+                  final creditCard = cards[reversedIndex];
 
-            return Card(
-              elevation: 3,
-              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: ListTile(
-                leading: const Icon(Icons.credit_card),
-                title: Text(
-                  creditCard.cardNumber,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Card Type: ${creditCard.cardType}'),
-                    Text(
-                      'CVV: ${creditCard.cvvNumber.padLeft(3, '0')}',
+                  return Card(
+                    elevation: 3,
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    child: ListTile(
+                      leading: const Icon(Icons.credit_card),
+                      title: Text(
+                        creditCard.cardNumber,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Card Type: ${creditCard.cardType}'),
+                          Text(
+                            'CVV: ${creditCard.cvvNumber.padLeft(3, '0')}',
+                          ),
+                          Text('Issuing Country: ${creditCard.issuingCountry}'),
+                        ],
+                      ),
                     ),
-                    Text('Issuing Country: ${creditCard.issuingCountry}'),
-                  ],
-                ),
-              ),
-            );
-          },
-        );
+                  );
+                },
+              );
       },
+    );
+  }
+}
+
+class _EmptyListView extends StatelessWidget {
+  const _EmptyListView();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        historyNoCreditCardsMessage,
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w200,
+          color: Colors.grey[600],
+        ),
+      ),
     );
   }
 }
