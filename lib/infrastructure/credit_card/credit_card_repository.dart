@@ -58,7 +58,8 @@ class CreditCardRepository implements ICreditCardRepository {
           element.cardNumber == card.cardNumber &&
           element.cardType == card.cardType &&
           element.cvvNumber == card.cvvNumber &&
-          element.issuingCountry == card.issuingCountry,
+          element.issuingCountry == card.issuingCountry &&
+          element.isValid == card.isValid,
     );
   }
 
