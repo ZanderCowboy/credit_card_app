@@ -17,11 +17,11 @@ class CreditCardAdapter extends TypeAdapter<CreditCard> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return CreditCard(
-      cardNumber: fields[0] as String,
-      cardType: fields[1] as String,
-      cvvNumber: fields[2] as String,
-      issuingCountry: fields[3] as String,
-      isValid: fields[4] as bool,
+      cardNumber: fields[0] == null ? '' : fields[0] as String,
+      cardType: fields[1] == null ? '' : fields[1] as String,
+      cvvNumber: fields[2] == null ? '' : fields[2] as String,
+      issuingCountry: fields[3] == null ? '' : fields[3] as String,
+      isValid: fields[4] == null ? '' : fields[4] as bool,
     );
   }
 

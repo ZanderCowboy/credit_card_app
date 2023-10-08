@@ -16,15 +16,15 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CreditCard {
-  @HiveField(0)
+  @HiveField(0, defaultValue: '')
   String get cardNumber => throw _privateConstructorUsedError;
-  @HiveField(1)
+  @HiveField(1, defaultValue: '')
   String get cardType => throw _privateConstructorUsedError;
-  @HiveField(2)
+  @HiveField(2, defaultValue: '')
   String get cvvNumber => throw _privateConstructorUsedError;
-  @HiveField(3)
+  @HiveField(3, defaultValue: '')
   String get issuingCountry => throw _privateConstructorUsedError;
-  @HiveField(4)
+  @HiveField(4, defaultValue: '')
   bool get isValid => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -39,11 +39,11 @@ abstract class $CreditCardCopyWith<$Res> {
       _$CreditCardCopyWithImpl<$Res, CreditCard>;
   @useResult
   $Res call(
-      {@HiveField(0) String cardNumber,
-      @HiveField(1) String cardType,
-      @HiveField(2) String cvvNumber,
-      @HiveField(3) String issuingCountry,
-      @HiveField(4) bool isValid});
+      {@HiveField(0, defaultValue: '') String cardNumber,
+      @HiveField(1, defaultValue: '') String cardType,
+      @HiveField(2, defaultValue: '') String cvvNumber,
+      @HiveField(3, defaultValue: '') String issuingCountry,
+      @HiveField(4, defaultValue: '') bool isValid});
 }
 
 /// @nodoc
@@ -99,11 +99,11 @@ abstract class _$$CreditCardImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@HiveField(0) String cardNumber,
-      @HiveField(1) String cardType,
-      @HiveField(2) String cvvNumber,
-      @HiveField(3) String issuingCountry,
-      @HiveField(4) bool isValid});
+      {@HiveField(0, defaultValue: '') String cardNumber,
+      @HiveField(1, defaultValue: '') String cardType,
+      @HiveField(2, defaultValue: '') String cvvNumber,
+      @HiveField(3, defaultValue: '') String issuingCountry,
+      @HiveField(4, defaultValue: '') bool isValid});
 }
 
 /// @nodoc
@@ -152,26 +152,26 @@ class __$$CreditCardImplCopyWithImpl<$Res>
 
 class _$CreditCardImpl implements _CreditCard {
   const _$CreditCardImpl(
-      {@HiveField(0) required this.cardNumber,
-      @HiveField(1) required this.cardType,
-      @HiveField(2) required this.cvvNumber,
-      @HiveField(3) required this.issuingCountry,
-      @HiveField(4) required this.isValid});
+      {@HiveField(0, defaultValue: '') required this.cardNumber,
+      @HiveField(1, defaultValue: '') required this.cardType,
+      @HiveField(2, defaultValue: '') required this.cvvNumber,
+      @HiveField(3, defaultValue: '') required this.issuingCountry,
+      @HiveField(4, defaultValue: '') required this.isValid});
 
   @override
-  @HiveField(0)
+  @HiveField(0, defaultValue: '')
   final String cardNumber;
   @override
-  @HiveField(1)
+  @HiveField(1, defaultValue: '')
   final String cardType;
   @override
-  @HiveField(2)
+  @HiveField(2, defaultValue: '')
   final String cvvNumber;
   @override
-  @HiveField(3)
+  @HiveField(3, defaultValue: '')
   final String issuingCountry;
   @override
-  @HiveField(4)
+  @HiveField(4, defaultValue: '')
   final bool isValid;
 
   @override
@@ -208,26 +208,27 @@ class _$CreditCardImpl implements _CreditCard {
 
 abstract class _CreditCard implements CreditCard {
   const factory _CreditCard(
-      {@HiveField(0) required final String cardNumber,
-      @HiveField(1) required final String cardType,
-      @HiveField(2) required final String cvvNumber,
-      @HiveField(3) required final String issuingCountry,
-      @HiveField(4) required final bool isValid}) = _$CreditCardImpl;
+          {@HiveField(0, defaultValue: '') required final String cardNumber,
+          @HiveField(1, defaultValue: '') required final String cardType,
+          @HiveField(2, defaultValue: '') required final String cvvNumber,
+          @HiveField(3, defaultValue: '') required final String issuingCountry,
+          @HiveField(4, defaultValue: '') required final bool isValid}) =
+      _$CreditCardImpl;
 
   @override
-  @HiveField(0)
+  @HiveField(0, defaultValue: '')
   String get cardNumber;
   @override
-  @HiveField(1)
+  @HiveField(1, defaultValue: '')
   String get cardType;
   @override
-  @HiveField(2)
+  @HiveField(2, defaultValue: '')
   String get cvvNumber;
   @override
-  @HiveField(3)
+  @HiveField(3, defaultValue: '')
   String get issuingCountry;
   @override
-  @HiveField(4)
+  @HiveField(4, defaultValue: '')
   bool get isValid;
   @override
   @JsonKey(ignore: true)
