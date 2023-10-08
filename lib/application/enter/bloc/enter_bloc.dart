@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
-import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/domain/credit_card/i_credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:flutter_credit_card/extension.dart';
@@ -33,7 +30,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
               if (hasDuplicate) {
                 emit(state.copyWith(isDuplicate: true));
               } else {
-                emit(state.copyWith(isValid: true));
+                emit(state.copyWith(isUnique: true));
 
                 final isValidDetails = _isValid(state.creditCard);
 
@@ -60,32 +57,19 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
                     ),
                   );
                 }
-
-                // emit(
-                //   state.copyWith(
-                //     creditCard: state.creditCard.copyWith(
-                //       cardNumber: state.creditCard.cardNumber,
-                //       cardType: state.creditCard.cardType,
-                //       cvvNumber: state.creditCard.cvvNumber,
-                //       issuingCountry: state.creditCard.issuingCountry,
-                //       isValid: state.creditCard.isValid,
-                //     ),
-                //   ),
-                // );
               }
 
               emit(
                 state.copyWith(
                   isLoading: false,
                   isDuplicate: false,
-                  isValid: false,
+                  isUnique: false,
                   isInvalid: false,
                 ),
               );
             }
           },
           onSubmit: (_) {
-            log('in onSumbit in bloc');
             emit(state.copyWith(isSaving: true, errorMessage: null));
 
             final isValidTextValue = _isValid(state.creditCard);

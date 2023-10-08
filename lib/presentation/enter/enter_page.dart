@@ -53,7 +53,7 @@ class _EnterPage extends HookWidget {
           );
         }
 
-        if (state.isValid) {
+        if (state.isUnique) {
           ScaffoldMessenger.of(context).clearSnackBars();
           showDialog<AlertDialog>(
             context: context,
@@ -153,16 +153,6 @@ class _EnterPage extends HookWidget {
                                     hintStyle: TextStyle(color: Colors.white),
                                     labelStyle: TextStyle(color: Colors.white),
                                   ),
-                                  // validator: (String? value) {
-                                  //   if (value == null || value.isEmpty) {
-                                  //     return cardNumberErrorText;
-                                  //   }
-                                  //   if (!RegExp(r'^[0-9]{16,}$')
-                                  //       .hasMatch(value)) {
-                                  //     return 'Not a number!'; // FIXME: not complete;
-                                  //   }
-                                  //   return null;
-                                  // },
                                   onChanged: (value) {
                                     context
                                         .read<EnterBloc>()
@@ -197,16 +187,6 @@ class _EnterPage extends HookWidget {
                                     hintStyle: TextStyle(color: Colors.white),
                                     labelStyle: TextStyle(color: Colors.white),
                                   ),
-                                  // validator: (String? value) {
-                                  //   if (value == null || value.isEmpty) {
-                                  //     return cvvNumberErrorText;
-                                  //   }
-                                  //   if (!RegExp(r'^[0-9]{3,4}$')
-                                  //       .hasMatch(value)) {
-                                  //     return 'Not a CVV number!'; // FIXME: not complete;
-                                  //   }
-                                  //   return null;
-                                  // },
                                   onChanged: (value) {
                                     context
                                         .read<EnterBloc>()

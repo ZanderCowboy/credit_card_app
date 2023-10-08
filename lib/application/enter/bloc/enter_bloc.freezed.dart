@@ -1202,7 +1202,7 @@ mixin _$EnterState {
   CreditCard get creditCard => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
-  bool get isValid => throw _privateConstructorUsedError;
+  bool get isUnique => throw _privateConstructorUsedError;
   bool get isInvalid => throw _privateConstructorUsedError;
   bool get isDuplicate => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
@@ -1222,7 +1222,7 @@ abstract class $EnterStateCopyWith<$Res> {
       {CreditCard creditCard,
       bool isLoading,
       bool isSaving,
-      bool isValid,
+      bool isUnique,
       bool isInvalid,
       bool isDuplicate,
       String? errorMessage});
@@ -1246,7 +1246,7 @@ class _$EnterStateCopyWithImpl<$Res, $Val extends EnterState>
     Object? creditCard = null,
     Object? isLoading = null,
     Object? isSaving = null,
-    Object? isValid = null,
+    Object? isUnique = null,
     Object? isInvalid = null,
     Object? isDuplicate = null,
     Object? errorMessage = freezed,
@@ -1264,9 +1264,9 @@ class _$EnterStateCopyWithImpl<$Res, $Val extends EnterState>
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
               as bool,
-      isValid: null == isValid
-          ? _value.isValid
-          : isValid // ignore: cast_nullable_to_non_nullable
+      isUnique: null == isUnique
+          ? _value.isUnique
+          : isUnique // ignore: cast_nullable_to_non_nullable
               as bool,
       isInvalid: null == isInvalid
           ? _value.isInvalid
@@ -1304,7 +1304,7 @@ abstract class _$$EnterStateImplCopyWith<$Res>
       {CreditCard creditCard,
       bool isLoading,
       bool isSaving,
-      bool isValid,
+      bool isUnique,
       bool isInvalid,
       bool isDuplicate,
       String? errorMessage});
@@ -1327,7 +1327,7 @@ class __$$EnterStateImplCopyWithImpl<$Res>
     Object? creditCard = null,
     Object? isLoading = null,
     Object? isSaving = null,
-    Object? isValid = null,
+    Object? isUnique = null,
     Object? isInvalid = null,
     Object? isDuplicate = null,
     Object? errorMessage = freezed,
@@ -1345,9 +1345,9 @@ class __$$EnterStateImplCopyWithImpl<$Res>
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
               as bool,
-      isValid: null == isValid
-          ? _value.isValid
-          : isValid // ignore: cast_nullable_to_non_nullable
+      isUnique: null == isUnique
+          ? _value.isUnique
+          : isUnique // ignore: cast_nullable_to_non_nullable
               as bool,
       isInvalid: null == isInvalid
           ? _value.isInvalid
@@ -1372,7 +1372,7 @@ class _$EnterStateImpl extends _EnterState {
       {required this.creditCard,
       required this.isLoading,
       required this.isSaving,
-      required this.isValid,
+      required this.isUnique,
       required this.isInvalid,
       required this.isDuplicate,
       required this.errorMessage})
@@ -1385,7 +1385,7 @@ class _$EnterStateImpl extends _EnterState {
   @override
   final bool isSaving;
   @override
-  final bool isValid;
+  final bool isUnique;
   @override
   final bool isInvalid;
   @override
@@ -1395,7 +1395,7 @@ class _$EnterStateImpl extends _EnterState {
 
   @override
   String toString() {
-    return 'EnterState(creditCard: $creditCard, isLoading: $isLoading, isSaving: $isSaving, isValid: $isValid, isInvalid: $isInvalid, isDuplicate: $isDuplicate, errorMessage: $errorMessage)';
+    return 'EnterState(creditCard: $creditCard, isLoading: $isLoading, isSaving: $isSaving, isUnique: $isUnique, isInvalid: $isInvalid, isDuplicate: $isDuplicate, errorMessage: $errorMessage)';
   }
 
   @override
@@ -1409,7 +1409,8 @@ class _$EnterStateImpl extends _EnterState {
                 other.isLoading == isLoading) &&
             (identical(other.isSaving, isSaving) ||
                 other.isSaving == isSaving) &&
-            (identical(other.isValid, isValid) || other.isValid == isValid) &&
+            (identical(other.isUnique, isUnique) ||
+                other.isUnique == isUnique) &&
             (identical(other.isInvalid, isInvalid) ||
                 other.isInvalid == isInvalid) &&
             (identical(other.isDuplicate, isDuplicate) ||
@@ -1420,7 +1421,7 @@ class _$EnterStateImpl extends _EnterState {
 
   @override
   int get hashCode => Object.hash(runtimeType, creditCard, isLoading, isSaving,
-      isValid, isInvalid, isDuplicate, errorMessage);
+      isUnique, isInvalid, isDuplicate, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -1434,7 +1435,7 @@ abstract class _EnterState extends EnterState {
       {required final CreditCard creditCard,
       required final bool isLoading,
       required final bool isSaving,
-      required final bool isValid,
+      required final bool isUnique,
       required final bool isInvalid,
       required final bool isDuplicate,
       required final String? errorMessage}) = _$EnterStateImpl;
@@ -1447,7 +1448,7 @@ abstract class _EnterState extends EnterState {
   @override
   bool get isSaving;
   @override
-  bool get isValid;
+  bool get isUnique;
   @override
   bool get isInvalid;
   @override
