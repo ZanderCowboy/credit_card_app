@@ -5,7 +5,6 @@ class HistoryState with _$HistoryState {
   const factory HistoryState({
     required CreditCard creditCard,
     required bool isLoading,
-    required bool isDeleted,
     required String? errorMessage,
   }) = _HistoryState;
 
@@ -14,7 +13,6 @@ class HistoryState with _$HistoryState {
   factory HistoryState.initial() => HistoryState(
         creditCard: CreditCard.empty(),
         isLoading: false,
-        isDeleted: false,
         errorMessage: '',
       );
 }
