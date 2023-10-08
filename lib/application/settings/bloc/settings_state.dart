@@ -5,6 +5,7 @@ class SettingsState with _$SettingsState {
   const factory SettingsState({
     required BannedCountries bannedCountries,
     required bool isChecked,
+    required bool isUnchecked,
     required bool isLoading,
     required bool isDeleted,
     required bool isDuplicate,
@@ -19,6 +20,7 @@ class SettingsState with _$SettingsState {
         bannedCountries: BannedCountries.empty(),
         country: '',
         isChecked: false,
+        isUnchecked: false,
         isLoading: false,
         isDeleted: false,
         isDuplicate: false,

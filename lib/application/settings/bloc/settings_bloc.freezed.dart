@@ -556,6 +556,7 @@ abstract class onCountryPressed implements SettingsEvent {
 mixin _$SettingsState {
   BannedCountries get bannedCountries => throw _privateConstructorUsedError;
   bool get isChecked => throw _privateConstructorUsedError;
+  bool get isUnchecked => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isDeleted => throw _privateConstructorUsedError;
   bool get isDuplicate => throw _privateConstructorUsedError;
@@ -577,6 +578,7 @@ abstract class $SettingsStateCopyWith<$Res> {
   $Res call(
       {BannedCountries bannedCountries,
       bool isChecked,
+      bool isUnchecked,
       bool isLoading,
       bool isDeleted,
       bool isDuplicate,
@@ -602,6 +604,7 @@ class _$SettingsStateCopyWithImpl<$Res, $Val extends SettingsState>
   $Res call({
     Object? bannedCountries = null,
     Object? isChecked = null,
+    Object? isUnchecked = null,
     Object? isLoading = null,
     Object? isDeleted = null,
     Object? isDuplicate = null,
@@ -617,6 +620,10 @@ class _$SettingsStateCopyWithImpl<$Res, $Val extends SettingsState>
       isChecked: null == isChecked
           ? _value.isChecked
           : isChecked // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isUnchecked: null == isUnchecked
+          ? _value.isUnchecked
+          : isUnchecked // ignore: cast_nullable_to_non_nullable
               as bool,
       isLoading: null == isLoading
           ? _value.isLoading
@@ -665,6 +672,7 @@ abstract class _$$SettingsStateImplCopyWith<$Res>
   $Res call(
       {BannedCountries bannedCountries,
       bool isChecked,
+      bool isUnchecked,
       bool isLoading,
       bool isDeleted,
       bool isDuplicate,
@@ -689,6 +697,7 @@ class __$$SettingsStateImplCopyWithImpl<$Res>
   $Res call({
     Object? bannedCountries = null,
     Object? isChecked = null,
+    Object? isUnchecked = null,
     Object? isLoading = null,
     Object? isDeleted = null,
     Object? isDuplicate = null,
@@ -704,6 +713,10 @@ class __$$SettingsStateImplCopyWithImpl<$Res>
       isChecked: null == isChecked
           ? _value.isChecked
           : isChecked // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isUnchecked: null == isUnchecked
+          ? _value.isUnchecked
+          : isUnchecked // ignore: cast_nullable_to_non_nullable
               as bool,
       isLoading: null == isLoading
           ? _value.isLoading
@@ -739,6 +752,7 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
   const _$SettingsStateImpl(
       {required this.bannedCountries,
       required this.isChecked,
+      required this.isUnchecked,
       required this.isLoading,
       required this.isDeleted,
       required this.isDuplicate,
@@ -751,6 +765,8 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
   final BannedCountries bannedCountries;
   @override
   final bool isChecked;
+  @override
+  final bool isUnchecked;
   @override
   final bool isLoading;
   @override
@@ -766,7 +782,7 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SettingsState(bannedCountries: $bannedCountries, isChecked: $isChecked, isLoading: $isLoading, isDeleted: $isDeleted, isDuplicate: $isDuplicate, isAdded: $isAdded, errorMessage: $errorMessage, country: $country)';
+    return 'SettingsState(bannedCountries: $bannedCountries, isChecked: $isChecked, isUnchecked: $isUnchecked, isLoading: $isLoading, isDeleted: $isDeleted, isDuplicate: $isDuplicate, isAdded: $isAdded, errorMessage: $errorMessage, country: $country)';
   }
 
   @override
@@ -776,6 +792,7 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('type', 'SettingsState'))
       ..add(DiagnosticsProperty('bannedCountries', bannedCountries))
       ..add(DiagnosticsProperty('isChecked', isChecked))
+      ..add(DiagnosticsProperty('isUnchecked', isUnchecked))
       ..add(DiagnosticsProperty('isLoading', isLoading))
       ..add(DiagnosticsProperty('isDeleted', isDeleted))
       ..add(DiagnosticsProperty('isDuplicate', isDuplicate))
@@ -793,6 +810,8 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
                 other.bannedCountries == bannedCountries) &&
             (identical(other.isChecked, isChecked) ||
                 other.isChecked == isChecked) &&
+            (identical(other.isUnchecked, isUnchecked) ||
+                other.isUnchecked == isUnchecked) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.isDeleted, isDeleted) ||
@@ -806,8 +825,17 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bannedCountries, isChecked,
-      isLoading, isDeleted, isDuplicate, isAdded, errorMessage, country);
+  int get hashCode => Object.hash(
+      runtimeType,
+      bannedCountries,
+      isChecked,
+      isUnchecked,
+      isLoading,
+      isDeleted,
+      isDuplicate,
+      isAdded,
+      errorMessage,
+      country);
 
   @JsonKey(ignore: true)
   @override
@@ -820,6 +848,7 @@ abstract class _SettingsState extends SettingsState {
   const factory _SettingsState(
       {required final BannedCountries bannedCountries,
       required final bool isChecked,
+      required final bool isUnchecked,
       required final bool isLoading,
       required final bool isDeleted,
       required final bool isDuplicate,
@@ -832,6 +861,8 @@ abstract class _SettingsState extends SettingsState {
   BannedCountries get bannedCountries;
   @override
   bool get isChecked;
+  @override
+  bool get isUnchecked;
   @override
   bool get isLoading;
   @override

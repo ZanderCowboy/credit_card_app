@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/domain/banned_countries/i_banned_countries_repository.dart';
@@ -84,14 +86,19 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           );
         },
         onCountryPressed: (value) {
-          emit(state.copyWith(isChecked: true));
+          log('in onCountryPressed: value.value=${value.value}');
+          if (value.value!) {
+            emit(state.copyWith(isChecked: true));
+          } else {
+            emit(state.copyWith(isUnchecked: true));
+          }
 
           _bannedCountriesRepository.updateCountryChecked(
             value.country,
             value.value,
           );
 
-          emit(state.copyWith(isChecked: false));
+          emit(state.copyWith(isChecked: false, isUnchecked: false));
         },
       );
     });

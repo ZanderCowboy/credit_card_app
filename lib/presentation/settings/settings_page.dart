@@ -81,6 +81,14 @@ class _SettingsPage extends StatelessWidget {
             ),
           );
         }
+        if (state.isUnchecked) {
+          ScaffoldMessenger.of(context).clearSnackBars();
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Unchecked.'),
+            ),
+          );
+        }
         if (state.errorMessage.isNotNullAndNotEmpty) {}
       },
       builder: (context, state) {
@@ -108,7 +116,6 @@ class _SettingsPage extends StatelessWidget {
                           child: SingleChildScrollView(
                             child: Column(
                               children: [
-                                // _BannedCountriesList(),
                                 _BannedCountryList(),
                               ],
                             ),
