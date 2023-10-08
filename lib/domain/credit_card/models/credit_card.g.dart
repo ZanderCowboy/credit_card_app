@@ -21,7 +21,7 @@ class CreditCardAdapter extends TypeAdapter<CreditCard> {
       cardType: fields[1] == null ? '' : fields[1] as String,
       cvvNumber: fields[2] == null ? '' : fields[2] as String,
       issuingCountry: fields[3] == null ? '' : fields[3] as String,
-      isValid: fields[4] == null ? '' : fields[4] as bool,
+      isValid: fields[4] == null ? false : fields[4] as bool,
     );
   }
 

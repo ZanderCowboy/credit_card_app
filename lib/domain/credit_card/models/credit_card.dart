@@ -13,7 +13,7 @@ class CreditCard with _$CreditCard {
     @HiveField(1, defaultValue: '') required String cardType,
     @HiveField(2, defaultValue: '') required String cvvNumber,
     @HiveField(3, defaultValue: '') required String issuingCountry,
-    @HiveField(4, defaultValue: '') required bool isValid,
+    @HiveField(4, defaultValue: false) required bool isValid,
   }) = _CreditCard;
 
   factory CreditCard.empty() => const CreditCard(
