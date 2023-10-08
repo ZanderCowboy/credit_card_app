@@ -66,6 +66,9 @@ const String duplicateCardErrorMessage =
 const String enterValidateButtonTitle = 'Validate';
 const String enterSubmissionDialogTitle = 'Confirm details?';
 
+// History Page
+const String historyNoCreditCardsMessage = 'No cards captured.';
+
 // Result Dialog
 const String successfulCaptureCardMessage = 'Credit card captured successfully';
 
