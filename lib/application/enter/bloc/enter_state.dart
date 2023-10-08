@@ -7,6 +7,7 @@ class EnterState with _$EnterState {
     required bool isLoading,
     required bool isSaving,
     required bool isValid,
+    required bool isInvalid,
     required bool isDuplicate,
     required String? errorMessage,
   }) = _EnterState;
@@ -19,6 +20,7 @@ class EnterState with _$EnterState {
         isLoading: false,
         isSaving: false,
         isValid: false,
+        isInvalid: false,
         isDuplicate: false,
         errorMessage: '',
       );

@@ -1,4 +1,3 @@
-
 import 'package:credit_card_app/application/enter/bloc/enter_bloc.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
@@ -8,6 +7,7 @@ import 'package:credit_card_app/widgets/common/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_credit_card/credit_card_brand.dart';
+import 'package:flutter_credit_card/extension.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -39,7 +39,7 @@ class _EnterPage extends HookWidget {
     final cardNumberTextController = useTextEditingController();
     final cardTypeTextController = useTextEditingController();
     final cardCvvTextController = useTextEditingController();
-    final countryTextController = useTextEditingController();
+    final countryTextController = useTextEditingController(text: null);
 
     return BlocConsumer<EnterBloc, EnterState>(
       listener: (context, state) {
@@ -54,6 +54,7 @@ class _EnterPage extends HookWidget {
         }
 
         if (state.isValid) {
+          ScaffoldMessenger.of(context).clearSnackBars();
           showDialog<AlertDialog>(
             context: context,
             builder: (_) {
@@ -90,6 +91,15 @@ class _EnterPage extends HookWidget {
             },
           );
         }
+        if (state.isInvalid) {
+          ScaffoldMessenger.of(context).clearSnackBars();
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Invalid details.'),
+              // duration: Duration(seconds: 3),
+            ),
+          );
+        }
         if (state.isDuplicate) {
           ScaffoldMessenger.of(context).clearSnackBars();
           ScaffoldMessenger.of(context).showSnackBar(
@@ -105,13 +115,15 @@ class _EnterPage extends HookWidget {
               .showSnackBar(const SnackBar(content: Text('saving...')));
           // _showDialog(context);
         }
-        if (state.errorMessage!.isNotEmpty) {
+        if (state.errorMessage.isNotNullAndNotEmpty) {
           ScaffoldMessenger.of(context).clearSnackBars();
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text(state.errorMessage!)));
         }
       },
       builder: (context, state) {
+        String? selectedCountry = null;
+
         return Padding(
           padding: const EdgeInsets.all(8),
           child: Column(
@@ -141,12 +153,16 @@ class _EnterPage extends HookWidget {
                                     hintStyle: TextStyle(color: Colors.white),
                                     labelStyle: TextStyle(color: Colors.white),
                                   ),
-                                  validator: (String? value) {
-                                    if (value == null || value.isEmpty) {
-                                      return cardNumberErrorText;
-                                    }
-                                    return null;
-                                  },
+                                  // validator: (String? value) {
+                                  //   if (value == null || value.isEmpty) {
+                                  //     return cardNumberErrorText;
+                                  //   }
+                                  //   if (!RegExp(r'^[0-9]{16,}$')
+                                  //       .hasMatch(value)) {
+                                  //     return 'Not a number!'; // FIXME: not complete;
+                                  //   }
+                                  //   return null;
+                                  // },
                                   onChanged: (value) {
                                     context
                                         .read<EnterBloc>()
@@ -181,12 +197,16 @@ class _EnterPage extends HookWidget {
                                     hintStyle: TextStyle(color: Colors.white),
                                     labelStyle: TextStyle(color: Colors.white),
                                   ),
-                                  validator: (String? value) {
-                                    if (value == null || value.isEmpty) {
-                                      return cvvNumberErrorText;
-                                    }
-                                    return null;
-                                  },
+                                  // validator: (String? value) {
+                                  //   if (value == null || value.isEmpty) {
+                                  //     return cvvNumberErrorText;
+                                  //   }
+                                  //   if (!RegExp(r'^[0-9]{3,4}$')
+                                  //       .hasMatch(value)) {
+                                  //     return 'Not a CVV number!'; // FIXME: not complete;
+                                  //   }
+                                  //   return null;
+                                  // },
                                   onChanged: (value) {
                                     context
                                         .read<EnterBloc>()
@@ -195,6 +215,7 @@ class _EnterPage extends HookWidget {
                                 ),
                                 DropdownButtonFormField<String>(
                                   hint: const Text(issuingCountryLabelText),
+                                  // value: countryTextController.text,
                                   items: countriesList.map((country) {
                                     return DropdownMenuItem<String>(
                                       value: country,
@@ -202,9 +223,10 @@ class _EnterPage extends HookWidget {
                                     );
                                   }).toList(),
                                   onChanged: (value) {
-                                    // selectedCountry = value;
+                                    selectedCountry = value;
                                     context.read<EnterBloc>().add(
-                                          EnterEvent.onChangedCountry(value!),
+                                          EnterEvent.onChangedCountry(
+                                              selectedCountry!),
                                         );
                                   },
                                 ),
@@ -226,6 +248,7 @@ class _EnterPage extends HookWidget {
                                             cardTypeTextController.clear();
                                             cardCvvTextController.clear();
                                             countryTextController.clear();
+                                            selectedCountry = null;
                                           },
                                           child: const Text('Clear'),
                                         ),
@@ -234,25 +257,31 @@ class _EnterPage extends HookWidget {
                                         ),
                                         ElevatedButton(
                                           style: buttonSmallStyle,
-                                          onPressed: () {
-                                            final creditCard = CreditCard(
-                                              cardNumber:
-                                                  cardNumberTextController.text,
-                                              cardType:
-                                                  cardTypeTextController.text,
-                                              cvvNumber:
-                                                  cardCvvTextController.text,
-                                              issuingCountry:
-                                                  countryTextController.text,
-                                              isValid: false,
-                                            );
+                                          onPressed: state.creditCard.isValid
+                                              ? () {
+                                                  final creditCard = CreditCard(
+                                                    cardNumber:
+                                                        cardNumberTextController
+                                                            .text,
+                                                    cardType:
+                                                        cardTypeTextController
+                                                            .text,
+                                                    cvvNumber:
+                                                        cardCvvTextController
+                                                            .text,
+                                                    issuingCountry:
+                                                        countryTextController
+                                                            .text,
+                                                    isValid: false,
+                                                  );
 
-                                            context.read<EnterBloc>().add(
-                                                  EnterEvent.onValidate(
-                                                    creditCard,
-                                                  ),
-                                                );
-                                          },
+                                                  context.read<EnterBloc>().add(
+                                                        EnterEvent.onValidate(
+                                                          creditCard,
+                                                        ),
+                                                      );
+                                                }
+                                              : null,
                                           child: const Text(
                                             enterValidateButtonTitle,
                                           ),

@@ -1203,6 +1203,7 @@ mixin _$EnterState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
   bool get isValid => throw _privateConstructorUsedError;
+  bool get isInvalid => throw _privateConstructorUsedError;
   bool get isDuplicate => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
@@ -1222,6 +1223,7 @@ abstract class $EnterStateCopyWith<$Res> {
       bool isLoading,
       bool isSaving,
       bool isValid,
+      bool isInvalid,
       bool isDuplicate,
       String? errorMessage});
 
@@ -1245,6 +1247,7 @@ class _$EnterStateCopyWithImpl<$Res, $Val extends EnterState>
     Object? isLoading = null,
     Object? isSaving = null,
     Object? isValid = null,
+    Object? isInvalid = null,
     Object? isDuplicate = null,
     Object? errorMessage = freezed,
   }) {
@@ -1264,6 +1267,10 @@ class _$EnterStateCopyWithImpl<$Res, $Val extends EnterState>
       isValid: null == isValid
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isInvalid: null == isInvalid
+          ? _value.isInvalid
+          : isInvalid // ignore: cast_nullable_to_non_nullable
               as bool,
       isDuplicate: null == isDuplicate
           ? _value.isDuplicate
@@ -1298,6 +1305,7 @@ abstract class _$$EnterStateImplCopyWith<$Res>
       bool isLoading,
       bool isSaving,
       bool isValid,
+      bool isInvalid,
       bool isDuplicate,
       String? errorMessage});
 
@@ -1320,6 +1328,7 @@ class __$$EnterStateImplCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? isSaving = null,
     Object? isValid = null,
+    Object? isInvalid = null,
     Object? isDuplicate = null,
     Object? errorMessage = freezed,
   }) {
@@ -1339,6 +1348,10 @@ class __$$EnterStateImplCopyWithImpl<$Res>
       isValid: null == isValid
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isInvalid: null == isInvalid
+          ? _value.isInvalid
+          : isInvalid // ignore: cast_nullable_to_non_nullable
               as bool,
       isDuplicate: null == isDuplicate
           ? _value.isDuplicate
@@ -1360,6 +1373,7 @@ class _$EnterStateImpl extends _EnterState {
       required this.isLoading,
       required this.isSaving,
       required this.isValid,
+      required this.isInvalid,
       required this.isDuplicate,
       required this.errorMessage})
       : super._();
@@ -1373,13 +1387,15 @@ class _$EnterStateImpl extends _EnterState {
   @override
   final bool isValid;
   @override
+  final bool isInvalid;
+  @override
   final bool isDuplicate;
   @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'EnterState(creditCard: $creditCard, isLoading: $isLoading, isSaving: $isSaving, isValid: $isValid, isDuplicate: $isDuplicate, errorMessage: $errorMessage)';
+    return 'EnterState(creditCard: $creditCard, isLoading: $isLoading, isSaving: $isSaving, isValid: $isValid, isInvalid: $isInvalid, isDuplicate: $isDuplicate, errorMessage: $errorMessage)';
   }
 
   @override
@@ -1394,6 +1410,8 @@ class _$EnterStateImpl extends _EnterState {
             (identical(other.isSaving, isSaving) ||
                 other.isSaving == isSaving) &&
             (identical(other.isValid, isValid) || other.isValid == isValid) &&
+            (identical(other.isInvalid, isInvalid) ||
+                other.isInvalid == isInvalid) &&
             (identical(other.isDuplicate, isDuplicate) ||
                 other.isDuplicate == isDuplicate) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -1402,7 +1420,7 @@ class _$EnterStateImpl extends _EnterState {
 
   @override
   int get hashCode => Object.hash(runtimeType, creditCard, isLoading, isSaving,
-      isValid, isDuplicate, errorMessage);
+      isValid, isInvalid, isDuplicate, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -1417,6 +1435,7 @@ abstract class _EnterState extends EnterState {
       required final bool isLoading,
       required final bool isSaving,
       required final bool isValid,
+      required final bool isInvalid,
       required final bool isDuplicate,
       required final String? errorMessage}) = _$EnterStateImpl;
   const _EnterState._() : super._();
@@ -1429,6 +1448,8 @@ abstract class _EnterState extends EnterState {
   bool get isSaving;
   @override
   bool get isValid;
+  @override
+  bool get isInvalid;
   @override
   bool get isDuplicate;
   @override

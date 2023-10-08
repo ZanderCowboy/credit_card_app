@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/domain/credit_card/i_credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:flutter_credit_card/extension.dart';
@@ -20,42 +21,76 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
           onValidate: (value) {
             emit(state.copyWith(isLoading: true));
 
-            final bool hasDuplicate =
-                _creditCardRepository.hasCreditCard(value.creditCard);
-
-            if (hasDuplicate) {
-              emit(state.copyWith(isDuplicate: true));
+            List<Object> returnValues = _CardValidation(state.creditCard);
+            if (returnValues[0] == false) {
+              emit(state.copyWith(
+                errorMessage: returnValues[1] as String,
+              ));
             } else {
-              emit(state.copyWith(isValid: true));
+              final bool hasDuplicate =
+                  _creditCardRepository.hasCreditCard(value.creditCard);
+
+              if (hasDuplicate) {
+                emit(state.copyWith(isDuplicate: true));
+              } else {
+                emit(state.copyWith(isValid: true));
+
+                final isValidDetails = _isValid(state.creditCard);
+
+                if (isValidDetails) {
+                  emit(
+                    state.copyWith(
+                      creditCard: state.creditCard.copyWith(
+                        cardNumber: state.creditCard.cardNumber,
+                        cardType: state.creditCard.cardType,
+                        cvvNumber: state.creditCard.cvvNumber,
+                        issuingCountry: state.creditCard.issuingCountry,
+                        isValid: isValidDetails,
+                      ),
+                    ),
+                  );
+                } else {
+                  emit(
+                    state.copyWith(
+                      creditCard: state.creditCard.copyWith(
+                        isValid: isValidDetails,
+                      ),
+                      isInvalid: true,
+                      errorMessage: 'The details provided are not valid',
+                    ),
+                  );
+                }
+
+                // emit(
+                //   state.copyWith(
+                //     creditCard: state.creditCard.copyWith(
+                //       cardNumber: state.creditCard.cardNumber,
+                //       cardType: state.creditCard.cardType,
+                //       cvvNumber: state.creditCard.cvvNumber,
+                //       issuingCountry: state.creditCard.issuingCountry,
+                //       isValid: state.creditCard.isValid,
+                //     ),
+                //   ),
+                // );
+              }
 
               emit(
                 state.copyWith(
-                  creditCard: state.creditCard.copyWith(
-                    cardNumber: state.creditCard.cardNumber,
-                    cardType: state.creditCard.cardType,
-                    cvvNumber: state.creditCard.cvvNumber,
-                    issuingCountry: state.creditCard.issuingCountry,
-                    isValid: state.creditCard.isValid,
-                  ),
+                  isLoading: false,
+                  isDuplicate: false,
+                  isValid: false,
+                  isInvalid: false,
                 ),
               );
             }
-
-            emit(
-              state.copyWith(
-                isLoading: false,
-                isDuplicate: false,
-                isValid: false,
-              ),
-            );
           },
-          onSubmit: (_) async {
+          onSubmit: (_) {
             log('in onSumbit in bloc');
             emit(state.copyWith(isSaving: true, errorMessage: null));
 
             final isValidTextValue = _isValid(state.creditCard);
             if (isValidTextValue) {
-              await _creditCardRepository.addCard(state.creditCard);
+              _creditCardRepository.addCard(state.creditCard);
               emit(
                 state.copyWith(
                   creditCard: state.creditCard.copyWith(
@@ -163,12 +198,30 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
 
   final ICreditCardRepository _creditCardRepository;
 
-  bool _isValid(CreditCard creditCard) {
+  bool _isValid(
+    CreditCard creditCard,
+  ) {
     return creditCard.cardNumber.isNotNullAndNotEmpty &&
         creditCard.cardType.isNotNullAndNotEmpty &&
-        creditCard.cvvNumber.isNotNullAndNotEmpty;
-    // final List<CreditCard> list = _creditCardRepository.readHistoryCards();
+        creditCard.cvvNumber.isNotNullAndNotEmpty &&
+        creditCard.issuingCountry.isNotNullAndNotEmpty;
+  }
 
-    // return list.contains(creditCard);
+  List<Object> _CardValidation(CreditCard creditCard) {
+    // cardNumber
+    final cardNumber = creditCard.cardNumber;
+    if (cardNumber.isEmpty) {
+      return [false, 'Card number can not be empty.'];
+    } else if (!RegExp(r'^[0-9]{16,}$').hasMatch(cardNumber)) {
+      return [false, 'Card number needs to have at least 16 digits.'];
+    }
+
+    // cardCVV
+    final cvvNumber = creditCard.cvvNumber;
+    if (!RegExp(r'^[0-9]{3,4}$').hasMatch(cvvNumber)) {
+      return [false, 'CVV number is either 3 or 4 digits.'];
+    }
+
+    return [true, ''];
   }
 }
