@@ -14,10 +14,10 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
     on<ScanEvent>(
       (event, emit) async {
         event.map(
-            onSubmit: (value) async {
+            onSubmit: (value) {
               emit(state.copyWith(isLoading: true));
 
-              await _creditCardRepository.addCard(value.creditCard);
+              _creditCardRepository.addCard(value.creditCard);
 
               emit(state.copyWith(isLoading: false, isSubmitted: true));
             },
