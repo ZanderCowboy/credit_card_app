@@ -11,4 +11,9 @@ class EnterEvent with _$EnterEvent {
   const factory EnterEvent.onChangedCvvNumber(String text) = onChangedCvv;
   const factory EnterEvent.onChangedIssuingCountry(String text) =
       onChangedCountry;
+
+  const factory EnterEvent.onTapCardNumber() = onTapCardNumber;
+  const factory EnterEvent.onTapCardType() = onTapCardType;
+  const factory EnterEvent.onTapCvvNumber() = onTapCvvNumber;
+  const factory EnterEvent.onTapIssuingCountry() = onTapIssuingCountry;
 }

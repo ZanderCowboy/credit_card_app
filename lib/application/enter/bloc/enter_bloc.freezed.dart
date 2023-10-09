@@ -25,6 +25,10 @@ mixin _$EnterEvent {
     required TResult Function(String text) onChangedCardType,
     required TResult Function(String text) onChangedCvvNumber,
     required TResult Function(String text) onChangedIssuingCountry,
+    required TResult Function() onTapCardNumber,
+    required TResult Function() onTapCardType,
+    required TResult Function() onTapCvvNumber,
+    required TResult Function() onTapIssuingCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +40,10 @@ mixin _$EnterEvent {
     TResult? Function(String text)? onChangedCardType,
     TResult? Function(String text)? onChangedCvvNumber,
     TResult? Function(String text)? onChangedIssuingCountry,
+    TResult? Function()? onTapCardNumber,
+    TResult? Function()? onTapCardType,
+    TResult? Function()? onTapCvvNumber,
+    TResult? Function()? onTapIssuingCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +55,10 @@ mixin _$EnterEvent {
     TResult Function(String text)? onChangedCardType,
     TResult Function(String text)? onChangedCvvNumber,
     TResult Function(String text)? onChangedIssuingCountry,
+    TResult Function()? onTapCardNumber,
+    TResult Function()? onTapCardType,
+    TResult Function()? onTapCvvNumber,
+    TResult Function()? onTapIssuingCountry,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +71,10 @@ mixin _$EnterEvent {
     required TResult Function(onChangedCardType value) onChangedCardType,
     required TResult Function(onChangedCvv value) onChangedCvvNumber,
     required TResult Function(onChangedCountry value) onChangedIssuingCountry,
+    required TResult Function(onTapCardNumber value) onTapCardNumber,
+    required TResult Function(onTapCardType value) onTapCardType,
+    required TResult Function(onTapCvvNumber value) onTapCvvNumber,
+    required TResult Function(onTapIssuingCountry value) onTapIssuingCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +86,10 @@ mixin _$EnterEvent {
     TResult? Function(onChangedCardType value)? onChangedCardType,
     TResult? Function(onChangedCvv value)? onChangedCvvNumber,
     TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult? Function(onTapCardNumber value)? onTapCardNumber,
+    TResult? Function(onTapCardType value)? onTapCardType,
+    TResult? Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult? Function(onTapIssuingCountry value)? onTapIssuingCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +101,10 @@ mixin _$EnterEvent {
     TResult Function(onChangedCardType value)? onChangedCardType,
     TResult Function(onChangedCvv value)? onChangedCvvNumber,
     TResult Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult Function(onTapCardNumber value)? onTapCardNumber,
+    TResult Function(onTapCardType value)? onTapCardType,
+    TResult Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult Function(onTapIssuingCountry value)? onTapIssuingCountry,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -186,6 +210,10 @@ class _$onValidateImpl implements onValidate {
     required TResult Function(String text) onChangedCardType,
     required TResult Function(String text) onChangedCvvNumber,
     required TResult Function(String text) onChangedIssuingCountry,
+    required TResult Function() onTapCardNumber,
+    required TResult Function() onTapCardType,
+    required TResult Function() onTapCvvNumber,
+    required TResult Function() onTapIssuingCountry,
   }) {
     return onValidate(creditCard);
   }
@@ -200,6 +228,10 @@ class _$onValidateImpl implements onValidate {
     TResult? Function(String text)? onChangedCardType,
     TResult? Function(String text)? onChangedCvvNumber,
     TResult? Function(String text)? onChangedIssuingCountry,
+    TResult? Function()? onTapCardNumber,
+    TResult? Function()? onTapCardType,
+    TResult? Function()? onTapCvvNumber,
+    TResult? Function()? onTapIssuingCountry,
   }) {
     return onValidate?.call(creditCard);
   }
@@ -214,6 +246,10 @@ class _$onValidateImpl implements onValidate {
     TResult Function(String text)? onChangedCardType,
     TResult Function(String text)? onChangedCvvNumber,
     TResult Function(String text)? onChangedIssuingCountry,
+    TResult Function()? onTapCardNumber,
+    TResult Function()? onTapCardType,
+    TResult Function()? onTapCvvNumber,
+    TResult Function()? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onValidate != null) {
@@ -232,6 +268,10 @@ class _$onValidateImpl implements onValidate {
     required TResult Function(onChangedCardType value) onChangedCardType,
     required TResult Function(onChangedCvv value) onChangedCvvNumber,
     required TResult Function(onChangedCountry value) onChangedIssuingCountry,
+    required TResult Function(onTapCardNumber value) onTapCardNumber,
+    required TResult Function(onTapCardType value) onTapCardType,
+    required TResult Function(onTapCvvNumber value) onTapCvvNumber,
+    required TResult Function(onTapIssuingCountry value) onTapIssuingCountry,
   }) {
     return onValidate(this);
   }
@@ -246,6 +286,10 @@ class _$onValidateImpl implements onValidate {
     TResult? Function(onChangedCardType value)? onChangedCardType,
     TResult? Function(onChangedCvv value)? onChangedCvvNumber,
     TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult? Function(onTapCardNumber value)? onTapCardNumber,
+    TResult? Function(onTapCardType value)? onTapCardType,
+    TResult? Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult? Function(onTapIssuingCountry value)? onTapIssuingCountry,
   }) {
     return onValidate?.call(this);
   }
@@ -260,6 +304,10 @@ class _$onValidateImpl implements onValidate {
     TResult Function(onChangedCardType value)? onChangedCardType,
     TResult Function(onChangedCvv value)? onChangedCvvNumber,
     TResult Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult Function(onTapCardNumber value)? onTapCardNumber,
+    TResult Function(onTapCardType value)? onTapCardType,
+    TResult Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult Function(onTapIssuingCountry value)? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onValidate != null) {
@@ -323,6 +371,10 @@ class _$onSubmitImpl implements onSubmit {
     required TResult Function(String text) onChangedCardType,
     required TResult Function(String text) onChangedCvvNumber,
     required TResult Function(String text) onChangedIssuingCountry,
+    required TResult Function() onTapCardNumber,
+    required TResult Function() onTapCardType,
+    required TResult Function() onTapCvvNumber,
+    required TResult Function() onTapIssuingCountry,
   }) {
     return onSubmit();
   }
@@ -337,6 +389,10 @@ class _$onSubmitImpl implements onSubmit {
     TResult? Function(String text)? onChangedCardType,
     TResult? Function(String text)? onChangedCvvNumber,
     TResult? Function(String text)? onChangedIssuingCountry,
+    TResult? Function()? onTapCardNumber,
+    TResult? Function()? onTapCardType,
+    TResult? Function()? onTapCvvNumber,
+    TResult? Function()? onTapIssuingCountry,
   }) {
     return onSubmit?.call();
   }
@@ -351,6 +407,10 @@ class _$onSubmitImpl implements onSubmit {
     TResult Function(String text)? onChangedCardType,
     TResult Function(String text)? onChangedCvvNumber,
     TResult Function(String text)? onChangedIssuingCountry,
+    TResult Function()? onTapCardNumber,
+    TResult Function()? onTapCardType,
+    TResult Function()? onTapCvvNumber,
+    TResult Function()? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onSubmit != null) {
@@ -369,6 +429,10 @@ class _$onSubmitImpl implements onSubmit {
     required TResult Function(onChangedCardType value) onChangedCardType,
     required TResult Function(onChangedCvv value) onChangedCvvNumber,
     required TResult Function(onChangedCountry value) onChangedIssuingCountry,
+    required TResult Function(onTapCardNumber value) onTapCardNumber,
+    required TResult Function(onTapCardType value) onTapCardType,
+    required TResult Function(onTapCvvNumber value) onTapCvvNumber,
+    required TResult Function(onTapIssuingCountry value) onTapIssuingCountry,
   }) {
     return onSubmit(this);
   }
@@ -383,6 +447,10 @@ class _$onSubmitImpl implements onSubmit {
     TResult? Function(onChangedCardType value)? onChangedCardType,
     TResult? Function(onChangedCvv value)? onChangedCvvNumber,
     TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult? Function(onTapCardNumber value)? onTapCardNumber,
+    TResult? Function(onTapCardType value)? onTapCardType,
+    TResult? Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult? Function(onTapIssuingCountry value)? onTapIssuingCountry,
   }) {
     return onSubmit?.call(this);
   }
@@ -397,6 +465,10 @@ class _$onSubmitImpl implements onSubmit {
     TResult Function(onChangedCardType value)? onChangedCardType,
     TResult Function(onChangedCvv value)? onChangedCvvNumber,
     TResult Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult Function(onTapCardNumber value)? onTapCardNumber,
+    TResult Function(onTapCardType value)? onTapCardType,
+    TResult Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult Function(onTapIssuingCountry value)? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onSubmit != null) {
@@ -455,6 +527,10 @@ class _$onCancelImpl implements onCancel {
     required TResult Function(String text) onChangedCardType,
     required TResult Function(String text) onChangedCvvNumber,
     required TResult Function(String text) onChangedIssuingCountry,
+    required TResult Function() onTapCardNumber,
+    required TResult Function() onTapCardType,
+    required TResult Function() onTapCvvNumber,
+    required TResult Function() onTapIssuingCountry,
   }) {
     return onCancel();
   }
@@ -469,6 +545,10 @@ class _$onCancelImpl implements onCancel {
     TResult? Function(String text)? onChangedCardType,
     TResult? Function(String text)? onChangedCvvNumber,
     TResult? Function(String text)? onChangedIssuingCountry,
+    TResult? Function()? onTapCardNumber,
+    TResult? Function()? onTapCardType,
+    TResult? Function()? onTapCvvNumber,
+    TResult? Function()? onTapIssuingCountry,
   }) {
     return onCancel?.call();
   }
@@ -483,6 +563,10 @@ class _$onCancelImpl implements onCancel {
     TResult Function(String text)? onChangedCardType,
     TResult Function(String text)? onChangedCvvNumber,
     TResult Function(String text)? onChangedIssuingCountry,
+    TResult Function()? onTapCardNumber,
+    TResult Function()? onTapCardType,
+    TResult Function()? onTapCvvNumber,
+    TResult Function()? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onCancel != null) {
@@ -501,6 +585,10 @@ class _$onCancelImpl implements onCancel {
     required TResult Function(onChangedCardType value) onChangedCardType,
     required TResult Function(onChangedCvv value) onChangedCvvNumber,
     required TResult Function(onChangedCountry value) onChangedIssuingCountry,
+    required TResult Function(onTapCardNumber value) onTapCardNumber,
+    required TResult Function(onTapCardType value) onTapCardType,
+    required TResult Function(onTapCvvNumber value) onTapCvvNumber,
+    required TResult Function(onTapIssuingCountry value) onTapIssuingCountry,
   }) {
     return onCancel(this);
   }
@@ -515,6 +603,10 @@ class _$onCancelImpl implements onCancel {
     TResult? Function(onChangedCardType value)? onChangedCardType,
     TResult? Function(onChangedCvv value)? onChangedCvvNumber,
     TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult? Function(onTapCardNumber value)? onTapCardNumber,
+    TResult? Function(onTapCardType value)? onTapCardType,
+    TResult? Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult? Function(onTapIssuingCountry value)? onTapIssuingCountry,
   }) {
     return onCancel?.call(this);
   }
@@ -529,6 +621,10 @@ class _$onCancelImpl implements onCancel {
     TResult Function(onChangedCardType value)? onChangedCardType,
     TResult Function(onChangedCvv value)? onChangedCvvNumber,
     TResult Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult Function(onTapCardNumber value)? onTapCardNumber,
+    TResult Function(onTapCardType value)? onTapCardType,
+    TResult Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult Function(onTapIssuingCountry value)? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onCancel != null) {
@@ -614,6 +710,10 @@ class _$onChangedNumberImpl implements onChangedNumber {
     required TResult Function(String text) onChangedCardType,
     required TResult Function(String text) onChangedCvvNumber,
     required TResult Function(String text) onChangedIssuingCountry,
+    required TResult Function() onTapCardNumber,
+    required TResult Function() onTapCardType,
+    required TResult Function() onTapCvvNumber,
+    required TResult Function() onTapIssuingCountry,
   }) {
     return onChangedCardNumber(text);
   }
@@ -628,6 +728,10 @@ class _$onChangedNumberImpl implements onChangedNumber {
     TResult? Function(String text)? onChangedCardType,
     TResult? Function(String text)? onChangedCvvNumber,
     TResult? Function(String text)? onChangedIssuingCountry,
+    TResult? Function()? onTapCardNumber,
+    TResult? Function()? onTapCardType,
+    TResult? Function()? onTapCvvNumber,
+    TResult? Function()? onTapIssuingCountry,
   }) {
     return onChangedCardNumber?.call(text);
   }
@@ -642,6 +746,10 @@ class _$onChangedNumberImpl implements onChangedNumber {
     TResult Function(String text)? onChangedCardType,
     TResult Function(String text)? onChangedCvvNumber,
     TResult Function(String text)? onChangedIssuingCountry,
+    TResult Function()? onTapCardNumber,
+    TResult Function()? onTapCardType,
+    TResult Function()? onTapCvvNumber,
+    TResult Function()? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onChangedCardNumber != null) {
@@ -660,6 +768,10 @@ class _$onChangedNumberImpl implements onChangedNumber {
     required TResult Function(onChangedCardType value) onChangedCardType,
     required TResult Function(onChangedCvv value) onChangedCvvNumber,
     required TResult Function(onChangedCountry value) onChangedIssuingCountry,
+    required TResult Function(onTapCardNumber value) onTapCardNumber,
+    required TResult Function(onTapCardType value) onTapCardType,
+    required TResult Function(onTapCvvNumber value) onTapCvvNumber,
+    required TResult Function(onTapIssuingCountry value) onTapIssuingCountry,
   }) {
     return onChangedCardNumber(this);
   }
@@ -674,6 +786,10 @@ class _$onChangedNumberImpl implements onChangedNumber {
     TResult? Function(onChangedCardType value)? onChangedCardType,
     TResult? Function(onChangedCvv value)? onChangedCvvNumber,
     TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult? Function(onTapCardNumber value)? onTapCardNumber,
+    TResult? Function(onTapCardType value)? onTapCardType,
+    TResult? Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult? Function(onTapIssuingCountry value)? onTapIssuingCountry,
   }) {
     return onChangedCardNumber?.call(this);
   }
@@ -688,6 +804,10 @@ class _$onChangedNumberImpl implements onChangedNumber {
     TResult Function(onChangedCardType value)? onChangedCardType,
     TResult Function(onChangedCvv value)? onChangedCvvNumber,
     TResult Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult Function(onTapCardNumber value)? onTapCardNumber,
+    TResult Function(onTapCardType value)? onTapCardType,
+    TResult Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult Function(onTapIssuingCountry value)? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onChangedCardNumber != null) {
@@ -778,6 +898,10 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
     required TResult Function(String text) onChangedCardType,
     required TResult Function(String text) onChangedCvvNumber,
     required TResult Function(String text) onChangedIssuingCountry,
+    required TResult Function() onTapCardNumber,
+    required TResult Function() onTapCardType,
+    required TResult Function() onTapCvvNumber,
+    required TResult Function() onTapIssuingCountry,
   }) {
     return onChangedCardType(text);
   }
@@ -792,6 +916,10 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
     TResult? Function(String text)? onChangedCardType,
     TResult? Function(String text)? onChangedCvvNumber,
     TResult? Function(String text)? onChangedIssuingCountry,
+    TResult? Function()? onTapCardNumber,
+    TResult? Function()? onTapCardType,
+    TResult? Function()? onTapCvvNumber,
+    TResult? Function()? onTapIssuingCountry,
   }) {
     return onChangedCardType?.call(text);
   }
@@ -806,6 +934,10 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
     TResult Function(String text)? onChangedCardType,
     TResult Function(String text)? onChangedCvvNumber,
     TResult Function(String text)? onChangedIssuingCountry,
+    TResult Function()? onTapCardNumber,
+    TResult Function()? onTapCardType,
+    TResult Function()? onTapCvvNumber,
+    TResult Function()? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onChangedCardType != null) {
@@ -824,6 +956,10 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
     required TResult Function(onChangedCardType value) onChangedCardType,
     required TResult Function(onChangedCvv value) onChangedCvvNumber,
     required TResult Function(onChangedCountry value) onChangedIssuingCountry,
+    required TResult Function(onTapCardNumber value) onTapCardNumber,
+    required TResult Function(onTapCardType value) onTapCardType,
+    required TResult Function(onTapCvvNumber value) onTapCvvNumber,
+    required TResult Function(onTapIssuingCountry value) onTapIssuingCountry,
   }) {
     return onChangedCardType(this);
   }
@@ -838,6 +974,10 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
     TResult? Function(onChangedCardType value)? onChangedCardType,
     TResult? Function(onChangedCvv value)? onChangedCvvNumber,
     TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult? Function(onTapCardNumber value)? onTapCardNumber,
+    TResult? Function(onTapCardType value)? onTapCardType,
+    TResult? Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult? Function(onTapIssuingCountry value)? onTapIssuingCountry,
   }) {
     return onChangedCardType?.call(this);
   }
@@ -852,6 +992,10 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
     TResult Function(onChangedCardType value)? onChangedCardType,
     TResult Function(onChangedCvv value)? onChangedCvvNumber,
     TResult Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult Function(onTapCardNumber value)? onTapCardNumber,
+    TResult Function(onTapCardType value)? onTapCardType,
+    TResult Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult Function(onTapIssuingCountry value)? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onChangedCardType != null) {
@@ -941,6 +1085,10 @@ class _$onChangedCvvImpl implements onChangedCvv {
     required TResult Function(String text) onChangedCardType,
     required TResult Function(String text) onChangedCvvNumber,
     required TResult Function(String text) onChangedIssuingCountry,
+    required TResult Function() onTapCardNumber,
+    required TResult Function() onTapCardType,
+    required TResult Function() onTapCvvNumber,
+    required TResult Function() onTapIssuingCountry,
   }) {
     return onChangedCvvNumber(text);
   }
@@ -955,6 +1103,10 @@ class _$onChangedCvvImpl implements onChangedCvv {
     TResult? Function(String text)? onChangedCardType,
     TResult? Function(String text)? onChangedCvvNumber,
     TResult? Function(String text)? onChangedIssuingCountry,
+    TResult? Function()? onTapCardNumber,
+    TResult? Function()? onTapCardType,
+    TResult? Function()? onTapCvvNumber,
+    TResult? Function()? onTapIssuingCountry,
   }) {
     return onChangedCvvNumber?.call(text);
   }
@@ -969,6 +1121,10 @@ class _$onChangedCvvImpl implements onChangedCvv {
     TResult Function(String text)? onChangedCardType,
     TResult Function(String text)? onChangedCvvNumber,
     TResult Function(String text)? onChangedIssuingCountry,
+    TResult Function()? onTapCardNumber,
+    TResult Function()? onTapCardType,
+    TResult Function()? onTapCvvNumber,
+    TResult Function()? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onChangedCvvNumber != null) {
@@ -987,6 +1143,10 @@ class _$onChangedCvvImpl implements onChangedCvv {
     required TResult Function(onChangedCardType value) onChangedCardType,
     required TResult Function(onChangedCvv value) onChangedCvvNumber,
     required TResult Function(onChangedCountry value) onChangedIssuingCountry,
+    required TResult Function(onTapCardNumber value) onTapCardNumber,
+    required TResult Function(onTapCardType value) onTapCardType,
+    required TResult Function(onTapCvvNumber value) onTapCvvNumber,
+    required TResult Function(onTapIssuingCountry value) onTapIssuingCountry,
   }) {
     return onChangedCvvNumber(this);
   }
@@ -1001,6 +1161,10 @@ class _$onChangedCvvImpl implements onChangedCvv {
     TResult? Function(onChangedCardType value)? onChangedCardType,
     TResult? Function(onChangedCvv value)? onChangedCvvNumber,
     TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult? Function(onTapCardNumber value)? onTapCardNumber,
+    TResult? Function(onTapCardType value)? onTapCardType,
+    TResult? Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult? Function(onTapIssuingCountry value)? onTapIssuingCountry,
   }) {
     return onChangedCvvNumber?.call(this);
   }
@@ -1015,6 +1179,10 @@ class _$onChangedCvvImpl implements onChangedCvv {
     TResult Function(onChangedCardType value)? onChangedCardType,
     TResult Function(onChangedCvv value)? onChangedCvvNumber,
     TResult Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult Function(onTapCardNumber value)? onTapCardNumber,
+    TResult Function(onTapCardType value)? onTapCardType,
+    TResult Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult Function(onTapIssuingCountry value)? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onChangedCvvNumber != null) {
@@ -1105,6 +1273,10 @@ class _$onChangedCountryImpl implements onChangedCountry {
     required TResult Function(String text) onChangedCardType,
     required TResult Function(String text) onChangedCvvNumber,
     required TResult Function(String text) onChangedIssuingCountry,
+    required TResult Function() onTapCardNumber,
+    required TResult Function() onTapCardType,
+    required TResult Function() onTapCvvNumber,
+    required TResult Function() onTapIssuingCountry,
   }) {
     return onChangedIssuingCountry(text);
   }
@@ -1119,6 +1291,10 @@ class _$onChangedCountryImpl implements onChangedCountry {
     TResult? Function(String text)? onChangedCardType,
     TResult? Function(String text)? onChangedCvvNumber,
     TResult? Function(String text)? onChangedIssuingCountry,
+    TResult? Function()? onTapCardNumber,
+    TResult? Function()? onTapCardType,
+    TResult? Function()? onTapCvvNumber,
+    TResult? Function()? onTapIssuingCountry,
   }) {
     return onChangedIssuingCountry?.call(text);
   }
@@ -1133,6 +1309,10 @@ class _$onChangedCountryImpl implements onChangedCountry {
     TResult Function(String text)? onChangedCardType,
     TResult Function(String text)? onChangedCvvNumber,
     TResult Function(String text)? onChangedIssuingCountry,
+    TResult Function()? onTapCardNumber,
+    TResult Function()? onTapCardType,
+    TResult Function()? onTapCvvNumber,
+    TResult Function()? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onChangedIssuingCountry != null) {
@@ -1151,6 +1331,10 @@ class _$onChangedCountryImpl implements onChangedCountry {
     required TResult Function(onChangedCardType value) onChangedCardType,
     required TResult Function(onChangedCvv value) onChangedCvvNumber,
     required TResult Function(onChangedCountry value) onChangedIssuingCountry,
+    required TResult Function(onTapCardNumber value) onTapCardNumber,
+    required TResult Function(onTapCardType value) onTapCardType,
+    required TResult Function(onTapCvvNumber value) onTapCvvNumber,
+    required TResult Function(onTapIssuingCountry value) onTapIssuingCountry,
   }) {
     return onChangedIssuingCountry(this);
   }
@@ -1165,6 +1349,10 @@ class _$onChangedCountryImpl implements onChangedCountry {
     TResult? Function(onChangedCardType value)? onChangedCardType,
     TResult? Function(onChangedCvv value)? onChangedCvvNumber,
     TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult? Function(onTapCardNumber value)? onTapCardNumber,
+    TResult? Function(onTapCardType value)? onTapCardType,
+    TResult? Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult? Function(onTapIssuingCountry value)? onTapIssuingCountry,
   }) {
     return onChangedIssuingCountry?.call(this);
   }
@@ -1179,6 +1367,10 @@ class _$onChangedCountryImpl implements onChangedCountry {
     TResult Function(onChangedCardType value)? onChangedCardType,
     TResult Function(onChangedCvv value)? onChangedCvvNumber,
     TResult Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult Function(onTapCardNumber value)? onTapCardNumber,
+    TResult Function(onTapCardType value)? onTapCardType,
+    TResult Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult Function(onTapIssuingCountry value)? onTapIssuingCountry,
     required TResult orElse(),
   }) {
     if (onChangedIssuingCountry != null) {
@@ -1198,6 +1390,631 @@ abstract class onChangedCountry implements EnterEvent {
 }
 
 /// @nodoc
+abstract class _$$onTapCardNumberImplCopyWith<$Res> {
+  factory _$$onTapCardNumberImplCopyWith(_$onTapCardNumberImpl value,
+          $Res Function(_$onTapCardNumberImpl) then) =
+      __$$onTapCardNumberImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$onTapCardNumberImplCopyWithImpl<$Res>
+    extends _$EnterEventCopyWithImpl<$Res, _$onTapCardNumberImpl>
+    implements _$$onTapCardNumberImplCopyWith<$Res> {
+  __$$onTapCardNumberImplCopyWithImpl(
+      _$onTapCardNumberImpl _value, $Res Function(_$onTapCardNumberImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$onTapCardNumberImpl implements onTapCardNumber {
+  const _$onTapCardNumberImpl();
+
+  @override
+  String toString() {
+    return 'EnterEvent.onTapCardNumber()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$onTapCardNumberImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onValidate,
+    required TResult Function() onSubmit,
+    required TResult Function() onCancel,
+    required TResult Function(String text) onChangedCardNumber,
+    required TResult Function(String text) onChangedCardType,
+    required TResult Function(String text) onChangedCvvNumber,
+    required TResult Function(String text) onChangedIssuingCountry,
+    required TResult Function() onTapCardNumber,
+    required TResult Function() onTapCardType,
+    required TResult Function() onTapCvvNumber,
+    required TResult Function() onTapIssuingCountry,
+  }) {
+    return onTapCardNumber();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onValidate,
+    TResult? Function()? onSubmit,
+    TResult? Function()? onCancel,
+    TResult? Function(String text)? onChangedCardNumber,
+    TResult? Function(String text)? onChangedCardType,
+    TResult? Function(String text)? onChangedCvvNumber,
+    TResult? Function(String text)? onChangedIssuingCountry,
+    TResult? Function()? onTapCardNumber,
+    TResult? Function()? onTapCardType,
+    TResult? Function()? onTapCvvNumber,
+    TResult? Function()? onTapIssuingCountry,
+  }) {
+    return onTapCardNumber?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onValidate,
+    TResult Function()? onSubmit,
+    TResult Function()? onCancel,
+    TResult Function(String text)? onChangedCardNumber,
+    TResult Function(String text)? onChangedCardType,
+    TResult Function(String text)? onChangedCvvNumber,
+    TResult Function(String text)? onChangedIssuingCountry,
+    TResult Function()? onTapCardNumber,
+    TResult Function()? onTapCardType,
+    TResult Function()? onTapCvvNumber,
+    TResult Function()? onTapIssuingCountry,
+    required TResult orElse(),
+  }) {
+    if (onTapCardNumber != null) {
+      return onTapCardNumber();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(onValidate value) onValidate,
+    required TResult Function(onSubmit value) onSubmit,
+    required TResult Function(onCancel value) onCancel,
+    required TResult Function(onChangedNumber value) onChangedCardNumber,
+    required TResult Function(onChangedCardType value) onChangedCardType,
+    required TResult Function(onChangedCvv value) onChangedCvvNumber,
+    required TResult Function(onChangedCountry value) onChangedIssuingCountry,
+    required TResult Function(onTapCardNumber value) onTapCardNumber,
+    required TResult Function(onTapCardType value) onTapCardType,
+    required TResult Function(onTapCvvNumber value) onTapCvvNumber,
+    required TResult Function(onTapIssuingCountry value) onTapIssuingCountry,
+  }) {
+    return onTapCardNumber(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onValidate value)? onValidate,
+    TResult? Function(onSubmit value)? onSubmit,
+    TResult? Function(onCancel value)? onCancel,
+    TResult? Function(onChangedNumber value)? onChangedCardNumber,
+    TResult? Function(onChangedCardType value)? onChangedCardType,
+    TResult? Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult? Function(onTapCardNumber value)? onTapCardNumber,
+    TResult? Function(onTapCardType value)? onTapCardType,
+    TResult? Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult? Function(onTapIssuingCountry value)? onTapIssuingCountry,
+  }) {
+    return onTapCardNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(onValidate value)? onValidate,
+    TResult Function(onSubmit value)? onSubmit,
+    TResult Function(onCancel value)? onCancel,
+    TResult Function(onChangedNumber value)? onChangedCardNumber,
+    TResult Function(onChangedCardType value)? onChangedCardType,
+    TResult Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult Function(onTapCardNumber value)? onTapCardNumber,
+    TResult Function(onTapCardType value)? onTapCardType,
+    TResult Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult Function(onTapIssuingCountry value)? onTapIssuingCountry,
+    required TResult orElse(),
+  }) {
+    if (onTapCardNumber != null) {
+      return onTapCardNumber(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class onTapCardNumber implements EnterEvent {
+  const factory onTapCardNumber() = _$onTapCardNumberImpl;
+}
+
+/// @nodoc
+abstract class _$$onTapCardTypeImplCopyWith<$Res> {
+  factory _$$onTapCardTypeImplCopyWith(
+          _$onTapCardTypeImpl value, $Res Function(_$onTapCardTypeImpl) then) =
+      __$$onTapCardTypeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$onTapCardTypeImplCopyWithImpl<$Res>
+    extends _$EnterEventCopyWithImpl<$Res, _$onTapCardTypeImpl>
+    implements _$$onTapCardTypeImplCopyWith<$Res> {
+  __$$onTapCardTypeImplCopyWithImpl(
+      _$onTapCardTypeImpl _value, $Res Function(_$onTapCardTypeImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$onTapCardTypeImpl implements onTapCardType {
+  const _$onTapCardTypeImpl();
+
+  @override
+  String toString() {
+    return 'EnterEvent.onTapCardType()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$onTapCardTypeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onValidate,
+    required TResult Function() onSubmit,
+    required TResult Function() onCancel,
+    required TResult Function(String text) onChangedCardNumber,
+    required TResult Function(String text) onChangedCardType,
+    required TResult Function(String text) onChangedCvvNumber,
+    required TResult Function(String text) onChangedIssuingCountry,
+    required TResult Function() onTapCardNumber,
+    required TResult Function() onTapCardType,
+    required TResult Function() onTapCvvNumber,
+    required TResult Function() onTapIssuingCountry,
+  }) {
+    return onTapCardType();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onValidate,
+    TResult? Function()? onSubmit,
+    TResult? Function()? onCancel,
+    TResult? Function(String text)? onChangedCardNumber,
+    TResult? Function(String text)? onChangedCardType,
+    TResult? Function(String text)? onChangedCvvNumber,
+    TResult? Function(String text)? onChangedIssuingCountry,
+    TResult? Function()? onTapCardNumber,
+    TResult? Function()? onTapCardType,
+    TResult? Function()? onTapCvvNumber,
+    TResult? Function()? onTapIssuingCountry,
+  }) {
+    return onTapCardType?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onValidate,
+    TResult Function()? onSubmit,
+    TResult Function()? onCancel,
+    TResult Function(String text)? onChangedCardNumber,
+    TResult Function(String text)? onChangedCardType,
+    TResult Function(String text)? onChangedCvvNumber,
+    TResult Function(String text)? onChangedIssuingCountry,
+    TResult Function()? onTapCardNumber,
+    TResult Function()? onTapCardType,
+    TResult Function()? onTapCvvNumber,
+    TResult Function()? onTapIssuingCountry,
+    required TResult orElse(),
+  }) {
+    if (onTapCardType != null) {
+      return onTapCardType();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(onValidate value) onValidate,
+    required TResult Function(onSubmit value) onSubmit,
+    required TResult Function(onCancel value) onCancel,
+    required TResult Function(onChangedNumber value) onChangedCardNumber,
+    required TResult Function(onChangedCardType value) onChangedCardType,
+    required TResult Function(onChangedCvv value) onChangedCvvNumber,
+    required TResult Function(onChangedCountry value) onChangedIssuingCountry,
+    required TResult Function(onTapCardNumber value) onTapCardNumber,
+    required TResult Function(onTapCardType value) onTapCardType,
+    required TResult Function(onTapCvvNumber value) onTapCvvNumber,
+    required TResult Function(onTapIssuingCountry value) onTapIssuingCountry,
+  }) {
+    return onTapCardType(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onValidate value)? onValidate,
+    TResult? Function(onSubmit value)? onSubmit,
+    TResult? Function(onCancel value)? onCancel,
+    TResult? Function(onChangedNumber value)? onChangedCardNumber,
+    TResult? Function(onChangedCardType value)? onChangedCardType,
+    TResult? Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult? Function(onTapCardNumber value)? onTapCardNumber,
+    TResult? Function(onTapCardType value)? onTapCardType,
+    TResult? Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult? Function(onTapIssuingCountry value)? onTapIssuingCountry,
+  }) {
+    return onTapCardType?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(onValidate value)? onValidate,
+    TResult Function(onSubmit value)? onSubmit,
+    TResult Function(onCancel value)? onCancel,
+    TResult Function(onChangedNumber value)? onChangedCardNumber,
+    TResult Function(onChangedCardType value)? onChangedCardType,
+    TResult Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult Function(onTapCardNumber value)? onTapCardNumber,
+    TResult Function(onTapCardType value)? onTapCardType,
+    TResult Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult Function(onTapIssuingCountry value)? onTapIssuingCountry,
+    required TResult orElse(),
+  }) {
+    if (onTapCardType != null) {
+      return onTapCardType(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class onTapCardType implements EnterEvent {
+  const factory onTapCardType() = _$onTapCardTypeImpl;
+}
+
+/// @nodoc
+abstract class _$$onTapCvvNumberImplCopyWith<$Res> {
+  factory _$$onTapCvvNumberImplCopyWith(_$onTapCvvNumberImpl value,
+          $Res Function(_$onTapCvvNumberImpl) then) =
+      __$$onTapCvvNumberImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$onTapCvvNumberImplCopyWithImpl<$Res>
+    extends _$EnterEventCopyWithImpl<$Res, _$onTapCvvNumberImpl>
+    implements _$$onTapCvvNumberImplCopyWith<$Res> {
+  __$$onTapCvvNumberImplCopyWithImpl(
+      _$onTapCvvNumberImpl _value, $Res Function(_$onTapCvvNumberImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$onTapCvvNumberImpl implements onTapCvvNumber {
+  const _$onTapCvvNumberImpl();
+
+  @override
+  String toString() {
+    return 'EnterEvent.onTapCvvNumber()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$onTapCvvNumberImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onValidate,
+    required TResult Function() onSubmit,
+    required TResult Function() onCancel,
+    required TResult Function(String text) onChangedCardNumber,
+    required TResult Function(String text) onChangedCardType,
+    required TResult Function(String text) onChangedCvvNumber,
+    required TResult Function(String text) onChangedIssuingCountry,
+    required TResult Function() onTapCardNumber,
+    required TResult Function() onTapCardType,
+    required TResult Function() onTapCvvNumber,
+    required TResult Function() onTapIssuingCountry,
+  }) {
+    return onTapCvvNumber();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onValidate,
+    TResult? Function()? onSubmit,
+    TResult? Function()? onCancel,
+    TResult? Function(String text)? onChangedCardNumber,
+    TResult? Function(String text)? onChangedCardType,
+    TResult? Function(String text)? onChangedCvvNumber,
+    TResult? Function(String text)? onChangedIssuingCountry,
+    TResult? Function()? onTapCardNumber,
+    TResult? Function()? onTapCardType,
+    TResult? Function()? onTapCvvNumber,
+    TResult? Function()? onTapIssuingCountry,
+  }) {
+    return onTapCvvNumber?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onValidate,
+    TResult Function()? onSubmit,
+    TResult Function()? onCancel,
+    TResult Function(String text)? onChangedCardNumber,
+    TResult Function(String text)? onChangedCardType,
+    TResult Function(String text)? onChangedCvvNumber,
+    TResult Function(String text)? onChangedIssuingCountry,
+    TResult Function()? onTapCardNumber,
+    TResult Function()? onTapCardType,
+    TResult Function()? onTapCvvNumber,
+    TResult Function()? onTapIssuingCountry,
+    required TResult orElse(),
+  }) {
+    if (onTapCvvNumber != null) {
+      return onTapCvvNumber();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(onValidate value) onValidate,
+    required TResult Function(onSubmit value) onSubmit,
+    required TResult Function(onCancel value) onCancel,
+    required TResult Function(onChangedNumber value) onChangedCardNumber,
+    required TResult Function(onChangedCardType value) onChangedCardType,
+    required TResult Function(onChangedCvv value) onChangedCvvNumber,
+    required TResult Function(onChangedCountry value) onChangedIssuingCountry,
+    required TResult Function(onTapCardNumber value) onTapCardNumber,
+    required TResult Function(onTapCardType value) onTapCardType,
+    required TResult Function(onTapCvvNumber value) onTapCvvNumber,
+    required TResult Function(onTapIssuingCountry value) onTapIssuingCountry,
+  }) {
+    return onTapCvvNumber(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onValidate value)? onValidate,
+    TResult? Function(onSubmit value)? onSubmit,
+    TResult? Function(onCancel value)? onCancel,
+    TResult? Function(onChangedNumber value)? onChangedCardNumber,
+    TResult? Function(onChangedCardType value)? onChangedCardType,
+    TResult? Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult? Function(onTapCardNumber value)? onTapCardNumber,
+    TResult? Function(onTapCardType value)? onTapCardType,
+    TResult? Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult? Function(onTapIssuingCountry value)? onTapIssuingCountry,
+  }) {
+    return onTapCvvNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(onValidate value)? onValidate,
+    TResult Function(onSubmit value)? onSubmit,
+    TResult Function(onCancel value)? onCancel,
+    TResult Function(onChangedNumber value)? onChangedCardNumber,
+    TResult Function(onChangedCardType value)? onChangedCardType,
+    TResult Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult Function(onTapCardNumber value)? onTapCardNumber,
+    TResult Function(onTapCardType value)? onTapCardType,
+    TResult Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult Function(onTapIssuingCountry value)? onTapIssuingCountry,
+    required TResult orElse(),
+  }) {
+    if (onTapCvvNumber != null) {
+      return onTapCvvNumber(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class onTapCvvNumber implements EnterEvent {
+  const factory onTapCvvNumber() = _$onTapCvvNumberImpl;
+}
+
+/// @nodoc
+abstract class _$$onTapIssuingCountryImplCopyWith<$Res> {
+  factory _$$onTapIssuingCountryImplCopyWith(_$onTapIssuingCountryImpl value,
+          $Res Function(_$onTapIssuingCountryImpl) then) =
+      __$$onTapIssuingCountryImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$onTapIssuingCountryImplCopyWithImpl<$Res>
+    extends _$EnterEventCopyWithImpl<$Res, _$onTapIssuingCountryImpl>
+    implements _$$onTapIssuingCountryImplCopyWith<$Res> {
+  __$$onTapIssuingCountryImplCopyWithImpl(_$onTapIssuingCountryImpl _value,
+      $Res Function(_$onTapIssuingCountryImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$onTapIssuingCountryImpl implements onTapIssuingCountry {
+  const _$onTapIssuingCountryImpl();
+
+  @override
+  String toString() {
+    return 'EnterEvent.onTapIssuingCountry()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$onTapIssuingCountryImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreditCard creditCard) onValidate,
+    required TResult Function() onSubmit,
+    required TResult Function() onCancel,
+    required TResult Function(String text) onChangedCardNumber,
+    required TResult Function(String text) onChangedCardType,
+    required TResult Function(String text) onChangedCvvNumber,
+    required TResult Function(String text) onChangedIssuingCountry,
+    required TResult Function() onTapCardNumber,
+    required TResult Function() onTapCardType,
+    required TResult Function() onTapCvvNumber,
+    required TResult Function() onTapIssuingCountry,
+  }) {
+    return onTapIssuingCountry();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreditCard creditCard)? onValidate,
+    TResult? Function()? onSubmit,
+    TResult? Function()? onCancel,
+    TResult? Function(String text)? onChangedCardNumber,
+    TResult? Function(String text)? onChangedCardType,
+    TResult? Function(String text)? onChangedCvvNumber,
+    TResult? Function(String text)? onChangedIssuingCountry,
+    TResult? Function()? onTapCardNumber,
+    TResult? Function()? onTapCardType,
+    TResult? Function()? onTapCvvNumber,
+    TResult? Function()? onTapIssuingCountry,
+  }) {
+    return onTapIssuingCountry?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreditCard creditCard)? onValidate,
+    TResult Function()? onSubmit,
+    TResult Function()? onCancel,
+    TResult Function(String text)? onChangedCardNumber,
+    TResult Function(String text)? onChangedCardType,
+    TResult Function(String text)? onChangedCvvNumber,
+    TResult Function(String text)? onChangedIssuingCountry,
+    TResult Function()? onTapCardNumber,
+    TResult Function()? onTapCardType,
+    TResult Function()? onTapCvvNumber,
+    TResult Function()? onTapIssuingCountry,
+    required TResult orElse(),
+  }) {
+    if (onTapIssuingCountry != null) {
+      return onTapIssuingCountry();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(onValidate value) onValidate,
+    required TResult Function(onSubmit value) onSubmit,
+    required TResult Function(onCancel value) onCancel,
+    required TResult Function(onChangedNumber value) onChangedCardNumber,
+    required TResult Function(onChangedCardType value) onChangedCardType,
+    required TResult Function(onChangedCvv value) onChangedCvvNumber,
+    required TResult Function(onChangedCountry value) onChangedIssuingCountry,
+    required TResult Function(onTapCardNumber value) onTapCardNumber,
+    required TResult Function(onTapCardType value) onTapCardType,
+    required TResult Function(onTapCvvNumber value) onTapCvvNumber,
+    required TResult Function(onTapIssuingCountry value) onTapIssuingCountry,
+  }) {
+    return onTapIssuingCountry(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(onValidate value)? onValidate,
+    TResult? Function(onSubmit value)? onSubmit,
+    TResult? Function(onCancel value)? onCancel,
+    TResult? Function(onChangedNumber value)? onChangedCardNumber,
+    TResult? Function(onChangedCardType value)? onChangedCardType,
+    TResult? Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult? Function(onTapCardNumber value)? onTapCardNumber,
+    TResult? Function(onTapCardType value)? onTapCardType,
+    TResult? Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult? Function(onTapIssuingCountry value)? onTapIssuingCountry,
+  }) {
+    return onTapIssuingCountry?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(onValidate value)? onValidate,
+    TResult Function(onSubmit value)? onSubmit,
+    TResult Function(onCancel value)? onCancel,
+    TResult Function(onChangedNumber value)? onChangedCardNumber,
+    TResult Function(onChangedCardType value)? onChangedCardType,
+    TResult Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult Function(onChangedCountry value)? onChangedIssuingCountry,
+    TResult Function(onTapCardNumber value)? onTapCardNumber,
+    TResult Function(onTapCardType value)? onTapCardType,
+    TResult Function(onTapCvvNumber value)? onTapCvvNumber,
+    TResult Function(onTapIssuingCountry value)? onTapIssuingCountry,
+    required TResult orElse(),
+  }) {
+    if (onTapIssuingCountry != null) {
+      return onTapIssuingCountry(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class onTapIssuingCountry implements EnterEvent {
+  const factory onTapIssuingCountry() = _$onTapIssuingCountryImpl;
+}
+
+/// @nodoc
 mixin _$EnterState {
   CreditCard get creditCard => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
@@ -1205,6 +2022,7 @@ mixin _$EnterState {
   bool get isUnique => throw _privateConstructorUsedError;
   bool get isInvalid => throw _privateConstructorUsedError;
   bool get isDuplicate => throw _privateConstructorUsedError;
+  bool get isCvvFocused => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1225,6 +2043,7 @@ abstract class $EnterStateCopyWith<$Res> {
       bool isUnique,
       bool isInvalid,
       bool isDuplicate,
+      bool isCvvFocused,
       String? errorMessage});
 
   $CreditCardCopyWith<$Res> get creditCard;
@@ -1249,6 +2068,7 @@ class _$EnterStateCopyWithImpl<$Res, $Val extends EnterState>
     Object? isUnique = null,
     Object? isInvalid = null,
     Object? isDuplicate = null,
+    Object? isCvvFocused = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1275,6 +2095,10 @@ class _$EnterStateCopyWithImpl<$Res, $Val extends EnterState>
       isDuplicate: null == isDuplicate
           ? _value.isDuplicate
           : isDuplicate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCvvFocused: null == isCvvFocused
+          ? _value.isCvvFocused
+          : isCvvFocused // ignore: cast_nullable_to_non_nullable
               as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
@@ -1307,6 +2131,7 @@ abstract class _$$EnterStateImplCopyWith<$Res>
       bool isUnique,
       bool isInvalid,
       bool isDuplicate,
+      bool isCvvFocused,
       String? errorMessage});
 
   @override
@@ -1330,6 +2155,7 @@ class __$$EnterStateImplCopyWithImpl<$Res>
     Object? isUnique = null,
     Object? isInvalid = null,
     Object? isDuplicate = null,
+    Object? isCvvFocused = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_$EnterStateImpl(
@@ -1357,6 +2183,10 @@ class __$$EnterStateImplCopyWithImpl<$Res>
           ? _value.isDuplicate
           : isDuplicate // ignore: cast_nullable_to_non_nullable
               as bool,
+      isCvvFocused: null == isCvvFocused
+          ? _value.isCvvFocused
+          : isCvvFocused // ignore: cast_nullable_to_non_nullable
+              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -1375,6 +2205,7 @@ class _$EnterStateImpl extends _EnterState {
       required this.isUnique,
       required this.isInvalid,
       required this.isDuplicate,
+      required this.isCvvFocused,
       required this.errorMessage})
       : super._();
 
@@ -1391,11 +2222,13 @@ class _$EnterStateImpl extends _EnterState {
   @override
   final bool isDuplicate;
   @override
+  final bool isCvvFocused;
+  @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'EnterState(creditCard: $creditCard, isLoading: $isLoading, isSaving: $isSaving, isUnique: $isUnique, isInvalid: $isInvalid, isDuplicate: $isDuplicate, errorMessage: $errorMessage)';
+    return 'EnterState(creditCard: $creditCard, isLoading: $isLoading, isSaving: $isSaving, isUnique: $isUnique, isInvalid: $isInvalid, isDuplicate: $isDuplicate, isCvvFocused: $isCvvFocused, errorMessage: $errorMessage)';
   }
 
   @override
@@ -1415,13 +2248,15 @@ class _$EnterStateImpl extends _EnterState {
                 other.isInvalid == isInvalid) &&
             (identical(other.isDuplicate, isDuplicate) ||
                 other.isDuplicate == isDuplicate) &&
+            (identical(other.isCvvFocused, isCvvFocused) ||
+                other.isCvvFocused == isCvvFocused) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, creditCard, isLoading, isSaving,
-      isUnique, isInvalid, isDuplicate, errorMessage);
+      isUnique, isInvalid, isDuplicate, isCvvFocused, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -1438,6 +2273,7 @@ abstract class _EnterState extends EnterState {
       required final bool isUnique,
       required final bool isInvalid,
       required final bool isDuplicate,
+      required final bool isCvvFocused,
       required final String? errorMessage}) = _$EnterStateImpl;
   const _EnterState._() : super._();
 
@@ -1453,6 +2289,8 @@ abstract class _EnterState extends EnterState {
   bool get isInvalid;
   @override
   bool get isDuplicate;
+  @override
+  bool get isCvvFocused;
   @override
   String? get errorMessage;
   @override
