@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:credit_card_app/constants/constants.dart';
+import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/domain/banned_countries/i_banned_countries_repository.dart';
 import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
 import 'package:flutter/foundation.dart';
