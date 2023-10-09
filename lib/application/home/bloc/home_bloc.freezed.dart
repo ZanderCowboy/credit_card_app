@@ -697,27 +697,18 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -725,27 +716,18 @@ mixin _$HomeState {
   TResult map<TResult extends Object?>(
     TResult Function(_HomeState value) $default, {
     required TResult Function(Initial value) initial,
-    required TResult Function(HomeLoading value) loading,
-    required TResult Function(HomeLoaded value) loaded,
-    required TResult Function(HomeError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_HomeState value)? $default, {
     TResult? Function(Initial value)? initial,
-    TResult? Function(HomeLoading value)? loading,
-    TResult? Function(HomeLoaded value)? loaded,
-    TResult? Function(HomeError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_HomeState value)? $default, {
     TResult Function(Initial value)? initial,
-    TResult Function(HomeLoading value)? loading,
-    TResult Function(HomeLoaded value)? loaded,
-    TResult Function(HomeError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -808,9 +790,6 @@ class _$HomeStateImpl extends _HomeState {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
   }) {
     return $default();
   }
@@ -820,9 +799,6 @@ class _$HomeStateImpl extends _HomeState {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
   }) {
     return $default?.call();
   }
@@ -832,9 +808,6 @@ class _$HomeStateImpl extends _HomeState {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -848,9 +821,6 @@ class _$HomeStateImpl extends _HomeState {
   TResult map<TResult extends Object?>(
     TResult Function(_HomeState value) $default, {
     required TResult Function(Initial value) initial,
-    required TResult Function(HomeLoading value) loading,
-    required TResult Function(HomeLoaded value) loaded,
-    required TResult Function(HomeError value) error,
   }) {
     return $default(this);
   }
@@ -860,9 +830,6 @@ class _$HomeStateImpl extends _HomeState {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_HomeState value)? $default, {
     TResult? Function(Initial value)? initial,
-    TResult? Function(HomeLoading value)? loading,
-    TResult? Function(HomeLoaded value)? loaded,
-    TResult? Function(HomeError value)? error,
   }) {
     return $default?.call(this);
   }
@@ -872,9 +839,6 @@ class _$HomeStateImpl extends _HomeState {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_HomeState value)? $default, {
     TResult Function(Initial value)? initial,
-    TResult Function(HomeLoading value)? loading,
-    TResult Function(HomeLoaded value)? loaded,
-    TResult Function(HomeError value)? error,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -929,9 +893,6 @@ class _$InitialImpl extends Initial {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
   }) {
     return initial();
   }
@@ -941,9 +902,6 @@ class _$InitialImpl extends Initial {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
   }) {
     return initial?.call();
   }
@@ -953,9 +911,6 @@ class _$InitialImpl extends Initial {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -969,9 +924,6 @@ class _$InitialImpl extends Initial {
   TResult map<TResult extends Object?>(
     TResult Function(_HomeState value) $default, {
     required TResult Function(Initial value) initial,
-    required TResult Function(HomeLoading value) loading,
-    required TResult Function(HomeLoaded value) loaded,
-    required TResult Function(HomeError value) error,
   }) {
     return initial(this);
   }
@@ -981,9 +933,6 @@ class _$InitialImpl extends Initial {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_HomeState value)? $default, {
     TResult? Function(Initial value)? initial,
-    TResult? Function(HomeLoading value)? loading,
-    TResult? Function(HomeLoaded value)? loaded,
-    TResult? Function(HomeError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -993,9 +942,6 @@ class _$InitialImpl extends Initial {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_HomeState value)? $default, {
     TResult Function(Initial value)? initial,
-    TResult Function(HomeLoading value)? loading,
-    TResult Function(HomeLoaded value)? loaded,
-    TResult Function(HomeError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1008,367 +954,4 @@ class _$InitialImpl extends Initial {
 abstract class Initial extends HomeState {
   const factory Initial() = _$InitialImpl;
   const Initial._() : super._();
-}
-
-/// @nodoc
-abstract class _$$HomeLoadingImplCopyWith<$Res> {
-  factory _$$HomeLoadingImplCopyWith(
-          _$HomeLoadingImpl value, $Res Function(_$HomeLoadingImpl) then) =
-      __$$HomeLoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$HomeLoadingImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$HomeLoadingImpl>
-    implements _$$HomeLoadingImplCopyWith<$Res> {
-  __$$HomeLoadingImplCopyWithImpl(
-      _$HomeLoadingImpl _value, $Res Function(_$HomeLoadingImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$HomeLoadingImpl extends HomeLoading {
-  const _$HomeLoadingImpl() : super._();
-
-  @override
-  String toString() {
-    return 'HomeState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HomeLoadingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_HomeState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(HomeLoading value) loading,
-    required TResult Function(HomeLoaded value) loaded,
-    required TResult Function(HomeError value) error,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_HomeState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(HomeLoading value)? loading,
-    TResult? Function(HomeLoaded value)? loaded,
-    TResult? Function(HomeError value)? error,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_HomeState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(HomeLoading value)? loading,
-    TResult Function(HomeLoaded value)? loaded,
-    TResult Function(HomeError value)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class HomeLoading extends HomeState {
-  const factory HomeLoading() = _$HomeLoadingImpl;
-  const HomeLoading._() : super._();
-}
-
-/// @nodoc
-abstract class _$$HomeLoadedImplCopyWith<$Res> {
-  factory _$$HomeLoadedImplCopyWith(
-          _$HomeLoadedImpl value, $Res Function(_$HomeLoadedImpl) then) =
-      __$$HomeLoadedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$HomeLoadedImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$HomeLoadedImpl>
-    implements _$$HomeLoadedImplCopyWith<$Res> {
-  __$$HomeLoadedImplCopyWithImpl(
-      _$HomeLoadedImpl _value, $Res Function(_$HomeLoadedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$HomeLoadedImpl extends HomeLoaded {
-  const _$HomeLoadedImpl() : super._();
-
-  @override
-  String toString() {
-    return 'HomeState.loaded()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HomeLoadedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-  }) {
-    return loaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-  }) {
-    return loaded?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_HomeState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(HomeLoading value) loading,
-    required TResult Function(HomeLoaded value) loaded,
-    required TResult Function(HomeError value) error,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_HomeState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(HomeLoading value)? loading,
-    TResult? Function(HomeLoaded value)? loaded,
-    TResult? Function(HomeError value)? error,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_HomeState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(HomeLoading value)? loading,
-    TResult Function(HomeLoaded value)? loaded,
-    TResult Function(HomeError value)? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class HomeLoaded extends HomeState {
-  const factory HomeLoaded() = _$HomeLoadedImpl;
-  const HomeLoaded._() : super._();
-}
-
-/// @nodoc
-abstract class _$$HomeErrorImplCopyWith<$Res> {
-  factory _$$HomeErrorImplCopyWith(
-          _$HomeErrorImpl value, $Res Function(_$HomeErrorImpl) then) =
-      __$$HomeErrorImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$HomeErrorImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$HomeErrorImpl>
-    implements _$$HomeErrorImplCopyWith<$Res> {
-  __$$HomeErrorImplCopyWithImpl(
-      _$HomeErrorImpl _value, $Res Function(_$HomeErrorImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$HomeErrorImpl extends HomeError {
-  const _$HomeErrorImpl() : super._();
-
-  @override
-  String toString() {
-    return 'HomeState.error()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HomeErrorImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-    required TResult Function() error,
-  }) {
-    return error();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-    TResult? Function()? error,
-  }) {
-    return error?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    TResult Function()? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_HomeState value) $default, {
-    required TResult Function(Initial value) initial,
-    required TResult Function(HomeLoading value) loading,
-    required TResult Function(HomeLoaded value) loaded,
-    required TResult Function(HomeError value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_HomeState value)? $default, {
-    TResult? Function(Initial value)? initial,
-    TResult? Function(HomeLoading value)? loading,
-    TResult? Function(HomeLoaded value)? loaded,
-    TResult? Function(HomeError value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_HomeState value)? $default, {
-    TResult Function(Initial value)? initial,
-    TResult Function(HomeLoading value)? loading,
-    TResult Function(HomeLoaded value)? loaded,
-    TResult Function(HomeError value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class HomeError extends HomeState {
-  const factory HomeError() = _$HomeErrorImpl;
-  const HomeError._() : super._();
 }

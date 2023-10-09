@@ -13,19 +13,19 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       (event, emit) async {
         await event.map(
           onEnter: (_) {
-            emit(const HomeState.loading());
+            emit(const HomeState.initial());
           },
           onScan: (_) {
-            emit(const HomeState.loading());
+            emit(const HomeState.initial());
           },
           onHistory: (_) {
-            emit(const HomeState.loading());
+            emit(const HomeState.initial());
           },
           onSettings: (_) {
-            emit(const HomeState.loading());
+            emit(const HomeState.initial());
           },
           onLogout: (_) {
-            emit(const HomeState.loading());
+            emit(const HomeState.initial());
           },
         );
       },
