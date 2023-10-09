@@ -28,13 +28,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
             //! in case we have a duplicate
             emit(
               state.copyWith(
-                bannedCountries: state.bannedCountries.copyWith(
-                  bannedCountry: value.selectedCountry!,
-                  isBanned: true,
-                ),
-                country: value.selectedCountry,
                 isLoading: false,
-                isDuplicate: true,
                 errorMessage: duplicateCountryErrorMessage,
               ),
             );
@@ -56,7 +50,6 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           emit(
             state.copyWith(
               isLoading: false,
-              isDuplicate: false,
               isAdded: false,
             ),
           );
