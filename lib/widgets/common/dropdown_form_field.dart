@@ -2,16 +2,18 @@ import 'package:credit_card_app/constants/countries_list.dart';
 import 'package:flutter/material.dart';
 
 class CountryDropdownButtonList extends StatelessWidget {
-  const CountryDropdownButtonList({
+  CountryDropdownButtonList({
     super.key,
     required this.hintText,
     required this.onChanged,
     this.icon,
+    this.onTap,
   });
 
   final String hintText;
   final void Function(String?) onChanged;
   final Widget? icon;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class CountryDropdownButtonList extends StatelessWidget {
       }).toList(),
       onChanged: onChanged,
       icon: icon,
+      onTap: onTap,
     );
   }
 }
