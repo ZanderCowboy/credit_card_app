@@ -12,7 +12,8 @@ class ResultBloc extends Bloc<ResultEvent, ResultState> {
     on<ResultEvent>(
       (event, emit) {
         event.map(
-          onFinish: (_) {},
+          onValidate: (_) {},
+          onSubmit: (_) {},
           onCancel: (_) {},
         );
       },
