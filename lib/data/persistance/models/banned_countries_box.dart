@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:credit_card_app/data/persistance/db_driver.dart';
 import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -11,8 +9,8 @@ class BannedCountriesBox {
       Hive.box<BannedCountries>(bannedCountriesBoxName);
 
   // add
-  Future<void> addBannedCountry(BannedCountries bc) async {
-    await box.add(bc);
+  void addBannedCountry(BannedCountries bannedCountry) {
+    box.add(bannedCountry);
   }
 
   // read
@@ -23,23 +21,22 @@ class BannedCountriesBox {
   // readAll
   List<BannedCountries> readAllBannedCountries() {
     final List<BannedCountries> list = <BannedCountries>[];
-    final int boxLength = box.length;
 
-    for (var i = 0; i < boxLength; i++) {
-      final BannedCountries? bc = box.getAt(i);
-      list.add(bc!);
+    for (var i = 0; i < box.length; i++) {
+      final BannedCountries? bannedCountry = box.getAt(i);
+      list.add(bannedCountry!);
     }
 
     return list;
   }
 
-  void updateBannedCountry(BannedCountries bc) {
+  void updateBannedCountry(BannedCountries bannedCountries) {
     int index = -1;
     var itemKey = null;
 
     final BannedCountries bCountry = BannedCountries(
-      bannedCountry: bc.bannedCountry,
-      isBanned: !bc.isBanned,
+      bannedCountry: bannedCountries.bannedCountry,
+      isBanned: !bannedCountries.isBanned,
     );
     final list = <BannedCountries>[];
     list.addAll(box.values);
@@ -52,15 +49,12 @@ class BannedCountriesBox {
 
     if (box.containsKey(itemKey)) {
       box.deleteAt(index);
-      log('deleting bCountry instance: ${bCountry}');
-      box.add(bc);
-      log('added new instance.');
+      box.add(bannedCountries);
     }
   }
 
   // deleteAt
   void deleteBannedCountryAt(int index) {
-    log('index at box: $index');
     box.deleteAt(index);
   }
 

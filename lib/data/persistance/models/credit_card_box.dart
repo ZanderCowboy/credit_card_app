@@ -8,8 +8,8 @@ class CreditCardBox {
   final Box<CreditCard> box = Hive.box<CreditCard>(creditCardBoxName);
 
   // add
-  Future<void> addCreditCard(CreditCard card) async {
-    await box.add(card);
+  void addCreditCard(CreditCard creditCard) {
+    box.add(creditCard);
   }
 
   // read
@@ -22,8 +22,8 @@ class CreditCardBox {
     final List<CreditCard> list = <CreditCard>[];
 
     for (var i = 0; i < box.length; i++) {
-      final CreditCard? card = box.getAt(i);
-      list.add(card!);
+      final CreditCard? creditCard = box.getAt(i);
+      list.add(creditCard!);
     }
 
     return list;
@@ -32,12 +32,12 @@ class CreditCardBox {
   // update
 
   // deleteAt
-  Future<void> deleteCreditCardAt(int index) async {
-    await box.deleteAt(index);
+  void deleteCreditCardAt(int index) {
+    box.deleteAt(index);
   }
 
   // deleteAll
-  Future<void> deleteCreditCards() async {
-    await box.clear();
+  void deleteCreditCards() {
+    box.clear();
   }
 }

@@ -1,12 +1,9 @@
-import 'dart:developer';
-
 import 'package:credit_card_app/data/persistance/models/credit_card_box.dart';
 import 'package:credit_card_app/domain/credit_card/i_credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: ICreditCardRepository)
-// @LazySingleton(as: CreditCardRepository)
 class CreditCardRepository implements ICreditCardRepository {
   CreditCardRepository();
 
@@ -14,23 +11,11 @@ class CreditCardRepository implements ICreditCardRepository {
 
   // add
   @override
-  Future<void> addCard(CreditCard card) async {
-    log('In CreditCardRepository - addCard(): $card');
-    await creditCardBox.addCreditCard(card);
-    log('Length: ${creditCardBox.box.length}');
+  void addCard(CreditCard card) {
+    creditCardBox.addCreditCard(card);
   }
 
-  // read
-  // CreditCard readCard() {
-  //   const CreditCard creditCard = CreditCard(
-  //     cardNumber: 'cardNumber',
-  //     cardType: 'cardType',
-  //     cvvNumber: 0,
-  //     issuingCountry: 'issuingCountry',
-  //   );
-  //   return creditCard;
-  // }
-
+  // readAll
   @override
   List<CreditCard> readHistoryCards() {
     return creditCardBox.readAllCreditCards();
@@ -38,15 +23,16 @@ class CreditCardRepository implements ICreditCardRepository {
 
   // update
 
-  // delete
+  // deleteAt
   @override
-  Future<void> deleteCreditCardAt(int index) async {
-    await creditCardBox.deleteCreditCardAt(index);
+  void deleteCreditCardAt(int index) {
+    creditCardBox.deleteCreditCardAt(index);
   }
 
+  // deleteAll
   @override
-  Future<void> deleteCreditCards() async {
-    await creditCardBox.deleteCreditCards();
+  void deleteCreditCards() {
+    creditCardBox.deleteCreditCards();
   }
 
   @override

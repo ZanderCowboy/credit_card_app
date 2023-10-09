@@ -2,7 +2,7 @@ import 'package:credit_card_app/domain/banned_countries/models/banned_countries.
 
 abstract class IBannedCountriesRepository {
   // add
-  Future<void> addCountry(String country);
+  void addCountry(String country);
 
   // readAt
   BannedCountries? readCountry(int index);
@@ -11,7 +11,6 @@ abstract class IBannedCountriesRepository {
   List<BannedCountries> readCountries();
 
   // update
-  // Country where its value need to be updated to `value`.
   void updateCountryChecked(String country, bool? newValue);
 
   // deleteAt
