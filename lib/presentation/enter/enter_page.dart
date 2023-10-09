@@ -1,17 +1,12 @@
 import 'package:credit_card_app/application/enter/bloc/enter_bloc.dart';
-import 'package:credit_card_app/constants/constants.dart';
+import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/get_it_injection.dart';
-import 'package:credit_card_app/widgets/common/button.dart';
-import 'package:credit_card_app/widgets/common/dropdown_form_field.dart';
-import 'package:credit_card_app/widgets/credit_card/credit_card_list_tile.dart';
+import 'package:credit_card_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_credit_card/credit_card_brand.dart';
 import 'package:flutter_credit_card/extension.dart';
-import 'package:flutter_credit_card/flutter_credit_card.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
 class EnterPage extends StatelessWidget {
   const EnterPage({super.key});
@@ -30,7 +25,7 @@ class EnterPage extends StatelessWidget {
   }
 }
 
-class _EnterPage extends HookWidget {
+class _EnterPage extends StatelessWidget {
   _EnterPage();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -38,10 +33,13 @@ class _EnterPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cardNumberTextController = useTextEditingController();
-    final cardTypeTextController = useTextEditingController();
-    final cardCvvTextController = useTextEditingController();
-    final countryTextController = useTextEditingController(text: null);
+    // final cardNumberTextController = useTextEditingController();
+    final cardNumberTextController = TextEditingController();
+    final cardTypeTextController = TextEditingController();
+    final cardExiryDateTextController = TextEditingController();
+    final cardCvvTextController = TextEditingController();
+    // final countryTextController = useTextEditingController(text: null);
+    final countryTextController = TextEditingController(text: null);
 
     return BlocConsumer<EnterBloc, EnterState>(
       listener: (context, state) {
@@ -56,42 +54,7 @@ class _EnterPage extends HookWidget {
         }
         if (state.isUnique) {
           ScaffoldMessenger.of(context).clearSnackBars();
-          showDialog<AlertDialog>(
-            context: context,
-            builder: (_) {
-              CreditCard creditCard = state.creditCard;
-              return AlertDialog(
-                title: const Text(enterPageDialogTitle),
-                content: Card(
-                  elevation: 3,
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: CreditCardListTile(creditCard: creditCard),
-                ),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text(cancelButtonText),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      context
-                          .read<EnterBloc>()
-                          .add(const EnterEvent.onSubmit());
-
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                        homeRoute,
-                        (Route<dynamic> route) => false,
-                      );
-                    },
-                    child: const Text(submitButtonText),
-                  ),
-                ],
-              );
-            },
-          );
+          _showDialog(context, state);
         }
         if (state.isInvalid) {
           ScaffoldMessenger.of(context)
@@ -122,6 +85,8 @@ class _EnterPage extends HookWidget {
       builder: (context, state) {
         String? selectedCountry = null;
 
+        cardTypeTextController.text = state.creditCard.cardType.toUpperCase();
+
         return Padding(
           padding: const EdgeInsets.all(8),
           child: Column(
@@ -147,29 +112,47 @@ class _EnterPage extends HookWidget {
                                   textController: cardNumberTextController,
                                   labelText: cardNumberLabelText,
                                   hintText: cardNumberHintText,
-                                  onChanged: (value) {
-                                    context.read<EnterBloc>().add(
-                                        EnterEvent.onChangedCardNumber(value));
-                                  },
+                                  onChanged: (value) => context
+                                      .read<EnterBloc>()
+                                      .add(EnterEvent.onChangedCardNumber(
+                                          value)),
+                                  onTap: () => context
+                                      .read<EnterBloc>()
+                                      .add(EnterEvent.onTapCardNumber()),
                                 ),
                                 CreditCardFormField(
                                   textController: cardTypeTextController,
                                   labelText: cardTypeLabelText,
                                   hintText: cardTypeHintText,
-                                  onChanged: (value) {
-                                    context.read<EnterBloc>().add(
-                                          EnterEvent.onChangedCardType(value),
-                                        );
-                                  },
+                                  onChanged: (value) =>
+                                      context.read<EnterBloc>().add(
+                                            EnterEvent.onChangedCardType(value),
+                                          ),
+                                  readOnly: true,
+                                  onTap: () => context
+                                      .read<EnterBloc>()
+                                      .add(EnterEvent.onTapCardType()),
+                                ),
+                                CreditCardFormField(
+                                  textController: cardExiryDateTextController,
+                                  labelText: 'Expiry Date',
+                                  hintText: 'Enter expiry date',
+                                  onChanged: (value) {},
+                                  onTap: () => context
+                                      .read<EnterBloc>()
+                                      .add(EnterEvent.onTapCardNumber()),
                                 ),
                                 CreditCardFormField(
                                   textController: cardCvvTextController,
                                   labelText: cvvNumberLabelText,
                                   hintText: cvvNumberHintText,
-                                  onChanged: (value) {
-                                    context.read<EnterBloc>().add(
-                                        EnterEvent.onChangedCvvNumber(value));
-                                  },
+                                  onChanged: (value) => context
+                                      .read<EnterBloc>()
+                                      .add(
+                                          EnterEvent.onChangedCvvNumber(value)),
+                                  onTap: () => context
+                                      .read<EnterBloc>()
+                                      .add(EnterEvent.onTapCvvNumber()),
                                 ),
                                 CountryDropdownButtonList(
                                   hintText: issuingCountryLabelText,
@@ -180,6 +163,9 @@ class _EnterPage extends HookWidget {
                                               selectedCountry!),
                                         );
                                   },
+                                  onTap: () => context
+                                      .read<EnterBloc>()
+                                      .add(EnterEvent.onTapIssuingCountry()),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
@@ -256,89 +242,39 @@ class _EnterPage extends HookWidget {
       },
     );
   }
-}
 
-class CreditCardFormField extends StatelessWidget {
-  CreditCardFormField({
-    super.key,
-    required this.textController,
-    required this.labelText,
-    required this.hintText,
-    required this.onChanged,
-  });
+  Future<AlertDialog?> _showDialog(BuildContext context, EnterState state) {
+    return showDialog<AlertDialog>(
+        context: context,
+        builder: (_) {
+          CreditCard creditCard = state.creditCard;
+          return AlertDialog(
+            title: const Text(enterPageDialogTitle),
+            content: Card(
+              elevation: 3,
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: CreditCardListTile(creditCard: creditCard),
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text(cancelButtonText),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  context.read<EnterBloc>().add(const EnterEvent.onSubmit());
 
-  final TextEditingController textController;
-  final String labelText;
-  final String hintText;
-  final void Function(String) onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      controller: textController,
-      decoration: InputDecoration(
-        labelText: labelText,
-        hintText: hintText,
-        hintStyle: TextStyle(color: Colors.white),
-        labelStyle: TextStyle(color: Colors.white),
-      ),
-      onChanged: onChanged,
-    );
-  }
-}
-
-class CreditCardAnimation extends StatelessWidget {
-  const CreditCardAnimation({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    const isCvvFocused = false;
-
-    return BlocConsumer<EnterBloc, EnterState>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        return SafeArea(
-          child: Column(
-            children: <Widget>[
-              CreditCardWidget(
-                cardNumber: state.creditCard.cardNumber,
-                expiryDate: state.creditCard.cardType,
-                cardHolderName: state.creditCard.issuingCountry,
-                cvvCode: state.creditCard.cvvNumber,
-                bankName: 'Bank Name',
-                frontCardBorder: Border.all(color: Colors.grey),
-                backCardBorder: Border.all(color: Colors.grey),
-                showBackView: isCvvFocused,
-                obscureCardNumber: false,
-                obscureCardCvv: false,
-                isHolderNameVisible: true,
-                cardBgColor: _AppColors.cardBgColor,
-                onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
-                customCardTypeIcons: <CustomCardTypeIcon>[
-                  CustomCardTypeIcon(
-                    cardType: CardType.mastercard,
-                    cardImage: Image.asset(
-                      'assets/mastercard.png',
-                      height: 48,
-                      width: 48,
-                    ),
-                  ),
-                ],
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                    homeRoute,
+                    (Route<dynamic> route) => false,
+                  );
+                },
+                child: const Text(submitButtonText),
               ),
             ],
-          ),
-        );
-      },
-    );
+          );
+        });
   }
-}
-
-class _AppColors {
-  _AppColors._();
-
-  static const Color cardBgColor = Color(0xff363636);
-  // static const Color colorB58D67 = Color(0xffB58D67);
-  // static const Color colorE5D1B2 = Color(0xffE5D1B2);
-  // static const Color colorF9EED2 = Color(0xffF9EED2);
-  // static const Color colorFFFFFD = Color(0xffFFFFFD);
 }
