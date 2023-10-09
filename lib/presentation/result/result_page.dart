@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:credit_card_app/application/result/bloc/result_bloc.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
@@ -11,23 +9,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ResultPage extends StatelessWidget {
   const ResultPage({
     super.key,
-    // required this.creditCardRepository,
   });
-
-  // final CreditCardRepository creditCardRepository;
 
   @override
   Widget build(BuildContext context) {
-    // void navigateToHome(BuildContext context) {
-    //   Navigator.of(context).pushNamedAndRemoveUntil(
-    //     homeRoute,
-    //     (Route<dynamic> route) => false,
-    //   ); // PushandPopUntil
-    // }
-
-    // List<CreditCard> cards =
-    //     context.read<CreditCardRepository>().loadHistoryCards();
-
     return Scaffold(
       appBar: AppBar(
         title: const Text(resultAppBarTitle),
@@ -36,14 +21,7 @@ class ResultPage extends StatelessWidget {
         create: (_) => coreSl<ResultBloc>(),
         child: BlocBuilder<ResultBloc, ResultState>(
           builder: (context, state) {
-            // List<CreditCard> cards = creditCardRepository.loadHistoryCards();
-            // CreditCard creditCard = cards.last;
-            // if (state is ResultNew) {
-
-            // }
             final CreditCard creditCard = CreditCard.empty();
-
-            log(state.toString());
 
             return Padding(
               padding: const EdgeInsets.all(8),
@@ -89,13 +67,11 @@ class ResultPage extends StatelessWidget {
                       child: ElevatedButton(
                         style: buttonSmallStyle,
                         onPressed: () {
-                          // creditCardRepository
-                          //                       .addCard(generateCard());
                           Navigator.of(context).pushNamedAndRemoveUntil(
                             homeRoute,
                             (Route<dynamic> route) => false,
                           );
-                        }, // PushandPopUntil
+                        },
                         child: const Text(resultAddButtonTitle),
                       ),
                     ),
@@ -108,19 +84,4 @@ class ResultPage extends StatelessWidget {
       ),
     );
   }
-
-  // CreditCard generateCard() {
-  //   String cardNumber = cardNumberController.text;
-  //   String cardType = cardTypeController.text;
-  //   int cvvNumber = int.parse(cvvNumberController.text);
-  //   String issuingCountry = issuingCountryController.text;
-
-  //   CreditCard card = CreditCard(
-  //       cardNumber: cardNumber,
-  //       cardType: cardType,
-  //       cvvNumber: cvvNumber,
-  //       issuingCountry: issuingCountry);
-
-  //   return card;
-  // }
 }

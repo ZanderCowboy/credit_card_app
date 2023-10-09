@@ -1,4 +1,4 @@
-import 'package:credit_card_app/app/view/app.dart';
+import 'package:credit_card_app/application/app.dart';
 import 'package:credit_card_app/data/persistance/db_driver.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/infrastructure/banned_countries/banned_countries_repository.dart';

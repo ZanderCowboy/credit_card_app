@@ -3,6 +3,8 @@ import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/infrastructure/credit_card/credit_card_repository.dart';
+import 'package:credit_card_app/widgets/common/empty_page_view.dart';
+import 'package:credit_card_app/widgets/credit_card/credit_card_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,7 +37,9 @@ class _HistoryPage extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return cards.isEmpty
-            ? _EmptyListView()
+            ? EmptyPageView(
+                textMessage: historyNoCreditCardsMessage,
+              )
             : ListView.builder(
                 itemCount: cards.length,
                 itemBuilder: (context, index) {
@@ -46,45 +50,11 @@ class _HistoryPage extends StatelessWidget {
                     elevation: 3,
                     margin:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    child: ListTile(
-                      leading: const Icon(Icons.credit_card),
-                      title: Text(
-                        creditCard.cardNumber,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Card Type: ${creditCard.cardType}'),
-                          Text(
-                            'CVV: ${creditCard.cvvNumber.padLeft(3, '0')}',
-                          ),
-                          Text('Issuing Country: ${creditCard.issuingCountry}'),
-                        ],
-                      ),
-                    ),
+                    child: CreditCardListTile(creditCard: creditCard),
                   );
                 },
               );
       },
-    );
-  }
-}
-
-class _EmptyListView extends StatelessWidget {
-  const _EmptyListView();
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        historyNoCreditCardsMessage,
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w200,
-          color: Colors.grey[600],
-        ),
-      ),
     );
   }
 }

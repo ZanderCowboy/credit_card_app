@@ -1,6 +1,7 @@
 import 'package:credit_card_app/application/home/home.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/get_it_injection.dart';
+import 'package:credit_card_app/widgets/common/large_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -50,15 +51,17 @@ class _HomePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _ElevButton(buttonTitle: enterButtonTitle, route: enterRoute),
+                LargeButtonNavigate(
+                    buttonTitle: enterButtonTitle, route: enterRoute),
                 SizedBox(
                   height: 16,
                 ),
-                _ElevButton(buttonTitle: scanButtonTitle, route: scanRoute),
+                LargeButtonNavigate(
+                    buttonTitle: scanButtonTitle, route: scanRoute),
                 SizedBox(
                   height: 16,
                 ),
-                _ElevButton(
+                LargeButtonNavigate(
                     buttonTitle: historyButtonTitle, route: historyRoute),
                 SizedBox(
                   height: 16,
@@ -68,30 +71,6 @@ class _HomePage extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class _ElevButton extends StatelessWidget {
-  const _ElevButton({required this.buttonTitle, required this.route});
-
-  final String buttonTitle;
-  final String route;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        textStyle: const TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.bold,
-        ),
-        minimumSize: const Size(200, 80),
-      ),
-      onPressed: () {
-        Navigator.of(context).pushNamed(route);
-      },
-      child: Text(buttonTitle),
     );
   }
 }

@@ -1,11 +1,11 @@
-import 'dart:developer';
-
 import 'package:credit_card_app/application/settings/bloc/settings_bloc.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
 import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/infrastructure/banned_countries/banned_countries_repository.dart';
+import 'package:credit_card_app/widgets/common/dropdown_form_field.dart';
+import 'package:credit_card_app/widgets/common/empty_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_credit_card/extension.dart';
@@ -42,54 +42,59 @@ class _SettingsPage extends StatelessWidget {
     return BlocConsumer<SettingsBloc, SettingsState>(
       listener: (context, state) {
         if (state.isLoading) {
-          ScaffoldMessenger.of(context).clearSnackBars();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('loading...'),
-            ),
-          );
+          ScaffoldMessenger.of(context)
+            ..clearSnackBars()
+            ..showSnackBar(
+              const SnackBar(
+                content: Text('loading...'),
+              ),
+            );
         }
         if (state.isAdded) {
-          ScaffoldMessenger.of(context).clearSnackBars();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Added.'),
-            ),
-          );
-        }
-        if (state.isDuplicate) {
-          ScaffoldMessenger.of(context).clearSnackBars();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text(duplicateCountryErrorMessage),
-            ),
-          );
+          ScaffoldMessenger.of(context)
+            ..clearSnackBars()
+            ..showSnackBar(
+              const SnackBar(
+                content: Text('Added.'),
+              ),
+            );
         }
         if (state.isDeleted) {
-          ScaffoldMessenger.of(context).clearSnackBars();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text(deletedBannedCountryMessage),
-            ),
-          );
+          ScaffoldMessenger.of(context)
+            ..clearSnackBars()
+            ..showSnackBar(
+              const SnackBar(
+                content: Text(deletedBannedCountryMessage),
+              ),
+            );
         }
         if (state.isChecked) {
-          ScaffoldMessenger.of(context).clearSnackBars();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Checked.'),
-            ),
-          );
+          ScaffoldMessenger.of(context)
+            ..clearSnackBars()
+            ..showSnackBar(
+              const SnackBar(
+                content: Text('Checked.'),
+              ),
+            );
         }
         if (state.isUnchecked) {
-          ScaffoldMessenger.of(context).clearSnackBars();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Unchecked.'),
-            ),
-          );
+          ScaffoldMessenger.of(context)
+            ..clearSnackBars()
+            ..showSnackBar(
+              const SnackBar(
+                content: Text('Unchecked.'),
+              ),
+            );
         }
-        if (state.errorMessage.isNotNullAndNotEmpty) {}
+        if (state.errorMessage.isNotNullAndNotEmpty) {
+          ScaffoldMessenger.of(context)
+            ..clearSnackBars()
+            ..showSnackBar(
+              SnackBar(
+                content: Text(state.errorMessage!),
+              ),
+            );
+        }
       },
       builder: (context, state) {
         final list = context.read<BannedCountriesRepository>().readCountries();
@@ -97,7 +102,9 @@ class _SettingsPage extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(8),
           child: list.isEmpty
-              ? const _EmptyListView()
+              ? EmptyPageView(
+                  textMessage: settingsNoBannedCountriesMessage,
+                )
               : Material(
                   elevation: 20,
                   child: Container(
@@ -110,41 +117,15 @@ class _SettingsPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: const Column(
-                      children: [
-                        Expanded(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                _BannedCountryList(),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
+                    child: Expanded(
+                      child: SingleChildScrollView(
+                        child: _BannedCountryList(),
+                      ),
                     ),
                   ),
                 ),
         );
       },
-    );
-  }
-}
-
-class _EmptyListView extends StatelessWidget {
-  const _EmptyListView();
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        settingsNoBannedCountriesMessage,
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w200,
-          color: Colors.grey[600],
-        ),
-      ),
     );
   }
 }
@@ -163,20 +144,14 @@ class _AddBannedCountryDialog extends StatelessWidget {
       builder: (context, state) {
         return FloatingActionButton(
           child: const Icon(Icons.add),
-          onPressed: () async {
-            await showDialog<AlertDialog>(
+          onPressed: () {
+            showDialog<AlertDialog>(
               context: context,
               builder: (_) {
                 return AlertDialog(
                   title: const Text(addBannedCountryDialogTitle),
-                  content: DropdownButtonFormField<String>(
-                    hint: const Text(issuingCountryLabelText),
-                    items: countries.map((country) {
-                      return DropdownMenuItem<String>(
-                        value: country,
-                        child: Text(country),
-                      );
-                    }).toList(),
+                  content: CountryDropdownButtonList(
+                    hintText: issuingCountryLabelText,
                     onChanged: (value) {
                       selectedCountry = value;
                     },
@@ -190,7 +165,7 @@ class _AddBannedCountryDialog extends StatelessWidget {
                       child: const Text(cancelBannedCountryDialogButton),
                     ),
                     ElevatedButton(
-                      onPressed: () async {
+                      onPressed: () {
                         context
                             .read<SettingsBloc>()
                             .add(SettingsEvent.onAddCountry(selectedCountry));
@@ -234,9 +209,8 @@ class _BannedCountryList extends StatelessWidget {
               final checkbox = bannedCountriesList[index].isBanned;
               final bannedCountry = bannedCountriesList[index];
 
-              final bannedCountryCode =
-                  bannedCountriesList[index].bannedCountry;
-              final bannedCountryName = countryMap[bannedCountryCode];
+              final countryCode = bannedCountriesList[index].bannedCountry;
+              final countryName = countryMap[countryCode];
 
               return InkWell(
                 onLongPress: () {
@@ -244,7 +218,7 @@ class _BannedCountryList extends StatelessWidget {
                     context: context,
                     builder: (_) => AlertDialog(
                       content: Text(
-                        'Do you want to delete $bannedCountryName?',
+                        'Do you want to delete $countryName?',
                       ),
                       actions: <Widget>[
                         TextButton(
@@ -265,13 +239,12 @@ class _BannedCountryList extends StatelessWidget {
                   );
                 },
                 child: CheckboxListTile(
-                  title: Text('$bannedCountryCode \t - $bannedCountryName'),
+                  title: Text('$countryCode \t - $countryName'),
                   value: checkbox,
                   onChanged: (bool? newValue) {
-                    log('$newValue \t $bannedCountryCode');
                     context.read<SettingsBloc>().add(
                           SettingsEvent.onCountryPressed(
-                            bannedCountryCode,
+                            countryCode,
                             newValue,
                           ),
                         );

@@ -4,6 +4,8 @@ import 'package:credit_card_app/constants/countries_list.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/widgets/common/button.dart';
+import 'package:credit_card_app/widgets/common/dropdown_form_field.dart';
+import 'package:credit_card_app/widgets/credit_card/credit_card_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_credit_card/credit_card_brand.dart';
@@ -44,27 +46,27 @@ class _EnterPage extends HookWidget {
     return BlocConsumer<EnterBloc, EnterState>(
       listener: (context, state) {
         if (state.isLoading) {
-          ScaffoldMessenger.of(context).clearSnackBars();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('loading...'),
-              duration: Duration(seconds: 3),
-            ),
-          );
+          ScaffoldMessenger.of(context)
+            ..clearSnackBars()
+            ..showSnackBar(
+              const SnackBar(
+                content: Text('loading...'),
+              ),
+            );
         }
-
         if (state.isUnique) {
           ScaffoldMessenger.of(context).clearSnackBars();
           showDialog<AlertDialog>(
             context: context,
             builder: (_) {
+              CreditCard creditCard = state.creditCard;
               return AlertDialog(
                 title: const Text(enterSubmissionDialogTitle),
                 content: Card(
                   elevation: 3,
                   margin:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: _creditCardListTile(state.creditCard),
+                  child: CreditCardListTile(creditCard: creditCard),
                 ),
                 actions: <Widget>[
                   TextButton(
@@ -92,33 +94,28 @@ class _EnterPage extends HookWidget {
           );
         }
         if (state.isInvalid) {
-          ScaffoldMessenger.of(context).clearSnackBars();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Invalid details.'),
-              // duration: Duration(seconds: 3),
-            ),
-          );
+          ScaffoldMessenger.of(context)
+            ..clearSnackBars()
+            ..showSnackBar(const SnackBar(content: Text('Invalid details.')));
         }
         if (state.isDuplicate) {
-          ScaffoldMessenger.of(context).clearSnackBars();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text(duplicateCardErrorMessage),
-              duration: Duration(seconds: 3),
-            ),
-          );
+          ScaffoldMessenger.of(context)
+            ..clearSnackBars()
+            ..showSnackBar(
+              const SnackBar(
+                content: Text(duplicateCardErrorMessage),
+              ),
+            );
         }
         if (state.isSaving) {
-          ScaffoldMessenger.of(context).clearSnackBars();
           ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text('saving...')));
-          // _showDialog(context);
+            ..clearSnackBars()
+            ..showSnackBar(const SnackBar(content: Text('saving...')));
         }
         if (state.errorMessage.isNotNullAndNotEmpty) {
-          ScaffoldMessenger.of(context).clearSnackBars();
           ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(state.errorMessage!)));
+            ..clearSnackBars()
+            ..showSnackBar(SnackBar(content: Text(state.errorMessage!)));
         }
       },
       builder: (context, state) {
@@ -145,63 +142,38 @@ class _EnterPage extends HookWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                TextFormField(
-                                  controller: cardNumberTextController,
-                                  decoration: const InputDecoration(
-                                    labelText: cardNumberLabelText,
-                                    hintText: cardNumberHintText,
-                                    hintStyle: TextStyle(color: Colors.white),
-                                    labelStyle: TextStyle(color: Colors.white),
-                                  ),
+                                CreditCardFormField(
+                                  textController: cardNumberTextController,
+                                  labelText: cardNumberLabelText,
+                                  hintText: cardNumberHintText,
                                   onChanged: (value) {
                                     context
                                         .read<EnterBloc>()
                                         .add(EnterEvent.onChangedNumber(value));
                                   },
                                 ),
-                                TextFormField(
-                                  controller: cardTypeTextController,
-                                  decoration: const InputDecoration(
-                                    labelText: cardTypeLabelText,
-                                    hintText: cardTypeHintText,
-                                    hintStyle: TextStyle(color: Colors.white),
-                                    labelStyle: TextStyle(color: Colors.white),
-                                  ),
-                                  validator: (String? value) {
-                                    if (value == null || value.isEmpty) {
-                                      return cardTypeErrorText;
-                                    }
-                                    return null;
-                                  },
+                                CreditCardFormField(
+                                  textController: cardTypeTextController,
+                                  labelText: cardTypeLabelText,
+                                  hintText: cardTypeHintText,
                                   onChanged: (value) {
                                     context.read<EnterBloc>().add(
                                           EnterEvent.onChangedCardType(value),
                                         );
                                   },
                                 ),
-                                TextFormField(
-                                  controller: cardCvvTextController,
-                                  decoration: const InputDecoration(
-                                    labelText: cvvNumberLabelText,
-                                    hintText: cvvNumberHintText,
-                                    hintStyle: TextStyle(color: Colors.white),
-                                    labelStyle: TextStyle(color: Colors.white),
-                                  ),
+                                CreditCardFormField(
+                                  textController: cardCvvTextController,
+                                  labelText: cvvNumberLabelText,
+                                  hintText: cvvNumberHintText,
                                   onChanged: (value) {
                                     context
                                         .read<EnterBloc>()
                                         .add(EnterEvent.onChangedCVV(value));
                                   },
                                 ),
-                                DropdownButtonFormField<String>(
-                                  hint: const Text(issuingCountryLabelText),
-                                  // value: countryTextController.text,
-                                  items: countriesList.map((country) {
-                                    return DropdownMenuItem<String>(
-                                      value: country,
-                                      child: Text(country),
-                                    );
-                                  }).toList(),
+                                CountryDropdownButtonList(
+                                  hintText: issuingCountryLabelText,
                                   onChanged: (value) {
                                     selectedCountry = value;
                                     context.read<EnterBloc>().add(
@@ -285,122 +257,36 @@ class _EnterPage extends HookWidget {
       },
     );
   }
+}
 
-  // void _showDialog(BuildContext context) {
-  //   showDialog<AlertDialog>(
-  //     context: context,
-  //     builder: (_) => AlertDialog(
-  //       content: const Text(
-  //         'Are you sure you want to submit this card? ',
-  //       ),
-  //       actions: <Widget>[
-  //         TextButton(
-  //           onPressed: () => Navigator.of(context).pop(),
-  //           child: const Text('No'),
-  //         ),
-  //         TextButton(
-  //           onPressed: () {
-  //             Navigator.of(context).pop();
-  //             context.read<EnterBloc>().add(const EnterEvent.onSubmit());
-  //           },
-  //           child: const Text('Yes'),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
+class CreditCardFormField extends StatelessWidget {
+  CreditCardFormField({
+    super.key,
+    required this.textController,
+    required this.labelText,
+    required this.hintText,
+    required this.onChanged,
+  });
 
-  // Future<void> _showDialogWithCard(BuildContext context) async {
-  //   log('In _showDialog: Context $context');
+  final TextEditingController textController;
+  final String labelText;
+  final String hintText;
+  final void Function(String) onChanged;
 
-  //   await showDialog<AlertDialog>(
-  //     context: context,
-  //     builder: (_) {
-  //       return BlocProvider(
-  //         create: (context) => coreSl<EnterBloc>(),
-  //         child: BlocBuilder<EnterBloc, EnterState>(
-  //           builder: (context, state) {
-  //             return AlertDialog(
-  //               title: const Text(resultDialogTitle),
-  //               content: Card(
-  //                 elevation: 3,
-  //                 margin:
-  //                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-  //                 child: _creditCardListTile(state.creditCard),
-  //               ),
-  //               actions: <Widget>[
-  //                 TextButton(
-  //                   onPressed: () {
-  //                     log('onPressed: onCancel()');
-  //                     context
-  //                         .read<EnterBloc>()
-  //                         .add(const EnterEvent.onCancel());
-  //                     Navigator.of(context).pop();
-  //                   },
-  //                   child: const Text(cancelDialogButton),
-  //                 ),
-  //                 ElevatedButton(
-  //                   onPressed: () {
-  //                     context
-  //                         .read<EnterBloc>()
-  //                         .add(const EnterEvent.onSubmit());
-
-  //                     Navigator.of(context).pushNamedAndRemoveUntil(
-  //                       homeRoute,
-  //                       (Route<dynamic> route) => false,
-  //                     );
-  //                   },
-  //                   child: const Text(resultAddButtonTitle),
-  //                 ),
-  //               ],
-  //             );
-  //           },
-  //         ),
-  //       );
-  //     },
-  //   );
-  // }
-
-  ListTile _creditCardListTile(CreditCard creditCard) {
-    return ListTile(
-      leading: const Icon(Icons.credit_card),
-      title: Text(
-        creditCard.cardNumber,
-        style: const TextStyle(fontWeight: FontWeight.bold),
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: textController,
+      decoration: InputDecoration(
+        labelText: labelText,
+        hintText: hintText,
+        hintStyle: TextStyle(color: Colors.white),
+        labelStyle: TextStyle(color: Colors.white),
       ),
-      subtitle: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Card Type: ${creditCard.cardType}'),
-          Text('CVV: ${creditCard.cvvNumber.padLeft(3, '0')}'),
-          Text('Issuing Country: ${creditCard.issuingCountry}'),
-        ],
-      ),
+      onChanged: onChanged,
     );
   }
 }
-
-// class _CardDetails extends StatelessWidget {
-//   const _CardDetails();
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return BlocConsumer<EnterBloc, EnterState>(
-//       listener: (context, state) {},
-//       builder: (context, state) {
-//         return ListView(
-//           shrinkWrap: true,
-//           children: [
-//             Text(state.creditCard.cardNumber),
-//             Text(state.creditCard.cardType),
-//             Text(state.creditCard.cvvNumber),
-//           ],
-//         );
-//       },
-//     );
-//   }
-// }
 
 class CreditCardAnimation extends StatelessWidget {
   const CreditCardAnimation({super.key});
