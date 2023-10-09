@@ -1,17 +1,16 @@
+import 'package:credit_card_app/data/persistance/db_driver.dart';
 import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:credit_card_app/data/persistance/db_driver.dart';
 
 class BannedCountriesBox {
   BannedCountriesBox();
 
-  // Hand over the opened box from the driver to this model
   final Box<BannedCountries> box =
       Hive.box<BannedCountries>(bannedCountriesBoxName);
 
   // add
-  void addBannedCountry(BannedCountries bc) {
-    box.add(bc);
+  void addBannedCountry(BannedCountries bannedCountry) {
+    box.add(bannedCountry);
   }
 
   // read
@@ -19,27 +18,38 @@ class BannedCountriesBox {
     return box.getAt(index);
   }
 
-  // read all
+  // readAll
   List<BannedCountries> readAllBannedCountries() {
-    List<BannedCountries> list = <BannedCountries>[];
-    int listLength = box.length;
+    final List<BannedCountries> list = <BannedCountries>[];
 
-    for (var i = 0; i < listLength; i++) {
-      BannedCountries? bc = box.getAt(i);
-      list.add(bc!);
+    for (var i = 0; i < box.length; i++) {
+      final BannedCountries? bannedCountry = box.getAt(i);
+      list.add(bannedCountry!);
     }
 
     return list;
   }
 
-  // gets an index and a new BannedCountries instance to be added.
-  void updateBannedCountry(int index, BannedCountries bc) {
-    if (box.containsKey(index)) {
-      box.delete(index);
-      // return;
+  void updateBannedCountry(BannedCountries bannedCountries) {
+    int index = -1;
+    var itemKey = null;
+
+    final BannedCountries bCountry = BannedCountries(
+      bannedCountry: bannedCountries.bannedCountry,
+      isBanned: !bannedCountries.isBanned,
+    );
+    final list = <BannedCountries>[];
+    list.addAll(box.values);
+    for (var i = 0; i < list.length; i++) {
+      if (bCountry == list[i]) {
+        itemKey = box.keyAt(i);
+        index = i;
+      }
     }
-    if (!box.containsKey(bc)) {
-      box.put(index, bc);
+
+    if (box.containsKey(itemKey)) {
+      box.deleteAt(index);
+      box.add(bannedCountries);
     }
   }
 
@@ -48,7 +58,7 @@ class BannedCountriesBox {
     box.deleteAt(index);
   }
 
-  // delete
+  // deleteAll
   void deleteBannedCountries() {
     box.clear();
   }
