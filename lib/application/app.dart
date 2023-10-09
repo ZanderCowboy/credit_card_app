@@ -5,7 +5,7 @@ import 'package:credit_card_app/application/result/result.dart';
 import 'package:credit_card_app/application/scan/scan.dart';
 import 'package:credit_card_app/application/settings/settings.dart';
 import 'package:credit_card_app/application/start/start.dart';
-import 'package:credit_card_app/constants/constants.dart';
+import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/infrastructure/banned_countries/banned_countries_repository.dart';
 import 'package:credit_card_app/infrastructure/credit_card/credit_card_repository.dart';
 import 'package:flutter/material.dart';
