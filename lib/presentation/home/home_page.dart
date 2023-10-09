@@ -52,17 +52,17 @@ class _HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 LargeButtonNavigate(
-                    buttonTitle: enterButtonTitle, route: enterRoute),
+                    buttonTitle: homePageEnterButton, route: enterRoute),
                 SizedBox(
                   height: 16,
                 ),
                 LargeButtonNavigate(
-                    buttonTitle: scanButtonTitle, route: scanRoute),
+                    buttonTitle: homePageScanButton, route: scanRoute),
                 SizedBox(
                   height: 16,
                 ),
                 LargeButtonNavigate(
-                    buttonTitle: historyButtonTitle, route: historyRoute),
+                    buttonTitle: homePageHistoryButton, route: historyRoute),
                 SizedBox(
                   height: 16,
                 ),

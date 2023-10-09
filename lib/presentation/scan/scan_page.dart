@@ -126,7 +126,6 @@ class _ScanPageState extends State<_ScanPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const _TakeButton(),
                               Expanded(
                                 child: Padding(
                                   padding:
@@ -136,11 +135,10 @@ class _ScanPageState extends State<_ScanPage> {
                                     onPressed: _imageFile == null
                                         ? _takePicture
                                         : null,
-                                    child: const Text(scanTakeButtonTitle),
+                                    child: const Text(scanPageTakeButton),
                                   ),
                                 ),
                               ),
-                              const _RetakeButton(),
                               Expanded(
                                 child: Padding(
                                   padding:
@@ -150,7 +148,7 @@ class _ScanPageState extends State<_ScanPage> {
                                     onPressed: _imageFile == null
                                         ? _retakePicture
                                         : null,
-                                    child: const Text(scanRetakeButtonTitle),
+                                    child: const Text(scanPageRetakeButton),
                                   ),
                                 ),
                               ),
@@ -170,7 +168,7 @@ class _ScanPageState extends State<_ScanPage> {
                                             ScanEvent.onSubmit(creditCard),
                                           );
                                     },
-                                    child: const Text(scanSubmitButtonTitle),
+                                    child: const Text(submitButtonText),
                                   ),
                                 ),
                               ),
@@ -189,45 +187,6 @@ class _ScanPageState extends State<_ScanPage> {
               ),
             );
           },
-        ),
-      ),
-    );
-  }
-}
-
-class _TakeButton extends StatelessWidget {
-  const _TakeButton();
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 8, 4, 4),
-        child: ElevatedButton(
-          style: buttonSmallStyle,
-          onPressed: () => Navigator.of(context).pop(),
-          // onPressed: _imageFile == null
-          //                               ? _takePicture
-          //                               : null,
-          child: const Text(scanTakeButtonTitle),
-        ),
-      ),
-    );
-  }
-}
-
-class _RetakeButton extends StatelessWidget {
-  const _RetakeButton();
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(4, 8, 0, 8),
-        child: ElevatedButton(
-          style: buttonSmallStyle,
-          onPressed: () => Navigator.of(context).pop(),
-          child: const Text(scanRetakeButtonTitle),
         ),
       ),
     );

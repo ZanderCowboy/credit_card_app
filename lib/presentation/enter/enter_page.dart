@@ -50,7 +50,7 @@ class _EnterPage extends HookWidget {
             ..clearSnackBars()
             ..showSnackBar(
               const SnackBar(
-                content: Text('loading...'),
+                content: Text(loadingText),
               ),
             );
         }
@@ -61,7 +61,7 @@ class _EnterPage extends HookWidget {
             builder: (_) {
               CreditCard creditCard = state.creditCard;
               return AlertDialog(
-                title: const Text(enterSubmissionDialogTitle),
+                title: const Text(enterPageDialogTitle),
                 content: Card(
                   elevation: 3,
                   margin:
@@ -73,7 +73,7 @@ class _EnterPage extends HookWidget {
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    child: const Text(cancelDialogButton),
+                    child: const Text(cancelButtonText),
                   ),
                   ElevatedButton(
                     onPressed: () {
@@ -86,7 +86,7 @@ class _EnterPage extends HookWidget {
                         (Route<dynamic> route) => false,
                       );
                     },
-                    child: const Text(resultAddButtonTitle),
+                    child: const Text(submitButtonText),
                   ),
                 ],
               );
@@ -103,14 +103,15 @@ class _EnterPage extends HookWidget {
             ..clearSnackBars()
             ..showSnackBar(
               const SnackBar(
-                content: Text(duplicateCardErrorMessage),
+                content: Text(enterDuplicateCardErrorMessage),
               ),
             );
         }
         if (state.isSaving) {
           ScaffoldMessenger.of(context)
             ..clearSnackBars()
-            ..showSnackBar(const SnackBar(content: Text('saving...')));
+            ..showSnackBar(
+                const SnackBar(content: Text(successfullyAddedText)));
         }
         if (state.errorMessage.isNotNullAndNotEmpty) {
           ScaffoldMessenger.of(context)
@@ -147,9 +148,8 @@ class _EnterPage extends HookWidget {
                                   labelText: cardNumberLabelText,
                                   hintText: cardNumberHintText,
                                   onChanged: (value) {
-                                    context
-                                        .read<EnterBloc>()
-                                        .add(EnterEvent.onChangedNumber(value));
+                                    context.read<EnterBloc>().add(
+                                        EnterEvent.onChangedCardNumber(value));
                                   },
                                 ),
                                 CreditCardFormField(
@@ -167,9 +167,8 @@ class _EnterPage extends HookWidget {
                                   labelText: cvvNumberLabelText,
                                   hintText: cvvNumberHintText,
                                   onChanged: (value) {
-                                    context
-                                        .read<EnterBloc>()
-                                        .add(EnterEvent.onChangedCVV(value));
+                                    context.read<EnterBloc>().add(
+                                        EnterEvent.onChangedCvvNumber(value));
                                   },
                                 ),
                                 CountryDropdownButtonList(
@@ -177,7 +176,7 @@ class _EnterPage extends HookWidget {
                                   onChanged: (value) {
                                     selectedCountry = value;
                                     context.read<EnterBloc>().add(
-                                          EnterEvent.onChangedCountry(
+                                          EnterEvent.onChangedIssuingCountry(
                                               selectedCountry!),
                                         );
                                   },
@@ -235,7 +234,7 @@ class _EnterPage extends HookWidget {
                                                 }
                                               : null,
                                           child: const Text(
-                                            enterValidateButtonTitle,
+                                            validateButtonText,
                                           ),
                                         ),
                                       ],
@@ -294,8 +293,6 @@ class CreditCardAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const isCvvFocused = false;
-    // OutlineInputBorder? border;
-    // final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     return BlocConsumer<EnterBloc, EnterState>(
       listener: (context, state) {},

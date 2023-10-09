@@ -46,7 +46,7 @@ class _SettingsPage extends StatelessWidget {
             ..clearSnackBars()
             ..showSnackBar(
               const SnackBar(
-                content: Text('loading...'),
+                content: Text(loadingText),
               ),
             );
         }
@@ -55,7 +55,7 @@ class _SettingsPage extends StatelessWidget {
             ..clearSnackBars()
             ..showSnackBar(
               const SnackBar(
-                content: Text('Added.'),
+                content: Text(successfullyAddedText),
               ),
             );
         }
@@ -64,7 +64,7 @@ class _SettingsPage extends StatelessWidget {
             ..clearSnackBars()
             ..showSnackBar(
               const SnackBar(
-                content: Text(deletedBannedCountryMessage),
+                content: Text(settingsDeletedCountryMessage),
               ),
             );
         }
@@ -73,7 +73,7 @@ class _SettingsPage extends StatelessWidget {
             ..clearSnackBars()
             ..showSnackBar(
               const SnackBar(
-                content: Text('Checked.'),
+                content: Text(settingsCountryCheckedMessage),
               ),
             );
         }
@@ -82,7 +82,7 @@ class _SettingsPage extends StatelessWidget {
             ..clearSnackBars()
             ..showSnackBar(
               const SnackBar(
-                content: Text('Unchecked.'),
+                content: Text(settingsCountryUncheckedMessage),
               ),
             );
         }
@@ -149,7 +149,7 @@ class _AddBannedCountryDialog extends StatelessWidget {
               context: context,
               builder: (_) {
                 return AlertDialog(
-                  title: const Text(addBannedCountryDialogTitle),
+                  title: const Text(settingsPageDialogTitle),
                   content: CountryDropdownButtonList(
                     hintText: issuingCountryLabelText,
                     onChanged: (value) {
@@ -162,7 +162,7 @@ class _AddBannedCountryDialog extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: const Text(cancelBannedCountryDialogButton),
+                      child: const Text(cancelButtonText),
                     ),
                     ElevatedButton(
                       onPressed: () {
@@ -171,7 +171,7 @@ class _AddBannedCountryDialog extends StatelessWidget {
                             .add(SettingsEvent.onAddCountry(selectedCountry));
                         Navigator.of(context).pop();
                       },
-                      child: const Text(enterSubmitButtonTitle),
+                      child: const Text(addButtonText),
                     ),
                   ],
                 );
@@ -223,7 +223,7 @@ class _BannedCountryList extends StatelessWidget {
                       actions: <Widget>[
                         TextButton(
                           onPressed: () => Navigator.of(context).pop(),
-                          child: const Text('No'),
+                          child: const Text(noButtonText),
                         ),
                         TextButton(
                           onPressed: () async {
@@ -232,7 +232,7 @@ class _BannedCountryList extends StatelessWidget {
                                   SettingsEvent.onCountryDelete(bannedCountry),
                                 );
                           },
-                          child: const Text('Yes'),
+                          child: const Text(yesButtonText),
                         ),
                       ],
                     ),
@@ -244,8 +244,9 @@ class _BannedCountryList extends StatelessWidget {
                   onChanged: (bool? newValue) {
                     context.read<SettingsBloc>().add(
                           SettingsEvent.onCountryPressed(
-                            countryCode,
-                            newValue,
+                            BannedCountries(
+                                bannedCountry: countryCode,
+                                isBanned: newValue!),
                           ),
                         );
                   },

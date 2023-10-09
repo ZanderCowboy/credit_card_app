@@ -72,7 +72,7 @@ class ResultPage extends StatelessWidget {
                             (Route<dynamic> route) => false,
                           );
                         },
-                        child: const Text(resultAddButtonTitle),
+                        child: const Text(submitButtonText),
                       ),
                     ),
                   ],

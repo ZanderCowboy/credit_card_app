@@ -1,8 +1,4 @@
-// This should contain a list of banned countries.
-
-// This should contain an enum with the Card Types.
-
-// routes
+// Routes
 const String initialRoute = '/';
 const String homeRoute = '/home';
 const String enterRoute = '/enter';
@@ -11,76 +7,72 @@ const String historyRoute = '/history';
 const String settingsRoute = '/settings';
 const String resultRoute = '/result';
 
-// Material App Title
+// *** Material App ***
 const String appTitle = 'Credit Card App';
 
-// AppBar Titles
-const String startAppBarTitle = 'Credit Card Administrator';
+// *** Start Page ***
+const String startPageStartButton = 'Start';
+
+// *** Home Page ***
 const String homeAppBarTitle = 'Credit Card Administrator';
+const String homePageEnterButton = 'Enter';
+const String homePageScanButton = 'Scan';
+const String homePageHistoryButton = 'History';
+const String homePageSettingsButton = 'Settings';
+const String homePageLogout = 'Logout';
+
+// *** Enter Page ***
 const String enterAppBarTitle = 'Enter';
-const String scanAppBarTitle = 'Scan App Bar';
-const String historyAppBarTitle = 'History App Bar';
-const String resultAppBarTitle = 'Result App Bar';
-const String resultDialogTitle = 'Result';
-// const String settingsAppBarTitle = 'Settings App Bar';
-const String settingsAppBarTitle = 'Banned Countries';
-
-// Button Titles
-const String startButtonTitle = 'Start';
-const String homeButtonTitle = 'Home';
-const String enterButtonTitle = 'Enter';
-const String enterSubmitButtonTitle = 'Validate';
-const String scanButtonTitle = 'Scan';
-const String scanTakeButtonTitle = 'Take';
-const String scanRetakeButtonTitle = 'Retake';
-const String scanSubmitButtonTitle = 'Submit';
-const String historyButtonTitle = 'History';
-const String resultButtonTitle = 'Result';
-const String resultAddButtonTitle = 'Submit';
-
-// Drawer Tile Titles
-const String settingsTitle = 'Settings';
-const String bannedCountriesTitle = 'Banned Countries';
-const String homeLogout = 'Logout';
-
 // Enter Form Hint Texts
 const String cardNumberLabelText = 'Card Number';
 const String cardNumberHintText = 'Enter card number';
 const String cardNumberErrorText = 'Please enter card number';
-
 const String cardTypeLabelText = 'Card Type';
 const String cardTypeHintText = 'Enter card type';
 const String cardTypeErrorText = 'Please enter card type';
-
 const String cvvNumberLabelText = 'CVV Number';
 const String cvvNumberHintText = 'Enter CVV number';
 const String cvvNumberErrorText = 'Please enter CVV number';
-
 const String issuingCountryLabelText = 'Issuing Country';
 const String issuingCountryHintText = 'Enter Issuing Country';
 const String issuingCountryErrorText = 'Please enter Issuing Country';
-
-// Enter Page
-const String duplicateCardErrorMessage =
+// Enter Dialog
+const String enterPageDialogTitle = 'Confirm details?';
+const String enterDuplicateCardErrorMessage =
     'This credit card is already captured.';
-const String enterValidateButtonTitle = 'Validate';
-const String enterSubmissionDialogTitle = 'Confirm details?';
+const String enterCapturedCardSuccessMessage =
+    'Credit card captured successfully';
 
-// History Page
+// *** Scan Page ***
+const String scanAppBarTitle = 'Scan App Bar';
+const String scanPageTakeButton = 'Take';
+const String scanPageRetakeButton = 'Retake';
+
+// *** Result Page ***
+const String resultAppBarTitle = 'Result App Bar';
+
+// *** History Page ***
+const String historyAppBarTitle = 'History App Bar';
 const String historyNoCreditCardsMessage = 'No cards captured.';
 
-// Result Dialog
-const String successfulCaptureCardMessage = 'Credit card captured successfully';
-
-// Settings Page
-const String bannedCountryDummy = 'Dummy Country';
-const String checkedText = 'Checked!';
-const String addBannedCountryDialogTitle = 'Add Banned Country';
-const String deletedBannedCountryMessage = 'Deleted.';
-const String cancelBannedCountryDialogButton = 'Cancel';
-const String duplicateCountryErrorMessage = 'This country is already banned.';
+// *** Settings Page ***
+const String settingsAppBarTitle = 'Banned Countries';
 const String settingsNoBannedCountriesMessage =
     'No countries currently banned. Click + to add.';
+const String settingsPageDialogTitle = 'Add Banned Country';
+const String settingsCountryCheckedMessage = 'Checked.';
+const String settingsCountryUncheckedMessage = 'Unchecked.';
+const String settingsDeletedCountryMessage = 'Deleted.';
+const String settingsDuplicateCountryErrorMessage =
+    'This country is already banned.';
 
-// Global Widgets
-const String cancelDialogButton = 'Cancel';
+// *** Global Widgets ***
+const String addButtonText = 'Add';
+const String submitButtonText = 'Submit';
+const String cancelButtonText = 'Cancel';
+const String clearButtonText = 'Clear';
+const String validateButtonText = 'Validate';
+const String yesButtonText = 'Yes';
+const String noButtonText = 'No';
+const String loadingText = 'Loading...';
+const String successfullyAddedText = 'Added Successfully.';

@@ -17,7 +17,7 @@ class StartPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 LargeButtonNavigate(
-                    buttonTitle: startButtonTitle, route: homeRoute),
+                    buttonTitle: startPageStartButton, route: homeRoute),
               ],
             ),
           ),
