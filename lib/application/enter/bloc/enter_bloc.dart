@@ -98,7 +98,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
           onCancel: (_) {
             emit(EnterState.initial());
           },
-          onChangedNumber: (value) {
+          onChangedCardNumber: (value) {
             emit(state.copyWith(isLoading: true, errorMessage: null));
             emit(
               state.copyWith(
@@ -136,7 +136,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
             );
             emit(state.copyWith(isLoading: false));
           },
-          onChangedCVV: (value) {
+          onChangedCvvNumber: (value) {
             emit(state.copyWith(isLoading: true, errorMessage: null));
             if (value.text.isNotEmpty) {
               emit(
@@ -156,7 +156,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
             );
             emit(state.copyWith(isLoading: false));
           },
-          onChangedCountry: (value) {
+          onChangedIssuingCountry: (value) {
             emit(state.copyWith(isLoading: true, errorMessage: null));
             emit(
               state.copyWith(

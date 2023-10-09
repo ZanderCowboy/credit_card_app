@@ -6,8 +6,9 @@ class EnterEvent with _$EnterEvent {
   const factory EnterEvent.onSubmit() = onSubmit;
   const factory EnterEvent.onCancel() = onCancel;
 
-  const factory EnterEvent.onChangedNumber(String text) = onChangedNumber;
+  const factory EnterEvent.onChangedCardNumber(String text) = onChangedNumber;
   const factory EnterEvent.onChangedCardType(String text) = onChangedCardType;
-  const factory EnterEvent.onChangedCVV(String text) = onChangedCvv;
-  const factory EnterEvent.onChangedCountry(String text) = onChangedCountry;
+  const factory EnterEvent.onChangedCvvNumber(String text) = onChangedCvv;
+  const factory EnterEvent.onChangedIssuingCountry(String text) =
+      onChangedCountry;
 }

@@ -21,10 +21,10 @@ mixin _$EnterEvent {
     required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
-    required TResult Function(String text) onChangedNumber,
+    required TResult Function(String text) onChangedCardNumber,
     required TResult Function(String text) onChangedCardType,
-    required TResult Function(String text) onChangedCVV,
-    required TResult Function(String text) onChangedCountry,
+    required TResult Function(String text) onChangedCvvNumber,
+    required TResult Function(String text) onChangedIssuingCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,10 +32,10 @@ mixin _$EnterEvent {
     TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
-    TResult? Function(String text)? onChangedNumber,
+    TResult? Function(String text)? onChangedCardNumber,
     TResult? Function(String text)? onChangedCardType,
-    TResult? Function(String text)? onChangedCVV,
-    TResult? Function(String text)? onChangedCountry,
+    TResult? Function(String text)? onChangedCvvNumber,
+    TResult? Function(String text)? onChangedIssuingCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,10 +43,10 @@ mixin _$EnterEvent {
     TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
-    TResult Function(String text)? onChangedNumber,
+    TResult Function(String text)? onChangedCardNumber,
     TResult Function(String text)? onChangedCardType,
-    TResult Function(String text)? onChangedCVV,
-    TResult Function(String text)? onChangedCountry,
+    TResult Function(String text)? onChangedCvvNumber,
+    TResult Function(String text)? onChangedIssuingCountry,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,10 +55,10 @@ mixin _$EnterEvent {
     required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
-    required TResult Function(onChangedNumber value) onChangedNumber,
+    required TResult Function(onChangedNumber value) onChangedCardNumber,
     required TResult Function(onChangedCardType value) onChangedCardType,
-    required TResult Function(onChangedCvv value) onChangedCVV,
-    required TResult Function(onChangedCountry value) onChangedCountry,
+    required TResult Function(onChangedCvv value) onChangedCvvNumber,
+    required TResult Function(onChangedCountry value) onChangedIssuingCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,10 +66,10 @@ mixin _$EnterEvent {
     TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
-    TResult? Function(onChangedNumber value)? onChangedNumber,
+    TResult? Function(onChangedNumber value)? onChangedCardNumber,
     TResult? Function(onChangedCardType value)? onChangedCardType,
-    TResult? Function(onChangedCvv value)? onChangedCVV,
-    TResult? Function(onChangedCountry value)? onChangedCountry,
+    TResult? Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,10 +77,10 @@ mixin _$EnterEvent {
     TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
-    TResult Function(onChangedNumber value)? onChangedNumber,
+    TResult Function(onChangedNumber value)? onChangedCardNumber,
     TResult Function(onChangedCardType value)? onChangedCardType,
-    TResult Function(onChangedCvv value)? onChangedCVV,
-    TResult Function(onChangedCountry value)? onChangedCountry,
+    TResult Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult Function(onChangedCountry value)? onChangedIssuingCountry,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -182,10 +182,10 @@ class _$onValidateImpl implements onValidate {
     required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
-    required TResult Function(String text) onChangedNumber,
+    required TResult Function(String text) onChangedCardNumber,
     required TResult Function(String text) onChangedCardType,
-    required TResult Function(String text) onChangedCVV,
-    required TResult Function(String text) onChangedCountry,
+    required TResult Function(String text) onChangedCvvNumber,
+    required TResult Function(String text) onChangedIssuingCountry,
   }) {
     return onValidate(creditCard);
   }
@@ -196,10 +196,10 @@ class _$onValidateImpl implements onValidate {
     TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
-    TResult? Function(String text)? onChangedNumber,
+    TResult? Function(String text)? onChangedCardNumber,
     TResult? Function(String text)? onChangedCardType,
-    TResult? Function(String text)? onChangedCVV,
-    TResult? Function(String text)? onChangedCountry,
+    TResult? Function(String text)? onChangedCvvNumber,
+    TResult? Function(String text)? onChangedIssuingCountry,
   }) {
     return onValidate?.call(creditCard);
   }
@@ -210,10 +210,10 @@ class _$onValidateImpl implements onValidate {
     TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
-    TResult Function(String text)? onChangedNumber,
+    TResult Function(String text)? onChangedCardNumber,
     TResult Function(String text)? onChangedCardType,
-    TResult Function(String text)? onChangedCVV,
-    TResult Function(String text)? onChangedCountry,
+    TResult Function(String text)? onChangedCvvNumber,
+    TResult Function(String text)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
     if (onValidate != null) {
@@ -228,10 +228,10 @@ class _$onValidateImpl implements onValidate {
     required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
-    required TResult Function(onChangedNumber value) onChangedNumber,
+    required TResult Function(onChangedNumber value) onChangedCardNumber,
     required TResult Function(onChangedCardType value) onChangedCardType,
-    required TResult Function(onChangedCvv value) onChangedCVV,
-    required TResult Function(onChangedCountry value) onChangedCountry,
+    required TResult Function(onChangedCvv value) onChangedCvvNumber,
+    required TResult Function(onChangedCountry value) onChangedIssuingCountry,
   }) {
     return onValidate(this);
   }
@@ -242,10 +242,10 @@ class _$onValidateImpl implements onValidate {
     TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
-    TResult? Function(onChangedNumber value)? onChangedNumber,
+    TResult? Function(onChangedNumber value)? onChangedCardNumber,
     TResult? Function(onChangedCardType value)? onChangedCardType,
-    TResult? Function(onChangedCvv value)? onChangedCVV,
-    TResult? Function(onChangedCountry value)? onChangedCountry,
+    TResult? Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
   }) {
     return onValidate?.call(this);
   }
@@ -256,10 +256,10 @@ class _$onValidateImpl implements onValidate {
     TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
-    TResult Function(onChangedNumber value)? onChangedNumber,
+    TResult Function(onChangedNumber value)? onChangedCardNumber,
     TResult Function(onChangedCardType value)? onChangedCardType,
-    TResult Function(onChangedCvv value)? onChangedCVV,
-    TResult Function(onChangedCountry value)? onChangedCountry,
+    TResult Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult Function(onChangedCountry value)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
     if (onValidate != null) {
@@ -319,10 +319,10 @@ class _$onSubmitImpl implements onSubmit {
     required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
-    required TResult Function(String text) onChangedNumber,
+    required TResult Function(String text) onChangedCardNumber,
     required TResult Function(String text) onChangedCardType,
-    required TResult Function(String text) onChangedCVV,
-    required TResult Function(String text) onChangedCountry,
+    required TResult Function(String text) onChangedCvvNumber,
+    required TResult Function(String text) onChangedIssuingCountry,
   }) {
     return onSubmit();
   }
@@ -333,10 +333,10 @@ class _$onSubmitImpl implements onSubmit {
     TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
-    TResult? Function(String text)? onChangedNumber,
+    TResult? Function(String text)? onChangedCardNumber,
     TResult? Function(String text)? onChangedCardType,
-    TResult? Function(String text)? onChangedCVV,
-    TResult? Function(String text)? onChangedCountry,
+    TResult? Function(String text)? onChangedCvvNumber,
+    TResult? Function(String text)? onChangedIssuingCountry,
   }) {
     return onSubmit?.call();
   }
@@ -347,10 +347,10 @@ class _$onSubmitImpl implements onSubmit {
     TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
-    TResult Function(String text)? onChangedNumber,
+    TResult Function(String text)? onChangedCardNumber,
     TResult Function(String text)? onChangedCardType,
-    TResult Function(String text)? onChangedCVV,
-    TResult Function(String text)? onChangedCountry,
+    TResult Function(String text)? onChangedCvvNumber,
+    TResult Function(String text)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
     if (onSubmit != null) {
@@ -365,10 +365,10 @@ class _$onSubmitImpl implements onSubmit {
     required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
-    required TResult Function(onChangedNumber value) onChangedNumber,
+    required TResult Function(onChangedNumber value) onChangedCardNumber,
     required TResult Function(onChangedCardType value) onChangedCardType,
-    required TResult Function(onChangedCvv value) onChangedCVV,
-    required TResult Function(onChangedCountry value) onChangedCountry,
+    required TResult Function(onChangedCvv value) onChangedCvvNumber,
+    required TResult Function(onChangedCountry value) onChangedIssuingCountry,
   }) {
     return onSubmit(this);
   }
@@ -379,10 +379,10 @@ class _$onSubmitImpl implements onSubmit {
     TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
-    TResult? Function(onChangedNumber value)? onChangedNumber,
+    TResult? Function(onChangedNumber value)? onChangedCardNumber,
     TResult? Function(onChangedCardType value)? onChangedCardType,
-    TResult? Function(onChangedCvv value)? onChangedCVV,
-    TResult? Function(onChangedCountry value)? onChangedCountry,
+    TResult? Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
   }) {
     return onSubmit?.call(this);
   }
@@ -393,10 +393,10 @@ class _$onSubmitImpl implements onSubmit {
     TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
-    TResult Function(onChangedNumber value)? onChangedNumber,
+    TResult Function(onChangedNumber value)? onChangedCardNumber,
     TResult Function(onChangedCardType value)? onChangedCardType,
-    TResult Function(onChangedCvv value)? onChangedCVV,
-    TResult Function(onChangedCountry value)? onChangedCountry,
+    TResult Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult Function(onChangedCountry value)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
     if (onSubmit != null) {
@@ -451,10 +451,10 @@ class _$onCancelImpl implements onCancel {
     required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
-    required TResult Function(String text) onChangedNumber,
+    required TResult Function(String text) onChangedCardNumber,
     required TResult Function(String text) onChangedCardType,
-    required TResult Function(String text) onChangedCVV,
-    required TResult Function(String text) onChangedCountry,
+    required TResult Function(String text) onChangedCvvNumber,
+    required TResult Function(String text) onChangedIssuingCountry,
   }) {
     return onCancel();
   }
@@ -465,10 +465,10 @@ class _$onCancelImpl implements onCancel {
     TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
-    TResult? Function(String text)? onChangedNumber,
+    TResult? Function(String text)? onChangedCardNumber,
     TResult? Function(String text)? onChangedCardType,
-    TResult? Function(String text)? onChangedCVV,
-    TResult? Function(String text)? onChangedCountry,
+    TResult? Function(String text)? onChangedCvvNumber,
+    TResult? Function(String text)? onChangedIssuingCountry,
   }) {
     return onCancel?.call();
   }
@@ -479,10 +479,10 @@ class _$onCancelImpl implements onCancel {
     TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
-    TResult Function(String text)? onChangedNumber,
+    TResult Function(String text)? onChangedCardNumber,
     TResult Function(String text)? onChangedCardType,
-    TResult Function(String text)? onChangedCVV,
-    TResult Function(String text)? onChangedCountry,
+    TResult Function(String text)? onChangedCvvNumber,
+    TResult Function(String text)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
     if (onCancel != null) {
@@ -497,10 +497,10 @@ class _$onCancelImpl implements onCancel {
     required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
-    required TResult Function(onChangedNumber value) onChangedNumber,
+    required TResult Function(onChangedNumber value) onChangedCardNumber,
     required TResult Function(onChangedCardType value) onChangedCardType,
-    required TResult Function(onChangedCvv value) onChangedCVV,
-    required TResult Function(onChangedCountry value) onChangedCountry,
+    required TResult Function(onChangedCvv value) onChangedCvvNumber,
+    required TResult Function(onChangedCountry value) onChangedIssuingCountry,
   }) {
     return onCancel(this);
   }
@@ -511,10 +511,10 @@ class _$onCancelImpl implements onCancel {
     TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
-    TResult? Function(onChangedNumber value)? onChangedNumber,
+    TResult? Function(onChangedNumber value)? onChangedCardNumber,
     TResult? Function(onChangedCardType value)? onChangedCardType,
-    TResult? Function(onChangedCvv value)? onChangedCVV,
-    TResult? Function(onChangedCountry value)? onChangedCountry,
+    TResult? Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
   }) {
     return onCancel?.call(this);
   }
@@ -525,10 +525,10 @@ class _$onCancelImpl implements onCancel {
     TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
-    TResult Function(onChangedNumber value)? onChangedNumber,
+    TResult Function(onChangedNumber value)? onChangedCardNumber,
     TResult Function(onChangedCardType value)? onChangedCardType,
-    TResult Function(onChangedCvv value)? onChangedCVV,
-    TResult Function(onChangedCountry value)? onChangedCountry,
+    TResult Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult Function(onChangedCountry value)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
     if (onCancel != null) {
@@ -583,7 +583,7 @@ class _$onChangedNumberImpl implements onChangedNumber {
 
   @override
   String toString() {
-    return 'EnterEvent.onChangedNumber(text: $text)';
+    return 'EnterEvent.onChangedCardNumber(text: $text)';
   }
 
   @override
@@ -610,12 +610,12 @@ class _$onChangedNumberImpl implements onChangedNumber {
     required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
-    required TResult Function(String text) onChangedNumber,
+    required TResult Function(String text) onChangedCardNumber,
     required TResult Function(String text) onChangedCardType,
-    required TResult Function(String text) onChangedCVV,
-    required TResult Function(String text) onChangedCountry,
+    required TResult Function(String text) onChangedCvvNumber,
+    required TResult Function(String text) onChangedIssuingCountry,
   }) {
-    return onChangedNumber(text);
+    return onChangedCardNumber(text);
   }
 
   @override
@@ -624,12 +624,12 @@ class _$onChangedNumberImpl implements onChangedNumber {
     TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
-    TResult? Function(String text)? onChangedNumber,
+    TResult? Function(String text)? onChangedCardNumber,
     TResult? Function(String text)? onChangedCardType,
-    TResult? Function(String text)? onChangedCVV,
-    TResult? Function(String text)? onChangedCountry,
+    TResult? Function(String text)? onChangedCvvNumber,
+    TResult? Function(String text)? onChangedIssuingCountry,
   }) {
-    return onChangedNumber?.call(text);
+    return onChangedCardNumber?.call(text);
   }
 
   @override
@@ -638,14 +638,14 @@ class _$onChangedNumberImpl implements onChangedNumber {
     TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
-    TResult Function(String text)? onChangedNumber,
+    TResult Function(String text)? onChangedCardNumber,
     TResult Function(String text)? onChangedCardType,
-    TResult Function(String text)? onChangedCVV,
-    TResult Function(String text)? onChangedCountry,
+    TResult Function(String text)? onChangedCvvNumber,
+    TResult Function(String text)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
-    if (onChangedNumber != null) {
-      return onChangedNumber(text);
+    if (onChangedCardNumber != null) {
+      return onChangedCardNumber(text);
     }
     return orElse();
   }
@@ -656,12 +656,12 @@ class _$onChangedNumberImpl implements onChangedNumber {
     required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
-    required TResult Function(onChangedNumber value) onChangedNumber,
+    required TResult Function(onChangedNumber value) onChangedCardNumber,
     required TResult Function(onChangedCardType value) onChangedCardType,
-    required TResult Function(onChangedCvv value) onChangedCVV,
-    required TResult Function(onChangedCountry value) onChangedCountry,
+    required TResult Function(onChangedCvv value) onChangedCvvNumber,
+    required TResult Function(onChangedCountry value) onChangedIssuingCountry,
   }) {
-    return onChangedNumber(this);
+    return onChangedCardNumber(this);
   }
 
   @override
@@ -670,12 +670,12 @@ class _$onChangedNumberImpl implements onChangedNumber {
     TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
-    TResult? Function(onChangedNumber value)? onChangedNumber,
+    TResult? Function(onChangedNumber value)? onChangedCardNumber,
     TResult? Function(onChangedCardType value)? onChangedCardType,
-    TResult? Function(onChangedCvv value)? onChangedCVV,
-    TResult? Function(onChangedCountry value)? onChangedCountry,
+    TResult? Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
   }) {
-    return onChangedNumber?.call(this);
+    return onChangedCardNumber?.call(this);
   }
 
   @override
@@ -684,14 +684,14 @@ class _$onChangedNumberImpl implements onChangedNumber {
     TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
-    TResult Function(onChangedNumber value)? onChangedNumber,
+    TResult Function(onChangedNumber value)? onChangedCardNumber,
     TResult Function(onChangedCardType value)? onChangedCardType,
-    TResult Function(onChangedCvv value)? onChangedCVV,
-    TResult Function(onChangedCountry value)? onChangedCountry,
+    TResult Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult Function(onChangedCountry value)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
-    if (onChangedNumber != null) {
-      return onChangedNumber(this);
+    if (onChangedCardNumber != null) {
+      return onChangedCardNumber(this);
     }
     return orElse();
   }
@@ -774,10 +774,10 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
     required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
-    required TResult Function(String text) onChangedNumber,
+    required TResult Function(String text) onChangedCardNumber,
     required TResult Function(String text) onChangedCardType,
-    required TResult Function(String text) onChangedCVV,
-    required TResult Function(String text) onChangedCountry,
+    required TResult Function(String text) onChangedCvvNumber,
+    required TResult Function(String text) onChangedIssuingCountry,
   }) {
     return onChangedCardType(text);
   }
@@ -788,10 +788,10 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
     TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
-    TResult? Function(String text)? onChangedNumber,
+    TResult? Function(String text)? onChangedCardNumber,
     TResult? Function(String text)? onChangedCardType,
-    TResult? Function(String text)? onChangedCVV,
-    TResult? Function(String text)? onChangedCountry,
+    TResult? Function(String text)? onChangedCvvNumber,
+    TResult? Function(String text)? onChangedIssuingCountry,
   }) {
     return onChangedCardType?.call(text);
   }
@@ -802,10 +802,10 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
     TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
-    TResult Function(String text)? onChangedNumber,
+    TResult Function(String text)? onChangedCardNumber,
     TResult Function(String text)? onChangedCardType,
-    TResult Function(String text)? onChangedCVV,
-    TResult Function(String text)? onChangedCountry,
+    TResult Function(String text)? onChangedCvvNumber,
+    TResult Function(String text)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
     if (onChangedCardType != null) {
@@ -820,10 +820,10 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
     required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
-    required TResult Function(onChangedNumber value) onChangedNumber,
+    required TResult Function(onChangedNumber value) onChangedCardNumber,
     required TResult Function(onChangedCardType value) onChangedCardType,
-    required TResult Function(onChangedCvv value) onChangedCVV,
-    required TResult Function(onChangedCountry value) onChangedCountry,
+    required TResult Function(onChangedCvv value) onChangedCvvNumber,
+    required TResult Function(onChangedCountry value) onChangedIssuingCountry,
   }) {
     return onChangedCardType(this);
   }
@@ -834,10 +834,10 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
     TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
-    TResult? Function(onChangedNumber value)? onChangedNumber,
+    TResult? Function(onChangedNumber value)? onChangedCardNumber,
     TResult? Function(onChangedCardType value)? onChangedCardType,
-    TResult? Function(onChangedCvv value)? onChangedCVV,
-    TResult? Function(onChangedCountry value)? onChangedCountry,
+    TResult? Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
   }) {
     return onChangedCardType?.call(this);
   }
@@ -848,10 +848,10 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
     TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
-    TResult Function(onChangedNumber value)? onChangedNumber,
+    TResult Function(onChangedNumber value)? onChangedCardNumber,
     TResult Function(onChangedCardType value)? onChangedCardType,
-    TResult Function(onChangedCvv value)? onChangedCVV,
-    TResult Function(onChangedCountry value)? onChangedCountry,
+    TResult Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult Function(onChangedCountry value)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
     if (onChangedCardType != null) {
@@ -911,7 +911,7 @@ class _$onChangedCvvImpl implements onChangedCvv {
 
   @override
   String toString() {
-    return 'EnterEvent.onChangedCVV(text: $text)';
+    return 'EnterEvent.onChangedCvvNumber(text: $text)';
   }
 
   @override
@@ -937,12 +937,12 @@ class _$onChangedCvvImpl implements onChangedCvv {
     required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
-    required TResult Function(String text) onChangedNumber,
+    required TResult Function(String text) onChangedCardNumber,
     required TResult Function(String text) onChangedCardType,
-    required TResult Function(String text) onChangedCVV,
-    required TResult Function(String text) onChangedCountry,
+    required TResult Function(String text) onChangedCvvNumber,
+    required TResult Function(String text) onChangedIssuingCountry,
   }) {
-    return onChangedCVV(text);
+    return onChangedCvvNumber(text);
   }
 
   @override
@@ -951,12 +951,12 @@ class _$onChangedCvvImpl implements onChangedCvv {
     TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
-    TResult? Function(String text)? onChangedNumber,
+    TResult? Function(String text)? onChangedCardNumber,
     TResult? Function(String text)? onChangedCardType,
-    TResult? Function(String text)? onChangedCVV,
-    TResult? Function(String text)? onChangedCountry,
+    TResult? Function(String text)? onChangedCvvNumber,
+    TResult? Function(String text)? onChangedIssuingCountry,
   }) {
-    return onChangedCVV?.call(text);
+    return onChangedCvvNumber?.call(text);
   }
 
   @override
@@ -965,14 +965,14 @@ class _$onChangedCvvImpl implements onChangedCvv {
     TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
-    TResult Function(String text)? onChangedNumber,
+    TResult Function(String text)? onChangedCardNumber,
     TResult Function(String text)? onChangedCardType,
-    TResult Function(String text)? onChangedCVV,
-    TResult Function(String text)? onChangedCountry,
+    TResult Function(String text)? onChangedCvvNumber,
+    TResult Function(String text)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
-    if (onChangedCVV != null) {
-      return onChangedCVV(text);
+    if (onChangedCvvNumber != null) {
+      return onChangedCvvNumber(text);
     }
     return orElse();
   }
@@ -983,12 +983,12 @@ class _$onChangedCvvImpl implements onChangedCvv {
     required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
-    required TResult Function(onChangedNumber value) onChangedNumber,
+    required TResult Function(onChangedNumber value) onChangedCardNumber,
     required TResult Function(onChangedCardType value) onChangedCardType,
-    required TResult Function(onChangedCvv value) onChangedCVV,
-    required TResult Function(onChangedCountry value) onChangedCountry,
+    required TResult Function(onChangedCvv value) onChangedCvvNumber,
+    required TResult Function(onChangedCountry value) onChangedIssuingCountry,
   }) {
-    return onChangedCVV(this);
+    return onChangedCvvNumber(this);
   }
 
   @override
@@ -997,12 +997,12 @@ class _$onChangedCvvImpl implements onChangedCvv {
     TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
-    TResult? Function(onChangedNumber value)? onChangedNumber,
+    TResult? Function(onChangedNumber value)? onChangedCardNumber,
     TResult? Function(onChangedCardType value)? onChangedCardType,
-    TResult? Function(onChangedCvv value)? onChangedCVV,
-    TResult? Function(onChangedCountry value)? onChangedCountry,
+    TResult? Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
   }) {
-    return onChangedCVV?.call(this);
+    return onChangedCvvNumber?.call(this);
   }
 
   @override
@@ -1011,14 +1011,14 @@ class _$onChangedCvvImpl implements onChangedCvv {
     TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
-    TResult Function(onChangedNumber value)? onChangedNumber,
+    TResult Function(onChangedNumber value)? onChangedCardNumber,
     TResult Function(onChangedCardType value)? onChangedCardType,
-    TResult Function(onChangedCvv value)? onChangedCVV,
-    TResult Function(onChangedCountry value)? onChangedCountry,
+    TResult Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult Function(onChangedCountry value)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
-    if (onChangedCVV != null) {
-      return onChangedCVV(this);
+    if (onChangedCvvNumber != null) {
+      return onChangedCvvNumber(this);
     }
     return orElse();
   }
@@ -1074,7 +1074,7 @@ class _$onChangedCountryImpl implements onChangedCountry {
 
   @override
   String toString() {
-    return 'EnterEvent.onChangedCountry(text: $text)';
+    return 'EnterEvent.onChangedIssuingCountry(text: $text)';
   }
 
   @override
@@ -1101,12 +1101,12 @@ class _$onChangedCountryImpl implements onChangedCountry {
     required TResult Function(CreditCard creditCard) onValidate,
     required TResult Function() onSubmit,
     required TResult Function() onCancel,
-    required TResult Function(String text) onChangedNumber,
+    required TResult Function(String text) onChangedCardNumber,
     required TResult Function(String text) onChangedCardType,
-    required TResult Function(String text) onChangedCVV,
-    required TResult Function(String text) onChangedCountry,
+    required TResult Function(String text) onChangedCvvNumber,
+    required TResult Function(String text) onChangedIssuingCountry,
   }) {
-    return onChangedCountry(text);
+    return onChangedIssuingCountry(text);
   }
 
   @override
@@ -1115,12 +1115,12 @@ class _$onChangedCountryImpl implements onChangedCountry {
     TResult? Function(CreditCard creditCard)? onValidate,
     TResult? Function()? onSubmit,
     TResult? Function()? onCancel,
-    TResult? Function(String text)? onChangedNumber,
+    TResult? Function(String text)? onChangedCardNumber,
     TResult? Function(String text)? onChangedCardType,
-    TResult? Function(String text)? onChangedCVV,
-    TResult? Function(String text)? onChangedCountry,
+    TResult? Function(String text)? onChangedCvvNumber,
+    TResult? Function(String text)? onChangedIssuingCountry,
   }) {
-    return onChangedCountry?.call(text);
+    return onChangedIssuingCountry?.call(text);
   }
 
   @override
@@ -1129,14 +1129,14 @@ class _$onChangedCountryImpl implements onChangedCountry {
     TResult Function(CreditCard creditCard)? onValidate,
     TResult Function()? onSubmit,
     TResult Function()? onCancel,
-    TResult Function(String text)? onChangedNumber,
+    TResult Function(String text)? onChangedCardNumber,
     TResult Function(String text)? onChangedCardType,
-    TResult Function(String text)? onChangedCVV,
-    TResult Function(String text)? onChangedCountry,
+    TResult Function(String text)? onChangedCvvNumber,
+    TResult Function(String text)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
-    if (onChangedCountry != null) {
-      return onChangedCountry(text);
+    if (onChangedIssuingCountry != null) {
+      return onChangedIssuingCountry(text);
     }
     return orElse();
   }
@@ -1147,12 +1147,12 @@ class _$onChangedCountryImpl implements onChangedCountry {
     required TResult Function(onValidate value) onValidate,
     required TResult Function(onSubmit value) onSubmit,
     required TResult Function(onCancel value) onCancel,
-    required TResult Function(onChangedNumber value) onChangedNumber,
+    required TResult Function(onChangedNumber value) onChangedCardNumber,
     required TResult Function(onChangedCardType value) onChangedCardType,
-    required TResult Function(onChangedCvv value) onChangedCVV,
-    required TResult Function(onChangedCountry value) onChangedCountry,
+    required TResult Function(onChangedCvv value) onChangedCvvNumber,
+    required TResult Function(onChangedCountry value) onChangedIssuingCountry,
   }) {
-    return onChangedCountry(this);
+    return onChangedIssuingCountry(this);
   }
 
   @override
@@ -1161,12 +1161,12 @@ class _$onChangedCountryImpl implements onChangedCountry {
     TResult? Function(onValidate value)? onValidate,
     TResult? Function(onSubmit value)? onSubmit,
     TResult? Function(onCancel value)? onCancel,
-    TResult? Function(onChangedNumber value)? onChangedNumber,
+    TResult? Function(onChangedNumber value)? onChangedCardNumber,
     TResult? Function(onChangedCardType value)? onChangedCardType,
-    TResult? Function(onChangedCvv value)? onChangedCVV,
-    TResult? Function(onChangedCountry value)? onChangedCountry,
+    TResult? Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult? Function(onChangedCountry value)? onChangedIssuingCountry,
   }) {
-    return onChangedCountry?.call(this);
+    return onChangedIssuingCountry?.call(this);
   }
 
   @override
@@ -1175,14 +1175,14 @@ class _$onChangedCountryImpl implements onChangedCountry {
     TResult Function(onValidate value)? onValidate,
     TResult Function(onSubmit value)? onSubmit,
     TResult Function(onCancel value)? onCancel,
-    TResult Function(onChangedNumber value)? onChangedNumber,
+    TResult Function(onChangedNumber value)? onChangedCardNumber,
     TResult Function(onChangedCardType value)? onChangedCardType,
-    TResult Function(onChangedCvv value)? onChangedCVV,
-    TResult Function(onChangedCountry value)? onChangedCountry,
+    TResult Function(onChangedCvv value)? onChangedCvvNumber,
+    TResult Function(onChangedCountry value)? onChangedIssuingCountry,
     required TResult orElse(),
   }) {
-    if (onChangedCountry != null) {
-      return onChangedCountry(this);
+    if (onChangedIssuingCountry != null) {
+      return onChangedIssuingCountry(this);
     }
     return orElse();
   }
