@@ -1,5 +1,5 @@
 import 'package:credit_card_app/application/result/bloc/result_bloc.dart';
-import 'package:credit_card_app/constants/constants.dart';
+import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/widgets/common/button.dart';

@@ -1,4 +1,4 @@
-import 'package:credit_card_app/constants/constants.dart';
+import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/widgets/common/large_button.dart';
 import 'package:credit_card_app/widgets/common/logo.dart';
 import 'package:flutter/material.dart';

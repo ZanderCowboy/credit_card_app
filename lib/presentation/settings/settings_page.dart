@@ -1,5 +1,5 @@
 import 'package:credit_card_app/application/settings/bloc/settings_bloc.dart';
-import 'package:credit_card_app/constants/constants.dart';
+import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
 import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
 import 'package:credit_card_app/get_it_injection.dart';

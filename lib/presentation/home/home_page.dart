@@ -1,5 +1,5 @@
 import 'package:credit_card_app/application/home/home.dart';
-import 'package:credit_card_app/constants/constants.dart';
+import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/widgets/common/large_button.dart';
 import 'package:flutter/material.dart';
