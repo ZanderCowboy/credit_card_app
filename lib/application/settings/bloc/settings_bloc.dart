@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:credit_card_app/constants/constants.dart';
 import 'package:credit_card_app/domain/banned_countries/i_banned_countries_repository.dart';
@@ -29,7 +27,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
             emit(
               state.copyWith(
                 isLoading: false,
-                errorMessage: duplicateCountryErrorMessage,
+                errorMessage: settingsDuplicateCountryErrorMessage,
               ),
             );
           } else {
@@ -78,16 +76,15 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           );
         },
         onCountryPressed: (value) {
-          log('in onCountryPressed: value.value=${value.value}');
-          if (value.value!) {
+          if (value.bannedCountries.isBanned) {
             emit(state.copyWith(isChecked: true));
           } else {
             emit(state.copyWith(isUnchecked: true));
           }
 
           _bannedCountriesRepository.updateCountryChecked(
-            value.country,
-            value.value,
+            value.bannedCountries.bannedCountry,
+            value.bannedCountries.isBanned,
           );
 
           emit(

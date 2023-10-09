@@ -6,6 +6,6 @@ class SettingsEvent with _$SettingsEvent {
       onAddCountry;
   const factory SettingsEvent.onCountryDelete(BannedCountries bannedCountry) =
       onCountryDelete;
-  const factory SettingsEvent.onCountryPressed(String country, bool? value) =
-      onCountryPressed;
+  const factory SettingsEvent.onCountryPressed(
+      BannedCountries bannedCountries) = onCountryPressed;
 }
