@@ -13,31 +13,33 @@ class ScanPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(scanAppBarTitle),
+      ),
+      body: BlocProvider(
+        create: (_) => coreSl<ScanBloc>(),
+        child: _ScanPage(),
+      ),
+    );
   }
 }
 
-// TODO: Refactor Scan Page
-class _ScanPage extends StatefulWidget {
-  const _ScanPage();
+class _ScanPage extends StatelessWidget {
+  _ScanPage();
 
-  // final CreditCardRepository creditCardRepository;
+  late final List<CameraDescription> cameras;
+  late final CameraController? _cameraController;
+  late final XFile? _imageFile;
+  late PermissionStatus _cameraPermissionStatus = PermissionStatus.provisional;
 
-  @override
-  State<_ScanPage> createState() => _ScanPageState();
-}
-
-class _ScanPageState extends State<_ScanPage> {
-  late List<CameraDescription> cameras;
-  CameraController? _cameraController;
-  XFile? _imageFile;
-  PermissionStatus _cameraPermissionStatus = PermissionStatus.provisional;
-
-  @override
   void initState() {
-    super.initState();
     _initializeCamera();
     _requestCameraPermission();
+  }
+
+  bool get mounted {
+    return mounted;
   }
 
   Future<void> _initializeCamera() async {
@@ -55,140 +57,118 @@ class _ScanPageState extends State<_ScanPage> {
       if (!mounted) {
         return;
       }
-      setState(() {});
     }
   }
 
   Future<void> _requestCameraPermission() async {
     final status = await Permission.camera.request();
-    setState(() {
-      _cameraPermissionStatus = status;
-    });
+    _cameraPermissionStatus = status;
   }
 
-  @override
   void dispose() {
     _cameraController?.dispose();
-    super.dispose();
-  }
-
-  Future<void> _takePicture() async {
-    final imageFile = await _cameraController!.takePicture();
-    setState(() {
-      _imageFile = imageFile;
-    });
-  }
-
-  void _retakePicture() {
-    setState(() {
-      _imageFile = null;
-    });
-  }
-
-  Future<void> _submitPicture() async {
-    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(scanAppBarTitle),
-      ),
-      body: BlocProvider(
-        create: (_) => coreSl<ScanBloc>(),
-        child: BlocBuilder<ScanBloc, ScanState>(
-          builder: (context, state) {
-            final creditCard = CreditCard.empty();
-            return Padding(
-              padding: const EdgeInsets.all(8),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 200,
-                      child: Center(
-                        child: _cameraController != null &&
-                                _cameraController!.value.isInitialized
-                            ? AspectRatio(
-                                aspectRatio:
-                                    _cameraController!.value.aspectRatio,
-                                child: CameraPreview(_cameraController!),
-                              )
-                            : const CircularProgressIndicator(),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 200,
-                      child: Column(
+    return BlocConsumer<ScanBloc, ScanState>(
+      listener: (context, state) {
+        if (state.isRetake) {}
+      },
+      builder: (context, state) {
+        final creditCard = CreditCard.empty();
+        return Padding(
+          padding: const EdgeInsets.all(8),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 200,
+                  child: Center(
+                    child: _cameraController != null &&
+                            _cameraController!.value.isInitialized
+                        ? AspectRatio(
+                            aspectRatio: _cameraController!.value.aspectRatio,
+                            child: CameraPreview(_cameraController!),
+                          )
+                        : const CircularProgressIndicator(),
+                  ),
+                ),
+                SizedBox(
+                  width: 200,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 8, 4, 4),
-                                  child: ElevatedButton(
-                                    style: buttonSmallStyle,
-                                    onPressed: _imageFile == null
-                                        ? _takePicture
-                                        : null,
-                                    child: const Text(scanPageTakeButton),
-                                  ),
-                                ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 8, 4, 4),
+                              child: ElevatedButton(
+                                style: buttonSmallStyle,
+                                onPressed: _imageFile == null
+                                    ? () {
+                                        _takePicture();
+                                        context
+                                            .read<ScanBloc>()
+                                            .add(ScanEvent.onTake());
+                                      }
+                                    : null,
+                                child: const Text(scanPageTakeButton),
                               ),
-                              Expanded(
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(4, 8, 0, 4),
-                                  child: ElevatedButton(
-                                    style: buttonSmallStyle,
-                                    onPressed: _imageFile == null
-                                        ? _retakePicture
-                                        : null,
-                                    child: const Text(scanPageRetakeButton),
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 4, 0, 8),
-                                  child: ElevatedButton(
-                                    style: buttonSmallStyle,
-                                    onPressed: () {
-                                      _submitPicture();
-                                      context.read<ScanBloc>().add(
-                                            ScanEvent.onSubmit(creditCard),
-                                          );
-                                    },
-                                    child: const Text(submitButtonText),
-                                  ),
-                                ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(4, 8, 0, 4),
+                              child: ElevatedButton(
+                                style: buttonSmallStyle,
+                                onPressed: _imageFile != null
+                                    ? () {
+                                        context
+                                            .read<ScanBloc>()
+                                            .add(ScanEvent.onRetake());
+                                      }
+                                    : null,
+                                child: const Text(scanPageRetakeButton),
                               ),
-                            ],
-                          ),
-                          Center(
-                            child: Text(
-                              'Camera Permission Status: $_cameraPermissionStatus',
                             ),
                           ),
                         ],
                       ),
-                    ),
-                  ],
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 4, 0, 8),
+                          child: ElevatedButton(
+                            style: buttonSmallStyle,
+                            onPressed: () {
+                              context.read<ScanBloc>().add(
+                                    ScanEvent.onSubmit(creditCard),
+                                  );
+                            },
+                            child: const Text(submitButtonText),
+                          ),
+                        ),
+                      ),
+                      Center(
+                        child: Text(
+                          'Camera Permission Status: $_cameraPermissionStatus',
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
-        ),
-      ),
+              ],
+            ),
+          ),
+        );
+      },
     );
+  }
+
+  Future<void> _takePicture() async {
+    final imageFile = await _cameraController!.takePicture();
+    _imageFile = imageFile;
   }
 }
