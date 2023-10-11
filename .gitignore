@@ -1,7 +1,7 @@
 # See https://www.dartlang.org/guides/libraries/private-files
 
 .idea/
-/example_code
+/lib/example_code
 DUMPFILE
 
 # Visual Studio Code related

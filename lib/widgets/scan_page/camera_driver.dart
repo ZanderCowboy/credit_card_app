@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class CameraDriver {
-  CaremaDriver();
+  CameraDriver();
 
-  late final List<CameraDescription> cameras;
+  // late final List<CameraDescription> cameras;
   late final CameraController? _cameraController;
   late final XFile? _imageFile;
   late PermissionStatus _cameraPermissionStatus = PermissionStatus.provisional;
@@ -21,7 +21,11 @@ class CameraDriver {
 
   Future<void> _initializeCamera() async {
     WidgetsFlutterBinding.ensureInitialized();
-    cameras = await availableCameras();
+    final cameras = await availableCameras();
+
+    if (cameras.isNotEmpty) {
+      final firstCamera = cameras.first;
+    }
 
     if (cameras.isNotEmpty && mounted) {
       final camera = cameras.first;
@@ -42,3 +46,7 @@ class CameraDriver {
     _cameraPermissionStatus = status;
   }
 }
+
+// class CameraDriver {
+
+// }
