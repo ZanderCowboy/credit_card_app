@@ -1,41 +1,42 @@
 import 'package:credit_card_app/data/persistance/models/banned_countries_box.dart';
-import 'package:credit_card_app/domain/banned_countries/i_banned_countries_repository.dart';
-import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
+import 'package:credit_card_app/domain/banned_country/i_banned_country_repository.dart';
+import 'package:credit_card_app/domain/banned_country/models/banned_country.dart';
 import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: IBannedCountriesRepository)
-class BannedCountriesRepository implements IBannedCountriesRepository {
-  BannedCountriesRepository();
+@LazySingleton(as: IBannedCountryRepository)
+class BannedCountryRepository implements IBannedCountryRepository {
+  BannedCountryRepository();
 
   BannedCountriesBox bannedCountriesBox = BannedCountriesBox();
 
   // add
   @override
-  void addCountry(String country) {
-    final BannedCountries bc =
-        BannedCountries(bannedCountry: country, isBanned: true);
+  void addCountry(String bannedCountry) {
+    final BannedCountry bc =
+        BannedCountry(country: bannedCountry, isBanned: true);
 
     bannedCountriesBox.addBannedCountry(bc);
   }
 
   // readAt
   @override
-  BannedCountries? readCountry(int index) {
+  BannedCountry? readCountry(int index) {
     return bannedCountriesBox.readBannedCountry(index);
   }
 
   // readAll
   @override
-  List<BannedCountries> readCountries() {
+  List<BannedCountry> readCountries() {
     return bannedCountriesBox.readAllBannedCountries();
   }
 
   // update
   @override
-  Future<void> updateCountryChecked(String country, bool? newValue) async {
+  Future<void> updateCountryChecked(
+      String bannedCountry, bool? newValue) async {
     bannedCountriesBox.updateBannedCountry(
-      BannedCountries(
-        bannedCountry: country,
+      BannedCountry(
+        country: bannedCountry,
         isBanned: newValue!,
       ),
     );
@@ -55,19 +56,19 @@ class BannedCountriesRepository implements IBannedCountriesRepository {
 
   @override
   bool hasCountry(String country) {
-    final List<BannedCountries> list =
+    final List<BannedCountry> list =
         bannedCountriesBox.readAllBannedCountries();
 
-    return list.any((element) => element.bannedCountry == country);
+    return list.any((element) => element.country == country);
   }
 
   @override
-  int lookupCountry(BannedCountries lookupCountry) {
+  int lookupCountry(BannedCountry lookupCountry) {
     int foundAt = -1;
-    final List<BannedCountries> list = readCountries();
+    final List<BannedCountry> list = readCountries();
 
     for (var i = 0; i < list.length; i++) {
-      final BannedCountries bannedCountry = list[i];
+      final BannedCountry bannedCountry = list[i];
 
       if (bannedCountry == lookupCountry) {
         foundAt = i;

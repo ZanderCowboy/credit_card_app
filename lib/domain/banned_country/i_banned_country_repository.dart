@@ -1,14 +1,14 @@
-import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
+import 'package:credit_card_app/domain/banned_country/models/banned_country.dart';
 
-abstract class IBannedCountriesRepository {
+abstract class IBannedCountryRepository {
   // add
   void addCountry(String country);
 
   // readAt
-  BannedCountries? readCountry(int index);
+  BannedCountry? readCountry(int index);
 
   // readAll
-  List<BannedCountries> readCountries();
+  List<BannedCountry> readCountries();
 
   // update
   void updateCountryChecked(String country, bool? newValue);
@@ -21,5 +21,5 @@ abstract class IBannedCountriesRepository {
 
   bool hasCountry(String country);
 
-  int lookupCountry(BannedCountries bannedCountry);
+  int lookupCountry(BannedCountry bannedCountry);
 }

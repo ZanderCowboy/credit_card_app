@@ -6,7 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:credit_card_app/application/app.dart';
-import 'package:credit_card_app/infrastructure/banned_countries/banned_countries_repository.dart';
+import 'package:credit_card_app/infrastructure/banned_country/banned_country_repository.dart';
 import 'package:credit_card_app/infrastructure/credit_card/credit_card_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -14,8 +14,8 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     final CreditCardRepository creditCardRepository = CreditCardRepository();
-    final BannedCountriesRepository bannedCountriesRepository =
-        BannedCountriesRepository();
+    final BannedCountryRepository bannedCountriesRepository =
+        BannedCountryRepository();
     // Build our app and trigger a frame.
     await tester.pumpWidget(
       App(

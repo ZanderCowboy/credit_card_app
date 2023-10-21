@@ -4,8 +4,8 @@ part of 'settings_bloc.dart';
 class SettingsEvent with _$SettingsEvent {
   const factory SettingsEvent.onAddCountry(String? selectedCountry) =
       onAddCountry;
-  const factory SettingsEvent.onCountryDelete(BannedCountries bannedCountry) =
+  const factory SettingsEvent.onCountryDelete(BannedCountry bannedCountry) =
       onCountryDelete;
-  const factory SettingsEvent.onCountryPressed(
-      BannedCountries bannedCountries) = onCountryPressed;
+  const factory SettingsEvent.onCountryPressed(BannedCountry bannedCountries) =
+      onCountryPressed;
 }

@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:credit_card_app/constants/text_constants.dart';
-import 'package:credit_card_app/domain/banned_countries/i_banned_countries_repository.dart';
-import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
+import 'package:credit_card_app/domain/banned_country/i_banned_country_repository.dart';
+import 'package:credit_card_app/domain/banned_country/models/banned_country.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -35,7 +35,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
             emit(
               state.copyWith(
                 bannedCountries: state.bannedCountries.copyWith(
-                  bannedCountry: value.selectedCountry!,
+                  country: value.selectedCountry!,
                   isBanned: true,
                 ),
                 isLoading: false,
@@ -83,7 +83,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           }
 
           _bannedCountriesRepository.updateCountryChecked(
-            value.bannedCountries.bannedCountry,
+            value.bannedCountries.country,
             value.bannedCountries.isBanned,
           );
 
@@ -98,5 +98,5 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     });
   }
 
-  final IBannedCountriesRepository _bannedCountriesRepository;
+  final IBannedCountryRepository _bannedCountriesRepository;
 }

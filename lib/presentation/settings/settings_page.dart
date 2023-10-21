@@ -1,9 +1,9 @@
 import 'package:credit_card_app/application/export_application.dart';
 import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
-import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
+import 'package:credit_card_app/domain/banned_country/models/banned_country.dart';
 import 'package:credit_card_app/get_it_injection.dart';
-import 'package:credit_card_app/infrastructure/banned_countries/banned_countries_repository.dart';
+import 'package:credit_card_app/infrastructure/banned_country/banned_country_repository.dart';
 import 'package:credit_card_app/widgets/common/dropdown_form_field.dart';
 import 'package:credit_card_app/widgets/common/empty_page_view.dart';
 import 'package:flutter/material.dart';
@@ -97,7 +97,7 @@ class _SettingsPage extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        final list = context.read<BannedCountriesRepository>().readCountries();
+        final list = context.read<BannedCountryRepository>().readCountries();
 
         return Padding(
           padding: const EdgeInsets.all(8),
@@ -192,13 +192,12 @@ class _BannedCountryList extends StatelessWidget {
     return BlocConsumer<SettingsBloc, SettingsState>(
       listener: (context, state) {},
       builder: (context, state) {
-        final BannedCountriesRepository repository =
-            context.read<BannedCountriesRepository>();
+        final BannedCountryRepository repository =
+            context.read<BannedCountryRepository>();
 
-        final List<BannedCountries> bannedCountriesList =
+        final List<BannedCountry> bannedCountriesList =
             repository.readCountries();
-        bannedCountriesList
-            .sort((a, b) => a.bannedCountry.compareTo(b.bannedCountry));
+        bannedCountriesList.sort((a, b) => a.country.compareTo(b.country));
 
         return SizedBox(
           height: MediaQuery.of(context).size.height * 0.75,
@@ -209,7 +208,7 @@ class _BannedCountryList extends StatelessWidget {
               final checkbox = bannedCountriesList[index].isBanned;
               final bannedCountry = bannedCountriesList[index];
 
-              final countryCode = bannedCountriesList[index].bannedCountry;
+              final countryCode = bannedCountriesList[index].country;
               final countryName = countryMap[countryCode];
 
               return InkWell(
@@ -244,9 +243,8 @@ class _BannedCountryList extends StatelessWidget {
                   onChanged: (bool? newValue) {
                     context.read<SettingsBloc>().add(
                           SettingsEvent.onCountryPressed(
-                            BannedCountries(
-                                bannedCountry: countryCode,
-                                isBanned: newValue!),
+                            BannedCountry(
+                                country: countryCode, isBanned: newValue!),
                           ),
                         );
                   },
