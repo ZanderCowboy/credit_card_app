@@ -1,7 +1,7 @@
 import 'package:credit_card_app/application/export_application.dart';
 import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/get_it_injection.dart';
-import 'package:credit_card_app/widgets/common/large_button.dart';
+import 'package:credit_card_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -16,6 +16,7 @@ class EnterPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(enterAppBarTitle),
+        centerTitle: true,
       ),
       body: BlocProvider(
         create: (_) => coreSl<EnterBloc>(),
@@ -33,12 +34,10 @@ class _EnterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final cardNumberTextController = useTextEditingController();
     final cardNumberTextController = TextEditingController();
     final cardTypeTextController = TextEditingController();
     final cardExiryDateTextController = TextEditingController();
     final cardCvvTextController = TextEditingController();
-    // final countryTextController = useTextEditingController(text: null);
     final countryTextController = TextEditingController(text: null);
 
     return BlocConsumer<EnterBloc, EnterState>(
