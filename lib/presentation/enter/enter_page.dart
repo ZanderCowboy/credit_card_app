@@ -1,4 +1,4 @@
-import 'package:credit_card_app/application/enter/bloc/enter_bloc.dart';
+import 'package:credit_card_app/application/export_application.dart';
 import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
@@ -179,7 +179,8 @@ class _EnterPage extends StatelessWidget {
                                         TextButton(
                                           onPressed: () {
                                             context.read<EnterBloc>().add(
-                                                  const EnterEvent.onCancel(),
+                                                  const EnterEvent
+                                                      .onCancelEnter(),
                                                 );
                                             cardNumberTextController.clear();
                                             cardTypeTextController.clear();
@@ -213,7 +214,8 @@ class _EnterPage extends StatelessWidget {
                                                   );
 
                                                   context.read<EnterBloc>().add(
-                                                        EnterEvent.onValidate(
+                                                        EnterEvent
+                                                            .onValidateEnter(
                                                           creditCard,
                                                         ),
                                                       );
@@ -264,7 +266,9 @@ class _EnterPage extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  context.read<EnterBloc>().add(const EnterEvent.onSubmit());
+                  context
+                      .read<EnterBloc>()
+                      .add(const EnterEvent.onSubmitEnter());
 
                   Navigator.of(context).pushNamedAndRemoveUntil(
                     homeRoute,

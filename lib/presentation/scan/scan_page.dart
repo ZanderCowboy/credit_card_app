@@ -1,5 +1,5 @@
 import 'package:camera/camera.dart';
-import 'package:credit_card_app/application/scan/bloc/scan_bloc.dart';
+import 'package:credit_card_app/application/export_application.dart';
 import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/get_it_injection.dart';
@@ -165,7 +165,7 @@ class _ScanPageState extends State<_ScanPage> {
                                     onPressed: () {
                                       _submitPicture();
                                       context.read<ScanBloc>().add(
-                                            ScanEvent.onSubmit(creditCard),
+                                            ScanEvent.onSubmitScan(creditCard),
                                           );
                                     },
                                     child: const Text(submitButtonText),

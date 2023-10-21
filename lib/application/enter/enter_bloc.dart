@@ -18,7 +18,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
     on<EnterEvent>(
       (event, emit) {
         event.map(
-          onValidate: (value) {
+          onValidateEnter: (value) {
             emit(state.copyWith(isLoading: true));
 
             List<Object> returnValues = _CardValidation(state.creditCard);
@@ -72,7 +72,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
               );
             }
           },
-          onSubmit: (_) {
+          onSubmitEnter: (_) {
             emit(state.copyWith(isSaving: true, errorMessage: null));
 
             final isValidTextValue = _isValid(state.creditCard);
@@ -98,7 +98,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
 
             emit(state.copyWith(isSaving: false));
           },
-          onCancel: (_) {
+          onCancelEnter: (_) {
             emit(EnterState.initial());
           },
           onChangedCardNumber: (value) {

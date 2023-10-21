@@ -1,10 +1,4 @@
-import 'package:credit_card_app/application/enter/enter.dart';
-import 'package:credit_card_app/application/history/history.dart';
-import 'package:credit_card_app/application/home/home.dart';
-import 'package:credit_card_app/application/result/result.dart';
-import 'package:credit_card_app/application/scan/scan.dart';
-import 'package:credit_card_app/application/settings/settings.dart';
-import 'package:credit_card_app/application/start/start.dart';
+import 'package:credit_card_app/presentation/export_presentation.dart';
 import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/infrastructure/banned_countries/banned_countries_repository.dart';
 import 'package:credit_card_app/infrastructure/credit_card/credit_card_repository.dart';
