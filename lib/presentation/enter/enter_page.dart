@@ -1,6 +1,6 @@
 import 'package:credit_card_app/application/export_application.dart';
-import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
+import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/widgets/widgets.dart';
@@ -73,7 +73,8 @@ class _EnterPage extends StatelessWidget {
           ScaffoldMessenger.of(context)
             ..clearSnackBars()
             ..showSnackBar(
-                const SnackBar(content: Text(successfullyAddedText)));
+              const SnackBar(content: Text(successfullyAddedText)),
+            );
         }
         if (state.errorMessage.isNotNullAndNotEmpty) {
           ScaffoldMessenger.of(context)
@@ -111,13 +112,15 @@ class _EnterPage extends StatelessWidget {
                                   textController: cardNumberTextController,
                                   labelText: cardNumberLabelText,
                                   hintText: cardNumberHintText,
-                                  onChanged: (value) => context
-                                      .read<EnterBloc>()
-                                      .add(EnterEvent.onChangedCardNumber(
-                                          value)),
+                                  onChanged: (value) =>
+                                      context.read<EnterBloc>().add(
+                                            EnterEvent.onChangedCardNumber(
+                                              value,
+                                            ),
+                                          ),
                                   onTap: () => context
                                       .read<EnterBloc>()
-                                      .add(EnterEvent.onTapCardNumber()),
+                                      .add(const EnterEvent.onTapCardNumber()),
                                 ),
                                 CreditCardFormField(
                                   textController: cardTypeTextController,
@@ -130,7 +133,7 @@ class _EnterPage extends StatelessWidget {
                                   readOnly: true,
                                   onTap: () => context
                                       .read<EnterBloc>()
-                                      .add(EnterEvent.onTapCardType()),
+                                      .add(const EnterEvent.onTapCardType()),
                                 ),
                                 CreditCardFormField(
                                   textController: cardExiryDateTextController,
@@ -139,7 +142,7 @@ class _EnterPage extends StatelessWidget {
                                   onChanged: (value) {},
                                   onTap: () => context
                                       .read<EnterBloc>()
-                                      .add(EnterEvent.onTapCardNumber()),
+                                      .add(const EnterEvent.onTapCardNumber()),
                                 ),
                                 CreditCardFormField(
                                   textController: cardCvvTextController,
@@ -148,10 +151,11 @@ class _EnterPage extends StatelessWidget {
                                   onChanged: (value) => context
                                       .read<EnterBloc>()
                                       .add(
-                                          EnterEvent.onChangedCvvNumber(value)),
+                                        EnterEvent.onChangedCvvNumber(value),
+                                      ),
                                   onTap: () => context
                                       .read<EnterBloc>()
-                                      .add(EnterEvent.onTapCvvNumber()),
+                                      .add(const EnterEvent.onTapCvvNumber()),
                                 ),
                                 CountryDropdownButtonList(
                                   hintText: issuingCountryLabelText,
@@ -159,12 +163,13 @@ class _EnterPage extends StatelessWidget {
                                     selectedCountry = value;
                                     context.read<EnterBloc>().add(
                                           EnterEvent.onChangedIssuingCountry(
-                                              selectedCountry!),
+                                            selectedCountry!,
+                                          ),
                                         );
                                   },
-                                  onTap: () => context
-                                      .read<EnterBloc>()
-                                      .add(EnterEvent.onTapIssuingCountry()),
+                                  onTap: () => context.read<EnterBloc>().add(
+                                        const EnterEvent.onTapIssuingCountry(),
+                                      ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
@@ -246,38 +251,37 @@ class _EnterPage extends StatelessWidget {
 
   Future<AlertDialog?> _showDialog(BuildContext context, EnterState state) {
     return showDialog<AlertDialog>(
-        context: context,
-        builder: (_) {
-          CreditCard creditCard = state.creditCard;
-          return AlertDialog(
-            title: const Text(enterPageDialogTitle),
-            content: Card(
-              elevation: 3,
-              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: CreditCardListTile(creditCard: creditCard),
+      context: context,
+      builder: (_) {
+        final CreditCard creditCard = state.creditCard;
+        return AlertDialog(
+          title: const Text(enterPageDialogTitle),
+          content: Card(
+            elevation: 3,
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: CreditCardListTile(creditCard: creditCard),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text(cancelButtonText),
             ),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Text(cancelButtonText),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  context
-                      .read<EnterBloc>()
-                      .add(const EnterEvent.onSubmitEnter());
+            ElevatedButton(
+              onPressed: () {
+                context.read<EnterBloc>().add(const EnterEvent.onSubmitEnter());
 
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                    homeRoute,
-                    (Route<dynamic> route) => false,
-                  );
-                },
-                child: const Text(submitButtonText),
-              ),
-            ],
-          );
-        });
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  homeRoute,
+                  (Route<dynamic> route) => false,
+                );
+              },
+              child: const Text(submitButtonText),
+            ),
+          ],
+        );
+      },
+    );
   }
 }

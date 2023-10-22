@@ -11,20 +11,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(const HomeState.initial()) {
     on<HomeEvent>(
       (event, emit) async {
-        await event.map(
-          onEnter: (_) {
+        event.map(
+          onPressedEnter: (_) {
             emit(const HomeState.initial());
           },
-          onScan: (_) {
+          onPressedScan: (_) {
             emit(const HomeState.initial());
           },
-          onHistory: (_) {
+          onPressedHistory: (_) {
             emit(const HomeState.initial());
           },
-          onSettings: (_) {
+          onPressedSettings: (_) {
             emit(const HomeState.initial());
           },
-          onLogout: (_) {
+          onPressedLogout: (_) {
             emit(const HomeState.initial());
           },
         );

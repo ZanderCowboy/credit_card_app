@@ -9,6 +9,7 @@ part 'credit_card.g.dart';
 @freezed
 class CreditCard with _$CreditCard {
   const factory CreditCard({
+    // Todo: add name and expiry date
     @HiveField(0, defaultValue: '') required String cardNumber,
     @HiveField(1, defaultValue: '') required String cardType,
     @HiveField(2, defaultValue: '') required String cvvNumber,

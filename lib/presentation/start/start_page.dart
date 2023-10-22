@@ -7,7 +7,7 @@ class StartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Stack(
         children: [
           LogoWidget(),
@@ -16,7 +16,9 @@ class StartPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 LargeButtonNavigate(
-                    buttonTitle: startPageStartButton, route: homeRoute),
+                  buttonTitle: startPageStartButton,
+                  route: homeRoute,
+                ),
               ],
             ),
           ),

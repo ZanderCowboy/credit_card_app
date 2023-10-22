@@ -17,8 +17,8 @@ class CreditCardAnimation extends StatelessWidget {
     return BlocConsumer<EnterBloc, EnterState>(
       listener: (context, state) {},
       builder: (context, state) {
-        String countryCode = state.creditCard.issuingCountry;
-        String countryName =
+        final String countryCode = state.creditCard.issuingCountry;
+        final String countryName =
             countryMap[countryCode] != null ? countryMap[countryCode]! : '';
 
         log('state.isCvvFocused=${state.isCvvFocused}');

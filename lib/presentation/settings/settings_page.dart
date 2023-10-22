@@ -1,6 +1,6 @@
 import 'package:credit_card_app/application/export_application.dart';
-import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
+import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/domain/banned_country/models/banned_country.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/infrastructure/banned_country/banned_country_repository.dart';
@@ -14,20 +14,23 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => coreSl<SettingsBloc>(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(settingsAppBarTitle),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context);
-            },
+    return RepositoryProvider(
+      create: (_) => BannedCountryRepository(),
+      child: BlocProvider(
+        create: (_) => coreSl<SettingsBloc>(),
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text(settingsAppBarTitle),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
           ),
+          body: const _SettingsPage(),
+          floatingActionButton: const _AddBannedCountryDialog(),
         ),
-        body: const _SettingsPage(),
-        floatingActionButton: const _AddBannedCountryDialog(),
       ),
     );
   }
@@ -101,7 +104,7 @@ class _SettingsPage extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(8),
           child: list.isEmpty
-              ? EmptyPageView(
+              ? const EmptyPageView(
                   textMessage: settingsNoBannedCountriesMessage,
                 )
               : Material(
@@ -116,7 +119,7 @@ class _SettingsPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Expanded(
+                    child: const Expanded(
                       child: SingleChildScrollView(
                         child: _BannedCountryList(),
                       ),
@@ -243,7 +246,9 @@ class _BannedCountryList extends StatelessWidget {
                     context.read<SettingsBloc>().add(
                           SettingsEvent.onCountryPressed(
                             BannedCountry(
-                                country: countryCode, isBanned: newValue!),
+                              country: countryCode,
+                              isBanned: newValue!,
+                            ),
                           ),
                         );
                   },

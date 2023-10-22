@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CreditCardFormField extends StatelessWidget {
-  CreditCardFormField({
-    super.key,
+  const CreditCardFormField({
     required this.textController,
     required this.labelText,
     required this.hintText,
     required this.onChanged,
+    super.key,
     this.readOnly = false,
     this.autofocus = true,
     this.onTap,
@@ -29,8 +29,8 @@ class CreditCardFormField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
-        hintStyle: TextStyle(color: Colors.white),
-        labelStyle: TextStyle(color: Colors.white),
+        hintStyle: const TextStyle(color: Colors.white),
+        labelStyle: const TextStyle(color: Colors.white),
       ),
       onChanged: onChanged,
       readOnly: readOnly,

@@ -18,57 +18,57 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onEnter,
-    required TResult Function() onScan,
-    required TResult Function() onHistory,
-    required TResult Function() onSettings,
-    required TResult Function() onLogout,
+    required TResult Function() onPressedEnter,
+    required TResult Function() onPressedScan,
+    required TResult Function() onPressedHistory,
+    required TResult Function() onPressedSettings,
+    required TResult Function() onPressedLogout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onEnter,
-    TResult? Function()? onScan,
-    TResult? Function()? onHistory,
-    TResult? Function()? onSettings,
-    TResult? Function()? onLogout,
+    TResult? Function()? onPressedEnter,
+    TResult? Function()? onPressedScan,
+    TResult? Function()? onPressedHistory,
+    TResult? Function()? onPressedSettings,
+    TResult? Function()? onPressedLogout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onEnter,
-    TResult Function()? onScan,
-    TResult Function()? onHistory,
-    TResult Function()? onSettings,
-    TResult Function()? onLogout,
+    TResult Function()? onPressedEnter,
+    TResult Function()? onPressedScan,
+    TResult Function()? onPressedHistory,
+    TResult Function()? onPressedSettings,
+    TResult Function()? onPressedLogout,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onEnter value) onEnter,
-    required TResult Function(onScan value) onScan,
-    required TResult Function(onHistory value) onHistory,
-    required TResult Function(onSettings value) onSettings,
-    required TResult Function(onLogout value) onLogout,
+    required TResult Function(onPressedEnter value) onPressedEnter,
+    required TResult Function(onPressedScan value) onPressedScan,
+    required TResult Function(onPressedHistory value) onPressedHistory,
+    required TResult Function(onPressedSettings value) onPressedSettings,
+    required TResult Function(onPressedLogout value) onPressedLogout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onEnter value)? onEnter,
-    TResult? Function(onScan value)? onScan,
-    TResult? Function(onHistory value)? onHistory,
-    TResult? Function(onSettings value)? onSettings,
-    TResult? Function(onLogout value)? onLogout,
+    TResult? Function(onPressedEnter value)? onPressedEnter,
+    TResult? Function(onPressedScan value)? onPressedScan,
+    TResult? Function(onPressedHistory value)? onPressedHistory,
+    TResult? Function(onPressedSettings value)? onPressedSettings,
+    TResult? Function(onPressedLogout value)? onPressedLogout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onEnter value)? onEnter,
-    TResult Function(onScan value)? onScan,
-    TResult Function(onHistory value)? onHistory,
-    TResult Function(onSettings value)? onSettings,
-    TResult Function(onLogout value)? onLogout,
+    TResult Function(onPressedEnter value)? onPressedEnter,
+    TResult Function(onPressedScan value)? onPressedScan,
+    TResult Function(onPressedHistory value)? onPressedHistory,
+    TResult Function(onPressedSettings value)? onPressedSettings,
+    TResult Function(onPressedLogout value)? onPressedLogout,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -92,35 +92,35 @@ class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
 }
 
 /// @nodoc
-abstract class _$$onEnterImplCopyWith<$Res> {
-  factory _$$onEnterImplCopyWith(
-          _$onEnterImpl value, $Res Function(_$onEnterImpl) then) =
-      __$$onEnterImplCopyWithImpl<$Res>;
+abstract class _$$onPressedEnterImplCopyWith<$Res> {
+  factory _$$onPressedEnterImplCopyWith(_$onPressedEnterImpl value,
+          $Res Function(_$onPressedEnterImpl) then) =
+      __$$onPressedEnterImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onEnterImplCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$onEnterImpl>
-    implements _$$onEnterImplCopyWith<$Res> {
-  __$$onEnterImplCopyWithImpl(
-      _$onEnterImpl _value, $Res Function(_$onEnterImpl) _then)
+class __$$onPressedEnterImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$onPressedEnterImpl>
+    implements _$$onPressedEnterImplCopyWith<$Res> {
+  __$$onPressedEnterImplCopyWithImpl(
+      _$onPressedEnterImpl _value, $Res Function(_$onPressedEnterImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onEnterImpl implements onEnter {
-  const _$onEnterImpl();
+class _$onPressedEnterImpl implements onPressedEnter {
+  const _$onPressedEnterImpl();
 
   @override
   String toString() {
-    return 'HomeEvent.onEnter()';
+    return 'HomeEvent.onPressedEnter()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onEnterImpl);
+        (other.runtimeType == runtimeType && other is _$onPressedEnterImpl);
   }
 
   @override
@@ -129,39 +129,39 @@ class _$onEnterImpl implements onEnter {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onEnter,
-    required TResult Function() onScan,
-    required TResult Function() onHistory,
-    required TResult Function() onSettings,
-    required TResult Function() onLogout,
+    required TResult Function() onPressedEnter,
+    required TResult Function() onPressedScan,
+    required TResult Function() onPressedHistory,
+    required TResult Function() onPressedSettings,
+    required TResult Function() onPressedLogout,
   }) {
-    return onEnter();
+    return onPressedEnter();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onEnter,
-    TResult? Function()? onScan,
-    TResult? Function()? onHistory,
-    TResult? Function()? onSettings,
-    TResult? Function()? onLogout,
+    TResult? Function()? onPressedEnter,
+    TResult? Function()? onPressedScan,
+    TResult? Function()? onPressedHistory,
+    TResult? Function()? onPressedSettings,
+    TResult? Function()? onPressedLogout,
   }) {
-    return onEnter?.call();
+    return onPressedEnter?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onEnter,
-    TResult Function()? onScan,
-    TResult Function()? onHistory,
-    TResult Function()? onSettings,
-    TResult Function()? onLogout,
+    TResult Function()? onPressedEnter,
+    TResult Function()? onPressedScan,
+    TResult Function()? onPressedHistory,
+    TResult Function()? onPressedSettings,
+    TResult Function()? onPressedLogout,
     required TResult orElse(),
   }) {
-    if (onEnter != null) {
-      return onEnter();
+    if (onPressedEnter != null) {
+      return onPressedEnter();
     }
     return orElse();
   }
@@ -169,78 +169,78 @@ class _$onEnterImpl implements onEnter {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onEnter value) onEnter,
-    required TResult Function(onScan value) onScan,
-    required TResult Function(onHistory value) onHistory,
-    required TResult Function(onSettings value) onSettings,
-    required TResult Function(onLogout value) onLogout,
+    required TResult Function(onPressedEnter value) onPressedEnter,
+    required TResult Function(onPressedScan value) onPressedScan,
+    required TResult Function(onPressedHistory value) onPressedHistory,
+    required TResult Function(onPressedSettings value) onPressedSettings,
+    required TResult Function(onPressedLogout value) onPressedLogout,
   }) {
-    return onEnter(this);
+    return onPressedEnter(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onEnter value)? onEnter,
-    TResult? Function(onScan value)? onScan,
-    TResult? Function(onHistory value)? onHistory,
-    TResult? Function(onSettings value)? onSettings,
-    TResult? Function(onLogout value)? onLogout,
+    TResult? Function(onPressedEnter value)? onPressedEnter,
+    TResult? Function(onPressedScan value)? onPressedScan,
+    TResult? Function(onPressedHistory value)? onPressedHistory,
+    TResult? Function(onPressedSettings value)? onPressedSettings,
+    TResult? Function(onPressedLogout value)? onPressedLogout,
   }) {
-    return onEnter?.call(this);
+    return onPressedEnter?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onEnter value)? onEnter,
-    TResult Function(onScan value)? onScan,
-    TResult Function(onHistory value)? onHistory,
-    TResult Function(onSettings value)? onSettings,
-    TResult Function(onLogout value)? onLogout,
+    TResult Function(onPressedEnter value)? onPressedEnter,
+    TResult Function(onPressedScan value)? onPressedScan,
+    TResult Function(onPressedHistory value)? onPressedHistory,
+    TResult Function(onPressedSettings value)? onPressedSettings,
+    TResult Function(onPressedLogout value)? onPressedLogout,
     required TResult orElse(),
   }) {
-    if (onEnter != null) {
-      return onEnter(this);
+    if (onPressedEnter != null) {
+      return onPressedEnter(this);
     }
     return orElse();
   }
 }
 
-abstract class onEnter implements HomeEvent {
-  const factory onEnter() = _$onEnterImpl;
+abstract class onPressedEnter implements HomeEvent {
+  const factory onPressedEnter() = _$onPressedEnterImpl;
 }
 
 /// @nodoc
-abstract class _$$onScanImplCopyWith<$Res> {
-  factory _$$onScanImplCopyWith(
-          _$onScanImpl value, $Res Function(_$onScanImpl) then) =
-      __$$onScanImplCopyWithImpl<$Res>;
+abstract class _$$onPressedScanImplCopyWith<$Res> {
+  factory _$$onPressedScanImplCopyWith(
+          _$onPressedScanImpl value, $Res Function(_$onPressedScanImpl) then) =
+      __$$onPressedScanImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onScanImplCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$onScanImpl>
-    implements _$$onScanImplCopyWith<$Res> {
-  __$$onScanImplCopyWithImpl(
-      _$onScanImpl _value, $Res Function(_$onScanImpl) _then)
+class __$$onPressedScanImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$onPressedScanImpl>
+    implements _$$onPressedScanImplCopyWith<$Res> {
+  __$$onPressedScanImplCopyWithImpl(
+      _$onPressedScanImpl _value, $Res Function(_$onPressedScanImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onScanImpl implements onScan {
-  const _$onScanImpl();
+class _$onPressedScanImpl implements onPressedScan {
+  const _$onPressedScanImpl();
 
   @override
   String toString() {
-    return 'HomeEvent.onScan()';
+    return 'HomeEvent.onPressedScan()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onScanImpl);
+        (other.runtimeType == runtimeType && other is _$onPressedScanImpl);
   }
 
   @override
@@ -249,39 +249,39 @@ class _$onScanImpl implements onScan {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onEnter,
-    required TResult Function() onScan,
-    required TResult Function() onHistory,
-    required TResult Function() onSettings,
-    required TResult Function() onLogout,
+    required TResult Function() onPressedEnter,
+    required TResult Function() onPressedScan,
+    required TResult Function() onPressedHistory,
+    required TResult Function() onPressedSettings,
+    required TResult Function() onPressedLogout,
   }) {
-    return onScan();
+    return onPressedScan();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onEnter,
-    TResult? Function()? onScan,
-    TResult? Function()? onHistory,
-    TResult? Function()? onSettings,
-    TResult? Function()? onLogout,
+    TResult? Function()? onPressedEnter,
+    TResult? Function()? onPressedScan,
+    TResult? Function()? onPressedHistory,
+    TResult? Function()? onPressedSettings,
+    TResult? Function()? onPressedLogout,
   }) {
-    return onScan?.call();
+    return onPressedScan?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onEnter,
-    TResult Function()? onScan,
-    TResult Function()? onHistory,
-    TResult Function()? onSettings,
-    TResult Function()? onLogout,
+    TResult Function()? onPressedEnter,
+    TResult Function()? onPressedScan,
+    TResult Function()? onPressedHistory,
+    TResult Function()? onPressedSettings,
+    TResult Function()? onPressedLogout,
     required TResult orElse(),
   }) {
-    if (onScan != null) {
-      return onScan();
+    if (onPressedScan != null) {
+      return onPressedScan();
     }
     return orElse();
   }
@@ -289,78 +289,78 @@ class _$onScanImpl implements onScan {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onEnter value) onEnter,
-    required TResult Function(onScan value) onScan,
-    required TResult Function(onHistory value) onHistory,
-    required TResult Function(onSettings value) onSettings,
-    required TResult Function(onLogout value) onLogout,
+    required TResult Function(onPressedEnter value) onPressedEnter,
+    required TResult Function(onPressedScan value) onPressedScan,
+    required TResult Function(onPressedHistory value) onPressedHistory,
+    required TResult Function(onPressedSettings value) onPressedSettings,
+    required TResult Function(onPressedLogout value) onPressedLogout,
   }) {
-    return onScan(this);
+    return onPressedScan(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onEnter value)? onEnter,
-    TResult? Function(onScan value)? onScan,
-    TResult? Function(onHistory value)? onHistory,
-    TResult? Function(onSettings value)? onSettings,
-    TResult? Function(onLogout value)? onLogout,
+    TResult? Function(onPressedEnter value)? onPressedEnter,
+    TResult? Function(onPressedScan value)? onPressedScan,
+    TResult? Function(onPressedHistory value)? onPressedHistory,
+    TResult? Function(onPressedSettings value)? onPressedSettings,
+    TResult? Function(onPressedLogout value)? onPressedLogout,
   }) {
-    return onScan?.call(this);
+    return onPressedScan?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onEnter value)? onEnter,
-    TResult Function(onScan value)? onScan,
-    TResult Function(onHistory value)? onHistory,
-    TResult Function(onSettings value)? onSettings,
-    TResult Function(onLogout value)? onLogout,
+    TResult Function(onPressedEnter value)? onPressedEnter,
+    TResult Function(onPressedScan value)? onPressedScan,
+    TResult Function(onPressedHistory value)? onPressedHistory,
+    TResult Function(onPressedSettings value)? onPressedSettings,
+    TResult Function(onPressedLogout value)? onPressedLogout,
     required TResult orElse(),
   }) {
-    if (onScan != null) {
-      return onScan(this);
+    if (onPressedScan != null) {
+      return onPressedScan(this);
     }
     return orElse();
   }
 }
 
-abstract class onScan implements HomeEvent {
-  const factory onScan() = _$onScanImpl;
+abstract class onPressedScan implements HomeEvent {
+  const factory onPressedScan() = _$onPressedScanImpl;
 }
 
 /// @nodoc
-abstract class _$$onHistoryImplCopyWith<$Res> {
-  factory _$$onHistoryImplCopyWith(
-          _$onHistoryImpl value, $Res Function(_$onHistoryImpl) then) =
-      __$$onHistoryImplCopyWithImpl<$Res>;
+abstract class _$$onPressedHistoryImplCopyWith<$Res> {
+  factory _$$onPressedHistoryImplCopyWith(_$onPressedHistoryImpl value,
+          $Res Function(_$onPressedHistoryImpl) then) =
+      __$$onPressedHistoryImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onHistoryImplCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$onHistoryImpl>
-    implements _$$onHistoryImplCopyWith<$Res> {
-  __$$onHistoryImplCopyWithImpl(
-      _$onHistoryImpl _value, $Res Function(_$onHistoryImpl) _then)
+class __$$onPressedHistoryImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$onPressedHistoryImpl>
+    implements _$$onPressedHistoryImplCopyWith<$Res> {
+  __$$onPressedHistoryImplCopyWithImpl(_$onPressedHistoryImpl _value,
+      $Res Function(_$onPressedHistoryImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onHistoryImpl implements onHistory {
-  const _$onHistoryImpl();
+class _$onPressedHistoryImpl implements onPressedHistory {
+  const _$onPressedHistoryImpl();
 
   @override
   String toString() {
-    return 'HomeEvent.onHistory()';
+    return 'HomeEvent.onPressedHistory()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onHistoryImpl);
+        (other.runtimeType == runtimeType && other is _$onPressedHistoryImpl);
   }
 
   @override
@@ -369,39 +369,39 @@ class _$onHistoryImpl implements onHistory {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onEnter,
-    required TResult Function() onScan,
-    required TResult Function() onHistory,
-    required TResult Function() onSettings,
-    required TResult Function() onLogout,
+    required TResult Function() onPressedEnter,
+    required TResult Function() onPressedScan,
+    required TResult Function() onPressedHistory,
+    required TResult Function() onPressedSettings,
+    required TResult Function() onPressedLogout,
   }) {
-    return onHistory();
+    return onPressedHistory();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onEnter,
-    TResult? Function()? onScan,
-    TResult? Function()? onHistory,
-    TResult? Function()? onSettings,
-    TResult? Function()? onLogout,
+    TResult? Function()? onPressedEnter,
+    TResult? Function()? onPressedScan,
+    TResult? Function()? onPressedHistory,
+    TResult? Function()? onPressedSettings,
+    TResult? Function()? onPressedLogout,
   }) {
-    return onHistory?.call();
+    return onPressedHistory?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onEnter,
-    TResult Function()? onScan,
-    TResult Function()? onHistory,
-    TResult Function()? onSettings,
-    TResult Function()? onLogout,
+    TResult Function()? onPressedEnter,
+    TResult Function()? onPressedScan,
+    TResult Function()? onPressedHistory,
+    TResult Function()? onPressedSettings,
+    TResult Function()? onPressedLogout,
     required TResult orElse(),
   }) {
-    if (onHistory != null) {
-      return onHistory();
+    if (onPressedHistory != null) {
+      return onPressedHistory();
     }
     return orElse();
   }
@@ -409,78 +409,78 @@ class _$onHistoryImpl implements onHistory {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onEnter value) onEnter,
-    required TResult Function(onScan value) onScan,
-    required TResult Function(onHistory value) onHistory,
-    required TResult Function(onSettings value) onSettings,
-    required TResult Function(onLogout value) onLogout,
+    required TResult Function(onPressedEnter value) onPressedEnter,
+    required TResult Function(onPressedScan value) onPressedScan,
+    required TResult Function(onPressedHistory value) onPressedHistory,
+    required TResult Function(onPressedSettings value) onPressedSettings,
+    required TResult Function(onPressedLogout value) onPressedLogout,
   }) {
-    return onHistory(this);
+    return onPressedHistory(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onEnter value)? onEnter,
-    TResult? Function(onScan value)? onScan,
-    TResult? Function(onHistory value)? onHistory,
-    TResult? Function(onSettings value)? onSettings,
-    TResult? Function(onLogout value)? onLogout,
+    TResult? Function(onPressedEnter value)? onPressedEnter,
+    TResult? Function(onPressedScan value)? onPressedScan,
+    TResult? Function(onPressedHistory value)? onPressedHistory,
+    TResult? Function(onPressedSettings value)? onPressedSettings,
+    TResult? Function(onPressedLogout value)? onPressedLogout,
   }) {
-    return onHistory?.call(this);
+    return onPressedHistory?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onEnter value)? onEnter,
-    TResult Function(onScan value)? onScan,
-    TResult Function(onHistory value)? onHistory,
-    TResult Function(onSettings value)? onSettings,
-    TResult Function(onLogout value)? onLogout,
+    TResult Function(onPressedEnter value)? onPressedEnter,
+    TResult Function(onPressedScan value)? onPressedScan,
+    TResult Function(onPressedHistory value)? onPressedHistory,
+    TResult Function(onPressedSettings value)? onPressedSettings,
+    TResult Function(onPressedLogout value)? onPressedLogout,
     required TResult orElse(),
   }) {
-    if (onHistory != null) {
-      return onHistory(this);
+    if (onPressedHistory != null) {
+      return onPressedHistory(this);
     }
     return orElse();
   }
 }
 
-abstract class onHistory implements HomeEvent {
-  const factory onHistory() = _$onHistoryImpl;
+abstract class onPressedHistory implements HomeEvent {
+  const factory onPressedHistory() = _$onPressedHistoryImpl;
 }
 
 /// @nodoc
-abstract class _$$onSettingsImplCopyWith<$Res> {
-  factory _$$onSettingsImplCopyWith(
-          _$onSettingsImpl value, $Res Function(_$onSettingsImpl) then) =
-      __$$onSettingsImplCopyWithImpl<$Res>;
+abstract class _$$onPressedSettingsImplCopyWith<$Res> {
+  factory _$$onPressedSettingsImplCopyWith(_$onPressedSettingsImpl value,
+          $Res Function(_$onPressedSettingsImpl) then) =
+      __$$onPressedSettingsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onSettingsImplCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$onSettingsImpl>
-    implements _$$onSettingsImplCopyWith<$Res> {
-  __$$onSettingsImplCopyWithImpl(
-      _$onSettingsImpl _value, $Res Function(_$onSettingsImpl) _then)
+class __$$onPressedSettingsImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$onPressedSettingsImpl>
+    implements _$$onPressedSettingsImplCopyWith<$Res> {
+  __$$onPressedSettingsImplCopyWithImpl(_$onPressedSettingsImpl _value,
+      $Res Function(_$onPressedSettingsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onSettingsImpl implements onSettings {
-  const _$onSettingsImpl();
+class _$onPressedSettingsImpl implements onPressedSettings {
+  const _$onPressedSettingsImpl();
 
   @override
   String toString() {
-    return 'HomeEvent.onSettings()';
+    return 'HomeEvent.onPressedSettings()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onSettingsImpl);
+        (other.runtimeType == runtimeType && other is _$onPressedSettingsImpl);
   }
 
   @override
@@ -489,39 +489,39 @@ class _$onSettingsImpl implements onSettings {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onEnter,
-    required TResult Function() onScan,
-    required TResult Function() onHistory,
-    required TResult Function() onSettings,
-    required TResult Function() onLogout,
+    required TResult Function() onPressedEnter,
+    required TResult Function() onPressedScan,
+    required TResult Function() onPressedHistory,
+    required TResult Function() onPressedSettings,
+    required TResult Function() onPressedLogout,
   }) {
-    return onSettings();
+    return onPressedSettings();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onEnter,
-    TResult? Function()? onScan,
-    TResult? Function()? onHistory,
-    TResult? Function()? onSettings,
-    TResult? Function()? onLogout,
+    TResult? Function()? onPressedEnter,
+    TResult? Function()? onPressedScan,
+    TResult? Function()? onPressedHistory,
+    TResult? Function()? onPressedSettings,
+    TResult? Function()? onPressedLogout,
   }) {
-    return onSettings?.call();
+    return onPressedSettings?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onEnter,
-    TResult Function()? onScan,
-    TResult Function()? onHistory,
-    TResult Function()? onSettings,
-    TResult Function()? onLogout,
+    TResult Function()? onPressedEnter,
+    TResult Function()? onPressedScan,
+    TResult Function()? onPressedHistory,
+    TResult Function()? onPressedSettings,
+    TResult Function()? onPressedLogout,
     required TResult orElse(),
   }) {
-    if (onSettings != null) {
-      return onSettings();
+    if (onPressedSettings != null) {
+      return onPressedSettings();
     }
     return orElse();
   }
@@ -529,78 +529,78 @@ class _$onSettingsImpl implements onSettings {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onEnter value) onEnter,
-    required TResult Function(onScan value) onScan,
-    required TResult Function(onHistory value) onHistory,
-    required TResult Function(onSettings value) onSettings,
-    required TResult Function(onLogout value) onLogout,
+    required TResult Function(onPressedEnter value) onPressedEnter,
+    required TResult Function(onPressedScan value) onPressedScan,
+    required TResult Function(onPressedHistory value) onPressedHistory,
+    required TResult Function(onPressedSettings value) onPressedSettings,
+    required TResult Function(onPressedLogout value) onPressedLogout,
   }) {
-    return onSettings(this);
+    return onPressedSettings(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onEnter value)? onEnter,
-    TResult? Function(onScan value)? onScan,
-    TResult? Function(onHistory value)? onHistory,
-    TResult? Function(onSettings value)? onSettings,
-    TResult? Function(onLogout value)? onLogout,
+    TResult? Function(onPressedEnter value)? onPressedEnter,
+    TResult? Function(onPressedScan value)? onPressedScan,
+    TResult? Function(onPressedHistory value)? onPressedHistory,
+    TResult? Function(onPressedSettings value)? onPressedSettings,
+    TResult? Function(onPressedLogout value)? onPressedLogout,
   }) {
-    return onSettings?.call(this);
+    return onPressedSettings?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onEnter value)? onEnter,
-    TResult Function(onScan value)? onScan,
-    TResult Function(onHistory value)? onHistory,
-    TResult Function(onSettings value)? onSettings,
-    TResult Function(onLogout value)? onLogout,
+    TResult Function(onPressedEnter value)? onPressedEnter,
+    TResult Function(onPressedScan value)? onPressedScan,
+    TResult Function(onPressedHistory value)? onPressedHistory,
+    TResult Function(onPressedSettings value)? onPressedSettings,
+    TResult Function(onPressedLogout value)? onPressedLogout,
     required TResult orElse(),
   }) {
-    if (onSettings != null) {
-      return onSettings(this);
+    if (onPressedSettings != null) {
+      return onPressedSettings(this);
     }
     return orElse();
   }
 }
 
-abstract class onSettings implements HomeEvent {
-  const factory onSettings() = _$onSettingsImpl;
+abstract class onPressedSettings implements HomeEvent {
+  const factory onPressedSettings() = _$onPressedSettingsImpl;
 }
 
 /// @nodoc
-abstract class _$$onLogoutImplCopyWith<$Res> {
-  factory _$$onLogoutImplCopyWith(
-          _$onLogoutImpl value, $Res Function(_$onLogoutImpl) then) =
-      __$$onLogoutImplCopyWithImpl<$Res>;
+abstract class _$$onPressedLogoutImplCopyWith<$Res> {
+  factory _$$onPressedLogoutImplCopyWith(_$onPressedLogoutImpl value,
+          $Res Function(_$onPressedLogoutImpl) then) =
+      __$$onPressedLogoutImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onLogoutImplCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$onLogoutImpl>
-    implements _$$onLogoutImplCopyWith<$Res> {
-  __$$onLogoutImplCopyWithImpl(
-      _$onLogoutImpl _value, $Res Function(_$onLogoutImpl) _then)
+class __$$onPressedLogoutImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$onPressedLogoutImpl>
+    implements _$$onPressedLogoutImplCopyWith<$Res> {
+  __$$onPressedLogoutImplCopyWithImpl(
+      _$onPressedLogoutImpl _value, $Res Function(_$onPressedLogoutImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onLogoutImpl implements onLogout {
-  const _$onLogoutImpl();
+class _$onPressedLogoutImpl implements onPressedLogout {
+  const _$onPressedLogoutImpl();
 
   @override
   String toString() {
-    return 'HomeEvent.onLogout()';
+    return 'HomeEvent.onPressedLogout()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onLogoutImpl);
+        (other.runtimeType == runtimeType && other is _$onPressedLogoutImpl);
   }
 
   @override
@@ -609,39 +609,39 @@ class _$onLogoutImpl implements onLogout {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onEnter,
-    required TResult Function() onScan,
-    required TResult Function() onHistory,
-    required TResult Function() onSettings,
-    required TResult Function() onLogout,
+    required TResult Function() onPressedEnter,
+    required TResult Function() onPressedScan,
+    required TResult Function() onPressedHistory,
+    required TResult Function() onPressedSettings,
+    required TResult Function() onPressedLogout,
   }) {
-    return onLogout();
+    return onPressedLogout();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onEnter,
-    TResult? Function()? onScan,
-    TResult? Function()? onHistory,
-    TResult? Function()? onSettings,
-    TResult? Function()? onLogout,
+    TResult? Function()? onPressedEnter,
+    TResult? Function()? onPressedScan,
+    TResult? Function()? onPressedHistory,
+    TResult? Function()? onPressedSettings,
+    TResult? Function()? onPressedLogout,
   }) {
-    return onLogout?.call();
+    return onPressedLogout?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onEnter,
-    TResult Function()? onScan,
-    TResult Function()? onHistory,
-    TResult Function()? onSettings,
-    TResult Function()? onLogout,
+    TResult Function()? onPressedEnter,
+    TResult Function()? onPressedScan,
+    TResult Function()? onPressedHistory,
+    TResult Function()? onPressedSettings,
+    TResult Function()? onPressedLogout,
     required TResult orElse(),
   }) {
-    if (onLogout != null) {
-      return onLogout();
+    if (onPressedLogout != null) {
+      return onPressedLogout();
     }
     return orElse();
   }
@@ -649,46 +649,46 @@ class _$onLogoutImpl implements onLogout {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onEnter value) onEnter,
-    required TResult Function(onScan value) onScan,
-    required TResult Function(onHistory value) onHistory,
-    required TResult Function(onSettings value) onSettings,
-    required TResult Function(onLogout value) onLogout,
+    required TResult Function(onPressedEnter value) onPressedEnter,
+    required TResult Function(onPressedScan value) onPressedScan,
+    required TResult Function(onPressedHistory value) onPressedHistory,
+    required TResult Function(onPressedSettings value) onPressedSettings,
+    required TResult Function(onPressedLogout value) onPressedLogout,
   }) {
-    return onLogout(this);
+    return onPressedLogout(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onEnter value)? onEnter,
-    TResult? Function(onScan value)? onScan,
-    TResult? Function(onHistory value)? onHistory,
-    TResult? Function(onSettings value)? onSettings,
-    TResult? Function(onLogout value)? onLogout,
+    TResult? Function(onPressedEnter value)? onPressedEnter,
+    TResult? Function(onPressedScan value)? onPressedScan,
+    TResult? Function(onPressedHistory value)? onPressedHistory,
+    TResult? Function(onPressedSettings value)? onPressedSettings,
+    TResult? Function(onPressedLogout value)? onPressedLogout,
   }) {
-    return onLogout?.call(this);
+    return onPressedLogout?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onEnter value)? onEnter,
-    TResult Function(onScan value)? onScan,
-    TResult Function(onHistory value)? onHistory,
-    TResult Function(onSettings value)? onSettings,
-    TResult Function(onLogout value)? onLogout,
+    TResult Function(onPressedEnter value)? onPressedEnter,
+    TResult Function(onPressedScan value)? onPressedScan,
+    TResult Function(onPressedHistory value)? onPressedHistory,
+    TResult Function(onPressedSettings value)? onPressedSettings,
+    TResult Function(onPressedLogout value)? onPressedLogout,
     required TResult orElse(),
   }) {
-    if (onLogout != null) {
-      return onLogout(this);
+    if (onPressedLogout != null) {
+      return onPressedLogout(this);
     }
     return orElse();
   }
 }
 
-abstract class onLogout implements HomeEvent {
-  const factory onLogout() = _$onLogoutImpl;
+abstract class onPressedLogout implements HomeEvent {
+  const factory onPressedLogout() = _$onPressedLogoutImpl;
 }
 
 /// @nodoc

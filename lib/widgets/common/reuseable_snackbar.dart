@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ReuseableSnackbar extends StatelessWidget {
-  const ReuseableSnackbar({super.key, required this.message});
+  const ReuseableSnackbar({required this.message, super.key});
 
   final String message;
 

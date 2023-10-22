@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class LargeButtonNavigate extends StatelessWidget {
-  const LargeButtonNavigate({required this.buttonTitle, required this.route});
+  const LargeButtonNavigate({
+    required this.buttonTitle,
+    required this.route,
+    super.key,
+  });
 
   final String buttonTitle;
   final String route;

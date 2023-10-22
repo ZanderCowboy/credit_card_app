@@ -8,17 +8,17 @@ class BannedCountriesBox {
   final Box<BannedCountry> box =
       Hive.box<BannedCountry>(bannedCountriesBoxName);
 
-  // add
+  /// Adds a banned country to box
   void addBannedCountry(BannedCountry bannedCountry) {
     box.add(bannedCountry);
   }
 
-  // read
+  /// Read a banned country at given index
   BannedCountry? readBannedCountry(int index) {
     return box.getAt(index);
   }
 
-  // readAll
+  /// Read all banned countries from box
   List<BannedCountry> readAllBannedCountries() {
     final List<BannedCountry> list = <BannedCountry>[];
 
@@ -30,6 +30,7 @@ class BannedCountriesBox {
     return list;
   }
 
+  /// Update a given banned country
   void updateBannedCountry(BannedCountry bannedCountries) {
     int index = -1;
     var itemKey = null;
@@ -48,17 +49,18 @@ class BannedCountriesBox {
     }
 
     if (box.containsKey(itemKey)) {
-      box.deleteAt(index);
-      box.add(bannedCountries);
+      box
+        ..deleteAt(index)
+        ..add(bannedCountries);
     }
   }
 
-  // deleteAt
+  /// Delete a banned country at a given index
   void deleteBannedCountryAt(int index) {
     box.deleteAt(index);
   }
 
-  // deleteAll
+  /// Delete all banned countries in a box
   void deleteBannedCountries() {
     box.clear();
   }

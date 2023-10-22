@@ -90,3 +90,4 @@ The capture page should show a credit card frontside and if you hover over it, i
 ## Commands
 
 - dart run build_runner build --delete-conflicting-outputs
+- dart doc .

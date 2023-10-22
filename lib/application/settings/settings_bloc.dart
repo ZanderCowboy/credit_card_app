@@ -10,6 +10,7 @@ part 'settings_bloc.freezed.dart';
 part 'settings_event.dart';
 part 'settings_state.dart';
 
+/// Bloc for the Settings Page
 @Injectable()
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc(this._bannedCountriesRepository)
@@ -19,7 +20,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         onAddCountry: (value) {
           emit(state.copyWith(isLoading: true));
 
-          final bool hasDuplicate =
+          final hasDuplicate =
               _bannedCountriesRepository.hasCountry(value.selectedCountry!);
 
           if (hasDuplicate) {
@@ -55,7 +56,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         onCountryDelete: (value) {
           emit(state.copyWith(isLoading: true));
 
-          int indexAt =
+          final indexAt =
               _bannedCountriesRepository.lookupCountry(value.bannedCountry);
 
           emit(

@@ -8,7 +8,7 @@ part 'start_state.dart';
 
 @Injectable()
 class StartBloc extends Bloc<StartEvent, StartState> {
-  StartBloc() : super(StartState.initial()) {
+  StartBloc() : super(StartState._()) {
     on<StartEvent>((event, emit) {
       event.map(
         onStart: (_) {

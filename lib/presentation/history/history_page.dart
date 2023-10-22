@@ -36,7 +36,7 @@ class _HistoryPage extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return cards.isEmpty
-            ? EmptyPageView(
+            ? const EmptyPageView(
                 textMessage: historyNoCreditCardsMessage,
               )
             : ListView.builder(

@@ -12,8 +12,10 @@ part 'enter_bloc.freezed.dart';
 part 'enter_event.dart';
 part 'enter_state.dart';
 
+/// EnterBloc for Enter page
 @Injectable()
 class EnterBloc extends Bloc<EnterEvent, EnterState> {
+  /// EnterBloc constructor
   EnterBloc(this._creditCardRepository) : super(EnterState.initial()) {
     on<EnterEvent>(
       (event, emit) {
@@ -21,13 +23,15 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
           onValidateEnter: (value) {
             emit(state.copyWith(isLoading: true));
 
-            List<Object> returnValues = _CardValidation(state.creditCard);
+            final returnValues = _cardValidation(state.creditCard);
             if (returnValues[0] == false) {
-              emit(state.copyWith(
-                errorMessage: returnValues[1] as String,
-              ));
+              emit(
+                state.copyWith(
+                  errorMessage: returnValues[1] as String,
+                ),
+              );
             } else {
-              final bool hasDuplicate =
+              final hasDuplicate =
                   _creditCardRepository.hasCreditCard(value.creditCard);
 
               if (hasDuplicate) {
@@ -102,11 +106,13 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
             emit(EnterState.initial());
           },
           onChangedCardNumber: (value) {
-            emit(state.copyWith(
-              isLoading: true,
-              isCvvFocused: false,
-              errorMessage: null,
-            ));
+            emit(
+              state.copyWith(
+                isLoading: true,
+                isCvvFocused: false,
+                errorMessage: null,
+              ),
+            );
             emit(
               state.copyWith(
                 creditCard: state.creditCard.copyWith(
@@ -115,7 +121,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
               ),
             );
 
-            CardTypes cardTypes = detectCCType(value.text);
+            final cardTypes = detectCCType(value.text);
             log('cardTypes=${cardTypes.name}');
 
             final isValidTextValue = _isValid(state.creditCard);
@@ -149,10 +155,12 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
             emit(state.copyWith(isLoading: false));
           },
           onChangedCvvNumber: (value) {
-            emit(state.copyWith(
-              isLoading: true,
-              errorMessage: null,
-            ));
+            emit(
+              state.copyWith(
+                isLoading: true,
+                errorMessage: null,
+              ),
+            );
             if (value.text.isNotEmpty) {
               emit(
                 state.copyWith(
@@ -219,7 +227,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
         creditCard.issuingCountry.isNotNullAndNotEmpty;
   }
 
-  List<Object> _CardValidation(CreditCard creditCard) {
+  List<Object> _cardValidation(CreditCard creditCard) {
     // cardNumber
     final cardNumber = creditCard.cardNumber;
     if (cardNumber.isEmpty) {
@@ -248,10 +256,10 @@ CardTypes detectCCType(String cardNumber) {
 
   cardNumPatterns.forEach(
     (CardTypes type, Set<List<String>> patterns) {
-      for (List<String> patternRange in patterns) {
+      for (final List<String> patternRange in patterns) {
         // Remove any spaces
         String ccPatternStr = cardNumber.replaceAll(RegExp(r'\s+\b|\b\s'), '');
-        final int rangeLen = patternRange[0].length;
+        final rangeLen = patternRange[0].length;
         // Trim the Credit Card number string to match the pattern prefix length
         if (rangeLen < cardNumber.length) {
           ccPatternStr = ccPatternStr.substring(0, rangeLen);
@@ -261,9 +269,9 @@ CardTypes detectCCType(String cardNumber) {
           // Convert the prefix range into numbers then make sure the
           // Credit Card num is in the pattern range.
           // Because Strings don't have '>=' type operators
-          final int ccPrefixAsInt = int.parse(ccPatternStr);
-          final int startPatternPrefixAsInt = int.parse(patternRange[0]);
-          final int endPatternPrefixAsInt = int.parse(patternRange[1]);
+          final ccPrefixAsInt = int.parse(ccPatternStr);
+          final startPatternPrefixAsInt = int.parse(patternRange[0]);
+          final endPatternPrefixAsInt = int.parse(patternRange[1]);
           if (ccPrefixAsInt >= startPatternPrefixAsInt &&
               ccPrefixAsInt <= endPatternPrefixAsInt) {
             // Found a match

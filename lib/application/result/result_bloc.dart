@@ -8,7 +8,7 @@ part 'result_state.dart';
 
 @Injectable()
 class ResultBloc extends Bloc<ResultEvent, ResultState> {
-  ResultBloc() : super(ResultState.initial()) {
+  ResultBloc() : super(const ResultState.initial()) {
     on<ResultEvent>(
       (event, emit) {
         event.map(

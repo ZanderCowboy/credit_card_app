@@ -2,7 +2,7 @@ import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:flutter/material.dart';
 
 class CreditCardListTile extends StatelessWidget {
-  const CreditCardListTile({super.key, required this.creditCard});
+  const CreditCardListTile({required this.creditCard, super.key});
 
   final CreditCard creditCard;
 

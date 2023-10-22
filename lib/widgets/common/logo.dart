@@ -11,7 +11,7 @@ class LogoWidget extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          color: Color(0xFFAF8D45),
+          color: const Color(0xFFAF8D45),
           width: double.infinity,
           height: double.infinity,
         ),
@@ -44,9 +44,9 @@ class LogoWidget extends StatelessWidget {
                 imageFilter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                 child: Center(
                   child: Text(
-                    'RANK GROUP',
+                    'BACKGROUND',
                     style: GoogleFonts.ubuntu(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontSize: 90,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 0.5,
