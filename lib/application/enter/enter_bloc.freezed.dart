@@ -2199,7 +2199,7 @@ class __$$EnterStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EnterStateImpl extends _EnterState {
+class _$EnterStateImpl implements _EnterState {
   const _$EnterStateImpl(
       {required this.creditCard,
       required this.isLoading,
@@ -2208,8 +2208,7 @@ class _$EnterStateImpl extends _EnterState {
       required this.isInvalid,
       required this.isDuplicate,
       required this.isCvvFocused,
-      required this.errorMessage})
-      : super._();
+      required this.errorMessage});
 
   @override
   final CreditCard creditCard;
@@ -2267,7 +2266,7 @@ class _$EnterStateImpl extends _EnterState {
       __$$EnterStateImplCopyWithImpl<_$EnterStateImpl>(this, _$identity);
 }
 
-abstract class _EnterState extends EnterState {
+abstract class _EnterState implements EnterState {
   const factory _EnterState(
       {required final CreditCard creditCard,
       required final bool isLoading,
@@ -2277,7 +2276,6 @@ abstract class _EnterState extends EnterState {
       required final bool isDuplicate,
       required final bool isCvvFocused,
       required final String? errorMessage}) = _$EnterStateImpl;
-  const _EnterState._() : super._();
 
   @override
   CreditCard get creditCard;

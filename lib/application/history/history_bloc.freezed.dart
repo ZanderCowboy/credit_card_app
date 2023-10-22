@@ -276,12 +276,11 @@ class __$$HistoryStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HistoryStateImpl extends _HistoryState {
+class _$HistoryStateImpl implements _HistoryState {
   const _$HistoryStateImpl(
       {required this.creditCard,
       required this.isLoading,
-      required this.errorMessage})
-      : super._();
+      required this.errorMessage});
 
   @override
   final CreditCard creditCard;
@@ -319,12 +318,11 @@ class _$HistoryStateImpl extends _HistoryState {
       __$$HistoryStateImplCopyWithImpl<_$HistoryStateImpl>(this, _$identity);
 }
 
-abstract class _HistoryState extends HistoryState {
+abstract class _HistoryState implements HistoryState {
   const factory _HistoryState(
       {required final CreditCard creditCard,
       required final bool isLoading,
       required final String? errorMessage}) = _$HistoryStateImpl;
-  const _HistoryState._() : super._();
 
   @override
   CreditCard get creditCard;

@@ -1,11 +1,14 @@
 import 'package:credit_card_app/application/export_application.dart';
+import 'package:credit_card_app/constants/spacing_constants.dart';
 import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// Home page after 'starting'
 class HomePage extends StatelessWidget {
+  /// HomePage constructor
   const HomePage({super.key});
 
   @override
@@ -47,7 +50,7 @@ class _HomePage extends StatelessWidget {
       builder: (context, state) {
         return const Center(
           child: Padding(
-            padding: EdgeInsets.all(8),
+            padding: allPadding_8,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -55,23 +58,17 @@ class _HomePage extends StatelessWidget {
                   buttonTitle: homePageEnterButton,
                   route: enterRoute,
                 ),
-                SizedBox(
-                  height: 16,
-                ),
+                height_16,
                 LargeButtonNavigate(
                   buttonTitle: homePageScanButton,
                   route: scanRoute,
                 ),
-                SizedBox(
-                  height: 16,
-                ),
+                height_16,
                 LargeButtonNavigate(
                   buttonTitle: homePageHistoryButton,
                   route: historyRoute,
                 ),
-                SizedBox(
-                  height: 16,
-                ),
+                height_16,
               ],
             ),
           ),

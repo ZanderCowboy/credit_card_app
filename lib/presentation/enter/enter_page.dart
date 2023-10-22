@@ -1,5 +1,6 @@
 import 'package:credit_card_app/application/export_application.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
+import 'package:credit_card_app/constants/spacing_constants.dart';
 import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/get_it_injection.dart';
@@ -8,7 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_credit_card/extension.dart';
 
+/// Enter page to manually enter details
 class EnterPage extends StatelessWidget {
+  /// EnterPage constructor
   const EnterPage({super.key});
 
   @override
@@ -83,12 +86,12 @@ class _EnterPage extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        String? selectedCountry = null;
+        String? selectedCountry;
 
         cardTypeTextController.text = state.creditCard.cardType.toUpperCase();
 
         return Padding(
-          padding: const EdgeInsets.all(8),
+          padding: allPadding_8,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -100,9 +103,7 @@ class _EnterPage extends StatelessWidget {
                     child: Center(
                       child: Column(
                         children: [
-                          const SizedBox(
-                            height: 20,
-                          ),
+                          height_20,
                           Form(
                             key: _formKey,
                             child: Column(
@@ -172,9 +173,7 @@ class _EnterPage extends StatelessWidget {
                                       ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 16,
-                                  ),
+                                  padding: symmetricVertical_16,
                                   child: Center(
                                     child: Row(
                                       mainAxisAlignment:
@@ -194,9 +193,7 @@ class _EnterPage extends StatelessWidget {
                                           },
                                           child: const Text('Clear'),
                                         ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
+                                        width_10,
                                         ElevatedButton(
                                           style: buttonSmallStyle,
                                           onPressed: state.creditCard.isValid
@@ -253,12 +250,12 @@ class _EnterPage extends StatelessWidget {
     return showDialog<AlertDialog>(
       context: context,
       builder: (_) {
-        final CreditCard creditCard = state.creditCard;
+        final creditCard = state.creditCard;
         return AlertDialog(
           title: const Text(enterPageDialogTitle),
           content: Card(
             elevation: 3,
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            margin: symmetricHorizonal_16Vertical_8,
             child: CreditCardListTile(creditCard: creditCard),
           ),
           actions: <Widget>[

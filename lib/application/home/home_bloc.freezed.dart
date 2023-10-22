@@ -768,8 +768,8 @@ class __$$HomeStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HomeStateImpl extends _HomeState {
-  const _$HomeStateImpl() : super._();
+class _$HomeStateImpl implements _HomeState {
+  const _$HomeStateImpl();
 
   @override
   String toString() {
@@ -848,9 +848,8 @@ class _$HomeStateImpl extends _HomeState {
   }
 }
 
-abstract class _HomeState extends HomeState {
+abstract class _HomeState implements HomeState {
   const factory _HomeState() = _$HomeStateImpl;
-  const _HomeState._() : super._();
 }
 
 /// @nodoc
@@ -871,8 +870,8 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl extends Initial {
-  const _$InitialImpl() : super._();
+class _$InitialImpl implements Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -951,7 +950,6 @@ class _$InitialImpl extends Initial {
   }
 }
 
-abstract class Initial extends HomeState {
+abstract class Initial implements HomeState {
   const factory Initial() = _$InitialImpl;
-  const Initial._() : super._();
 }

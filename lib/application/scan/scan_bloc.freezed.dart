@@ -923,7 +923,7 @@ class __$$ScanStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ScanStateImpl extends _ScanState {
+class _$ScanStateImpl implements _ScanState {
   const _$ScanStateImpl(
       {required this.creditCard,
       required this.isLoading,
@@ -931,8 +931,7 @@ class _$ScanStateImpl extends _ScanState {
       required this.isCaptured,
       required this.isTake,
       required this.isRetake,
-      required this.errorMessage})
-      : super._();
+      required this.errorMessage});
 
   @override
   final CreditCard creditCard;
@@ -985,7 +984,7 @@ class _$ScanStateImpl extends _ScanState {
       __$$ScanStateImplCopyWithImpl<_$ScanStateImpl>(this, _$identity);
 }
 
-abstract class _ScanState extends ScanState {
+abstract class _ScanState implements ScanState {
   const factory _ScanState(
       {required final CreditCard creditCard,
       required final bool isLoading,
@@ -994,7 +993,6 @@ abstract class _ScanState extends ScanState {
       required final bool isTake,
       required final bool isRetake,
       required final String? errorMessage}) = _$ScanStateImpl;
-  const _ScanState._() : super._();
 
   @override
   CreditCard get creditCard;

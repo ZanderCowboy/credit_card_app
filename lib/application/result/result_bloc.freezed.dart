@@ -482,8 +482,8 @@ class __$$ResultStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ResultStateImpl extends _ResultState {
-  const _$ResultStateImpl() : super._();
+class _$ResultStateImpl implements _ResultState {
+  const _$ResultStateImpl();
 
   @override
   String toString() {
@@ -562,9 +562,8 @@ class _$ResultStateImpl extends _ResultState {
   }
 }
 
-abstract class _ResultState extends ResultState {
+abstract class _ResultState implements ResultState {
   const factory _ResultState() = _$ResultStateImpl;
-  const _ResultState._() : super._();
 }
 
 /// @nodoc
@@ -585,8 +584,8 @@ class __$$ResultInitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ResultInitialImpl extends ResultInitial {
-  const _$ResultInitialImpl() : super._();
+class _$ResultInitialImpl implements ResultInitial {
+  const _$ResultInitialImpl();
 
   @override
   String toString() {
@@ -665,7 +664,6 @@ class _$ResultInitialImpl extends ResultInitial {
   }
 }
 
-abstract class ResultInitial extends ResultState {
+abstract class ResultInitial implements ResultState {
   const factory ResultInitial() = _$ResultInitialImpl;
-  const ResultInitial._() : super._();
 }

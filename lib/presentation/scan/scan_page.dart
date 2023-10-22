@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+/// Scan page to scan a card
 class ScanPage extends StatelessWidget {
+  /// ScanPage constructor
   const ScanPage({super.key});
 
   @override

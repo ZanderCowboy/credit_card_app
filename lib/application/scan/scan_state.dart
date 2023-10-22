@@ -1,7 +1,9 @@
 part of 'scan_bloc.dart';
 
+/// ScanBloc's states
 @freezed
 class ScanState with _$ScanState {
+  /// ScanState constructor
   const factory ScanState({
     required CreditCard creditCard,
     required bool isLoading,
@@ -12,8 +14,7 @@ class ScanState with _$ScanState {
     required String? errorMessage,
   }) = _ScanState;
 
-  const ScanState._();
-
+  /// Initial ScanState, giving all partial state's values
   factory ScanState.initial() => ScanState(
         creditCard: CreditCard.empty(),
         isLoading: false,

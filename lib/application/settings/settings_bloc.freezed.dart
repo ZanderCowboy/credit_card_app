@@ -723,7 +723,9 @@ class __$$SettingsStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
+class _$SettingsStateImpl
+    with DiagnosticableTreeMixin
+    implements _SettingsState {
   const _$SettingsStateImpl(
       {required this.bannedCountries,
       required this.isChecked,
@@ -731,8 +733,7 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
       required this.isLoading,
       required this.isDeleted,
       required this.isAdded,
-      required this.errorMessage})
-      : super._();
+      required this.errorMessage});
 
   @override
   final BannedCountry bannedCountries;
@@ -799,7 +800,7 @@ class _$SettingsStateImpl extends _SettingsState with DiagnosticableTreeMixin {
       __$$SettingsStateImplCopyWithImpl<_$SettingsStateImpl>(this, _$identity);
 }
 
-abstract class _SettingsState extends SettingsState {
+abstract class _SettingsState implements SettingsState {
   const factory _SettingsState(
       {required final BannedCountry bannedCountries,
       required final bool isChecked,
@@ -808,7 +809,6 @@ abstract class _SettingsState extends SettingsState {
       required final bool isDeleted,
       required final bool isAdded,
       required final String? errorMessage}) = _$SettingsStateImpl;
-  const _SettingsState._() : super._();
 
   @override
   BannedCountry get bannedCountries;

@@ -252,9 +252,8 @@ class __$$StartStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StartStateImpl extends _StartState {
-  const _$StartStateImpl({required this.isLoading, required this.errorMessage})
-      : super._();
+class _$StartStateImpl implements _StartState {
+  const _$StartStateImpl({required this.isLoading, required this.errorMessage});
 
   @override
   final bool isLoading;
@@ -287,11 +286,10 @@ class _$StartStateImpl extends _StartState {
       __$$StartStateImplCopyWithImpl<_$StartStateImpl>(this, _$identity);
 }
 
-abstract class _StartState extends StartState {
+abstract class _StartState implements StartState {
   const factory _StartState(
       {required final bool isLoading,
       required final String? errorMessage}) = _$StartStateImpl;
-  const _StartState._() : super._();
 
   @override
   bool get isLoading;
