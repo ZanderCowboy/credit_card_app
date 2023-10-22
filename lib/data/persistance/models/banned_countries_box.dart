@@ -2,47 +2,50 @@ import 'package:credit_card_app/data/persistance/db_driver.dart';
 import 'package:credit_card_app/domain/banned_country/models/banned_country.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+/// Box of Banned Country instances
 class BannedCountriesBox {
+  /// Empty constructor
   BannedCountriesBox();
 
+  /// Hive [Box] of [BannedCountry] instances
   final Box<BannedCountry> box =
       Hive.box<BannedCountry>(bannedCountriesBoxName);
 
-  /// Adds a banned country to box
+  /// Adds a [BannedCountry] instance to [box]
   void addBannedCountry(BannedCountry bannedCountry) {
     box.add(bannedCountry);
   }
 
-  /// Read a banned country at given index
+  /// Returns a [BannedCountry] instance at given index
   BannedCountry? readBannedCountry(int index) {
     return box.getAt(index);
   }
 
-  /// Read all banned countries from box
+  /// Returns a [List] of [BannedCountry] instances from [box]
   List<BannedCountry> readAllBannedCountries() {
-    final List<BannedCountry> list = <BannedCountry>[];
+    final list = <BannedCountry>[];
 
     for (var i = 0; i < box.length; i++) {
-      final BannedCountry? bannedCountry = box.getAt(i);
+      final bannedCountry = box.getAt(i);
       list.add(bannedCountry!);
     }
 
     return list;
   }
 
-  /// Update a given banned country
+  /// Updates a given [BannedCountry] instance's status
   void updateBannedCountry(BannedCountry bannedCountries) {
-    int index = -1;
-    var itemKey = null;
+    var index = -1;
+    dynamic itemKey;
 
-    final BannedCountry bCountry = BannedCountry(
+    final bannedCountry = BannedCountry(
       country: bannedCountries.country,
       isBanned: !bannedCountries.isBanned,
     );
-    final list = <BannedCountry>[];
-    list.addAll(box.values);
+    final list = <BannedCountry>[...box.values];
+    // list.addAll(box.values);
     for (var i = 0; i < list.length; i++) {
-      if (bCountry == list[i]) {
+      if (bannedCountry == list[i]) {
         itemKey = box.keyAt(i);
         index = i;
       }
@@ -55,12 +58,12 @@ class BannedCountriesBox {
     }
   }
 
-  /// Delete a banned country at a given index
+  /// Deletes a [BannedCountry] instance at a given index from [box]
   void deleteBannedCountryAt(int index) {
     box.deleteAt(index);
   }
 
-  /// Delete all banned countries in a box
+  /// Deletes all [BannedCountry] instances from [box]
   void deleteBannedCountries() {
     box.clear();
   }

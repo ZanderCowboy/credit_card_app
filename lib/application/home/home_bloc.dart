@@ -6,8 +6,10 @@ part 'home_bloc.freezed.dart';
 part 'home_event.dart';
 part 'home_state.dart';
 
+/// Bloc for HomePage
 @Injectable()
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
+  /// HomeBloc constructor
   HomeBloc() : super(const HomeState.initial()) {
     on<HomeEvent>(
       (event, emit) async {

@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CreditCard {
-// Todo: add name and expiry date
+// TODO: add name and expiry date
   @HiveField(0, defaultValue: '')
   String get cardNumber => throw _privateConstructorUsedError;
   @HiveField(1, defaultValue: '')
@@ -159,7 +159,7 @@ class _$CreditCardImpl implements _CreditCard {
       @HiveField(3, defaultValue: '') required this.issuingCountry,
       @HiveField(4, defaultValue: false) required this.isValid});
 
-// Todo: add name and expiry date
+// TODO: add name and expiry date
   @override
   @HiveField(0, defaultValue: '')
   final String cardNumber;
@@ -217,7 +217,7 @@ abstract class _CreditCard implements CreditCard {
           @HiveField(4, defaultValue: false) required final bool isValid}) =
       _$CreditCardImpl;
 
-  @override // Todo: add name and expiry date
+  @override // TODO: add name and expiry date
   @HiveField(0, defaultValue: '')
   String get cardNumber;
   @override

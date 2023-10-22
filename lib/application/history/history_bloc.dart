@@ -7,8 +7,10 @@ part 'history_bloc.freezed.dart';
 part 'history_event.dart';
 part 'history_state.dart';
 
+/// Bloc for HistoryPage
 @Injectable()
 class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
+  /// HistoryBloc constructor
   HistoryBloc() : super(HistoryState.initial()) {
     on<HistoryEvent>((event, emit) {});
   }

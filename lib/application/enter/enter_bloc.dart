@@ -20,7 +20,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
     on<EnterEvent>(
       (event, emit) {
         event.map(
-          onValidateEnter: (value) {
+          onPressedValidateEnter: (value) {
             emit(state.copyWith(isLoading: true));
 
             final returnValues = _cardValidation(state.creditCard);
@@ -76,7 +76,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
               );
             }
           },
-          onSubmitEnter: (_) {
+          onPressedSubmitEnter: (_) {
             emit(state.copyWith(isSaving: true, errorMessage: null));
 
             final isValidTextValue = _isValid(state.creditCard);
@@ -102,7 +102,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
 
             emit(state.copyWith(isSaving: false));
           },
-          onCancelEnter: (_) {
+          onPressedCancelEnter: (_) {
             emit(EnterState.initial());
           },
           onChangedCardNumber: (value) {
@@ -121,7 +121,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
               ),
             );
 
-            final cardTypes = detectCCType(value.text);
+            final cardTypes = _detectCCType(value.text);
             log('cardTypes=${cardTypes.name}');
 
             final isValidTextValue = _isValid(state.creditCard);
@@ -246,7 +246,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
   }
 }
 
-CardTypes detectCCType(String cardNumber) {
+CardTypes _detectCCType(String cardNumber) {
   //Default card type is other
   CardTypes cardType = CardTypes.otherBrand;
 
@@ -256,22 +256,22 @@ CardTypes detectCCType(String cardNumber) {
 
   cardNumPatterns.forEach(
     (CardTypes type, Set<List<String>> patterns) {
-      for (final List<String> patternRange in patterns) {
+      for (final patternRangeList in patterns) {
         // Remove any spaces
         String ccPatternStr = cardNumber.replaceAll(RegExp(r'\s+\b|\b\s'), '');
-        final rangeLen = patternRange[0].length;
+        final rangeLen = patternRangeList[0].length;
         // Trim the Credit Card number string to match the pattern prefix length
         if (rangeLen < cardNumber.length) {
           ccPatternStr = ccPatternStr.substring(0, rangeLen);
         }
 
-        if (patternRange.length > 1) {
+        if (patternRangeList.length > 1) {
           // Convert the prefix range into numbers then make sure the
           // Credit Card num is in the pattern range.
           // Because Strings don't have '>=' type operators
           final ccPrefixAsInt = int.parse(ccPatternStr);
-          final startPatternPrefixAsInt = int.parse(patternRange[0]);
-          final endPatternPrefixAsInt = int.parse(patternRange[1]);
+          final startPatternPrefixAsInt = int.parse(patternRangeList[0]);
+          final endPatternPrefixAsInt = int.parse(patternRangeList[1]);
           if (ccPrefixAsInt >= startPatternPrefixAsInt &&
               ccPrefixAsInt <= endPatternPrefixAsInt) {
             // Found a match
@@ -280,7 +280,7 @@ CardTypes detectCCType(String cardNumber) {
           }
         } else {
           // Just compare the single pattern prefix with the Credit Card prefix
-          if (ccPatternStr == patternRange[0]) {
+          if (ccPatternStr == patternRangeList[0]) {
             // Found a match
             cardType = type;
             break;

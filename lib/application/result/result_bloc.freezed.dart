@@ -18,45 +18,45 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ResultEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onValidate,
-    required TResult Function() onSubmit,
-    required TResult Function() onCancel,
+    required TResult Function() onPressedValidate,
+    required TResult Function() onPressedSubmit,
+    required TResult Function() onPressedCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onValidate,
-    TResult? Function()? onSubmit,
-    TResult? Function()? onCancel,
+    TResult? Function()? onPressedValidate,
+    TResult? Function()? onPressedSubmit,
+    TResult? Function()? onPressedCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onValidate,
-    TResult Function()? onSubmit,
-    TResult Function()? onCancel,
+    TResult Function()? onPressedValidate,
+    TResult Function()? onPressedSubmit,
+    TResult Function()? onPressedCancel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onValidate value) onValidate,
-    required TResult Function(onSubmit value) onSubmit,
-    required TResult Function(onCancel value) onCancel,
+    required TResult Function(onPressedValidate value) onPressedValidate,
+    required TResult Function(onPressedSubmit value) onPressedSubmit,
+    required TResult Function(onPressedCancel value) onPressedCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onValidate value)? onValidate,
-    TResult? Function(onSubmit value)? onSubmit,
-    TResult? Function(onCancel value)? onCancel,
+    TResult? Function(onPressedValidate value)? onPressedValidate,
+    TResult? Function(onPressedSubmit value)? onPressedSubmit,
+    TResult? Function(onPressedCancel value)? onPressedCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onValidate value)? onValidate,
-    TResult Function(onSubmit value)? onSubmit,
-    TResult Function(onCancel value)? onCancel,
+    TResult Function(onPressedValidate value)? onPressedValidate,
+    TResult Function(onPressedSubmit value)? onPressedSubmit,
+    TResult Function(onPressedCancel value)? onPressedCancel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -81,35 +81,35 @@ class _$ResultEventCopyWithImpl<$Res, $Val extends ResultEvent>
 }
 
 /// @nodoc
-abstract class _$$onValidateImplCopyWith<$Res> {
-  factory _$$onValidateImplCopyWith(
-          _$onValidateImpl value, $Res Function(_$onValidateImpl) then) =
-      __$$onValidateImplCopyWithImpl<$Res>;
+abstract class _$$onPressedValidateImplCopyWith<$Res> {
+  factory _$$onPressedValidateImplCopyWith(_$onPressedValidateImpl value,
+          $Res Function(_$onPressedValidateImpl) then) =
+      __$$onPressedValidateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onValidateImplCopyWithImpl<$Res>
-    extends _$ResultEventCopyWithImpl<$Res, _$onValidateImpl>
-    implements _$$onValidateImplCopyWith<$Res> {
-  __$$onValidateImplCopyWithImpl(
-      _$onValidateImpl _value, $Res Function(_$onValidateImpl) _then)
+class __$$onPressedValidateImplCopyWithImpl<$Res>
+    extends _$ResultEventCopyWithImpl<$Res, _$onPressedValidateImpl>
+    implements _$$onPressedValidateImplCopyWith<$Res> {
+  __$$onPressedValidateImplCopyWithImpl(_$onPressedValidateImpl _value,
+      $Res Function(_$onPressedValidateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onValidateImpl implements onValidate {
-  const _$onValidateImpl();
+class _$onPressedValidateImpl implements onPressedValidate {
+  const _$onPressedValidateImpl();
 
   @override
   String toString() {
-    return 'ResultEvent.onValidate()';
+    return 'ResultEvent.onPressedValidate()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onValidateImpl);
+        (other.runtimeType == runtimeType && other is _$onPressedValidateImpl);
   }
 
   @override
@@ -118,33 +118,33 @@ class _$onValidateImpl implements onValidate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onValidate,
-    required TResult Function() onSubmit,
-    required TResult Function() onCancel,
+    required TResult Function() onPressedValidate,
+    required TResult Function() onPressedSubmit,
+    required TResult Function() onPressedCancel,
   }) {
-    return onValidate();
+    return onPressedValidate();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onValidate,
-    TResult? Function()? onSubmit,
-    TResult? Function()? onCancel,
+    TResult? Function()? onPressedValidate,
+    TResult? Function()? onPressedSubmit,
+    TResult? Function()? onPressedCancel,
   }) {
-    return onValidate?.call();
+    return onPressedValidate?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onValidate,
-    TResult Function()? onSubmit,
-    TResult Function()? onCancel,
+    TResult Function()? onPressedValidate,
+    TResult Function()? onPressedSubmit,
+    TResult Function()? onPressedCancel,
     required TResult orElse(),
   }) {
-    if (onValidate != null) {
-      return onValidate();
+    if (onPressedValidate != null) {
+      return onPressedValidate();
     }
     return orElse();
   }
@@ -152,72 +152,72 @@ class _$onValidateImpl implements onValidate {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onValidate value) onValidate,
-    required TResult Function(onSubmit value) onSubmit,
-    required TResult Function(onCancel value) onCancel,
+    required TResult Function(onPressedValidate value) onPressedValidate,
+    required TResult Function(onPressedSubmit value) onPressedSubmit,
+    required TResult Function(onPressedCancel value) onPressedCancel,
   }) {
-    return onValidate(this);
+    return onPressedValidate(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onValidate value)? onValidate,
-    TResult? Function(onSubmit value)? onSubmit,
-    TResult? Function(onCancel value)? onCancel,
+    TResult? Function(onPressedValidate value)? onPressedValidate,
+    TResult? Function(onPressedSubmit value)? onPressedSubmit,
+    TResult? Function(onPressedCancel value)? onPressedCancel,
   }) {
-    return onValidate?.call(this);
+    return onPressedValidate?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onValidate value)? onValidate,
-    TResult Function(onSubmit value)? onSubmit,
-    TResult Function(onCancel value)? onCancel,
+    TResult Function(onPressedValidate value)? onPressedValidate,
+    TResult Function(onPressedSubmit value)? onPressedSubmit,
+    TResult Function(onPressedCancel value)? onPressedCancel,
     required TResult orElse(),
   }) {
-    if (onValidate != null) {
-      return onValidate(this);
+    if (onPressedValidate != null) {
+      return onPressedValidate(this);
     }
     return orElse();
   }
 }
 
-abstract class onValidate implements ResultEvent {
-  const factory onValidate() = _$onValidateImpl;
+abstract class onPressedValidate implements ResultEvent {
+  const factory onPressedValidate() = _$onPressedValidateImpl;
 }
 
 /// @nodoc
-abstract class _$$onSubmitImplCopyWith<$Res> {
-  factory _$$onSubmitImplCopyWith(
-          _$onSubmitImpl value, $Res Function(_$onSubmitImpl) then) =
-      __$$onSubmitImplCopyWithImpl<$Res>;
+abstract class _$$onPressedSubmitImplCopyWith<$Res> {
+  factory _$$onPressedSubmitImplCopyWith(_$onPressedSubmitImpl value,
+          $Res Function(_$onPressedSubmitImpl) then) =
+      __$$onPressedSubmitImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onSubmitImplCopyWithImpl<$Res>
-    extends _$ResultEventCopyWithImpl<$Res, _$onSubmitImpl>
-    implements _$$onSubmitImplCopyWith<$Res> {
-  __$$onSubmitImplCopyWithImpl(
-      _$onSubmitImpl _value, $Res Function(_$onSubmitImpl) _then)
+class __$$onPressedSubmitImplCopyWithImpl<$Res>
+    extends _$ResultEventCopyWithImpl<$Res, _$onPressedSubmitImpl>
+    implements _$$onPressedSubmitImplCopyWith<$Res> {
+  __$$onPressedSubmitImplCopyWithImpl(
+      _$onPressedSubmitImpl _value, $Res Function(_$onPressedSubmitImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onSubmitImpl implements onSubmit {
-  const _$onSubmitImpl();
+class _$onPressedSubmitImpl implements onPressedSubmit {
+  const _$onPressedSubmitImpl();
 
   @override
   String toString() {
-    return 'ResultEvent.onSubmit()';
+    return 'ResultEvent.onPressedSubmit()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onSubmitImpl);
+        (other.runtimeType == runtimeType && other is _$onPressedSubmitImpl);
   }
 
   @override
@@ -226,33 +226,33 @@ class _$onSubmitImpl implements onSubmit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onValidate,
-    required TResult Function() onSubmit,
-    required TResult Function() onCancel,
+    required TResult Function() onPressedValidate,
+    required TResult Function() onPressedSubmit,
+    required TResult Function() onPressedCancel,
   }) {
-    return onSubmit();
+    return onPressedSubmit();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onValidate,
-    TResult? Function()? onSubmit,
-    TResult? Function()? onCancel,
+    TResult? Function()? onPressedValidate,
+    TResult? Function()? onPressedSubmit,
+    TResult? Function()? onPressedCancel,
   }) {
-    return onSubmit?.call();
+    return onPressedSubmit?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onValidate,
-    TResult Function()? onSubmit,
-    TResult Function()? onCancel,
+    TResult Function()? onPressedValidate,
+    TResult Function()? onPressedSubmit,
+    TResult Function()? onPressedCancel,
     required TResult orElse(),
   }) {
-    if (onSubmit != null) {
-      return onSubmit();
+    if (onPressedSubmit != null) {
+      return onPressedSubmit();
     }
     return orElse();
   }
@@ -260,72 +260,72 @@ class _$onSubmitImpl implements onSubmit {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onValidate value) onValidate,
-    required TResult Function(onSubmit value) onSubmit,
-    required TResult Function(onCancel value) onCancel,
+    required TResult Function(onPressedValidate value) onPressedValidate,
+    required TResult Function(onPressedSubmit value) onPressedSubmit,
+    required TResult Function(onPressedCancel value) onPressedCancel,
   }) {
-    return onSubmit(this);
+    return onPressedSubmit(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onValidate value)? onValidate,
-    TResult? Function(onSubmit value)? onSubmit,
-    TResult? Function(onCancel value)? onCancel,
+    TResult? Function(onPressedValidate value)? onPressedValidate,
+    TResult? Function(onPressedSubmit value)? onPressedSubmit,
+    TResult? Function(onPressedCancel value)? onPressedCancel,
   }) {
-    return onSubmit?.call(this);
+    return onPressedSubmit?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onValidate value)? onValidate,
-    TResult Function(onSubmit value)? onSubmit,
-    TResult Function(onCancel value)? onCancel,
+    TResult Function(onPressedValidate value)? onPressedValidate,
+    TResult Function(onPressedSubmit value)? onPressedSubmit,
+    TResult Function(onPressedCancel value)? onPressedCancel,
     required TResult orElse(),
   }) {
-    if (onSubmit != null) {
-      return onSubmit(this);
+    if (onPressedSubmit != null) {
+      return onPressedSubmit(this);
     }
     return orElse();
   }
 }
 
-abstract class onSubmit implements ResultEvent {
-  const factory onSubmit() = _$onSubmitImpl;
+abstract class onPressedSubmit implements ResultEvent {
+  const factory onPressedSubmit() = _$onPressedSubmitImpl;
 }
 
 /// @nodoc
-abstract class _$$onCancelImplCopyWith<$Res> {
-  factory _$$onCancelImplCopyWith(
-          _$onCancelImpl value, $Res Function(_$onCancelImpl) then) =
-      __$$onCancelImplCopyWithImpl<$Res>;
+abstract class _$$onPressedCancelImplCopyWith<$Res> {
+  factory _$$onPressedCancelImplCopyWith(_$onPressedCancelImpl value,
+          $Res Function(_$onPressedCancelImpl) then) =
+      __$$onPressedCancelImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onCancelImplCopyWithImpl<$Res>
-    extends _$ResultEventCopyWithImpl<$Res, _$onCancelImpl>
-    implements _$$onCancelImplCopyWith<$Res> {
-  __$$onCancelImplCopyWithImpl(
-      _$onCancelImpl _value, $Res Function(_$onCancelImpl) _then)
+class __$$onPressedCancelImplCopyWithImpl<$Res>
+    extends _$ResultEventCopyWithImpl<$Res, _$onPressedCancelImpl>
+    implements _$$onPressedCancelImplCopyWith<$Res> {
+  __$$onPressedCancelImplCopyWithImpl(
+      _$onPressedCancelImpl _value, $Res Function(_$onPressedCancelImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onCancelImpl implements onCancel {
-  const _$onCancelImpl();
+class _$onPressedCancelImpl implements onPressedCancel {
+  const _$onPressedCancelImpl();
 
   @override
   String toString() {
-    return 'ResultEvent.onCancel()';
+    return 'ResultEvent.onPressedCancel()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onCancelImpl);
+        (other.runtimeType == runtimeType && other is _$onPressedCancelImpl);
   }
 
   @override
@@ -334,33 +334,33 @@ class _$onCancelImpl implements onCancel {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onValidate,
-    required TResult Function() onSubmit,
-    required TResult Function() onCancel,
+    required TResult Function() onPressedValidate,
+    required TResult Function() onPressedSubmit,
+    required TResult Function() onPressedCancel,
   }) {
-    return onCancel();
+    return onPressedCancel();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onValidate,
-    TResult? Function()? onSubmit,
-    TResult? Function()? onCancel,
+    TResult? Function()? onPressedValidate,
+    TResult? Function()? onPressedSubmit,
+    TResult? Function()? onPressedCancel,
   }) {
-    return onCancel?.call();
+    return onPressedCancel?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onValidate,
-    TResult Function()? onSubmit,
-    TResult Function()? onCancel,
+    TResult Function()? onPressedValidate,
+    TResult Function()? onPressedSubmit,
+    TResult Function()? onPressedCancel,
     required TResult orElse(),
   }) {
-    if (onCancel != null) {
-      return onCancel();
+    if (onPressedCancel != null) {
+      return onPressedCancel();
     }
     return orElse();
   }
@@ -368,40 +368,40 @@ class _$onCancelImpl implements onCancel {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onValidate value) onValidate,
-    required TResult Function(onSubmit value) onSubmit,
-    required TResult Function(onCancel value) onCancel,
+    required TResult Function(onPressedValidate value) onPressedValidate,
+    required TResult Function(onPressedSubmit value) onPressedSubmit,
+    required TResult Function(onPressedCancel value) onPressedCancel,
   }) {
-    return onCancel(this);
+    return onPressedCancel(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onValidate value)? onValidate,
-    TResult? Function(onSubmit value)? onSubmit,
-    TResult? Function(onCancel value)? onCancel,
+    TResult? Function(onPressedValidate value)? onPressedValidate,
+    TResult? Function(onPressedSubmit value)? onPressedSubmit,
+    TResult? Function(onPressedCancel value)? onPressedCancel,
   }) {
-    return onCancel?.call(this);
+    return onPressedCancel?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onValidate value)? onValidate,
-    TResult Function(onSubmit value)? onSubmit,
-    TResult Function(onCancel value)? onCancel,
+    TResult Function(onPressedValidate value)? onPressedValidate,
+    TResult Function(onPressedSubmit value)? onPressedSubmit,
+    TResult Function(onPressedCancel value)? onPressedCancel,
     required TResult orElse(),
   }) {
-    if (onCancel != null) {
-      return onCancel(this);
+    if (onPressedCancel != null) {
+      return onPressedCancel(this);
     }
     return orElse();
   }
 }
 
-abstract class onCancel implements ResultEvent {
-  const factory onCancel() = _$onCancelImpl;
+abstract class onPressedCancel implements ResultEvent {
+  const factory onPressedCancel() = _$onPressedCancelImpl;
 }
 
 /// @nodoc

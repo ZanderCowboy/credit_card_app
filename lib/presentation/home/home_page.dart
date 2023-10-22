@@ -48,25 +48,26 @@ class _HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
-        return const Center(
+        return Center(
           child: Padding(
             padding: allPadding_8,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 LargeButtonNavigate(
-                  buttonTitle: homePageEnterButton,
-                  route: enterRoute,
+                  buttonText: homePageEnterButton,
+                  onPressed: () => Navigator.of(context).pushNamed(enterRoute),
                 ),
                 height_16,
                 LargeButtonNavigate(
-                  buttonTitle: homePageScanButton,
-                  route: scanRoute,
+                  buttonText: homePageScanButton,
+                  onPressed: () => Navigator.of(context).pushNamed(scanRoute),
                 ),
                 height_16,
                 LargeButtonNavigate(
-                  buttonTitle: homePageHistoryButton,
-                  route: historyRoute,
+                  buttonText: homePageHistoryButton,
+                  onPressed: () =>
+                      Navigator.of(context).pushNamed(historyRoute),
                 ),
                 height_16,
               ],

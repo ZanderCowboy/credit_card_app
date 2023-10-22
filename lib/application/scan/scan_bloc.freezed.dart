@@ -18,27 +18,27 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ScanEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CreditCard creditCard) onSubmitScan,
-    required TResult Function() onTake,
-    required TResult Function() onRetake,
+    required TResult Function(CreditCard creditCard) onPressedSubmitScan,
+    required TResult Function() onPressedTake,
+    required TResult Function() onPressedRetake,
     required TResult Function() onRequestCameraPermission,
     required TResult Function() onInitializeCamera,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CreditCard creditCard)? onSubmitScan,
-    TResult? Function()? onTake,
-    TResult? Function()? onRetake,
+    TResult? Function(CreditCard creditCard)? onPressedSubmitScan,
+    TResult? Function()? onPressedTake,
+    TResult? Function()? onPressedRetake,
     TResult? Function()? onRequestCameraPermission,
     TResult? Function()? onInitializeCamera,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CreditCard creditCard)? onSubmitScan,
-    TResult Function()? onTake,
-    TResult Function()? onRetake,
+    TResult Function(CreditCard creditCard)? onPressedSubmitScan,
+    TResult Function()? onPressedTake,
+    TResult Function()? onPressedRetake,
     TResult Function()? onRequestCameraPermission,
     TResult Function()? onInitializeCamera,
     required TResult orElse(),
@@ -46,9 +46,9 @@ mixin _$ScanEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onSubmitScan value) onSubmitScan,
-    required TResult Function(onTake value) onTake,
-    required TResult Function(onRetake value) onRetake,
+    required TResult Function(onPressedSubmitScan value) onPressedSubmitScan,
+    required TResult Function(onPressedTake value) onPressedTake,
+    required TResult Function(onPressedRetake value) onPressedRetake,
     required TResult Function(onRequestCameraPermission value)
         onRequestCameraPermission,
     required TResult Function(onInitializeCamera value) onInitializeCamera,
@@ -56,9 +56,9 @@ mixin _$ScanEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onSubmitScan value)? onSubmitScan,
-    TResult? Function(onTake value)? onTake,
-    TResult? Function(onRetake value)? onRetake,
+    TResult? Function(onPressedSubmitScan value)? onPressedSubmitScan,
+    TResult? Function(onPressedTake value)? onPressedTake,
+    TResult? Function(onPressedRetake value)? onPressedRetake,
     TResult? Function(onRequestCameraPermission value)?
         onRequestCameraPermission,
     TResult? Function(onInitializeCamera value)? onInitializeCamera,
@@ -66,9 +66,9 @@ mixin _$ScanEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onSubmitScan value)? onSubmitScan,
-    TResult Function(onTake value)? onTake,
-    TResult Function(onRetake value)? onRetake,
+    TResult Function(onPressedSubmitScan value)? onPressedSubmitScan,
+    TResult Function(onPressedTake value)? onPressedTake,
+    TResult Function(onPressedRetake value)? onPressedRetake,
     TResult Function(onRequestCameraPermission value)?
         onRequestCameraPermission,
     TResult Function(onInitializeCamera value)? onInitializeCamera,
@@ -95,10 +95,10 @@ class _$ScanEventCopyWithImpl<$Res, $Val extends ScanEvent>
 }
 
 /// @nodoc
-abstract class _$$onSubmitScanImplCopyWith<$Res> {
-  factory _$$onSubmitScanImplCopyWith(
-          _$onSubmitScanImpl value, $Res Function(_$onSubmitScanImpl) then) =
-      __$$onSubmitScanImplCopyWithImpl<$Res>;
+abstract class _$$onPressedSubmitScanImplCopyWith<$Res> {
+  factory _$$onPressedSubmitScanImplCopyWith(_$onPressedSubmitScanImpl value,
+          $Res Function(_$onPressedSubmitScanImpl) then) =
+      __$$onPressedSubmitScanImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CreditCard creditCard});
 
@@ -106,11 +106,11 @@ abstract class _$$onSubmitScanImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$onSubmitScanImplCopyWithImpl<$Res>
-    extends _$ScanEventCopyWithImpl<$Res, _$onSubmitScanImpl>
-    implements _$$onSubmitScanImplCopyWith<$Res> {
-  __$$onSubmitScanImplCopyWithImpl(
-      _$onSubmitScanImpl _value, $Res Function(_$onSubmitScanImpl) _then)
+class __$$onPressedSubmitScanImplCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$onPressedSubmitScanImpl>
+    implements _$$onPressedSubmitScanImplCopyWith<$Res> {
+  __$$onPressedSubmitScanImplCopyWithImpl(_$onPressedSubmitScanImpl _value,
+      $Res Function(_$onPressedSubmitScanImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$onSubmitScanImplCopyWithImpl<$Res>
   $Res call({
     Object? creditCard = null,
   }) {
-    return _then(_$onSubmitScanImpl(
+    return _then(_$onPressedSubmitScanImpl(
       null == creditCard
           ? _value.creditCard
           : creditCard // ignore: cast_nullable_to_non_nullable
@@ -137,22 +137,22 @@ class __$$onSubmitScanImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$onSubmitScanImpl implements onSubmitScan {
-  const _$onSubmitScanImpl(this.creditCard);
+class _$onPressedSubmitScanImpl implements onPressedSubmitScan {
+  const _$onPressedSubmitScanImpl(this.creditCard);
 
   @override
   final CreditCard creditCard;
 
   @override
   String toString() {
-    return 'ScanEvent.onSubmitScan(creditCard: $creditCard)';
+    return 'ScanEvent.onPressedSubmitScan(creditCard: $creditCard)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$onSubmitScanImpl &&
+            other is _$onPressedSubmitScanImpl &&
             (identical(other.creditCard, creditCard) ||
                 other.creditCard == creditCard));
   }
@@ -163,45 +163,46 @@ class _$onSubmitScanImpl implements onSubmitScan {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$onSubmitScanImplCopyWith<_$onSubmitScanImpl> get copyWith =>
-      __$$onSubmitScanImplCopyWithImpl<_$onSubmitScanImpl>(this, _$identity);
+  _$$onPressedSubmitScanImplCopyWith<_$onPressedSubmitScanImpl> get copyWith =>
+      __$$onPressedSubmitScanImplCopyWithImpl<_$onPressedSubmitScanImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CreditCard creditCard) onSubmitScan,
-    required TResult Function() onTake,
-    required TResult Function() onRetake,
+    required TResult Function(CreditCard creditCard) onPressedSubmitScan,
+    required TResult Function() onPressedTake,
+    required TResult Function() onPressedRetake,
     required TResult Function() onRequestCameraPermission,
     required TResult Function() onInitializeCamera,
   }) {
-    return onSubmitScan(creditCard);
+    return onPressedSubmitScan(creditCard);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CreditCard creditCard)? onSubmitScan,
-    TResult? Function()? onTake,
-    TResult? Function()? onRetake,
+    TResult? Function(CreditCard creditCard)? onPressedSubmitScan,
+    TResult? Function()? onPressedTake,
+    TResult? Function()? onPressedRetake,
     TResult? Function()? onRequestCameraPermission,
     TResult? Function()? onInitializeCamera,
   }) {
-    return onSubmitScan?.call(creditCard);
+    return onPressedSubmitScan?.call(creditCard);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CreditCard creditCard)? onSubmitScan,
-    TResult Function()? onTake,
-    TResult Function()? onRetake,
+    TResult Function(CreditCard creditCard)? onPressedSubmitScan,
+    TResult Function()? onPressedTake,
+    TResult Function()? onPressedRetake,
     TResult Function()? onRequestCameraPermission,
     TResult Function()? onInitializeCamera,
     required TResult orElse(),
   }) {
-    if (onSubmitScan != null) {
-      return onSubmitScan(creditCard);
+    if (onPressedSubmitScan != null) {
+      return onPressedSubmitScan(creditCard);
     }
     return orElse();
   }
@@ -209,86 +210,87 @@ class _$onSubmitScanImpl implements onSubmitScan {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onSubmitScan value) onSubmitScan,
-    required TResult Function(onTake value) onTake,
-    required TResult Function(onRetake value) onRetake,
+    required TResult Function(onPressedSubmitScan value) onPressedSubmitScan,
+    required TResult Function(onPressedTake value) onPressedTake,
+    required TResult Function(onPressedRetake value) onPressedRetake,
     required TResult Function(onRequestCameraPermission value)
         onRequestCameraPermission,
     required TResult Function(onInitializeCamera value) onInitializeCamera,
   }) {
-    return onSubmitScan(this);
+    return onPressedSubmitScan(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onSubmitScan value)? onSubmitScan,
-    TResult? Function(onTake value)? onTake,
-    TResult? Function(onRetake value)? onRetake,
+    TResult? Function(onPressedSubmitScan value)? onPressedSubmitScan,
+    TResult? Function(onPressedTake value)? onPressedTake,
+    TResult? Function(onPressedRetake value)? onPressedRetake,
     TResult? Function(onRequestCameraPermission value)?
         onRequestCameraPermission,
     TResult? Function(onInitializeCamera value)? onInitializeCamera,
   }) {
-    return onSubmitScan?.call(this);
+    return onPressedSubmitScan?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onSubmitScan value)? onSubmitScan,
-    TResult Function(onTake value)? onTake,
-    TResult Function(onRetake value)? onRetake,
+    TResult Function(onPressedSubmitScan value)? onPressedSubmitScan,
+    TResult Function(onPressedTake value)? onPressedTake,
+    TResult Function(onPressedRetake value)? onPressedRetake,
     TResult Function(onRequestCameraPermission value)?
         onRequestCameraPermission,
     TResult Function(onInitializeCamera value)? onInitializeCamera,
     required TResult orElse(),
   }) {
-    if (onSubmitScan != null) {
-      return onSubmitScan(this);
+    if (onPressedSubmitScan != null) {
+      return onPressedSubmitScan(this);
     }
     return orElse();
   }
 }
 
-abstract class onSubmitScan implements ScanEvent {
-  const factory onSubmitScan(final CreditCard creditCard) = _$onSubmitScanImpl;
+abstract class onPressedSubmitScan implements ScanEvent {
+  const factory onPressedSubmitScan(final CreditCard creditCard) =
+      _$onPressedSubmitScanImpl;
 
   CreditCard get creditCard;
   @JsonKey(ignore: true)
-  _$$onSubmitScanImplCopyWith<_$onSubmitScanImpl> get copyWith =>
+  _$$onPressedSubmitScanImplCopyWith<_$onPressedSubmitScanImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$onTakeImplCopyWith<$Res> {
-  factory _$$onTakeImplCopyWith(
-          _$onTakeImpl value, $Res Function(_$onTakeImpl) then) =
-      __$$onTakeImplCopyWithImpl<$Res>;
+abstract class _$$onPressedTakeImplCopyWith<$Res> {
+  factory _$$onPressedTakeImplCopyWith(
+          _$onPressedTakeImpl value, $Res Function(_$onPressedTakeImpl) then) =
+      __$$onPressedTakeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onTakeImplCopyWithImpl<$Res>
-    extends _$ScanEventCopyWithImpl<$Res, _$onTakeImpl>
-    implements _$$onTakeImplCopyWith<$Res> {
-  __$$onTakeImplCopyWithImpl(
-      _$onTakeImpl _value, $Res Function(_$onTakeImpl) _then)
+class __$$onPressedTakeImplCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$onPressedTakeImpl>
+    implements _$$onPressedTakeImplCopyWith<$Res> {
+  __$$onPressedTakeImplCopyWithImpl(
+      _$onPressedTakeImpl _value, $Res Function(_$onPressedTakeImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onTakeImpl implements onTake {
-  const _$onTakeImpl();
+class _$onPressedTakeImpl implements onPressedTake {
+  const _$onPressedTakeImpl();
 
   @override
   String toString() {
-    return 'ScanEvent.onTake()';
+    return 'ScanEvent.onPressedTake()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onTakeImpl);
+        (other.runtimeType == runtimeType && other is _$onPressedTakeImpl);
   }
 
   @override
@@ -297,39 +299,39 @@ class _$onTakeImpl implements onTake {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CreditCard creditCard) onSubmitScan,
-    required TResult Function() onTake,
-    required TResult Function() onRetake,
+    required TResult Function(CreditCard creditCard) onPressedSubmitScan,
+    required TResult Function() onPressedTake,
+    required TResult Function() onPressedRetake,
     required TResult Function() onRequestCameraPermission,
     required TResult Function() onInitializeCamera,
   }) {
-    return onTake();
+    return onPressedTake();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CreditCard creditCard)? onSubmitScan,
-    TResult? Function()? onTake,
-    TResult? Function()? onRetake,
+    TResult? Function(CreditCard creditCard)? onPressedSubmitScan,
+    TResult? Function()? onPressedTake,
+    TResult? Function()? onPressedRetake,
     TResult? Function()? onRequestCameraPermission,
     TResult? Function()? onInitializeCamera,
   }) {
-    return onTake?.call();
+    return onPressedTake?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CreditCard creditCard)? onSubmitScan,
-    TResult Function()? onTake,
-    TResult Function()? onRetake,
+    TResult Function(CreditCard creditCard)? onPressedSubmitScan,
+    TResult Function()? onPressedTake,
+    TResult Function()? onPressedRetake,
     TResult Function()? onRequestCameraPermission,
     TResult Function()? onInitializeCamera,
     required TResult orElse(),
   }) {
-    if (onTake != null) {
-      return onTake();
+    if (onPressedTake != null) {
+      return onPressedTake();
     }
     return orElse();
   }
@@ -337,81 +339,81 @@ class _$onTakeImpl implements onTake {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onSubmitScan value) onSubmitScan,
-    required TResult Function(onTake value) onTake,
-    required TResult Function(onRetake value) onRetake,
+    required TResult Function(onPressedSubmitScan value) onPressedSubmitScan,
+    required TResult Function(onPressedTake value) onPressedTake,
+    required TResult Function(onPressedRetake value) onPressedRetake,
     required TResult Function(onRequestCameraPermission value)
         onRequestCameraPermission,
     required TResult Function(onInitializeCamera value) onInitializeCamera,
   }) {
-    return onTake(this);
+    return onPressedTake(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onSubmitScan value)? onSubmitScan,
-    TResult? Function(onTake value)? onTake,
-    TResult? Function(onRetake value)? onRetake,
+    TResult? Function(onPressedSubmitScan value)? onPressedSubmitScan,
+    TResult? Function(onPressedTake value)? onPressedTake,
+    TResult? Function(onPressedRetake value)? onPressedRetake,
     TResult? Function(onRequestCameraPermission value)?
         onRequestCameraPermission,
     TResult? Function(onInitializeCamera value)? onInitializeCamera,
   }) {
-    return onTake?.call(this);
+    return onPressedTake?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onSubmitScan value)? onSubmitScan,
-    TResult Function(onTake value)? onTake,
-    TResult Function(onRetake value)? onRetake,
+    TResult Function(onPressedSubmitScan value)? onPressedSubmitScan,
+    TResult Function(onPressedTake value)? onPressedTake,
+    TResult Function(onPressedRetake value)? onPressedRetake,
     TResult Function(onRequestCameraPermission value)?
         onRequestCameraPermission,
     TResult Function(onInitializeCamera value)? onInitializeCamera,
     required TResult orElse(),
   }) {
-    if (onTake != null) {
-      return onTake(this);
+    if (onPressedTake != null) {
+      return onPressedTake(this);
     }
     return orElse();
   }
 }
 
-abstract class onTake implements ScanEvent {
-  const factory onTake() = _$onTakeImpl;
+abstract class onPressedTake implements ScanEvent {
+  const factory onPressedTake() = _$onPressedTakeImpl;
 }
 
 /// @nodoc
-abstract class _$$onRetakeImplCopyWith<$Res> {
-  factory _$$onRetakeImplCopyWith(
-          _$onRetakeImpl value, $Res Function(_$onRetakeImpl) then) =
-      __$$onRetakeImplCopyWithImpl<$Res>;
+abstract class _$$onPressedRetakeImplCopyWith<$Res> {
+  factory _$$onPressedRetakeImplCopyWith(_$onPressedRetakeImpl value,
+          $Res Function(_$onPressedRetakeImpl) then) =
+      __$$onPressedRetakeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onRetakeImplCopyWithImpl<$Res>
-    extends _$ScanEventCopyWithImpl<$Res, _$onRetakeImpl>
-    implements _$$onRetakeImplCopyWith<$Res> {
-  __$$onRetakeImplCopyWithImpl(
-      _$onRetakeImpl _value, $Res Function(_$onRetakeImpl) _then)
+class __$$onPressedRetakeImplCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$onPressedRetakeImpl>
+    implements _$$onPressedRetakeImplCopyWith<$Res> {
+  __$$onPressedRetakeImplCopyWithImpl(
+      _$onPressedRetakeImpl _value, $Res Function(_$onPressedRetakeImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$onRetakeImpl implements onRetake {
-  const _$onRetakeImpl();
+class _$onPressedRetakeImpl implements onPressedRetake {
+  const _$onPressedRetakeImpl();
 
   @override
   String toString() {
-    return 'ScanEvent.onRetake()';
+    return 'ScanEvent.onPressedRetake()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onRetakeImpl);
+        (other.runtimeType == runtimeType && other is _$onPressedRetakeImpl);
   }
 
   @override
@@ -420,39 +422,39 @@ class _$onRetakeImpl implements onRetake {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CreditCard creditCard) onSubmitScan,
-    required TResult Function() onTake,
-    required TResult Function() onRetake,
+    required TResult Function(CreditCard creditCard) onPressedSubmitScan,
+    required TResult Function() onPressedTake,
+    required TResult Function() onPressedRetake,
     required TResult Function() onRequestCameraPermission,
     required TResult Function() onInitializeCamera,
   }) {
-    return onRetake();
+    return onPressedRetake();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CreditCard creditCard)? onSubmitScan,
-    TResult? Function()? onTake,
-    TResult? Function()? onRetake,
+    TResult? Function(CreditCard creditCard)? onPressedSubmitScan,
+    TResult? Function()? onPressedTake,
+    TResult? Function()? onPressedRetake,
     TResult? Function()? onRequestCameraPermission,
     TResult? Function()? onInitializeCamera,
   }) {
-    return onRetake?.call();
+    return onPressedRetake?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CreditCard creditCard)? onSubmitScan,
-    TResult Function()? onTake,
-    TResult Function()? onRetake,
+    TResult Function(CreditCard creditCard)? onPressedSubmitScan,
+    TResult Function()? onPressedTake,
+    TResult Function()? onPressedRetake,
     TResult Function()? onRequestCameraPermission,
     TResult Function()? onInitializeCamera,
     required TResult orElse(),
   }) {
-    if (onRetake != null) {
-      return onRetake();
+    if (onPressedRetake != null) {
+      return onPressedRetake();
     }
     return orElse();
   }
@@ -460,49 +462,49 @@ class _$onRetakeImpl implements onRetake {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onSubmitScan value) onSubmitScan,
-    required TResult Function(onTake value) onTake,
-    required TResult Function(onRetake value) onRetake,
+    required TResult Function(onPressedSubmitScan value) onPressedSubmitScan,
+    required TResult Function(onPressedTake value) onPressedTake,
+    required TResult Function(onPressedRetake value) onPressedRetake,
     required TResult Function(onRequestCameraPermission value)
         onRequestCameraPermission,
     required TResult Function(onInitializeCamera value) onInitializeCamera,
   }) {
-    return onRetake(this);
+    return onPressedRetake(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onSubmitScan value)? onSubmitScan,
-    TResult? Function(onTake value)? onTake,
-    TResult? Function(onRetake value)? onRetake,
+    TResult? Function(onPressedSubmitScan value)? onPressedSubmitScan,
+    TResult? Function(onPressedTake value)? onPressedTake,
+    TResult? Function(onPressedRetake value)? onPressedRetake,
     TResult? Function(onRequestCameraPermission value)?
         onRequestCameraPermission,
     TResult? Function(onInitializeCamera value)? onInitializeCamera,
   }) {
-    return onRetake?.call(this);
+    return onPressedRetake?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onSubmitScan value)? onSubmitScan,
-    TResult Function(onTake value)? onTake,
-    TResult Function(onRetake value)? onRetake,
+    TResult Function(onPressedSubmitScan value)? onPressedSubmitScan,
+    TResult Function(onPressedTake value)? onPressedTake,
+    TResult Function(onPressedRetake value)? onPressedRetake,
     TResult Function(onRequestCameraPermission value)?
         onRequestCameraPermission,
     TResult Function(onInitializeCamera value)? onInitializeCamera,
     required TResult orElse(),
   }) {
-    if (onRetake != null) {
-      return onRetake(this);
+    if (onPressedRetake != null) {
+      return onPressedRetake(this);
     }
     return orElse();
   }
 }
 
-abstract class onRetake implements ScanEvent {
-  const factory onRetake() = _$onRetakeImpl;
+abstract class onPressedRetake implements ScanEvent {
+  const factory onPressedRetake() = _$onPressedRetakeImpl;
 }
 
 /// @nodoc
@@ -546,9 +548,9 @@ class _$onRequestCameraPermissionImpl implements onRequestCameraPermission {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CreditCard creditCard) onSubmitScan,
-    required TResult Function() onTake,
-    required TResult Function() onRetake,
+    required TResult Function(CreditCard creditCard) onPressedSubmitScan,
+    required TResult Function() onPressedTake,
+    required TResult Function() onPressedRetake,
     required TResult Function() onRequestCameraPermission,
     required TResult Function() onInitializeCamera,
   }) {
@@ -558,9 +560,9 @@ class _$onRequestCameraPermissionImpl implements onRequestCameraPermission {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CreditCard creditCard)? onSubmitScan,
-    TResult? Function()? onTake,
-    TResult? Function()? onRetake,
+    TResult? Function(CreditCard creditCard)? onPressedSubmitScan,
+    TResult? Function()? onPressedTake,
+    TResult? Function()? onPressedRetake,
     TResult? Function()? onRequestCameraPermission,
     TResult? Function()? onInitializeCamera,
   }) {
@@ -570,9 +572,9 @@ class _$onRequestCameraPermissionImpl implements onRequestCameraPermission {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CreditCard creditCard)? onSubmitScan,
-    TResult Function()? onTake,
-    TResult Function()? onRetake,
+    TResult Function(CreditCard creditCard)? onPressedSubmitScan,
+    TResult Function()? onPressedTake,
+    TResult Function()? onPressedRetake,
     TResult Function()? onRequestCameraPermission,
     TResult Function()? onInitializeCamera,
     required TResult orElse(),
@@ -586,9 +588,9 @@ class _$onRequestCameraPermissionImpl implements onRequestCameraPermission {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onSubmitScan value) onSubmitScan,
-    required TResult Function(onTake value) onTake,
-    required TResult Function(onRetake value) onRetake,
+    required TResult Function(onPressedSubmitScan value) onPressedSubmitScan,
+    required TResult Function(onPressedTake value) onPressedTake,
+    required TResult Function(onPressedRetake value) onPressedRetake,
     required TResult Function(onRequestCameraPermission value)
         onRequestCameraPermission,
     required TResult Function(onInitializeCamera value) onInitializeCamera,
@@ -599,9 +601,9 @@ class _$onRequestCameraPermissionImpl implements onRequestCameraPermission {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onSubmitScan value)? onSubmitScan,
-    TResult? Function(onTake value)? onTake,
-    TResult? Function(onRetake value)? onRetake,
+    TResult? Function(onPressedSubmitScan value)? onPressedSubmitScan,
+    TResult? Function(onPressedTake value)? onPressedTake,
+    TResult? Function(onPressedRetake value)? onPressedRetake,
     TResult? Function(onRequestCameraPermission value)?
         onRequestCameraPermission,
     TResult? Function(onInitializeCamera value)? onInitializeCamera,
@@ -612,9 +614,9 @@ class _$onRequestCameraPermissionImpl implements onRequestCameraPermission {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onSubmitScan value)? onSubmitScan,
-    TResult Function(onTake value)? onTake,
-    TResult Function(onRetake value)? onRetake,
+    TResult Function(onPressedSubmitScan value)? onPressedSubmitScan,
+    TResult Function(onPressedTake value)? onPressedTake,
+    TResult Function(onPressedRetake value)? onPressedRetake,
     TResult Function(onRequestCameraPermission value)?
         onRequestCameraPermission,
     TResult Function(onInitializeCamera value)? onInitializeCamera,
@@ -669,9 +671,9 @@ class _$onInitializeCameraImpl implements onInitializeCamera {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CreditCard creditCard) onSubmitScan,
-    required TResult Function() onTake,
-    required TResult Function() onRetake,
+    required TResult Function(CreditCard creditCard) onPressedSubmitScan,
+    required TResult Function() onPressedTake,
+    required TResult Function() onPressedRetake,
     required TResult Function() onRequestCameraPermission,
     required TResult Function() onInitializeCamera,
   }) {
@@ -681,9 +683,9 @@ class _$onInitializeCameraImpl implements onInitializeCamera {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CreditCard creditCard)? onSubmitScan,
-    TResult? Function()? onTake,
-    TResult? Function()? onRetake,
+    TResult? Function(CreditCard creditCard)? onPressedSubmitScan,
+    TResult? Function()? onPressedTake,
+    TResult? Function()? onPressedRetake,
     TResult? Function()? onRequestCameraPermission,
     TResult? Function()? onInitializeCamera,
   }) {
@@ -693,9 +695,9 @@ class _$onInitializeCameraImpl implements onInitializeCamera {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CreditCard creditCard)? onSubmitScan,
-    TResult Function()? onTake,
-    TResult Function()? onRetake,
+    TResult Function(CreditCard creditCard)? onPressedSubmitScan,
+    TResult Function()? onPressedTake,
+    TResult Function()? onPressedRetake,
     TResult Function()? onRequestCameraPermission,
     TResult Function()? onInitializeCamera,
     required TResult orElse(),
@@ -709,9 +711,9 @@ class _$onInitializeCameraImpl implements onInitializeCamera {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(onSubmitScan value) onSubmitScan,
-    required TResult Function(onTake value) onTake,
-    required TResult Function(onRetake value) onRetake,
+    required TResult Function(onPressedSubmitScan value) onPressedSubmitScan,
+    required TResult Function(onPressedTake value) onPressedTake,
+    required TResult Function(onPressedRetake value) onPressedRetake,
     required TResult Function(onRequestCameraPermission value)
         onRequestCameraPermission,
     required TResult Function(onInitializeCamera value) onInitializeCamera,
@@ -722,9 +724,9 @@ class _$onInitializeCameraImpl implements onInitializeCamera {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(onSubmitScan value)? onSubmitScan,
-    TResult? Function(onTake value)? onTake,
-    TResult? Function(onRetake value)? onRetake,
+    TResult? Function(onPressedSubmitScan value)? onPressedSubmitScan,
+    TResult? Function(onPressedTake value)? onPressedTake,
+    TResult? Function(onPressedRetake value)? onPressedRetake,
     TResult? Function(onRequestCameraPermission value)?
         onRequestCameraPermission,
     TResult? Function(onInitializeCamera value)? onInitializeCamera,
@@ -735,9 +737,9 @@ class _$onInitializeCameraImpl implements onInitializeCamera {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(onSubmitScan value)? onSubmitScan,
-    TResult Function(onTake value)? onTake,
-    TResult Function(onRetake value)? onRetake,
+    TResult Function(onPressedSubmitScan value)? onPressedSubmitScan,
+    TResult Function(onPressedTake value)? onPressedTake,
+    TResult Function(onPressedRetake value)? onPressedRetake,
     TResult Function(onRequestCameraPermission value)?
         onRequestCameraPermission,
     TResult Function(onInitializeCamera value)? onInitializeCamera,

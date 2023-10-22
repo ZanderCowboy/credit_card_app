@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
+/// Large button
 class ButtonLarge extends StatelessWidget {
+  /// ButtonLarge constructor
   const ButtonLarge({
     required String routeName,
-    required String text,
+    required String buttonText,
     super.key,
-  })  : _text = text,
-        _routeName = routeName;
+  })  : _routeName = routeName,
+        _buttonText = buttonText;
 
   final String _routeName;
-  final String _text;
+  final String _buttonText;
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +25,16 @@ class ButtonLarge extends StatelessWidget {
       ),
       onPressed: () => Navigator.of(context).pushNamed(_routeName),
       child: Text(
-        _text,
+        _buttonText,
         textAlign: TextAlign.center,
       ),
     );
   }
 }
 
+/// Small button
 class ButtonSmall extends StatelessWidget {
+  /// ButtonSmall constructor
   const ButtonSmall({
     required String routeName,
     required String text,
@@ -54,6 +58,7 @@ class ButtonSmall extends StatelessWidget {
   }
 }
 
+/// Small button style
 ButtonStyle get buttonSmallStyle {
   return ElevatedButton.styleFrom(
     textStyle: const TextStyle(

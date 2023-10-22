@@ -8,23 +8,26 @@ part 'scan_bloc.freezed.dart';
 part 'scan_event.dart';
 part 'scan_state.dart';
 
+/// Bloc for ScanPage
 @Injectable()
 class ScanBloc extends Bloc<ScanEvent, ScanState> {
+  /// ScanBloc constructor
   ScanBloc(this._creditCardRepository) : super(ScanState.initial()) {
     on<ScanEvent>(
       (event, emit) async {
         event.map(
-            onSubmitScan: (value) {
-              emit(state.copyWith(isLoading: true));
+          onPressedSubmitScan: (value) {
+            emit(state.copyWith(isLoading: true));
 
-              _creditCardRepository.addCard(value.creditCard);
+            _creditCardRepository.addCard(value.creditCard);
 
-              emit(state.copyWith(isLoading: false, isSubmitted: true));
-            },
-            onTake: (_) {},
-            onRetake: (_) {},
-            onRequestCameraPermission: (_) {},
-            onInitializeCamera: (_) {});
+            emit(state.copyWith(isLoading: false, isSubmitted: true));
+          },
+          onPressedTake: (_) {},
+          onPressedRetake: (_) {},
+          onRequestCameraPermission: (_) {},
+          onInitializeCamera: (_) {},
+        );
       },
     );
   }

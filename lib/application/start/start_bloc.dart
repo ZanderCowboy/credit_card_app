@@ -6,9 +6,11 @@ part 'start_bloc.freezed.dart';
 part 'start_event.dart';
 part 'start_state.dart';
 
+/// Bloc for StartPage
 @Injectable()
 class StartBloc extends Bloc<StartEvent, StartState> {
-  StartBloc() : super(StartState._()) {
+  /// StartBloc constructor
+  StartBloc() : super(StartState.initial()) {
     on<StartEvent>((event, emit) {
       event.map(
         onStart: (_) {

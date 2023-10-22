@@ -4,39 +4,40 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 /// Credit card box for Hive DB
 class CreditCardBox {
-  /// CreditCardBox constructor
+  /// Empty constructor
   CreditCardBox();
 
+  /// Hive [Box] of [CreditCard] instances
   final Box<CreditCard> box = Hive.box<CreditCard>(creditCardBoxName);
 
-  /// Add credit card instance to box
+  /// Adds a [CreditCard] instance to [box]
   void addCreditCard(CreditCard creditCard) {
     box.add(creditCard);
   }
 
-  /// Read credit card at given index
+  /// Returns [CreditCard] instance at given [index] from [box]
   CreditCard? readCreditCard(int index) {
     return box.getAt(index);
   }
 
-  /// Read all credit cards
+  /// Returns [List] of all [CreditCard]'s in [box]
   List<CreditCard> readAllCreditCards() {
-    final List<CreditCard> list = <CreditCard>[];
+    final list = <CreditCard>[];
 
     for (var i = 0; i < box.length; i++) {
-      final CreditCard? creditCard = box.getAt(i);
+      final creditCard = box.getAt(i);
       list.add(creditCard!);
     }
 
     return list;
   }
 
-  /// Delete a credit card at given index
+  /// Deletes a [CreditCard] at given [index] in [box]
   void deleteCreditCardAt(int index) {
     box.deleteAt(index);
   }
 
-  /// Delete all credit cards from box
+  /// Deletes all [CreditCard]'s from [box]
   void deleteCreditCards() {
     box.clear();
   }

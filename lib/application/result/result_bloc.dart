@@ -6,15 +6,17 @@ part 'result_bloc.freezed.dart';
 part 'result_event.dart';
 part 'result_state.dart';
 
+/// Bloc for ResultPage
 @Injectable()
 class ResultBloc extends Bloc<ResultEvent, ResultState> {
+  /// ResultBloc constructor
   ResultBloc() : super(const ResultState.initial()) {
     on<ResultEvent>(
       (event, emit) {
         event.map(
-          onValidate: (_) {},
-          onSubmit: (_) {},
-          onCancel: (_) {},
+          onPressedValidate: (_) {},
+          onPressedSubmit: (_) {},
+          onPressedCancel: (_) {},
         );
       },
     );

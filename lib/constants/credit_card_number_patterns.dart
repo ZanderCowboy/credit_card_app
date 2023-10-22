@@ -1,3 +1,4 @@
+/// [Map] containing the card number patterns
 Map<CardTypes, Set<List<String>>> cardNumPatterns =
     <CardTypes, Set<List<String>>>{
   CardTypes.visa: <List<String>>{

@@ -9,6 +9,9 @@ const height_16 = SizedBox(height: 16);
 /// [SizedBox] with a height of 20 pixels
 const height_20 = SizedBox(height: 20);
 
+/// [SizedBox] with a height of 24 pixels
+const height_24 = SizedBox(height: 24);
+
 /// All [EdgeInsets] set to 8 pixels
 const allPadding_8 = EdgeInsets.all(8);
 

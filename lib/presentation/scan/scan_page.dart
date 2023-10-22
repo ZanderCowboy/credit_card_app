@@ -167,7 +167,9 @@ class _ScanPageState extends State<_ScanPage> {
                                     onPressed: () {
                                       _submitPicture();
                                       context.read<ScanBloc>().add(
-                                            ScanEvent.onSubmitScan(creditCard),
+                                            ScanEvent.onPressedSubmitScan(
+                                              creditCard,
+                                            ),
                                           );
                                     },
                                     child: const Text(submitButtonText),
@@ -178,7 +180,8 @@ class _ScanPageState extends State<_ScanPage> {
                           ),
                           Center(
                             child: Text(
-                              'Camera Permission Status: $_cameraPermissionStatus',
+                              '''
+Camera Permission Status: $_cameraPermissionStatus''',
                             ),
                           ),
                         ],

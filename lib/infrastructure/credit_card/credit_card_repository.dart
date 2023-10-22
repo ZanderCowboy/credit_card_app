@@ -3,41 +3,43 @@ import 'package:credit_card_app/domain/credit_card/i_credit_card_repository.dart
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:injectable/injectable.dart';
 
+/// An Implementation of [ICreditCardRepository]
 @LazySingleton(as: ICreditCardRepository)
 class CreditCardRepository implements ICreditCardRepository {
+  /// Empty constructor
   CreditCardRepository();
 
+  /// A [CreditCardBox] instance
   CreditCardBox creditCardBox = CreditCardBox();
 
-  // add
+  /// Adds a [CreditCard] instance to a [CreditCardBox]
   @override
   void addCard(CreditCard card) {
     creditCardBox.addCreditCard(card);
   }
 
-  // readAll
+  /// Returns a [List] of [CreditCard] instances from [CreditCardBox]
   @override
   List<CreditCard> readHistoryCards() {
     return creditCardBox.readAllCreditCards();
   }
 
-  // update
-
-  // deleteAt
+  /// Deletes a [CreditCard] instance at given index
   @override
   void deleteCreditCardAt(int index) {
     creditCardBox.deleteCreditCardAt(index);
   }
 
-  // deleteAll
+  /// Deletes all [CreditCard] instances from [CreditCardBox]
   @override
   void deleteCreditCards() {
     creditCardBox.deleteCreditCards();
   }
 
+  /// Returns a [bool] if a given [CreditCard] is present
   @override
   bool hasCreditCard(CreditCard card) {
-    final List<CreditCard> list = creditCardBox.readAllCreditCards();
+    final list = creditCardBox.readAllCreditCards();
 
     return list.any(
       (element) =>
@@ -49,16 +51,17 @@ class CreditCardRepository implements ICreditCardRepository {
     );
   }
 
+  /// Returns an [int] as index of a given [CreditCard] instance
   @override
   int lookupCard(CreditCard creditCard) {
     int foundAt = -1;
 
-    final List<CreditCard> list = readHistoryCards();
+    final list = readHistoryCards();
 
     for (var i = 0; i < list.length; i++) {
-      final CreditCard cc = list[i];
+      final card = list[i];
 
-      if (cc == creditCard) {
+      if (card == creditCard) {
         foundAt = i;
       }
     }

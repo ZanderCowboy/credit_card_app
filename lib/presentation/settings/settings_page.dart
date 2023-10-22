@@ -140,9 +140,6 @@ class _AddBannedCountryDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final countries = countryMap.keys.toList();
-    countries.sort();
-
     String? selectedCountry = 'ZA';
 
     return BlocBuilder<SettingsBloc, SettingsState>(
@@ -171,9 +168,10 @@ class _AddBannedCountryDialog extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        context
-                            .read<SettingsBloc>()
-                            .add(SettingsEvent.onAddCountry(selectedCountry));
+                        context.read<SettingsBloc>().add(
+                              SettingsEvent.onPressedAddCountry(
+                                  selectedCountry),
+                            );
                         Navigator.of(context).pop();
                       },
                       child: const Text(addButtonText),
@@ -199,8 +197,8 @@ class _BannedCountryList extends StatelessWidget {
       builder: (context, state) {
         final repository = context.read<BannedCountryRepository>();
 
-        final bannedCountriesList = repository.readCountries();
-        bannedCountriesList.sort((a, b) => a.country.compareTo(b.country));
+        final bannedCountriesList = repository.readCountries()
+          ..sort((a, b) => a.country.compareTo(b.country));
 
         return SizedBox(
           height: MediaQuery.of(context).size.height * 0.75,
@@ -215,7 +213,6 @@ class _BannedCountryList extends StatelessWidget {
               final countryName = countryMap[countryCode];
 
               return InkWell(
-                // todo: extract dialog
                 onLongPress: () {
                   showDialog<AlertDialog>(
                     context: context,
@@ -232,7 +229,9 @@ class _BannedCountryList extends StatelessWidget {
                           onPressed: () async {
                             Navigator.of(context).pop();
                             context.read<SettingsBloc>().add(
-                                  SettingsEvent.onCountryDelete(bannedCountry),
+                                  SettingsEvent.onLongPressedDeleteCountry(
+                                    bannedCountry,
+                                  ),
                                 );
                           },
                           child: const Text(yesButtonText),
@@ -241,24 +240,45 @@ class _BannedCountryList extends StatelessWidget {
                     ),
                   );
                 },
-                child: CheckboxListTile(
-                  title: Text('$countryCode \t - $countryName'),
-                  value: checkbox,
-                  onChanged: (bool? newValue) {
-                    context.read<SettingsBloc>().add(
-                          SettingsEvent.onCountryPressed(
-                            BannedCountry(
-                              country: countryCode,
-                              isBanned: newValue!,
-                            ),
-                          ),
-                        );
-                  },
+                child: _CheckboxListTile(
+                  countryCode: countryCode,
+                  countryName: countryName,
+                  checkbox: checkbox,
                 ),
               );
             },
           ),
         );
+      },
+    );
+  }
+}
+
+class _CheckboxListTile extends StatelessWidget {
+  const _CheckboxListTile({
+    required this.countryCode,
+    required this.countryName,
+    required this.checkbox,
+  });
+
+  final String countryCode;
+  final String? countryName;
+  final bool checkbox;
+
+  @override
+  Widget build(BuildContext context) {
+    return CheckboxListTile(
+      title: Text('$countryCode \t - $countryName'),
+      value: checkbox,
+      onChanged: (bool? newValue) {
+        context.read<SettingsBloc>().add(
+              SettingsEvent.onPressedCountry(
+                BannedCountry(
+                  country: countryCode,
+                  isBanned: newValue!,
+                ),
+              ),
+            );
       },
     );
   }

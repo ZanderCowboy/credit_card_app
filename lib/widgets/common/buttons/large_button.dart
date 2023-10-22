@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 
+/// Large button to navigate
 class LargeButtonNavigate extends StatelessWidget {
+  /// LargeButtonNavigate constructor
   const LargeButtonNavigate({
-    required this.buttonTitle,
-    required this.route,
+    required String buttonText,
+    required void Function()? onPressed,
     super.key,
-  });
+  })  : _buttonText = buttonText,
+        _onPressed = onPressed;
 
-  final String buttonTitle;
-  final String route;
+  final String _buttonText;
+  final void Function()? _onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +23,8 @@ class LargeButtonNavigate extends StatelessWidget {
         ),
         minimumSize: const Size(200, 80),
       ),
-      onPressed: () {
-        Navigator.of(context).pushNamed(route);
-      },
-      child: Text(buttonTitle),
+      onPressed: _onPressed,
+      child: Text(_buttonText),
     );
   }
 }
