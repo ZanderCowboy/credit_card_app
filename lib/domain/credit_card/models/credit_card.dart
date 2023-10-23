@@ -11,7 +11,6 @@ part 'credit_card.g.dart';
 class CreditCard with _$CreditCard {
   /// CreditCard constructor
   const factory CreditCard({
-    // TODO: add name and expiry date
     @HiveField(0, defaultValue: '') required String cardNumber,
     @HiveField(1, defaultValue: '') required String cardType,
     @HiveField(2, defaultValue: '') required String cvvNumber,

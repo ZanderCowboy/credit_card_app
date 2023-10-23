@@ -7,7 +7,6 @@ import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_credit_card/extension.dart';
 
 /// Enter page to manually enter details
 class EnterPage extends StatelessWidget {
@@ -78,7 +77,7 @@ class _EnterPage extends StatelessWidget {
               const SnackBar(content: Text(successfullyAddedText)),
             );
         }
-        if (state.errorMessage.isNotNullAndNotEmpty) {
+        if (state.errorMessage!.isNotEmpty) {
           ScaffoldMessenger.of(context)
             ..clearSnackBars()
             ..showSnackBar(SnackBar(content: Text(state.errorMessage!)));

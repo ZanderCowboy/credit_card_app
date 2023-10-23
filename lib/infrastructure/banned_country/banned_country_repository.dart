@@ -70,11 +70,11 @@ class BannedCountryRepository implements IBannedCountryRepository {
   /// [BannedCountriesBox]
   @override
   int lookupCountry(BannedCountry lookupCountry) {
-    int foundAt = -1;
-    final List<BannedCountry> list = readCountries();
+    var foundAt = -1;
+    final list = readCountries();
 
     for (var i = 0; i < list.length; i++) {
-      final BannedCountry bannedCountry = list[i];
+      final bannedCountry = list[i];
 
       if (bannedCountry == lookupCountry) {
         foundAt = i;

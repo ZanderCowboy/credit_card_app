@@ -19,7 +19,6 @@ class ScanPage extends StatelessWidget {
   }
 }
 
-// TODO: Refactor Scan Page
 class _ScanPage extends StatefulWidget {
   const _ScanPage();
 

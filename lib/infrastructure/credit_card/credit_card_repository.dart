@@ -54,7 +54,7 @@ class CreditCardRepository implements ICreditCardRepository {
   /// Returns an [int] as index of a given [CreditCard] instance
   @override
   int lookupCard(CreditCard creditCard) {
-    int foundAt = -1;
+    var foundAt = -1;
 
     final list = readHistoryCards();
 

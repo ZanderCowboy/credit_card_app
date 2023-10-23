@@ -4,7 +4,6 @@ import 'package:credit_card_app/application/export_application.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_credit_card/credit_card_brand.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 
 /// An animation of a Credit Card
@@ -30,7 +29,7 @@ class CreditCardAnimation extends StatelessWidget {
               CreditCardWidget(
                 cardNumber: state.creditCard.cardNumber,
                 // expiryDate: state.creditCard.cardType.toUpperCase(),
-                expiryDate: state.creditCard.cvvNumber, // TODO
+                expiryDate: state.creditCard.cvvNumber, // TODO: Something
                 cardHolderName: countryName,
                 cvvCode: state.creditCard.cvvNumber,
                 // bankName: 'Bank Name',

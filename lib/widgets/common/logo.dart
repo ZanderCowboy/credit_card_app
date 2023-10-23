@@ -3,8 +3,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+/// Logo widget to display a background image
 class LogoWidget extends StatelessWidget {
-  const LogoWidget();
+  /// Empty constructor
+  const LogoWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

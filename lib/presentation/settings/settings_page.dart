@@ -8,7 +8,6 @@ import 'package:credit_card_app/infrastructure/banned_country/banned_country_rep
 import 'package:credit_card_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_credit_card/extension.dart';
 
 /// Settings page to add or view banned countries
 class SettingsPage extends StatelessWidget {
@@ -91,7 +90,7 @@ class _SettingsPage extends StatelessWidget {
               ),
             );
         }
-        if (state.errorMessage.isNotNullAndNotEmpty) {
+        if (state.errorMessage!.isNotEmpty) {
           ScaffoldMessenger.of(context)
             ..clearSnackBars()
             ..showSnackBar(
@@ -170,7 +169,8 @@ class _AddBannedCountryDialog extends StatelessWidget {
                       onPressed: () {
                         context.read<SettingsBloc>().add(
                               SettingsEvent.onPressedAddCountry(
-                                  selectedCountry),
+                                selectedCountry,
+                              ),
                             );
                         Navigator.of(context).pop();
                       },

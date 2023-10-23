@@ -4,7 +4,6 @@ import 'package:bloc/bloc.dart';
 import 'package:credit_card_app/constants/credit_card_number_patterns.dart';
 import 'package:credit_card_app/domain/credit_card/i_credit_card_repository.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
-import 'package:flutter_credit_card/extension.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -221,10 +220,10 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
   bool _isValid(
     CreditCard creditCard,
   ) {
-    return creditCard.cardNumber.isNotNullAndNotEmpty &&
-        creditCard.cardType.isNotNullAndNotEmpty &&
-        creditCard.cvvNumber.isNotNullAndNotEmpty &&
-        creditCard.issuingCountry.isNotNullAndNotEmpty;
+    return creditCard.cardNumber.isNotEmpty &&
+        creditCard.cardType.isNotEmpty &&
+        creditCard.cvvNumber.isNotEmpty &&
+        creditCard.issuingCountry.isNotEmpty;
   }
 
   List<Object> _cardValidation(CreditCard creditCard) {
@@ -248,7 +247,7 @@ class EnterBloc extends Bloc<EnterEvent, EnterState> {
 
 CardTypes _detectCCType(String cardNumber) {
   //Default card type is other
-  CardTypes cardType = CardTypes.otherBrand;
+  var cardType = CardTypes.otherBrand;
 
   if (cardNumber.isEmpty) {
     return cardType;
@@ -258,7 +257,7 @@ CardTypes _detectCCType(String cardNumber) {
     (CardTypes type, Set<List<String>> patterns) {
       for (final patternRangeList in patterns) {
         // Remove any spaces
-        String ccPatternStr = cardNumber.replaceAll(RegExp(r'\s+\b|\b\s'), '');
+        var ccPatternStr = cardNumber.replaceAll(RegExp(r'\s+\b|\b\s'), '');
         final rangeLen = patternRangeList[0].length;
         // Trim the Credit Card number string to match the pattern prefix length
         if (rangeLen < cardNumber.length) {
