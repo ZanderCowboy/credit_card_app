@@ -12,7 +12,7 @@ abstract class IBannedCountryRepository {
   List<BannedCountry> readCountries();
 
   /// Update country's checked value
-  void updateCountryChecked(String country, bool newValue);
+  void updateCountryChecked(BannedCountry bannedCountry);
 
   /// Delete country at index
   void deleteCountryAt(int index);

@@ -35,13 +35,12 @@ class BannedCountryRepository implements IBannedCountryRepository {
   /// Updates a [BannedCountry]'s status in a [BannedCountriesBox]
   @override
   Future<void> updateCountryChecked(
-    String bannedCountry,
-    bool? newValue,
+    BannedCountry bannedCountry,
   ) async {
     bannedCountriesBox.updateBannedCountry(
       BannedCountry(
-        country: bannedCountry,
-        isBanned: newValue!,
+        country: bannedCountry.country,
+        isBanned: bannedCountry.isBanned,
       ),
     );
   }

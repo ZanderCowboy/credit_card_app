@@ -83,10 +83,11 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           } else {
             emit(state.copyWith(isUnchecked: true));
           }
-
           _bannedCountriesRepository.updateCountryChecked(
-            value.bannedCountries.country,
-            value.bannedCountries.isBanned,
+            BannedCountry(
+              country: value.bannedCountries.country,
+              isBanned: value.bannedCountries.isBanned,
+            ),
           );
 
           emit(
