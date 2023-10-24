@@ -22,8 +22,6 @@ class ScanPage extends StatelessWidget {
 class _ScanPage extends StatefulWidget {
   const _ScanPage();
 
-  // final CreditCardRepository creditCardRepository;
-
   @override
   State<_ScanPage> createState() => _ScanPageState();
 }
