@@ -1,10 +1,8 @@
 import 'dart:async';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:credit_card_app/constants/text_constants.dart';
-import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -44,8 +42,6 @@ class TakePictureScreenState extends State<TakePictureScreen> {
 
   @override
   void initState() {
-    super.initState();
-
     _controller = CameraController(
       widget.camera,
       ResolutionPreset.medium,
@@ -53,12 +49,50 @@ class TakePictureScreenState extends State<TakePictureScreen> {
     );
 
     _initializeControllerFuture = _controller.initialize();
+    super.initState();
   }
 
   @override
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  // Define a boolean variable to track whether the camera preview is running
+  bool _isCameraRunning = true;
+
+  // Define a method to start the camera preview
+  Future<void> _startCameraPreview() async {
+    try {
+      await _controller.initialize();
+      await _controller.startImageStream((_) {});
+    } catch (e) {
+      // Error handling
+    }
+  }
+
+// Define a method to stop the camera preview
+  Future<void> _stopCameraPreview() async {
+    try {
+      await _controller.stopImageStream();
+      await _controller.dispose();
+    } catch (e) {
+      // Error handling
+    }
+  }
+
+// Define a method to handle the retake button press
+  void _onRetakeButtonPressed() {
+    setState(() {
+      _isCameraRunning = true;
+    });
+    _startCameraPreview();
+  }
+
+  Widget _buildCameraPreview() {
+    return Container(
+      child: _isCameraRunning ? CameraPreview(_controller) : null,
+    );
   }
 
   @override
@@ -71,24 +105,24 @@ class TakePictureScreenState extends State<TakePictureScreen> {
         future: _initializeControllerFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            final creditCard = CreditCard.empty();
-
-            // return CameraPreview(_controller);
-
             return Padding(
               padding: const EdgeInsets.all(8),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CameraPreview(
-                      _controller,
-                      child: Center(
-                          child: Text(
-                        'text',
-                        style: TextStyle(fontSize: 30),
-                      )),
-                    ),
+                    _buildCameraPreview(),
+                    // CameraPreview(
+                    //   _controller,
+                    //   child: Center(
+                    //       child: Text(
+                    //     'text',
+                    //     style: TextStyle(
+                    //       fontSize: 30,
+                    //       color: Colors.black,
+                    //     ),
+                    //   )),
+                    // ),
                     Column(
                       children: [
                         Row(
@@ -101,33 +135,37 @@ class TakePictureScreenState extends State<TakePictureScreen> {
                                   style: buttonSmallStyle,
                                   onPressed: () async {
                                     try {
+                                      await _stopCameraPreview();
+
+                                      // Set the `_isCameraRunning` variable to false
+                                      setState(() {
+                                        _isCameraRunning = false;
+                                      });
+                                      await _initializeControllerFuture;
+
+                                      final image =
+                                          await _controller.takePicture();
+
+                                      if (!mounted) return;
                                       // await _initializeControllerFuture;
 
-                                      _imageFile =
-                                          await _controller.takePicture();
-                                      log('_imageFile take = $_imageFile');
-                                      if (!mounted) return;
+                                      // _imageFile =
+                                      //     await _controller.takePicture();
+                                      // if (!mounted) return;
 
-                                      await Navigator.of(context).push(
-                                        MaterialPageRoute<MaterialApp>(
-                                          builder: (context) =>
-                                              DisplayPictureScreen(
-                                            imagePath: _imageFile!.path,
-                                          ),
-                                        ),
-                                      );
+                                      // await Navigator.of(context).push(
+                                      //   MaterialPageRoute<MaterialApp>(
+                                      //       builder: (context) {
+                                      //     log('imagePath: ${_imageFile!.path}');
+                                      //     return DisplayPictureScreen(
+                                      //       imagePath: _imageFile!.path,
+                                      //     );
+                                      //   }),
+                                      // );
                                     } catch (e) {
                                       print('e=$e');
                                     }
                                   },
-                                  // onPressed: _imageFile == null
-                                  //     ? () {
-                                  //         _takePicture();
-                                  //         context
-                                  //             .read<ScanBloc>()
-                                  //             .add(ScanEvent.onTake());
-                                  //       }
-                                  //     : null,
                                   child: const Text(scanPageTakeButton),
                                 ),
                               ),
@@ -137,19 +175,17 @@ class TakePictureScreenState extends State<TakePictureScreen> {
                                 padding: const EdgeInsets.fromLTRB(4, 8, 0, 4),
                                 child: ElevatedButton(
                                   style: buttonSmallStyle,
-
-                                  onPressed: _imageFile != null
-                                      ? null
-                                      : () {
-                                          log('imageFile = $_imageFile');
-                                          _imageFile = null;
-                                          log('error on retake');
-                                        },
-                                  // onPressed: () {
-                                  // _onRetakeButtonPressed();
-                                  // _controller.dispose();
-                                  // initState();
-                                  // },
+                                  // onPressed: _imageFile != null
+                                  //     ? null
+                                  //     : () {
+                                  //         log('imageFile = $_imageFile');
+                                  //         _imageFile = null;
+                                  //         log('error on retake');
+                                  //       },
+                                  onPressed: () {
+                                    // _onRetakeButtonPressed();
+                                    _onRetakeButtonPressed();
+                                  },
                                   // onPressed: _imageFile != null
                                   //     ? () {
                                   //         context
@@ -167,11 +203,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
                           padding: const EdgeInsets.fromLTRB(0, 4, 0, 8),
                           child: ElevatedButton(
                             style: buttonSmallStyle,
-                            onPressed: () {
-                              // context.read<ScanBloc>().add(
-                              //       ScanEvent.onSubmit(creditCard),
-                              //     );
-                            },
+                            onPressed: () {},
                             child: const Text(submitButtonText),
                           ),
                         ),
@@ -189,19 +221,25 @@ class TakePictureScreenState extends State<TakePictureScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           try {
+            await _stopCameraPreview();
+
+            // Set the `_isCameraRunning` variable to false
+            setState(() {
+              _isCameraRunning = false;
+            });
             await _initializeControllerFuture;
 
             final image = await _controller.takePicture();
 
             if (!mounted) return;
 
-            await Navigator.of(context).push(
-              MaterialPageRoute<MaterialApp>(
-                builder: (context) => DisplayPictureScreen(
-                  imagePath: image.path,
-                ),
-              ),
-            );
+            // await Navigator.of(context).push(
+            //   MaterialPageRoute<MaterialApp>(
+            //     builder: (context) => DisplayPictureScreen(
+            //       imagePath: image.path,
+            //     ),
+            //   ),
+            // );
           } catch (e) {
             print(e);
           }
