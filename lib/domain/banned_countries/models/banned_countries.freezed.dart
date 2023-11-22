@@ -16,9 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$BannedCountries {
-  @HiveField(0)
+  @HiveField(0, defaultValue: '')
   String get bannedCountry => throw _privateConstructorUsedError;
-  @HiveField(1)
+  @HiveField(1, defaultValue: false)
   bool get isBanned => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -32,7 +32,9 @@ abstract class $BannedCountriesCopyWith<$Res> {
           BannedCountries value, $Res Function(BannedCountries) then) =
       _$BannedCountriesCopyWithImpl<$Res, BannedCountries>;
   @useResult
-  $Res call({@HiveField(0) String bannedCountry, @HiveField(1) bool isBanned});
+  $Res call(
+      {@HiveField(0, defaultValue: '') String bannedCountry,
+      @HiveField(1, defaultValue: false) bool isBanned});
 }
 
 /// @nodoc
@@ -72,7 +74,9 @@ abstract class _$$BannedCountriesImplCopyWith<$Res>
       __$$BannedCountriesImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@HiveField(0) String bannedCountry, @HiveField(1) bool isBanned});
+  $Res call(
+      {@HiveField(0, defaultValue: '') String bannedCountry,
+      @HiveField(1, defaultValue: false) bool isBanned});
 }
 
 /// @nodoc
@@ -106,14 +110,14 @@ class __$$BannedCountriesImplCopyWithImpl<$Res>
 
 class _$BannedCountriesImpl implements _BannedCountries {
   const _$BannedCountriesImpl(
-      {@HiveField(0) required this.bannedCountry,
-      @HiveField(1) required this.isBanned});
+      {@HiveField(0, defaultValue: '') required this.bannedCountry,
+      @HiveField(1, defaultValue: false) required this.isBanned});
 
   @override
-  @HiveField(0)
+  @HiveField(0, defaultValue: '')
   final String bannedCountry;
   @override
-  @HiveField(1)
+  @HiveField(1, defaultValue: false)
   final bool isBanned;
 
   @override
@@ -145,14 +149,15 @@ class _$BannedCountriesImpl implements _BannedCountries {
 
 abstract class _BannedCountries implements BannedCountries {
   const factory _BannedCountries(
-      {@HiveField(0) required final String bannedCountry,
-      @HiveField(1) required final bool isBanned}) = _$BannedCountriesImpl;
+          {@HiveField(0, defaultValue: '') required final String bannedCountry,
+          @HiveField(1, defaultValue: false) required final bool isBanned}) =
+      _$BannedCountriesImpl;
 
   @override
-  @HiveField(0)
+  @HiveField(0, defaultValue: '')
   String get bannedCountry;
   @override
-  @HiveField(1)
+  @HiveField(1, defaultValue: false)
   bool get isBanned;
   @override
   @JsonKey(ignore: true)

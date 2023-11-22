@@ -4,6 +4,8 @@ A Flutter Mobile app that allows the submission of credit card details for valid
 
 [![GitHub Super-Linter](https://github.com/ZanderCowboy/credit_card_app/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
+[![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

@@ -1,6 +1,6 @@
+import 'package:credit_card_app/data/persistance/db_driver.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:credit_card_app/data/persistance/db_driver.dart';
 
 class CreditCardBox {
   CreditCardBox();
@@ -8,8 +8,8 @@ class CreditCardBox {
   final Box<CreditCard> box = Hive.box<CreditCard>(creditCardBoxName);
 
   // add
-  void addCreditCard(CreditCard card) {
-    box.add(card);
+  void addCreditCard(CreditCard creditCard) {
+    box.add(creditCard);
   }
 
   // read
@@ -19,12 +19,11 @@ class CreditCardBox {
 
   // readAll
   List<CreditCard> readAllCreditCards() {
-    List<CreditCard> list = <CreditCard>[];
-    int boxLength = box.length;
+    final List<CreditCard> list = <CreditCard>[];
 
-    for (var i = 0; i < boxLength; i++) {
-      CreditCard? card = box.getAt(i);
-      list.add(card!);
+    for (var i = 0; i < box.length; i++) {
+      final CreditCard? creditCard = box.getAt(i);
+      list.add(creditCard!);
     }
 
     return list;

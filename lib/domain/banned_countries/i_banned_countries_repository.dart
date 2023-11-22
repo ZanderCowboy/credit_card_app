@@ -4,10 +4,14 @@ abstract class IBannedCountriesRepository {
   // add
   void addCountry(String country);
 
-  // read
+  // readAt
   BannedCountries? readCountry(int index);
 
+  // readAll
   List<BannedCountries> readCountries();
+
+  // update
+  void updateCountryChecked(String country, bool? newValue);
 
   // deleteAt
   void deleteCountryAt(int index);
@@ -17,6 +21,5 @@ abstract class IBannedCountriesRepository {
 
   bool hasCountry(String country);
 
-  // Country where its value need to be updated to `value`.
-  void updateCountryChecked(String country, bool? newValue);
+  int lookupCountry(BannedCountries bannedCountry);
 }

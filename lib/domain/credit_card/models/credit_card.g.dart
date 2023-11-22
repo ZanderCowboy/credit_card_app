@@ -17,17 +17,18 @@ class CreditCardAdapter extends TypeAdapter<CreditCard> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return CreditCard(
-      cardNumber: fields[0] as String,
-      cardType: fields[1] as String,
-      cvvNumber: fields[2] as int,
-      issuingCountry: fields[3] as String,
+      cardNumber: fields[0] == null ? '' : fields[0] as String,
+      cardType: fields[1] == null ? '' : fields[1] as String,
+      cvvNumber: fields[2] == null ? '' : fields[2] as String,
+      issuingCountry: fields[3] == null ? '' : fields[3] as String,
+      isValid: fields[4] == null ? false : fields[4] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, CreditCard obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.cardNumber)
       ..writeByte(1)
@@ -35,7 +36,9 @@ class CreditCardAdapter extends TypeAdapter<CreditCard> {
       ..writeByte(2)
       ..write(obj.cvvNumber)
       ..writeByte(3)
-      ..write(obj.issuingCountry);
+      ..write(obj.issuingCountry)
+      ..writeByte(4)
+      ..write(obj.isValid);
   }
 
   @override

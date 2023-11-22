@@ -11,10 +11,12 @@ part 'banned_countries.g.dart';
 @freezed
 class BannedCountries with _$BannedCountries {
   const factory BannedCountries({
-    @HiveField(0) required String bannedCountry,
-    @HiveField(1) required bool isBanned,
+    @HiveField(0, defaultValue: '') required String bannedCountry,
+    @HiveField(1, defaultValue: false) required bool isBanned,
   }) = _BannedCountries;
 
-  factory BannedCountries.empty() =>
-      const BannedCountries(bannedCountry: '', isBanned: false);
+  factory BannedCountries.empty() => const BannedCountries(
+        bannedCountry: '',
+        isBanned: false,
+      );
 }
