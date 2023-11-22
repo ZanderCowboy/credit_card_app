@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 
+/// A simple bloc observer
 class SimpleBlocObserver extends BlocObserver {
+  /// Empty constructor
   const SimpleBlocObserver();
 
   @override

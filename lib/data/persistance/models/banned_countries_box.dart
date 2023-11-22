@@ -1,67 +1,69 @@
 import 'package:credit_card_app/data/persistance/db_driver.dart';
-import 'dart:developer';
-
-import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
+import 'package:credit_card_app/domain/banned_country/models/banned_country.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+/// Box of Banned Country instances
 class BannedCountriesBox {
+  /// Empty constructor
   BannedCountriesBox();
 
-  final Box<BannedCountries> box =
-      Hive.box<BannedCountries>(bannedCountriesBoxName);
+  /// Hive [Box] of [BannedCountry] instances
+  final Box<BannedCountry> box =
+      Hive.box<BannedCountry>(bannedCountriesBoxName);
 
-  // add
-  void addBannedCountry(BannedCountries bannedCountry) {
+  /// Adds a [BannedCountry] instance to [box]
+  void addBannedCountry(BannedCountry bannedCountry) {
     box.add(bannedCountry);
   }
 
-  // read
-  BannedCountries? readBannedCountry(int index) {
+  /// Returns a [BannedCountry] instance at given index
+  BannedCountry? readBannedCountry(int index) {
     return box.getAt(index);
   }
 
-  // readAll
-  List<BannedCountries> readAllBannedCountries() {
-    final List<BannedCountries> list = <BannedCountries>[];
+  /// Returns a [List] of [BannedCountry] instances from [box]
+  List<BannedCountry> readAllBannedCountries() {
+    final list = <BannedCountry>[];
 
     for (var i = 0; i < box.length; i++) {
-      final BannedCountries? bannedCountry = box.getAt(i);
+      final bannedCountry = box.getAt(i);
       list.add(bannedCountry!);
     }
 
     return list;
   }
 
-  void updateBannedCountry(BannedCountries bannedCountries) {
-    int index = -1;
-    var itemKey = null;
+  /// Updates a given [BannedCountry] instance's status
+  void updateBannedCountry(BannedCountry bannedCountries) {
+    var index = -1;
+    dynamic itemKey;
 
-    final BannedCountries bCountry = BannedCountries(
-      bannedCountry: bannedCountries.bannedCountry,
+    final bannedCountry = BannedCountry(
+      country: bannedCountries.country,
       isBanned: !bannedCountries.isBanned,
     );
-    final list = <BannedCountries>[];
-    list.addAll(box.values);
+    final list = <BannedCountry>[...box.values];
+    // list.addAll(box.values);
     for (var i = 0; i < list.length; i++) {
-      if (bCountry == list[i]) {
+      if (bannedCountry == list[i]) {
         itemKey = box.keyAt(i);
         index = i;
       }
     }
 
     if (box.containsKey(itemKey)) {
-      box.deleteAt(index);
-      box.add(bannedCountries);
+      box
+        ..deleteAt(index)
+        ..add(bannedCountries);
     }
   }
 
-  // deleteAt
-  Future<void> deleteBannedCountryAt(int index) async {
-    log('index at box: $index');
-    await box.deleteAt(index);
+  /// Deletes a [BannedCountry] instance at a given index from [box]
+  void deleteBannedCountryAt(int index) {
+    box.deleteAt(index);
   }
 
-  // deleteAll
+  /// Deletes all [BannedCountry] instances from [box]
   void deleteBannedCountries() {
     box.clear();
   }
