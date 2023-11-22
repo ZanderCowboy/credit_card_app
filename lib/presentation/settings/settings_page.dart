@@ -1,34 +1,38 @@
-import 'package:credit_card_app/application/settings/bloc/settings_bloc.dart';
-import 'package:credit_card_app/constants/text_constants.dart';
+import 'package:credit_card_app/application/export_application.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
-import 'package:credit_card_app/domain/banned_countries/models/banned_countries.dart';
+import 'package:credit_card_app/constants/spacing_constants.dart';
+import 'package:credit_card_app/constants/text_constants.dart';
+import 'package:credit_card_app/domain/banned_country/models/banned_country.dart';
 import 'package:credit_card_app/get_it_injection.dart';
-import 'package:credit_card_app/infrastructure/banned_countries/banned_countries_repository.dart';
-import 'package:credit_card_app/widgets/common/dropdown_form_field.dart';
-import 'package:credit_card_app/widgets/common/empty_page_view.dart';
+import 'package:credit_card_app/infrastructure/banned_country/banned_country_repository.dart';
+import 'package:credit_card_app/widgets/export_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_credit_card/extension.dart';
 
+/// Settings page to add or view banned countries
 class SettingsPage extends StatelessWidget {
+  /// SettingsPage constructor
   const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => coreSl<SettingsBloc>(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(settingsAppBarTitle),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context);
-            },
+    return RepositoryProvider(
+      create: (_) => BannedCountryRepository(),
+      child: BlocProvider(
+        create: (_) => coreSl<SettingsBloc>(),
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text(settingsAppBarTitle),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
           ),
+          body: const _SettingsPage(),
+          floatingActionButton: const _AddBannedCountryDialog(),
         ),
-        body: const _SettingsPage(),
-        floatingActionButton: const _AddBannedCountryDialog(),
       ),
     );
   }
@@ -86,7 +90,7 @@ class _SettingsPage extends StatelessWidget {
               ),
             );
         }
-        if (state.errorMessage.isNotNullAndNotEmpty) {
+        if (state.errorMessage!.isNotEmpty) {
           ScaffoldMessenger.of(context)
             ..clearSnackBars()
             ..showSnackBar(
@@ -97,18 +101,18 @@ class _SettingsPage extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        final list = context.read<BannedCountriesRepository>().readCountries();
+        final list = context.read<BannedCountryRepository>().readCountries();
 
         return Padding(
-          padding: const EdgeInsets.all(8),
+          padding: allPadding_8,
           child: list.isEmpty
-              ? EmptyPageView(
+              ? const EmptyPageView(
                   textMessage: settingsNoBannedCountriesMessage,
                 )
               : Material(
                   elevation: 20,
                   child: Container(
-                    padding: const EdgeInsets.all(8),
+                    padding: allPadding_8,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                       boxShadow: [
@@ -117,7 +121,7 @@ class _SettingsPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Expanded(
+                    child: const Expanded(
                       child: SingleChildScrollView(
                         child: _BannedCountryList(),
                       ),
@@ -135,9 +139,6 @@ class _AddBannedCountryDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final countries = countryMap.keys.toList();
-    countries.sort();
-
     String? selectedCountry = 'ZA';
 
     return BlocBuilder<SettingsBloc, SettingsState>(
@@ -166,9 +167,11 @@ class _AddBannedCountryDialog extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        context
-                            .read<SettingsBloc>()
-                            .add(SettingsEvent.onAddCountry(selectedCountry));
+                        context.read<SettingsBloc>().add(
+                              SettingsEvent.onPressedAddCountry(
+                                selectedCountry,
+                              ),
+                            );
                         Navigator.of(context).pop();
                       },
                       child: const Text(addButtonText),
@@ -192,13 +195,10 @@ class _BannedCountryList extends StatelessWidget {
     return BlocConsumer<SettingsBloc, SettingsState>(
       listener: (context, state) {},
       builder: (context, state) {
-        final BannedCountriesRepository repository =
-            context.read<BannedCountriesRepository>();
+        final repository = context.read<BannedCountryRepository>();
 
-        final List<BannedCountries> bannedCountriesList =
-            repository.readCountries();
-        bannedCountriesList
-            .sort((a, b) => a.bannedCountry.compareTo(b.bannedCountry));
+        final bannedCountriesList = repository.readCountries()
+          ..sort((a, b) => a.country.compareTo(b.country));
 
         return SizedBox(
           height: MediaQuery.of(context).size.height * 0.75,
@@ -209,7 +209,7 @@ class _BannedCountryList extends StatelessWidget {
               final checkbox = bannedCountriesList[index].isBanned;
               final bannedCountry = bannedCountriesList[index];
 
-              final countryCode = bannedCountriesList[index].bannedCountry;
+              final countryCode = bannedCountriesList[index].country;
               final countryName = countryMap[countryCode];
 
               return InkWell(
@@ -229,7 +229,9 @@ class _BannedCountryList extends StatelessWidget {
                           onPressed: () async {
                             Navigator.of(context).pop();
                             context.read<SettingsBloc>().add(
-                                  SettingsEvent.onCountryDelete(bannedCountry),
+                                  SettingsEvent.onLongPressedDeleteCountry(
+                                    bannedCountry,
+                                  ),
                                 );
                           },
                           child: const Text(yesButtonText),
@@ -238,23 +240,45 @@ class _BannedCountryList extends StatelessWidget {
                     ),
                   );
                 },
-                child: CheckboxListTile(
-                  title: Text('$countryCode \t - $countryName'),
-                  value: checkbox,
-                  onChanged: (bool? newValue) {
-                    context.read<SettingsBloc>().add(
-                          SettingsEvent.onCountryPressed(
-                            BannedCountries(
-                                bannedCountry: countryCode,
-                                isBanned: newValue!),
-                          ),
-                        );
-                  },
+                child: _CheckboxListTile(
+                  countryCode: countryCode,
+                  countryName: countryName,
+                  checkbox: checkbox,
                 ),
               );
             },
           ),
         );
+      },
+    );
+  }
+}
+
+class _CheckboxListTile extends StatelessWidget {
+  const _CheckboxListTile({
+    required this.countryCode,
+    required this.countryName,
+    required this.checkbox,
+  });
+
+  final String countryCode;
+  final String? countryName;
+  final bool checkbox;
+
+  @override
+  Widget build(BuildContext context) {
+    return CheckboxListTile(
+      title: Text('$countryCode \t - $countryName'),
+      value: checkbox,
+      onChanged: (bool? newValue) {
+        context.read<SettingsBloc>().add(
+              SettingsEvent.onPressedCountry(
+                BannedCountry(
+                  country: countryCode,
+                  isBanned: newValue!,
+                ),
+              ),
+            );
       },
     );
   }

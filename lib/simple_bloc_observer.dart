@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 
+/// A simple bloc observer
 class SimpleBlocObserver extends BlocObserver {
+  /// Empty constructor
   const SimpleBlocObserver();
 
   @override
@@ -12,6 +14,15 @@ class SimpleBlocObserver extends BlocObserver {
   ) {
     super.onEvent(bloc, event);
     log('${bloc.runtimeType} $event');
+  }
+
+  @override
+  void onChange(
+    BlocBase<dynamic> bloc,
+    Change<dynamic> change,
+  ) {
+    super.onChange(bloc, change);
+    log('${bloc.runtimeType} $change');
   }
 
   @override

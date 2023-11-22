@@ -1,14 +1,16 @@
 import 'package:camera/camera.dart';
-import 'package:credit_card_app/application/scan/bloc/scan_bloc.dart';
+import 'package:credit_card_app/application/export_application.dart';
 import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/get_it_injection.dart';
-import 'package:credit_card_app/widgets/common/button.dart';
+import 'package:credit_card_app/widgets/export_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+/// Scan page to scan a card
 class ScanPage extends StatelessWidget {
+  /// ScanPage constructor
   const ScanPage({super.key});
 
   @override
@@ -17,11 +19,8 @@ class ScanPage extends StatelessWidget {
   }
 }
 
-// TODO: Refactor Scan Page
 class _ScanPage extends StatefulWidget {
   const _ScanPage();
-
-  // final CreditCardRepository creditCardRepository;
 
   @override
   State<_ScanPage> createState() => _ScanPageState();
@@ -165,7 +164,9 @@ class _ScanPageState extends State<_ScanPage> {
                                     onPressed: () {
                                       _submitPicture();
                                       context.read<ScanBloc>().add(
-                                            ScanEvent.onSubmit(creditCard),
+                                            ScanEvent.onPressedSubmitScan(
+                                              creditCard,
+                                            ),
                                           );
                                     },
                                     child: const Text(submitButtonText),
@@ -176,7 +177,8 @@ class _ScanPageState extends State<_ScanPage> {
                           ),
                           Center(
                             child: Text(
-                              'Camera Permission Status: $_cameraPermissionStatus',
+                              '''
+Camera Permission Status: $_cameraPermissionStatus''',
                             ),
                           ),
                         ],

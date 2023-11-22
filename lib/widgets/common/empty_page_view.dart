@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
+/// A widget for an empty page view
 class EmptyPageView extends StatelessWidget {
-  const EmptyPageView({required this.textMessage});
+  /// Constructor
+  const EmptyPageView({required String textMessage, super.key})
+      : _textMessage = textMessage;
 
-  final String textMessage;
+  final String _textMessage;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        textMessage,
+        _textMessage,
         style: TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w200,
