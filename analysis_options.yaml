@@ -2,5 +2,4 @@
 include: package:very_good_analysis/analysis_options.yaml
 
 linter:
-  rules:
-    # public_member_api_docs
+  rules: public_member_api_docs
