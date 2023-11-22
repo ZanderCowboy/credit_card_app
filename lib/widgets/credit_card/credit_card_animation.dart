@@ -28,7 +28,7 @@ class CreditCardAnimation extends StatelessWidget {
               CreditCardWidget(
                 cardNumber: state.creditCard.cardNumber,
                 // expiryDate: state.creditCard.cardType.toUpperCase(),
-                expiryDate: state.creditCard.cvvNumber, // TODO
+                expiryDate: state.creditCard.cvvNumber,
                 cardHolderName: countryName,
                 cvvCode: state.creditCard.cvvNumber,
                 // bankName: 'Bank Name',
