@@ -5,7 +5,7 @@ import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/domain/banned_country/models/banned_country.dart';
 import 'package:credit_card_app/get_it_injection.dart';
 import 'package:credit_card_app/infrastructure/banned_country/banned_country_repository.dart';
-import 'package:credit_card_app/widgets/widgets.dart';
+import 'package:credit_card_app/widgets/export_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
