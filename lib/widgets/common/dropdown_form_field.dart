@@ -5,35 +5,32 @@ import 'package:flutter/material.dart';
 class CountryDropdownButtonList extends StatelessWidget {
   /// Constructor
   const CountryDropdownButtonList({
-    required String hintText,
-    required void Function(String?) onChanged,
+    required this.hintText,
+    required this.onChanged,
     super.key,
-    Widget? icon,
-    void Function()? onTap,
-  })  : _hintText = hintText,
-        _onChanged = onChanged,
-        _icon = icon,
-        _onTap = onTap;
+    this.icon,
+    this.onTap,
+  });
 
-  final String _hintText;
-  final void Function(String?) _onChanged;
-  final Widget? _icon;
-  final void Function()? _onTap;
+  final String hintText;
+  final void Function(String?) onChanged;
+  final Widget? icon;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
       isExpanded: true,
-      hint: Text(_hintText),
+      hint: Text(hintText),
       items: countryMap.entries.map((MapEntry<String, String> country) {
         return DropdownMenuItem<String>(
           value: country.key,
           child: Text('${country.key} \t - ${country.value}'),
         );
       }).toList(),
-      onChanged: _onChanged,
-      icon: _icon,
-      onTap: _onTap,
+      onChanged: onChanged,
+      icon: icon,
+      onTap: onTap,
     );
   }
 }

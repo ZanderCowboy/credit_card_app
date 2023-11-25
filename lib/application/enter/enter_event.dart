@@ -8,23 +8,24 @@ class EnterEvent with _$EnterEvent {
       onPressedValidateEnter;
 
   /// Submit button pressed on Enter page
-  const factory EnterEvent.onPressedSubmitEnter() = onSubmitPressedEnter;
+  const factory EnterEvent.onPressedSubmitEnter() = onPressedSubmitEnter;
 
   /// Cancel button pressed on Enter page
-  const factory EnterEvent.onPressedCancelEnter() = onCancelPressedEnter;
+  const factory EnterEvent.onPressedCancelEnter() = onPressedCancelEnter;
 
   /// Card number changed on Enter page
-  const factory EnterEvent.onChangedCardNumber(String text) = onChangedNumber;
+  const factory EnterEvent.onChangedCardNumber(String text) =
+      onChangedCardNumber;
 
   /// Card type changed on Enter page
   const factory EnterEvent.onChangedCardType(String text) = onChangedCardType;
 
   /// CVV number changed on Enter page
-  const factory EnterEvent.onChangedCvvNumber(String text) = onChangedCvv;
+  const factory EnterEvent.onChangedCvvNumber(String text) = onChangedCvvNumber;
 
   /// Issuing country changed on Enter page
   const factory EnterEvent.onChangedIssuingCountry(String text) =
-      onChangedCountry;
+      onChangedIssuingCountry;
 
   /// Card number field tapped on Enter page
   const factory EnterEvent.onTapCardNumber() = onTapCardNumber;

@@ -8,8 +8,7 @@ class BannedCountriesBox {
   BannedCountriesBox();
 
   /// Hive [Box] of [BannedCountry] instances
-  final Box<BannedCountry> box =
-      Hive.box<BannedCountry>(bannedCountriesBoxName);
+  final Box<BannedCountry> box = Hive.box<BannedCountry>(bannedCountryBoxName);
 
   /// Adds a [BannedCountry] instance to [box]
   void addBannedCountry(BannedCountry bannedCountry) {

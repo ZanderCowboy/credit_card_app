@@ -6,7 +6,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 const String creditCardBoxName = 'credit_cards';
 
 /// [Box] name for [BannedCountry]'s
-const String bannedCountriesBoxName = 'banned_countries';
+const String bannedCountryBoxName = 'banned_countries';
 
 /// DB driver
 class DbDriver {
@@ -21,6 +21,6 @@ class DbDriver {
       ..registerAdapter(BannedCountryAdapter());
 
     await Hive.openBox<CreditCard>(creditCardBoxName);
-    await Hive.openBox<BannedCountry>(bannedCountriesBoxName);
+    await Hive.openBox<BannedCountry>(bannedCountryBoxName);
   }
 }

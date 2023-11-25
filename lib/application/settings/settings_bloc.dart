@@ -14,15 +14,14 @@ part 'settings_state.dart';
 @Injectable()
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   /// SettingsBloc constructor
-  SettingsBloc(this._bannedCountriesRepository)
-      : super(SettingsState.initial()) {
+  SettingsBloc(this._bannedCountryRepository) : super(SettingsState.initial()) {
     on<SettingsEvent>((event, emit) async {
       event.map(
         onPressedAddCountry: (value) {
           emit(state.copyWith(isLoading: true));
 
           final hasDuplicate =
-              _bannedCountriesRepository.hasCountry(value.selectedCountry!);
+              _bannedCountryRepository.hasCountry(value.selectedCountry!);
 
           if (hasDuplicate) {
             //! in case we have a duplicate
@@ -36,7 +35,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
             //! in case we do not have the country in the DB already
             emit(
               state.copyWith(
-                bannedCountries: state.bannedCountries.copyWith(
+                bannedCountry: state.bannedCountry.copyWith(
                   country: value.selectedCountry!,
                   isBanned: true,
                 ),
@@ -44,7 +43,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
                 isAdded: true,
               ),
             );
-            _bannedCountriesRepository.addCountry(value.selectedCountry!);
+            _bannedCountryRepository.addCountry(value.selectedCountry!);
           }
 
           emit(
@@ -55,10 +54,14 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           );
         },
         onLongPressedDeleteCountry: (value) {
-          emit(state.copyWith(isLoading: true));
+          emit(
+            state.copyWith(
+              isLoading: true,
+            ),
+          );
 
           final indexAt =
-              _bannedCountriesRepository.lookupCountry(value.bannedCountry);
+              _bannedCountryRepository.lookupCountry(value.bannedCountry);
 
           emit(
             state.copyWith(
@@ -67,26 +70,34 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
             ),
           );
 
-          _bannedCountriesRepository.deleteCountryAt(indexAt);
+          _bannedCountryRepository.deleteCountryAt(indexAt);
 
           emit(
             state.copyWith(
-              bannedCountries: state.bannedCountries,
+              bannedCountry: state.bannedCountry,
               isLoading: false,
               isDeleted: false,
             ),
           );
         },
         onPressedCountry: (value) {
-          if (value.bannedCountries.isBanned) {
-            emit(state.copyWith(isChecked: true));
+          if (value.bannedCountry.isBanned) {
+            emit(
+              state.copyWith(
+                isChecked: true,
+              ),
+            );
           } else {
-            emit(state.copyWith(isUnchecked: true));
+            emit(
+              state.copyWith(
+                isUnchecked: true,
+              ),
+            );
           }
-          _bannedCountriesRepository.updateCountryChecked(
+          _bannedCountryRepository.updateCountryChecked(
             BannedCountry(
-              country: value.bannedCountries.country,
-              isBanned: value.bannedCountries.isBanned,
+              country: value.bannedCountry.country,
+              isBanned: value.bannedCountry.isBanned,
             ),
           );
 
@@ -101,5 +112,5 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     });
   }
 
-  final IBannedCountryRepository _bannedCountriesRepository;
+  final IBannedCountryRepository _bannedCountryRepository;
 }

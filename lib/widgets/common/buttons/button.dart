@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 class ButtonLarge extends StatelessWidget {
   /// ButtonLarge constructor
   const ButtonLarge({
-    required String routeName,
-    required String buttonText,
+    required this.routeName,
+    required this.buttonText,
     super.key,
-  })  : _routeName = routeName,
-        _buttonText = buttonText;
+  });
 
-  final String _routeName;
-  final String _buttonText;
+  final String routeName;
+  final String buttonText;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +22,9 @@ class ButtonLarge extends StatelessWidget {
         ),
         minimumSize: const Size(200, 65),
       ),
-      onPressed: () => Navigator.of(context).pushNamed(_routeName),
+      onPressed: () => Navigator.of(context).pushNamed(routeName),
       child: Text(
-        _buttonText,
+        buttonText,
         textAlign: TextAlign.center,
       ),
     );
@@ -36,22 +35,21 @@ class ButtonLarge extends StatelessWidget {
 class ButtonSmall extends StatelessWidget {
   /// ButtonSmall constructor
   const ButtonSmall({
-    required String routeName,
-    required String text,
+    required this.routeName,
+    required this.text,
     super.key,
-  })  : _text = text,
-        _routeName = routeName;
+  });
 
-  final String _routeName;
-  final String _text;
+  final String routeName;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: buttonSmallStyle,
-      onPressed: () => Navigator.of(context).pushNamed(_routeName),
+      onPressed: () => Navigator.of(context).pushNamed(routeName),
       child: Text(
-        _text,
+        text,
         textAlign: TextAlign.center,
       ),
     );

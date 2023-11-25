@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 class LargeButtonNavigate extends StatelessWidget {
   /// LargeButtonNavigate constructor
   const LargeButtonNavigate({
-    required String buttonText,
-    required void Function()? onPressed,
+    required this.buttonText,
+    required this.onPressed,
     super.key,
-  })  : _buttonText = buttonText,
-        _onPressed = onPressed;
+  });
 
-  final String _buttonText;
-  final void Function()? _onPressed;
+  final String buttonText;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +22,8 @@ class LargeButtonNavigate extends StatelessWidget {
         ),
         minimumSize: const Size(200, 80),
       ),
-      onPressed: _onPressed,
-      child: Text(_buttonText),
+      onPressed: onPressed,
+      child: Text(buttonText),
     );
   }
 }

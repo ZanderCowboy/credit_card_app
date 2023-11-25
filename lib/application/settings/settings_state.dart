@@ -5,7 +5,7 @@ part of 'settings_bloc.dart';
 class SettingsState with _$SettingsState {
   /// SettingsState constructor
   const factory SettingsState({
-    required BannedCountry bannedCountries,
+    required BannedCountry bannedCountry,
     required bool isChecked,
     required bool isUnchecked,
     required bool isLoading,
@@ -16,7 +16,7 @@ class SettingsState with _$SettingsState {
 
   /// Initial SettingsState, giving all partial state's values
   factory SettingsState.initial() => SettingsState(
-        bannedCountries: BannedCountry.empty(),
+        bannedCountry: BannedCountry.empty(),
         isChecked: false,
         isUnchecked: false,
         isLoading: false,

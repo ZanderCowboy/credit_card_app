@@ -13,6 +13,6 @@ class SettingsEvent with _$SettingsEvent {
   ) = OnLongPressedDeleteCountry;
 
   /// Country pressed on SettingsPage
-  const factory SettingsEvent.onPressedCountry(BannedCountry bannedCountries) =
+  const factory SettingsEvent.onPressedCountry(BannedCountry bannedCountry) =
       OnPressedCountry;
 }
