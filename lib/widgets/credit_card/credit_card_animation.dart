@@ -1,13 +1,14 @@
 import 'dart:developer';
 
-import 'package:credit_card_app/application/enter/bloc/enter_bloc.dart';
+import 'package:credit_card_app/application/export_application.dart';
 import 'package:credit_card_app/constants/countries_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_credit_card/credit_card_brand.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 
+/// An animation of a Credit Card
 class CreditCardAnimation extends StatelessWidget {
+  /// Constructor
   const CreditCardAnimation({super.key});
 
   @override
@@ -17,8 +18,8 @@ class CreditCardAnimation extends StatelessWidget {
     return BlocConsumer<EnterBloc, EnterState>(
       listener: (context, state) {},
       builder: (context, state) {
-        String countryCode = state.creditCard.issuingCountry;
-        String countryName =
+        final countryCode = state.creditCard.issuingCountry;
+        final countryName =
             countryMap[countryCode] != null ? countryMap[countryCode]! : '';
 
         log('state.isCvvFocused=${state.isCvvFocused}');
@@ -28,7 +29,7 @@ class CreditCardAnimation extends StatelessWidget {
               CreditCardWidget(
                 cardNumber: state.creditCard.cardNumber,
                 // expiryDate: state.creditCard.cardType.toUpperCase(),
-                expiryDate: state.creditCard.cvvNumber, // TODO
+                expiryDate: state.creditCard.cvvNumber,
                 cardHolderName: countryName,
                 cvvCode: state.creditCard.cvvNumber,
                 // bankName: 'Bank Name',
@@ -44,6 +45,8 @@ class CreditCardAnimation extends StatelessWidget {
                 isHolderNameVisible: true,
                 cardBgColor: _AppColors.cardBgColor,
                 onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
+                width: 420,
+                height: 240,
               ),
             ],
           ),

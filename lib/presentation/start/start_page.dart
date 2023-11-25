@@ -1,9 +1,10 @@
 import 'package:credit_card_app/constants/text_constants.dart';
-import 'package:credit_card_app/widgets/common/large_button.dart';
-import 'package:credit_card_app/widgets/common/logo.dart';
+import 'package:credit_card_app/widgets/export_widgets.dart';
 import 'package:flutter/material.dart';
 
+/// Start page also known as landing page
 class StartPage extends StatelessWidget {
+  /// StartPage constructor
   const StartPage({super.key});
 
   @override
@@ -11,13 +12,15 @@ class StartPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          LogoWidget(),
+          const LogoWidget(),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 LargeButtonNavigate(
-                    buttonTitle: startPageStartButton, route: homeRoute),
+                  buttonText: startPageStartButton,
+                  onPressed: () => Navigator.of(context).pushNamed(homeRoute),
+                ),
               ],
             ),
           ),

@@ -5,9 +5,11 @@ part 'credit_card.freezed.dart';
 
 part 'credit_card.g.dart';
 
+/// CreditCard model
 @HiveType(typeId: 0)
 @freezed
 class CreditCard with _$CreditCard {
+  /// CreditCard constructor
   const factory CreditCard({
     @HiveField(0, defaultValue: '') required String cardNumber,
     @HiveField(1, defaultValue: '') required String cardType,
@@ -16,6 +18,7 @@ class CreditCard with _$CreditCard {
     @HiveField(4, defaultValue: false) required bool isValid,
   }) = _CreditCard;
 
+  /// Empty [CreditCard] method
   factory CreditCard.empty() => const CreditCard(
         cardNumber: '',
         cardType: '',

@@ -1,3 +1,4 @@
+/// [Map] containing the card number patterns
 Map<CardTypes, Set<List<String>>> cardNumPatterns =
     <CardTypes, Set<List<String>>>{
   CardTypes.visa: <List<String>>{
@@ -19,7 +20,7 @@ Map<CardTypes, Set<List<String>>> cardNumPatterns =
     <String>['6011'],
     <String>['622126', '622925'], // China UnionPay co-branded
     <String>['644', '649'],
-    <String>['65']
+    <String>['65'],
   },
   CardTypes.mastercard: <List<String>>{
     <String>['51', '55'],
@@ -54,21 +55,39 @@ Map<CardTypes, Set<List<String>>> cardNumPatterns =
     <String>['650901', '650978'],
     <String>['651652', '651679'],
     <String>['655000', '655019'],
-    <String>['655021', '655058']
+    <String>['655021', '655058'],
   },
   CardTypes.hipercard: <List<String>>{
     <String>['606282'],
   },
 };
 
+/// Card Types
 enum CardTypes {
+  /// Other brand
   otherBrand,
+
+  /// Mastercard
   mastercard,
+
+  /// Visa
   visa,
+
+  /// RuPay
   rupay,
+
+  /// AmericanExpress
   americanExpress,
+
+  /// UnionPay
   unionpay,
+
+  /// Discover
   discover,
+
+  /// Elo
   elo,
+
+  /// Hipercard
   hipercard,
 }

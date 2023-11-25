@@ -1,15 +1,16 @@
-import 'package:credit_card_app/application/result/bloc/result_bloc.dart';
+import 'package:credit_card_app/application/export_application.dart';
+import 'package:credit_card_app/constants/spacing_constants.dart';
 import 'package:credit_card_app/constants/text_constants.dart';
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 import 'package:credit_card_app/get_it_injection.dart';
-import 'package:credit_card_app/widgets/common/button.dart';
+import 'package:credit_card_app/widgets/export_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// Result page after scanning and processing a card
 class ResultPage extends StatelessWidget {
-  const ResultPage({
-    super.key,
-  });
+  /// ResultPage constructor
+  const ResultPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,20 +22,17 @@ class ResultPage extends StatelessWidget {
         create: (_) => coreSl<ResultBloc>(),
         child: BlocBuilder<ResultBloc, ResultState>(
           builder: (context, state) {
-            final CreditCard creditCard = CreditCard.empty();
+            final creditCard = CreditCard.empty();
 
             return Padding(
-              padding: const EdgeInsets.all(8),
+              padding: allPadding_8,
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Card(
                       elevation: 5,
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 8,
-                      ),
+                      margin: symmetricHorizonal_16Vertical_8,
                       child: SizedBox(
                         width: 400,
                         height: 100,
@@ -63,7 +61,7 @@ class ResultPage extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8),
+                      padding: allPadding_8,
                       child: ElevatedButton(
                         style: buttonSmallStyle,
                         onPressed: () {

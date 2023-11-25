@@ -1,22 +1,22 @@
 import 'package:credit_card_app/domain/credit_card/models/credit_card.dart';
 
+/// Interface for CreditCardRepository
 abstract class ICreditCardRepository {
-  // add
+  /// Add [CreditCard] instance
   void addCard(CreditCard card);
-  // Future<void> addCard(CreditCard card);
 
-  // readAll
+  /// Returns a list of [CreditCard]'s
   List<CreditCard> readHistoryCards();
 
-  // deleteAt
+  /// Deletes [CreditCard] at index
   void deleteCreditCardAt(int index);
-  // Future<void> deleteCreditCardAt(int index);
 
-  // deleteAll
+  /// Deletes all [CreditCard]'s
   void deleteCreditCards();
-  // Future<void> deleteCreditCards();
 
+  /// Returns bool if a [CreditCard] is found
   bool hasCreditCard(CreditCard card);
 
+  /// Returns index of a given [CreditCard]
   int lookupCard(CreditCard creditCard);
 }
