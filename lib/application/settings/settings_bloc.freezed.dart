@@ -21,21 +21,21 @@ mixin _$SettingsEvent {
     required TResult Function(String? selectedCountry) onPressedAddCountry,
     required TResult Function(BannedCountry bannedCountry)
         onLongPressedDeleteCountry,
-    required TResult Function(BannedCountry bannedCountries) onPressedCountry,
+    required TResult Function(BannedCountry bannedCountry) onPressedCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? selectedCountry)? onPressedAddCountry,
     TResult? Function(BannedCountry bannedCountry)? onLongPressedDeleteCountry,
-    TResult? Function(BannedCountry bannedCountries)? onPressedCountry,
+    TResult? Function(BannedCountry bannedCountry)? onPressedCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? selectedCountry)? onPressedAddCountry,
     TResult Function(BannedCountry bannedCountry)? onLongPressedDeleteCountry,
-    TResult Function(BannedCountry bannedCountries)? onPressedCountry,
+    TResult Function(BannedCountry bannedCountry)? onPressedCountry,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -163,7 +163,7 @@ class _$OnPressedAddCountryImpl
     required TResult Function(String? selectedCountry) onPressedAddCountry,
     required TResult Function(BannedCountry bannedCountry)
         onLongPressedDeleteCountry,
-    required TResult Function(BannedCountry bannedCountries) onPressedCountry,
+    required TResult Function(BannedCountry bannedCountry) onPressedCountry,
   }) {
     return onPressedAddCountry(selectedCountry);
   }
@@ -173,7 +173,7 @@ class _$OnPressedAddCountryImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? selectedCountry)? onPressedAddCountry,
     TResult? Function(BannedCountry bannedCountry)? onLongPressedDeleteCountry,
-    TResult? Function(BannedCountry bannedCountries)? onPressedCountry,
+    TResult? Function(BannedCountry bannedCountry)? onPressedCountry,
   }) {
     return onPressedAddCountry?.call(selectedCountry);
   }
@@ -183,7 +183,7 @@ class _$OnPressedAddCountryImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? selectedCountry)? onPressedAddCountry,
     TResult Function(BannedCountry bannedCountry)? onLongPressedDeleteCountry,
-    TResult Function(BannedCountry bannedCountries)? onPressedCountry,
+    TResult Function(BannedCountry bannedCountry)? onPressedCountry,
     required TResult orElse(),
   }) {
     if (onPressedAddCountry != null) {
@@ -332,7 +332,7 @@ class _$OnLongPressedDeleteCountryImpl
     required TResult Function(String? selectedCountry) onPressedAddCountry,
     required TResult Function(BannedCountry bannedCountry)
         onLongPressedDeleteCountry,
-    required TResult Function(BannedCountry bannedCountries) onPressedCountry,
+    required TResult Function(BannedCountry bannedCountry) onPressedCountry,
   }) {
     return onLongPressedDeleteCountry(bannedCountry);
   }
@@ -342,7 +342,7 @@ class _$OnLongPressedDeleteCountryImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? selectedCountry)? onPressedAddCountry,
     TResult? Function(BannedCountry bannedCountry)? onLongPressedDeleteCountry,
-    TResult? Function(BannedCountry bannedCountries)? onPressedCountry,
+    TResult? Function(BannedCountry bannedCountry)? onPressedCountry,
   }) {
     return onLongPressedDeleteCountry?.call(bannedCountry);
   }
@@ -352,7 +352,7 @@ class _$OnLongPressedDeleteCountryImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? selectedCountry)? onPressedAddCountry,
     TResult Function(BannedCountry bannedCountry)? onLongPressedDeleteCountry,
-    TResult Function(BannedCountry bannedCountries)? onPressedCountry,
+    TResult Function(BannedCountry bannedCountry)? onPressedCountry,
     required TResult orElse(),
   }) {
     if (onLongPressedDeleteCountry != null) {
@@ -415,9 +415,9 @@ abstract class _$$OnPressedCountryImplCopyWith<$Res> {
           $Res Function(_$OnPressedCountryImpl) then) =
       __$$OnPressedCountryImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({BannedCountry bannedCountries});
+  $Res call({BannedCountry bannedCountry});
 
-  $BannedCountryCopyWith<$Res> get bannedCountries;
+  $BannedCountryCopyWith<$Res> get bannedCountry;
 }
 
 /// @nodoc
@@ -431,21 +431,21 @@ class __$$OnPressedCountryImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bannedCountries = null,
+    Object? bannedCountry = null,
   }) {
     return _then(_$OnPressedCountryImpl(
-      null == bannedCountries
-          ? _value.bannedCountries
-          : bannedCountries // ignore: cast_nullable_to_non_nullable
+      null == bannedCountry
+          ? _value.bannedCountry
+          : bannedCountry // ignore: cast_nullable_to_non_nullable
               as BannedCountry,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $BannedCountryCopyWith<$Res> get bannedCountries {
-    return $BannedCountryCopyWith<$Res>(_value.bannedCountries, (value) {
-      return _then(_value.copyWith(bannedCountries: value));
+  $BannedCountryCopyWith<$Res> get bannedCountry {
+    return $BannedCountryCopyWith<$Res>(_value.bannedCountry, (value) {
+      return _then(_value.copyWith(bannedCountry: value));
     });
   }
 }
@@ -455,14 +455,14 @@ class __$$OnPressedCountryImplCopyWithImpl<$Res>
 class _$OnPressedCountryImpl
     with DiagnosticableTreeMixin
     implements OnPressedCountry {
-  const _$OnPressedCountryImpl(this.bannedCountries);
+  const _$OnPressedCountryImpl(this.bannedCountry);
 
   @override
-  final BannedCountry bannedCountries;
+  final BannedCountry bannedCountry;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SettingsEvent.onPressedCountry(bannedCountries: $bannedCountries)';
+    return 'SettingsEvent.onPressedCountry(bannedCountry: $bannedCountry)';
   }
 
   @override
@@ -470,7 +470,7 @@ class _$OnPressedCountryImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'SettingsEvent.onPressedCountry'))
-      ..add(DiagnosticsProperty('bannedCountries', bannedCountries));
+      ..add(DiagnosticsProperty('bannedCountry', bannedCountry));
   }
 
   @override
@@ -478,12 +478,12 @@ class _$OnPressedCountryImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OnPressedCountryImpl &&
-            (identical(other.bannedCountries, bannedCountries) ||
-                other.bannedCountries == bannedCountries));
+            (identical(other.bannedCountry, bannedCountry) ||
+                other.bannedCountry == bannedCountry));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bannedCountries);
+  int get hashCode => Object.hash(runtimeType, bannedCountry);
 
   @JsonKey(ignore: true)
   @override
@@ -498,9 +498,9 @@ class _$OnPressedCountryImpl
     required TResult Function(String? selectedCountry) onPressedAddCountry,
     required TResult Function(BannedCountry bannedCountry)
         onLongPressedDeleteCountry,
-    required TResult Function(BannedCountry bannedCountries) onPressedCountry,
+    required TResult Function(BannedCountry bannedCountry) onPressedCountry,
   }) {
-    return onPressedCountry(bannedCountries);
+    return onPressedCountry(bannedCountry);
   }
 
   @override
@@ -508,9 +508,9 @@ class _$OnPressedCountryImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? selectedCountry)? onPressedAddCountry,
     TResult? Function(BannedCountry bannedCountry)? onLongPressedDeleteCountry,
-    TResult? Function(BannedCountry bannedCountries)? onPressedCountry,
+    TResult? Function(BannedCountry bannedCountry)? onPressedCountry,
   }) {
-    return onPressedCountry?.call(bannedCountries);
+    return onPressedCountry?.call(bannedCountry);
   }
 
   @override
@@ -518,11 +518,11 @@ class _$OnPressedCountryImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? selectedCountry)? onPressedAddCountry,
     TResult Function(BannedCountry bannedCountry)? onLongPressedDeleteCountry,
-    TResult Function(BannedCountry bannedCountries)? onPressedCountry,
+    TResult Function(BannedCountry bannedCountry)? onPressedCountry,
     required TResult orElse(),
   }) {
     if (onPressedCountry != null) {
-      return onPressedCountry(bannedCountries);
+      return onPressedCountry(bannedCountry);
     }
     return orElse();
   }
@@ -566,10 +566,10 @@ class _$OnPressedCountryImpl
 }
 
 abstract class OnPressedCountry implements SettingsEvent {
-  const factory OnPressedCountry(final BannedCountry bannedCountries) =
+  const factory OnPressedCountry(final BannedCountry bannedCountry) =
       _$OnPressedCountryImpl;
 
-  BannedCountry get bannedCountries;
+  BannedCountry get bannedCountry;
   @JsonKey(ignore: true)
   _$$OnPressedCountryImplCopyWith<_$OnPressedCountryImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -577,7 +577,7 @@ abstract class OnPressedCountry implements SettingsEvent {
 
 /// @nodoc
 mixin _$SettingsState {
-  BannedCountry get bannedCountries => throw _privateConstructorUsedError;
+  BannedCountry get bannedCountry => throw _privateConstructorUsedError;
   bool get isChecked => throw _privateConstructorUsedError;
   bool get isUnchecked => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
@@ -597,7 +597,7 @@ abstract class $SettingsStateCopyWith<$Res> {
       _$SettingsStateCopyWithImpl<$Res, SettingsState>;
   @useResult
   $Res call(
-      {BannedCountry bannedCountries,
+      {BannedCountry bannedCountry,
       bool isChecked,
       bool isUnchecked,
       bool isLoading,
@@ -605,7 +605,7 @@ abstract class $SettingsStateCopyWith<$Res> {
       bool isAdded,
       String? errorMessage});
 
-  $BannedCountryCopyWith<$Res> get bannedCountries;
+  $BannedCountryCopyWith<$Res> get bannedCountry;
 }
 
 /// @nodoc
@@ -621,7 +621,7 @@ class _$SettingsStateCopyWithImpl<$Res, $Val extends SettingsState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bannedCountries = null,
+    Object? bannedCountry = null,
     Object? isChecked = null,
     Object? isUnchecked = null,
     Object? isLoading = null,
@@ -630,9 +630,9 @@ class _$SettingsStateCopyWithImpl<$Res, $Val extends SettingsState>
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
-      bannedCountries: null == bannedCountries
-          ? _value.bannedCountries
-          : bannedCountries // ignore: cast_nullable_to_non_nullable
+      bannedCountry: null == bannedCountry
+          ? _value.bannedCountry
+          : bannedCountry // ignore: cast_nullable_to_non_nullable
               as BannedCountry,
       isChecked: null == isChecked
           ? _value.isChecked
@@ -663,9 +663,9 @@ class _$SettingsStateCopyWithImpl<$Res, $Val extends SettingsState>
 
   @override
   @pragma('vm:prefer-inline')
-  $BannedCountryCopyWith<$Res> get bannedCountries {
-    return $BannedCountryCopyWith<$Res>(_value.bannedCountries, (value) {
-      return _then(_value.copyWith(bannedCountries: value) as $Val);
+  $BannedCountryCopyWith<$Res> get bannedCountry {
+    return $BannedCountryCopyWith<$Res>(_value.bannedCountry, (value) {
+      return _then(_value.copyWith(bannedCountry: value) as $Val);
     });
   }
 }
@@ -679,7 +679,7 @@ abstract class _$$SettingsStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {BannedCountry bannedCountries,
+      {BannedCountry bannedCountry,
       bool isChecked,
       bool isUnchecked,
       bool isLoading,
@@ -688,7 +688,7 @@ abstract class _$$SettingsStateImplCopyWith<$Res>
       String? errorMessage});
 
   @override
-  $BannedCountryCopyWith<$Res> get bannedCountries;
+  $BannedCountryCopyWith<$Res> get bannedCountry;
 }
 
 /// @nodoc
@@ -702,7 +702,7 @@ class __$$SettingsStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bannedCountries = null,
+    Object? bannedCountry = null,
     Object? isChecked = null,
     Object? isUnchecked = null,
     Object? isLoading = null,
@@ -711,9 +711,9 @@ class __$$SettingsStateImplCopyWithImpl<$Res>
     Object? errorMessage = freezed,
   }) {
     return _then(_$SettingsStateImpl(
-      bannedCountries: null == bannedCountries
-          ? _value.bannedCountries
-          : bannedCountries // ignore: cast_nullable_to_non_nullable
+      bannedCountry: null == bannedCountry
+          ? _value.bannedCountry
+          : bannedCountry // ignore: cast_nullable_to_non_nullable
               as BannedCountry,
       isChecked: null == isChecked
           ? _value.isChecked
@@ -749,7 +749,7 @@ class _$SettingsStateImpl
     with DiagnosticableTreeMixin
     implements _SettingsState {
   const _$SettingsStateImpl(
-      {required this.bannedCountries,
+      {required this.bannedCountry,
       required this.isChecked,
       required this.isUnchecked,
       required this.isLoading,
@@ -758,7 +758,7 @@ class _$SettingsStateImpl
       required this.errorMessage});
 
   @override
-  final BannedCountry bannedCountries;
+  final BannedCountry bannedCountry;
   @override
   final bool isChecked;
   @override
@@ -774,7 +774,7 @@ class _$SettingsStateImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SettingsState(bannedCountries: $bannedCountries, isChecked: $isChecked, isUnchecked: $isUnchecked, isLoading: $isLoading, isDeleted: $isDeleted, isAdded: $isAdded, errorMessage: $errorMessage)';
+    return 'SettingsState(bannedCountry: $bannedCountry, isChecked: $isChecked, isUnchecked: $isUnchecked, isLoading: $isLoading, isDeleted: $isDeleted, isAdded: $isAdded, errorMessage: $errorMessage)';
   }
 
   @override
@@ -782,7 +782,7 @@ class _$SettingsStateImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'SettingsState'))
-      ..add(DiagnosticsProperty('bannedCountries', bannedCountries))
+      ..add(DiagnosticsProperty('bannedCountry', bannedCountry))
       ..add(DiagnosticsProperty('isChecked', isChecked))
       ..add(DiagnosticsProperty('isUnchecked', isUnchecked))
       ..add(DiagnosticsProperty('isLoading', isLoading))
@@ -796,8 +796,8 @@ class _$SettingsStateImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SettingsStateImpl &&
-            (identical(other.bannedCountries, bannedCountries) ||
-                other.bannedCountries == bannedCountries) &&
+            (identical(other.bannedCountry, bannedCountry) ||
+                other.bannedCountry == bannedCountry) &&
             (identical(other.isChecked, isChecked) ||
                 other.isChecked == isChecked) &&
             (identical(other.isUnchecked, isUnchecked) ||
@@ -812,7 +812,7 @@ class _$SettingsStateImpl
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bannedCountries, isChecked,
+  int get hashCode => Object.hash(runtimeType, bannedCountry, isChecked,
       isUnchecked, isLoading, isDeleted, isAdded, errorMessage);
 
   @JsonKey(ignore: true)
@@ -824,7 +824,7 @@ class _$SettingsStateImpl
 
 abstract class _SettingsState implements SettingsState {
   const factory _SettingsState(
-      {required final BannedCountry bannedCountries,
+      {required final BannedCountry bannedCountry,
       required final bool isChecked,
       required final bool isUnchecked,
       required final bool isLoading,
@@ -833,7 +833,7 @@ abstract class _SettingsState implements SettingsState {
       required final String? errorMessage}) = _$SettingsStateImpl;
 
   @override
-  BannedCountry get bannedCountries;
+  BannedCountry get bannedCountry;
   @override
   bool get isChecked;
   @override
