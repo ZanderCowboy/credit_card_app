@@ -92,7 +92,7 @@ class _EnterPage extends StatelessWidget {
                       child: Center(
                         child: Column(
                           children: [
-                            height_20,
+                            gap_20,
                             EnterForm(
                               state: state,
                             ),

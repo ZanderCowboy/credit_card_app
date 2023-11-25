@@ -1,16 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
-/// [SizedBox] with a width set to 10 pixels
-const width_10 = SizedBox(width: 10);
+/// [Gap] with a mainAxisExtent of 10 pixels
+const gap_10 = Gap(10);
 
-/// [SizedBox] with a height of 16 pixels
-const height_16 = SizedBox(height: 16);
+/// [Gap] with a mainAxisExtent of 12 pixels
+const gap_12 = Gap(12);
 
-/// [SizedBox] with a height of 20 pixels
-const height_20 = SizedBox(height: 20);
+/// [Gap] with a mainAxisExtent of 14 pixels
+const gap_14 = Gap(14);
 
-/// [SizedBox] with a height of 24 pixels
-const height_24 = SizedBox(height: 24);
+/// [Gap] with a mainAxisExtent of 16 pixels
+const gap_16 = Gap(16);
+
+/// [Gap] with a mainAxisExtent of 18 pixels
+const gap_18 = Gap(18);
+
+/// [Gap] with a mainAxisExtent of 20 pixels
+const gap_20 = Gap(20);
+
+/// [Gap] with a mainAxisExtent of 22 pixels
+const gap_22 = Gap(22);
+
+/// [Gap] with a mainAxisExtent of 24 pixels
+const gap_24 = Gap(24);
 
 /// All [EdgeInsets] set to 8 pixels
 const allPadding_8 = EdgeInsets.all(8);

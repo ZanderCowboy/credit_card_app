@@ -58,18 +58,18 @@ class _HomePage extends StatelessWidget {
                   buttonText: homePageEnterButton,
                   onPressed: () => Navigator.of(context).pushNamed(enterRoute),
                 ),
-                height_16,
+                gap_16,
                 LargeButtonNavigate(
                   buttonText: homePageScanButton,
                   onPressed: () => Navigator.of(context).pushNamed(scanRoute),
                 ),
-                height_16,
+                gap_16,
                 LargeButtonNavigate(
                   buttonText: homePageHistoryButton,
                   onPressed: () =>
                       Navigator.of(context).pushNamed(historyRoute),
                 ),
-                height_16,
+                gap_16,
               ],
             ),
           ),
