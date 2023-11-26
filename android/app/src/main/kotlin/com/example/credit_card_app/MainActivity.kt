@@ -1,4 +1,4 @@
-package co.za.zanderkotze.credit_card_app
+package com.example.credit_card_app
 
 import io.flutter.embedding.android.FlutterActivity
 
