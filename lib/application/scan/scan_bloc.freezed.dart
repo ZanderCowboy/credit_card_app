@@ -12,7 +12,7 @@ part of 'scan_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ScanEvent {
@@ -149,7 +149,7 @@ class _$onPressedSubmitScanImpl implements onPressedSubmitScan {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$onPressedSubmitScanImpl &&
@@ -288,7 +288,7 @@ class _$onPressedTakeImpl implements onPressedTake {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$onPressedTakeImpl);
   }
@@ -411,7 +411,7 @@ class _$onPressedRetakeImpl implements onPressedRetake {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$onPressedRetakeImpl);
   }
@@ -536,7 +536,7 @@ class _$onRequestCameraPermissionImpl implements onRequestCameraPermission {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$onRequestCameraPermissionImpl);
@@ -660,7 +660,7 @@ class _$onInitializeCameraImpl implements onInitializeCamera {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$onInitializeCameraImpl);
   }
@@ -956,7 +956,7 @@ class _$ScanStateImpl implements _ScanState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ScanStateImpl &&

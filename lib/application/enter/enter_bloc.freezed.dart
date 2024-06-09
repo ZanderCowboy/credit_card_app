@@ -12,7 +12,7 @@ part of 'enter_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$EnterEvent {
@@ -187,7 +187,7 @@ class _$onPressedValidateEnterImpl implements onPressedValidateEnter {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$onPressedValidateEnterImpl &&
@@ -361,7 +361,7 @@ class _$onPressedSubmitEnterImpl implements onPressedSubmitEnter {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$onPressedSubmitEnterImpl);
@@ -520,7 +520,7 @@ class _$onPressedCancelEnterImpl implements onPressedCancelEnter {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$onPressedCancelEnterImpl);
@@ -697,7 +697,7 @@ class _$onChangedCardNumberImpl implements onChangedCardNumber {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$onChangedCardNumberImpl &&
@@ -888,7 +888,7 @@ class _$onChangedCardTypeImpl implements onChangedCardType {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$onChangedCardTypeImpl &&
@@ -1078,7 +1078,7 @@ class _$onChangedCvvNumberImpl implements onChangedCvvNumber {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$onChangedCvvNumberImpl &&
@@ -1271,7 +1271,7 @@ class _$onChangedIssuingCountryImpl implements onChangedIssuingCountry {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$onChangedIssuingCountryImpl &&
@@ -1444,7 +1444,7 @@ class _$onTapCardNumberImpl implements onTapCardNumber {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$onTapCardNumberImpl);
   }
@@ -1602,7 +1602,7 @@ class _$onTapCardTypeImpl implements onTapCardType {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$onTapCardTypeImpl);
   }
@@ -1760,7 +1760,7 @@ class _$onTapCvvNumberImpl implements onTapCvvNumber {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$onTapCvvNumberImpl);
   }
@@ -1918,7 +1918,7 @@ class _$onTapIssuingCountryImpl implements onTapIssuingCountry {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$onTapIssuingCountryImpl);
@@ -2267,7 +2267,7 @@ class _$EnterStateImpl implements _EnterState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EnterStateImpl &&
